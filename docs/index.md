@@ -17,7 +17,7 @@ hide:
 
 <div class="section-wrapper product-section-head" style="text-align: center;">
    <div class="hero-image">
-      <img src="/img/agglayer/agglayer-hero.svg" loading="lazy" class="hero-image" style="width: 50%; display: block; margin: 0 auto; padding-bottom: 0; margin-bottom: -10px;">
+      <img src="/img/katana/katana-hero.svg" loading="lazy" class="hero-image" style="width: 50%; display: block; margin: 0 auto; padding-bottom: 0; margin-bottom: -10px;">
    </div>
 </div>
 

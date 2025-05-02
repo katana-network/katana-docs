@@ -1,7 +1,7 @@
-site_name: Agglayer Documentation
+site_name: Katana Documentation
 site_author: Polygon Labs
 copyright: Copyright &copy; PT Services DMCC 2025
-repo_name: Agglayer Documentation
+repo_name: Katana Documentation
 repo_url: https://github.com/agglayer/agglayer-docs
 edit_uri: edit/main/docs/
 site_url: https://agglayer.dev/
@@ -12,21 +12,21 @@ theme:
     # Palette toggle for light mode
     - scheme: default
       primary: white
-      accent: "#FF8E08"  
+      accent: "#FF8E08"
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
       primary: black
-      accent: "#FF8E08" 
+      accent: "#FF8E08"
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
   language: en
   custom_dir: overrides
   favicon: img/favicon.ico
-  logo: img/agglayer/agglayer-logo-mark-black-rgb.svg
+  logo: img/katana/k-logo.svg
   icon:
     logo: logo
     repo: repo
@@ -50,10 +50,10 @@ theme:
     - content.action.edit
 
 nav:
-  - Agglayer: 
+  - Agglayer:
       - Overview: index.md
       - Get Started:
-          -  Set up your environment: agglayer/get-started/bridge-assets.md
+          - Set up your environment: agglayer/get-started/bridge-assets.md
       - How To:
           - Bridge an ERC-20 token: agglayer/how-to/transfer-asset.md
           - Call a smart contract cross-chain: agglayer/how-to/call-contract.md
@@ -70,7 +70,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: G-PM6L5JWEZP    
+    property: G-PM6L5JWEZP
   social:
     - icon: fontawesome/solid/circle-question
       link: https://support.polygon.technology/support/solutions
@@ -137,21 +137,21 @@ plugins:
   - open-in-new-tab
   - redirects:
       redirect_maps:
-        'docs/develop/network-details/network.md': 'cdk/index.md'
-        'cdk/getting-started/index.md': 'cdk/getting-started/local-deployment.md'      
-        'zkEVM/how-to/index.md': 'zkEVM/get-started/index.md'
-        'cdk/concepts/index.md': 'cdk/concepts/layer2s.md'
-        'tools/matic-js/installation.md': 'tools/matic-js/get-started.md'
-        'pos/how-to/access-node.md': 'tools/dApp-development/tutorials/access-node.md'
-        'pos/how-to/full-node/full-node-system-requirements.md': 'pos/how-to/prerequisites.md'
-        'pos/how-to/validator/prerequisites.md': 'pos/how-to/prerequisites.md'
-        'pos/how-to/validator/validator-system-requirements.md': 'pos/how-to/prerequisites.md'
-        'pos/how-to/choose-node-type.md': 'pos/how-to/prerequisites.md'
-        'pos/how-to/operate-validator-node/validator-best-practices.md': 'pos/how-to/validator/validator-best-practices.md'
-        'pos/how-to/operate-validator-node/validator-commission-operations.md': 'pos/how-to/operate-validator-node/next-steps.md'
-        'pos/how-to/operate-validator-node/validator-staking-operations.md': 'pos/how-to/operate-validator-node/next-steps.md'
-        'pos/how-to/operating/validator-node/index.md': 'pos/how-to/operate-validator-node/next-steps.md'
-        'cdk/version-matrix/index.md': 'index.md'
+        "docs/develop/network-details/network.md": "cdk/index.md"
+        "cdk/getting-started/index.md": "cdk/getting-started/local-deployment.md"
+        "zkEVM/how-to/index.md": "zkEVM/get-started/index.md"
+        "cdk/concepts/index.md": "cdk/concepts/layer2s.md"
+        "tools/matic-js/installation.md": "tools/matic-js/get-started.md"
+        "pos/how-to/access-node.md": "tools/dApp-development/tutorials/access-node.md"
+        "pos/how-to/full-node/full-node-system-requirements.md": "pos/how-to/prerequisites.md"
+        "pos/how-to/validator/prerequisites.md": "pos/how-to/prerequisites.md"
+        "pos/how-to/validator/validator-system-requirements.md": "pos/how-to/prerequisites.md"
+        "pos/how-to/choose-node-type.md": "pos/how-to/prerequisites.md"
+        "pos/how-to/operate-validator-node/validator-best-practices.md": "pos/how-to/validator/validator-best-practices.md"
+        "pos/how-to/operate-validator-node/validator-commission-operations.md": "pos/how-to/operate-validator-node/next-steps.md"
+        "pos/how-to/operate-validator-node/validator-staking-operations.md": "pos/how-to/operate-validator-node/next-steps.md"
+        "pos/how-to/operating/validator-node/index.md": "pos/how-to/operate-validator-node/next-steps.md"
+        "cdk/version-matrix/index.md": "index.md"
 
 validation:
   absolute_links: warn
@@ -161,5 +161,5 @@ extra_javascript:
   - _site_essentials/js/mathjax.js
   - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js  
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
