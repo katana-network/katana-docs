@@ -12,6 +12,7 @@ mkdocs-redirects = "==1.2.1"
 mkdocs-mermaid2-plugin = "==1.1.1"
 
 [dev-packages]
+python-semantic-release = "*"
 
 [requires]
 python_version = "3.13"

@@ -1,8 +1,8 @@
 name: Agglayer docs AWS Deployment
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
   workflow_dispatch:
     inputs:
       environment:
