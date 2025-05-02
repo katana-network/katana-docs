@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  developer-docs:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: "katana-docs:latest"
+      ports:
+      - "3000:3000"
+      container_name: "serve-katana-docs"
+      working_dir: /workspace/
+      volumes:
+        - type: bind
+          source: .
+          target: /workspace
