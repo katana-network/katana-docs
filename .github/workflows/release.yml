@@ -31,7 +31,12 @@ jobs:
       - name: Install dependencies
         run: pipenv install --dev
   
-      - name: Run python-semantic-release
+      - name: Create semantic-release changelog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pipenv run semantic-release publish --verbosity=DEBUG
+        run: pipenv run semantic-release -vv changelog
+
+      - name: Publish semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pipenv run semantic-release -vv publish
