@@ -48,12 +48,12 @@ nav:
         - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
         - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
       - Core Concepts:
-        - Chain Owned Liquidty: katana/core-concepts/chain-owned-liquidity.md
         - Vault Bridge: katana/core-concepts/vault-bridge.md
-        - Sustainability: katana/core-concepts/sustainability.md
+        - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
+        - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
         - Risk: katana/core-concepts/risk.md
         - Decentralization: katana/core-concepts/decentralization.md
-        - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
+        - Sustainability: katana/core-concepts/sustainability.md
       - Additional Resources:
         - Technical reference [testnet]: katana/additional-resources/technical-reference-testnet.md        
 
