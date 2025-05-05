@@ -43,9 +43,10 @@ nav:
       - Overview: index.md
       - Get Started:
         - Set up your environment: katana/get-started/set-up-your-environment.md
-        - Technical Reference: katana/get-started/technical-reference.md
+        - Technical reference: katana/get-started/technical-reference.md
       - How To:
-        - Tutorial1: katana/how-to/tutorial1.md
+        - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
+        - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
       - Core Concepts:
         - Chain Owned Liquidty: katana/core-concepts/chain-owned-liquidity.md
         - Vault Bridge: katana/core-concepts/vault-bridge.md
@@ -54,7 +55,7 @@ nav:
         - Risk: katana/core-concepts/risk.md
         - Decentralization: katana/core-concepts/decentralization.md
       - Additional Resources:
-        - Technical Reference [Testnet]: katana/additional-resources/technical-reference-testnet.md        
+        - Technical reference [testnet]: katana/additional-resources/technical-reference-testnet.md        
 
 extra:
   generator: false

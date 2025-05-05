@@ -23,7 +23,6 @@ hide:
 
 <div class="mascot-container">
 </div>
-
 <div class="hero-left" style="max-width: 85%; margin: 0 auto; padding: 20px; text-align: left;">
    <p class="hero-subtext"><a href="https://katana.network/">Katana Network</a> is a Layer 2 blockchain designed specifically for DeFi. It rethinks DeFi to offer what users care about most: deep liquidity and high yields, all in a sustainable way.</p>
    <p class="hero-subtext">Katana Network has deeply embedded, user-focused interoperability, using <a href="https://agglayer.dev/">Agglayer</a> for all users to onboard seamlessly. Katana Network uses ZK proofs to validate state transitions, allowing users to exit the chain without any long wait periods.</p>
