@@ -51,9 +51,9 @@ nav:
         - Chain Owned Liquidty: katana/core-concepts/chain-owned-liquidity.md
         - Vault Bridge: katana/core-concepts/vault-bridge.md
         - Sustainability: katana/core-concepts/sustainability.md
-        - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
         - Risk: katana/core-concepts/risk.md
         - Decentralization: katana/core-concepts/decentralization.md
+        - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
       - Additional Resources:
         - Technical reference [testnet]: katana/additional-resources/technical-reference-testnet.md        
 

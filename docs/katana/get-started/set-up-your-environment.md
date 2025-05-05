@@ -145,6 +145,6 @@ If you encounter issues:
 - Ensure Foundry is properly installed and `anvil` is in your PATH
 - If the script isn't executable, run `chmod +x scripts/start_anvil.sh`
 - If all else fails, let us know in the
-  [starter kit issues](https://github.com/0xPolygon/specialk/issues)!
+  [starter kit issues](https://github.com/katana-network/specialk/issues)!
 
 Happy building on Katana! 🚀
