@@ -1,10 +1,10 @@
 site_name: Katana Documentation
-site_author: Polygon Labs
-copyright: Copyright &copy; PT Services DMCC 2025
+site_author: Katana Foundation
+copyright: Copyright &copy; #PT Services DMCC 2025
 repo_name: Katana Documentation
-repo_url: https://github.com/agglayer/agglayer-docs
+repo_url: https://github.com/agglayer/katana-docs
 edit_uri: edit/main/docs/
-site_url: https://agglayer.dev/
+site_url: https://katana.network/
 
 theme:
   name: material
@@ -39,21 +39,22 @@ theme:
     - content.action.edit
 
 nav:
-  - Agglayer:
+  - Katana:
       - Overview: index.md
       - Get Started:
-          - Set up your environment: agglayer/get-started/bridge-assets.md
+        - Set up your environment: katana/get-started/set-up-your-environment.md
+        - Technical Reference: katana/get-started/technical-reference.md
       - How To:
-          - Bridge an ERC-20 token: agglayer/how-to/transfer-asset.md
-          - Call a smart contract cross-chain: agglayer/how-to/call-contract.md
-          - Bridge-and-call in one step: agglayer/how-to/transfer-and-call.md
+        - Tutorial1: katana/how-to/tutorial1.md
       - Core Concepts:
-          - Architecture: agglayer/core-concepts/architecture.md
-          - Unified Bridge: agglayer/core-concepts/unified-bridge.md
-          - Pessimistic Proof: agglayer/core-concepts/pessimistic-proof.md
-          # - Multi-stack Interop: agglayer/core-concepts/connecting-chains.md
+        - Chain Owned Liquidty: katana/core-concepts/chain-owned-liquidity.md
+        - Vault Bridge: katana/core-concepts/vault-bridge.md
+        - Sustainability: katana/core-concepts/sustainability.md
+        - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
+        - Risk: katana/core-concepts/risk.md
+        - Decentralization: katana/core-concepts/decentralization.md
       - Additional Resources:
-          - Connected Chains: agglayer/add-res/connected-chains.md
+        - Technical Reference [Testnet]: katana/additional-resources/technical-reference-testnet.md        
 
 extra:
   generator: false
