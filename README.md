@@ -1,8 +1,8 @@
-# Agglayer Documentation
+# Katana Documentation
 
-Welcome to the Agglayer Documentation!
+Welcome to Katana Documentation!
 
-These docs use [the Material theme for MkDocs](https://squidfunk.github.io/mkdocs-material/). Our goal is to establish a high-quality, curated, and comprehensive "source of truth" for the Agglayer. 
+These docs use [the Material theme for MkDocs](https://squidfunk.github.io/mkdocs-material/). Our goal is to establish a high-quality, curated, and comprehensive "source of truth" for Katana. 
 
 
 ## Run locally
@@ -29,8 +29,7 @@ The site comes up at http://127.0.0.1:8000/
 If you prefer Docker, you can build and run the site using the following commands:
 
 ```sh
-docker build -t polygon-docs .
-docker compose up
+docker compose up --build
 ```
 
 ## Contributing
@@ -60,5 +59,4 @@ docker compose up
 ## Contact and support
 
 - For docs issues (technical or language) open an issue here.
-- For technical issues with the software, either raise an issue here and we will follow up, or check https://support.polygon.technology/support/home. 
- 
+- For technical issues with the software, either raise an issue here and we will follow up, or check https://support.polygon.technology/support/home.
