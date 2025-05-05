@@ -1,6 +1,9 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-05-05)
+
+
 ## v0.1.0 (2025-05-04)
 
 ### Bug Fixes
@@ -35,6 +38,9 @@
 
 - Added Logos and Colors
   ([`0d8dd12`](https://github.com/katana-network/katana-docs/commit/0d8dd1280bf59f849f72dcb2ac8b6f01b485e9a2))
+
+- Added Mascot and Gradients
+  ([`40eec15`](https://github.com/katana-network/katana-docs/commit/40eec153207853047255b5487eb64bf7c6bd00b9))
 
 - New version & workflow
   ([`05d7d5c`](https://github.com/katana-network/katana-docs/commit/05d7d5c735870112336ab330390237a4561fcfbc))
