@@ -9,23 +9,12 @@ site_url: https://agglayer.dev/
 theme:
   name: material
   palette:
-    # Palette toggle for light mode
-    - scheme: default
-      primary: white
-      accent: "#FF8E08"
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Palette toggle for dark mode
-    - scheme: slate
-      primary: black
-      accent: "#FF8E08"
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+    scheme: slate
+    primary: black
+    accent: "#FF8E08"
   language: en
   custom_dir: overrides
-  favicon: img/favicon.ico
+  favicon: img/katana/favicon.ico
   logo: img/katana/k-logo.svg
   icon:
     logo: logo
