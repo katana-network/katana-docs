@@ -76,6 +76,7 @@
 [data-md-color-scheme="slate"] {
   --md-default-bg-color: var(--ink);
   --md-code-bg-color: #2a2a2a;
+  --md-typeset-a-color: var(--spark-green);
 
   .feature-card-heading {
     color: var(--spark-green);
@@ -342,7 +343,7 @@ div.main p {
 
 .md-header {
   background-color: var(--ink) !important;
-  background-image: linear-gradient(180deg, #101631 -1.73%, #0541b2 90.46%);
+  background-image: linear-gradient(180deg, #0541b2 9.54%, #101631 101.73%);
   color: var(--spark-green) !important;
 }
 
@@ -1107,7 +1108,7 @@ div.main .nav-content {
   .mascot-container {
     right: 0;
     background-position: center center;
-    opacity: 0.15;
+    opacity: 0.00015;
   }
 }
 
