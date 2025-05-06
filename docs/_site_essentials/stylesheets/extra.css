@@ -74,9 +74,9 @@
 }
 
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color: var(--ink);
-  --md-code-bg-color: #2a2a2a;
-  --md-typeset-a-color: var(--spark-green);
+  --md-default-bg-color: var(--ink) !important;
+  --md-code-bg-color: #2a2a2a !important;
+  --md-typeset-a-color: var(--spark-green) !important;
 
   .feature-card-heading {
     color: var(--spark-green);
