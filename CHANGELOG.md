@@ -1,7 +1,15 @@
 # CHANGELOG
 
 
+## v0.3.1 (2025-05-06)
+
+
 ## v0.3.0 (2025-05-06)
+
+### Bug Fixes
+
+- Change typeset a color to spark green
+  ([`501cce7`](https://github.com/katana-network/katana-docs/commit/501cce747aa481cf9f7d3ad6609cac49832c0400))
 
 ### Features
 
