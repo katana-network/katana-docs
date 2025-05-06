@@ -1,21 +1,22 @@
 name: Deploy docker image to GCP
 on:
   push:
-    # branches:
-    #   - main
+    tags: ['v*.*.*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build and push'
+        required: true
+        type: string
 
 permissions:
   contents: read
   id-token: write
 
 jobs:
-  generate-version:
-    uses: 0xPolygon/pipelines/.github/workflows/generate_version.yaml@main
-
   docker-release:
-    needs:
-      - generate-version
     uses: 0xPolygon/pipelines/.github/workflows/gcp_pipeline_release_image.yaml@main
     with:
-      image_name: agglayer-docs
-      image_tag: ${{ needs.generate-version.outputs.version }}
+      image_name: katana-docs
+      image_tag: ${{ inputs.tag || github.ref_name }}
+      checkout_ref: ${{ github.ref_name }}
