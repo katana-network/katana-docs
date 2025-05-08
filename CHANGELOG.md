@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.3.2 (2025-05-08)
+
+### Bug Fixes
+
+- Updated copyright information on mkdocs.yml and content-disclaimer.md
+  ([`cd30b28`](https://github.com/katana-network/katana-docs/commit/cd30b28bb99b706975b2972f51bbd7e6191f10b0))
+
+### Continuous Integration
+
+- **SPEC-1310**: Update github workflow for docker image creation
+  ([`852168b`](https://github.com/katana-network/katana-docs/commit/852168b50e1b58fdc63dc3b8e5df602e7016d960))
+
+
 ## v0.3.1 (2025-05-06)
 
 
