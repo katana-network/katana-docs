@@ -1,9 +1,15 @@
 # CHANGELOG
 
 
+## v0.3.3 (2025-05-08)
+
+
 ## v0.3.2 (2025-05-08)
 
 ### Bug Fixes
+
+- Updated copy on index.md and moved technical reference testnet to get started
+  ([`7f43100`](https://github.com/katana-network/katana-docs/commit/7f43100499d40a92b5b0a385fb120db2b87ddae5))
 
 - Updated copyright information on mkdocs.yml and content-disclaimer.md
   ([`cd30b28`](https://github.com/katana-network/katana-docs/commit/cd30b28bb99b706975b2972f51bbd7e6191f10b0))
