@@ -31,27 +31,27 @@ hide:
 
 <div class="grid-container">
    <div class="grid-item">
-    <a href="/agglayer/core-concepts/architecture/">
+    <a href="/katana/get-started/set-up-your-environment/">
         <div class="product-list-item-header">
-            <div class="feature-card-heading">Architecture</div>
+            <div class="feature-card-heading">Set up your environment</div>
         </div>
-        <p class="feature-paragraph">A high-level overview of the Agglayer’s components and their functions</p>
+        <p class="feature-paragraph">Start building on Katana with the Katana Development Starter Kit</p>
     </a>
 </div>
 <div class="grid-item">
-    <a href="/agglayer/how-to/transfer-and-call/">
+    <a href="/katana/core-concepts/vault-bridge/">
         <div class="product-list-item-header">
-            <div class="feature-card-heading">Cross-chain Interop</div>
+            <div class="feature-card-heading">Vault Bridge</div>
         </div>
-        <p class="feature-paragraph">Learn how to use <code>bridgeAndCall()</code> for cross-chain interactions</p>
+        <p class="feature-paragraph">Learn how the Vault Bridge drives productive TVL for Katana</p>
     </a>
 </div>
 <div class="grid-item">
-    <a href="/agglayer/core-concepts/pessimistic-proof/">
+    <a href="/katana/core-concepts/chain-owned-liquidity/">
         <div class="product-list-item-header">
-            <div class="feature-card-heading">Pessimistic Proof</div>
+            <div class="feature-card-heading">Chain-Owned Liquidity</div>
         </div>
-        <p class="feature-paragraph">Designed to be chain-agnostic, the pessimistic proof ensures safety for the Agglayer</p>
+        <p class="feature-paragraph">Learn about the core apps and assets on Katana that promote composability</p>
     </a>
 </div>
 </div>
