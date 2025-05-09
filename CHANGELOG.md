@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.3.6 (2025-05-09)
+
+### Bug Fixes
+
+- Update github workflow files
+  ([`da4f2e9`](https://github.com/katana-network/katana-docs/commit/da4f2e9194544bcc6a60d05e910e37bcdf62efd3))
+
+- Updated release workflow
+  ([`e99d5a0`](https://github.com/katana-network/katana-docs/commit/e99d5a0165bb3c1605af9bd0b692df2d35f022fa))
+
+
 ## v0.3.5 (2025-05-09)
 
 ### Bug Fixes
