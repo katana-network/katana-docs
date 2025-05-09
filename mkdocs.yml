@@ -2,7 +2,7 @@ site_name: Katana Documentation
 site_author: Katana Services (Cayman)
 copyright: Copyright &copy; Katana Services (Cayman)
 repo_name: Katana Documentation
-repo_url: https://github.com/agglayer/katana-docs
+repo_url: https://github.com/katana-network/katana-docs
 edit_uri: edit/main/docs/
 site_url: https://katana.network/
 
@@ -67,9 +67,9 @@ extra:
     - icon: fontawesome/solid/circle-question
       link: https://support.polygon.technology/support/solutions
     - icon: fontawesome/solid/globe
-      link: https://agglayer.dev/
+      link: https://katana.network/
     - icon: fontawesome/brands/github
-      link: https://github.com/agglayer/agglayer-docs
+      link: https://github.com/katana-network/katana-docs
   consent:
     title: Cookie consent
     description: >-
