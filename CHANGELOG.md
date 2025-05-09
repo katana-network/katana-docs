@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.5 (2025-05-09)
+
+### Bug Fixes
+
+- Update github workflow name
+  ([`f7d1e16`](https://github.com/katana-network/katana-docs/commit/f7d1e160458ba44ad4984ca28e008e214fbb50b9))
+
+
 ## v0.3.4 (2025-05-09)
 
 ### Bug Fixes
