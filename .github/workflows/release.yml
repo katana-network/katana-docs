@@ -30,6 +30,7 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Force Release Branch to Workflow SHA
         run: |
@@ -67,36 +68,14 @@ jobs:
 
           printf '%s\n' "Verified upstream branch has not changed, continuing with release..."
 
-      - name: Set Up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install Python Semantic Release
-        run: |
-          python -m pip install --upgrade pip
-          pip install python-semantic-release
-
-      - name: Run Semantic Release
+      - name: Release (version, changelog, tag)
         id: release
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          semantic-release publish
-
-      - name: Push Tag to Remote
-        if: steps.release.outputs.released == 'true'
-        env:
-          TOKEN: ${{ steps.app-token.outputs.token }}
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git remote set-url origin "https://x-access-token:$TOKEN@github.com/${{ github.repository }}.git"
-          git push origin refs/tags/${{ steps.release.outputs.tag }}
-
-      - name: Publish Release Assets
-        if: steps.release.outputs.released == 'true'
-        uses: python-semantic-release/publish-action@v9.21.0
+        uses: python-semantic-release/python-semantic-release@v9.21.1
         with:
           github_token: ${{ steps.app-token.outputs.token }}
-          tag: ${{ steps.release.outputs.tag }}
+      
+      - name: Publish release assets
+        if: steps.release.outputs.released == 'true'
+        uses: python-semantic-release/publish-action@v9.21.1
+        with:
+          github_token: ${{ steps.app-token.outputs.token }}
