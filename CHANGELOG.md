@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.7 (2025-05-09)
+
+### Bug Fixes
+
+- Updated social icons
+  ([`c430f8f`](https://github.com/katana-network/katana-docs/commit/c430f8f4a65e7e4793514b8363de6259cd873bdc))
+
+
 ## v0.3.6 (2025-05-09)
 
 ### Bug Fixes
