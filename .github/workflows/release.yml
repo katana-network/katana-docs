@@ -78,3 +78,11 @@ jobs:
         with:
           github_token: ${{ steps.app-token.outputs.token }}
           tag: ${{ steps.release.outputs.tag }}
+
+      - name: Push Tag to Remote
+        if: steps.release.outputs.released == 'true'
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          git remote set-url origin "https://x-access-token:$TOKEN@github.com/${{ github.repository }}.git"
+          git push origin ${{ steps.release.outputs.tag }}
