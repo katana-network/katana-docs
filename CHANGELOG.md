@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.4 (2025-05-09)
+
+### Bug Fixes
+
+- Github workflow update. Push tag specifically
+  ([`6164414`](https://github.com/katana-network/katana-docs/commit/6164414f0cb40b1f5803d464dd70d8a6945219dd))
+
+
 ## v0.3.3 (2025-05-08)
 
 
