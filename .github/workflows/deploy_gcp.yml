@@ -1,4 +1,4 @@
-name: Deploy docker image to GCP
+name: GCP Docker Release
 on:
   push:
     tags: ['v*.*.*']
