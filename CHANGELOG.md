@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.0 (2025-05-13)
+
+### Features
+
+- Static header saying katana documentation
+  ([`96ae120`](https://github.com/katana-network/katana-docs/commit/96ae120a318033114a7de289fa60522882031f67))
+
+
 ## v0.3.7 (2025-05-09)
 
 ### Bug Fixes
