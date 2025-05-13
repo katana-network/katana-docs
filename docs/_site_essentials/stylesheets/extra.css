@@ -166,6 +166,7 @@
   .md-tabs__item--active {
     color: var(--spark-green) !important;
     font-weight: 800 !important;
+    opacity: 0;
   }
 
   .md-nav__item .md-nav__link--active,
@@ -182,6 +183,15 @@
   .md-source__icon .md-icon {
     fill: var(--spark-green) !important;
     stroke: var(--spark-green) !important;
+  }
+
+  .md-button--primary {
+    background-color: transparent !important;
+    transition: border-color 0.2s linear;
+  }
+  .md-button--primary:hover {
+    background-color: transparent !important;
+    border-color: var(--riso) !important;
   }
 }
 /** END OF COLOR SCHEMES **/
@@ -1173,3 +1183,18 @@ div.main .nav-content {
   background-color: var(--spark-green);
 }
 /** END OF SECTION FRONT PAGES **/
+
+/* hide the default title on just this page */
+.md-header__ellipsis {
+  display: none;
+}
+/* inject your own via ::after, if you like */
+.md-header__title {
+  position: relative;
+}
+.md-header__title::after {
+  content: "Katana Documentation";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
