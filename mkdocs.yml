@@ -62,7 +62,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: G-PM6L5JWEZP
+    property: G-CQM8J9D2Q8
   social:
     - icon: fontawesome/solid/circle-question
       link: https://support.polygon.technology/support/solutions
