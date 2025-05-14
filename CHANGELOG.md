@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.1 (2025-05-14)
+
+### Bug Fixes
+
+- Added GA4 tag
+  ([`675a250`](https://github.com/katana-network/katana-docs/commit/675a250738ce179345c48293ac9bbd60b1fb8d91))
+
+
 ## v0.4.0 (2025-05-13)
 
 ### Features
