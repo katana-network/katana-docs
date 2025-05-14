@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.2 (2025-05-14)
+
+### Bug Fixes
+
+- Bold header
+  ([`c1db435`](https://github.com/katana-network/katana-docs/commit/c1db4359bc4df668d81f757423835753de4ff8ea))
+
+
 ## v0.4.1 (2025-05-14)
 
 ### Bug Fixes
