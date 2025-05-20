@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.5.0 (2025-05-20)
+
+### Features
+
+- Added community page, cdk-opgeth updates, risk section
+  ([`a7dbc87`](https://github.com/katana-network/katana-docs/commit/a7dbc87d95dd1be93da9a21866b1e181a97688a8))
+
+- Added sustainability page
+  ([`d3b68de`](https://github.com/katana-network/katana-docs/commit/d3b68ded275ff27987febf361590f93ec7246872))
+
+
 ## v0.4.2 (2025-05-14)
 
 ### Bug Fixes
