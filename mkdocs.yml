@@ -52,9 +52,10 @@ nav:
         - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
         - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
         - Risk: katana/core-concepts/risk.md
-        - Decentralization: katana/core-concepts/decentralization.md
+        - Decentralization: katana/core-concepts/governance.md
         - Sustainability: katana/core-concepts/sustainability.md
       - Additional Resources:
+        - Katana Developer Community: katana/additional-resources/community-page.md
         - Technical reference [mainnet]: katana/get-started/technical-reference.md
         
 
