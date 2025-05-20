@@ -6,7 +6,7 @@ The categories of risk are, but not limited to: smart contract risk (bugs or exp
 
 Smart contract risk refers to the potential for bugs or exploits in the code that powers Katana Network’s infrastructure. All bridging, vault, and yield-generating activity rely on smart contracts, including ERC-4626 vaults and custom bridge logic that handles direct-to-vault flows and vbToken issuance on Katana Network through the Agglayer. While all of these smart contracts have undergone security audits, there is always the possibility of an unknown exploit. 
 
-A complete list of Katana Network’s smart contracts can be found in the technical reference [here](/get-started/technical-reference/). 
+A complete list of Katana Network’s smart contracts can be found in the technical reference [here](katana/get-started/technical-reference-testnet/). 
 
 ## **Protocol risk**
 
@@ -72,4 +72,4 @@ While the risk curators shape risk profiles and optimize for performance, they n
 
 To protect against protocol and smart contract risk, Katana Network uses a Security Council that has the power to perform emergency upgrades in the event of a bug.  If necessary, the Council is also about to halt bridge withdrawals. The composition of the Council includes all members of the Katana Consortium, including Conduit, GSR, Stakehouse, Morpho, Yearn, and others. 
 
-For more information about Katana governance, see [here](/core-concepts/governance/). 
+For more information about Katana governance, see [here](katana/core-concepts/governance/). 
