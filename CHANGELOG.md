@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.1 (2025-05-20)
+
+### Bug Fixes
+
+- Broken links for testnet and re-organized testnet locations
+  ([`76f389c`](https://github.com/katana-network/katana-docs/commit/76f389c826729b6dc139a487c2425903107ebfa0))
+
+
 ## v0.5.0 (2025-05-20)
 
 ### Features
