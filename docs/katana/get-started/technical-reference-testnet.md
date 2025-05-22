@@ -1,4 +1,7 @@
 ### Chain Info
+
+**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it...**
+
 | Network Name | Tatara Network (aka Katana Network Testnet) |
 | :---- | :---- |
 | Chain ID | 129399 |

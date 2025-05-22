@@ -3,6 +3,8 @@
 This tutorial will help you set up and use the Katana Development Starter Kit
 for building applications on Katana and its testnet, Tatara.
 
+**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it...**
+
 ## What is Katana?
 
 Katana is a Layer 2 solution focused on providing optimized infrastructure for
