@@ -93,7 +93,7 @@ You can now connect MetaMask or another wallet to your local fork:
 - **Chain ID**: 471
 - **Currency Symbol**: ETH
 
-## Opening the Example dApp
+## Opening the Example App
 
 Build the example app with:
 
@@ -131,11 +131,11 @@ Alternatively, for a more readable UI, you can use the
 
 Now that you have a working development environment, you can:
 
-1. Explore the example dApp code to understand how it interacts with Katana
+1. Explore the example App code to understand how it interacts with Katana
 2. Review the interfaces to understand available contracts
 3. Start building your own application using the "money legos"
 
-For more tutorials, examples, and inspiration, please see the [awesome-katana repo](https://github.com/0xPolygon/awesome-katana).
+For more tutorials, examples, and inspiration, please see the [awesome-katana repo](https://github.com/katana-network/awesome-katana).
 
 ## Troubleshooting
 
