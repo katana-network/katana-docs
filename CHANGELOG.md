@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.7 (2025-05-22)
+
+### Bug Fixes
+
+- Updated katana docs link
+  ([`61bd819`](https://github.com/katana-network/katana-docs/commit/61bd8193644a2c928fba8b7f4880434d07e5b9c5))
+
+
 ## v0.5.6 (2025-05-22)
 
 ### Bug Fixes
