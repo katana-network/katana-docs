@@ -1,4 +1,4 @@
-Katana Network is designed for sustainable yield generation that scales with usage and holds firm across market cycles.
+Katana is designed for sustainable yield generation that scales with usage and holds firm across market cycles.
 
 **Sustainability That Scales**  
 As network activity and TVL increase, so do the yields across the Katana DeFi ecosystem:

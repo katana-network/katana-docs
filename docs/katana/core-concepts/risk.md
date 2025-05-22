@@ -1,16 +1,16 @@
-There are many forms of risk users are exposed to while using Katana Network. This section provides an overview of the various forms of risks and steps that have been taken to mitigate this risk.
+There are many forms of risk users are exposed to while using Katana. This section provides an overview of the various forms of risks and steps that have been taken to mitigate this risk.
 
 The categories of risk are, but not limited to: smart contract risk (bugs or exploit in code); protocol risk (failures in the core network); counterparty risk (third-party negligence or misbehaviour); duration risk (withdrawal delays); and liquidation risk (losses due to depegs or forced unwinds). 
 
 ## **Smart contract risk**
 
-Smart contract risk refers to the potential for bugs or exploits in the code that powers Katana Network’s infrastructure. All bridging, vault, and yield-generating activity rely on smart contracts, including ERC-4626 vaults and custom bridge logic that handles direct-to-vault flows and vbToken issuance on Katana Network through the Agglayer. While all of these smart contracts have undergone security audits, there is always the possibility of an unknown exploit. 
+Smart contract risk refers to the potential for bugs or exploits in the code that powers Katana's infrastructure. All bridging, vault, and yield-generating activity rely on smart contracts, including ERC-4626 vaults and custom bridge logic that handles direct-to-vault flows and vbToken issuance on Katana through the Agglayer. While all of these smart contracts have undergone security audits, there is always the possibility of an unknown exploit. 
 
-A complete list of Katana Network’s smart contracts can be found in the technical reference [here](../get-started/technical-reference-testnet.md). 
+A complete list of Katana's smart contracts can be found in the technical reference [here](../get-started/technical-reference-testnet.md). 
 
 ## **Protocol risk**
 
-A system-level failure within the network could potentially lead to loss of funds or network liveness. While Katana Network minimizes certain kinds of protocol risk through the use of ZK proofs, ZK provers are still emergent technology. Learn more about CDK-opgeth.
+A system-level failure within the network could potentially lead to loss of funds or network liveness. While Katana minimizes certain kinds of protocol risk through the use of ZK proofs, ZK provers are still emergent technology. Learn more about CDK-opgeth.
 
 ## **Counterparty risk**
 
@@ -18,7 +18,7 @@ Vault assets are managed by third-party risk curators Gauntlet and Stakehouse Fi
 
 ## **Duration risk**
 
-Because certain tokens bridged to Katana Network will be allocated to yield-generating strategies, there exists the possibility of duration risk. 
+Because certain tokens bridged to Katana will be allocated to yield-generating strategies, there exists the possibility of duration risk. 
 
 In practice, this means that if a large number of users attempt to withdraw simultaneously, it may be necessary to process redemptions on a rolling basis. Users may face a delay when claiming; in the most extreme circumstances, the delay would be 7 days. While the yield-generating strategies for tokens locked in the bridge will be limited to large-cap collateral and no undercollateralized lending, duration risk is inherent to the network’s design. 
 
@@ -68,6 +68,6 @@ While the risk curators shape risk profiles and optimize for performance, they n
 
 ### **Katana DeFi Security Council**
 
-To protect against protocol and smart contract risk, Katana Network uses a Security Council that has the power to perform emergency upgrades in the event of a bug.  If necessary, the Council is also about to halt bridge withdrawals. The composition of the Council includes all members of the Katana Consortium, including Conduit, GSR, Stakehouse, Morpho, Yearn, and others. 
+To protect against protocol and smart contract risk, Katana uses a Security Council that has the power to perform emergency upgrades in the event of a bug.  If necessary, the Council is also about to halt bridge withdrawals. The composition of the Council includes all members of the Katana Consortium, including Conduit, GSR, Stakehouse, Morpho, Yearn, and others. 
 
 For more information about Katana governance, see [here](../core-concepts/governance.md). 

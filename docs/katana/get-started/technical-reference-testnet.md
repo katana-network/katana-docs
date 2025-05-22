@@ -2,7 +2,7 @@
 
 **Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it...**
 
-| Network Name | Tatara Network (aka Katana Network Testnet) |
+| Network Name | Tatara Network (aka Katana Testnet) |
 | :---- | :---- |
 | Chain ID | 129399 |
 | RPC URL | [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\> |
@@ -28,7 +28,7 @@
 
 ### RPC Access
 
-There are two steps for generating the API key needed to access the Katana Network testnet environment:  
+There are two steps for generating the API key needed to access the Katana testnet environment:  
 	1\. Request an API key from the Katana API Request Form by following the instructions here: [http://google.com/](http://google.com/)   
 2\. Begin deploying your application by appending your API key to the following URL: [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\>
 
@@ -46,7 +46,7 @@ There are two steps for generating the API key needed to access the Katana Netwo
 **Agglayer Documentation**: [https://docs.agglayer.dev/](https://docs.agglayer.dev/)  
 **Testnet Addresses and Endpoints**:
 
-| Agglayer Unified Bridge | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | [Katana Network](https://explorer.tatara.katana.network/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582), [Sepolia](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582)  |
+| Agglayer Unified Bridge | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | [Katana](https://explorer.tatara.katana.network/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582), [Sepolia](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582)  |
 |  |  |  |
 | Bridge Service API | [https://bridge.tatara.katanarpc.com](https://bridge.tatara.katanarpc.com) |  |
 
@@ -178,7 +178,7 @@ P256VERIFY (RIP-7212)
 
 ### Appendix C \- Predeploys {#appendix-c---predeploys}
 
-Note: Katana Network has a subset of predeploys from op-geth (See [here](https://docs.optimism.io/stack/smart-contracts#layer-2-contracts-predeploys) for the full list of predeploys)
+Note: Katana has a subset of predeploys from op-geth (See [here](https://docs.optimism.io/stack/smart-contracts#layer-2-contracts-predeploys) for the full list of predeploys)
 
 | Contract | Address | Modified | Usable |
 | :---- | :---- | ----- | ----- |
