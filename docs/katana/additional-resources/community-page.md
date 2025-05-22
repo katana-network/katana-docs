@@ -20,4 +20,4 @@ The Katana developer community would love to see:
 - PRs to the docs, examples, awesome list, and other tools
 - Primitives and new money legos
 
-If something you want to contribute isn’t listed, [reach out here](link - placeholder).
+If something you want to contribute isn’t listed, [reach out here](https://github.com/katana-network/katana-docs).
