@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.3 (2025-05-22)
+
+### Bug Fixes
+
+- Risk section links
+  ([`ed41255`](https://github.com/katana-network/katana-docs/commit/ed4125588193db6061549d2b8e7b5ac225118171))
+
+
 ## v0.5.2 (2025-05-22)
 
 ### Bug Fixes
