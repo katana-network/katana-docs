@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.6 (2025-05-22)
+
+### Bug Fixes
+
+- Updated Katana network to Katana
+  ([`b2fc8a3`](https://github.com/katana-network/katana-docs/commit/b2fc8a3931051eabb865d8f7555f080ff1ed24a2))
+
+
 ## v0.5.5 (2025-05-22)
 
 ### Bug Fixes
