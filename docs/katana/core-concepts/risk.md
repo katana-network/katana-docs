@@ -16,8 +16,6 @@ A system-level failure within the network could potentially lead to loss of fund
 
 Vault assets are managed by third-party risk curators Gauntlet and Stakehouse Financial. While curators define risk parameters, including collateral thresholds and supported markets, they use Chainlink price feeds and other battle-tested oracle solutions for high-liquidity/high-volume designs.
 
-While they operate transparently and at the direction of Katana Foundation, their decisions can impact the rewards used to incentivize activity on the network. 
-
 ## **Duration risk**
 
 Because certain tokens bridged to Katana Network will be allocated to yield-generating strategies, there exists the possibility of duration risk. 

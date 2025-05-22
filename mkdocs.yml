@@ -23,8 +23,6 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
-    #- navigation.instant #
-    #- navigation.instant.progress
     - navigation.tracking
     - navigation.integration
     - navigation.tabs
@@ -66,8 +64,6 @@ extra:
     provider: google
     property: G-CQM8J9D2Q8
   social:
-    - icon: fontawesome/solid/circle-question
-      link: https://support.polygon.technology/support/solutions
     - icon: fontawesome/solid/globe
       link: https://katana.network/
     - icon: fontawesome/brands/github
@@ -97,7 +93,6 @@ markdown_extensions:
   - footnotes
   - def_list
   - attr_list
-  #- md_in_html
   - abbr
   - pymdownx.tabbed
   - pymdownx.superfences

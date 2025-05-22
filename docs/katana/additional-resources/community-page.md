@@ -4,11 +4,11 @@ Katana’s edge comes from the energy and collaboration of its community. Whethe
 
 ### Explore the Katana Developer Ecosystem
 
-We’ve curated a [comprehensive Awesome List](link - placeholder) that includes resources, tools, and projects built on Katana. This is the best place to dive deeper into everything Katana has to offer, from tech stacks to community-driven initiatives.
+We’ve curated a [comprehensive Awesome List](https://github.com/katana-network/awesome-katana) that includes resources, tools, and projects built on Katana. This is the best place to dive deeper into everything Katana has to offer, from tech stacks to community-driven initiatives.
 
-### Connect with Us on Telegram
+### Connect With Us on Telegram
 
-For real-time updates, discussions, and to interact with other members of the Katana community, join our official Telegram group. Connect with fellow members, get early access to new developments, swap yield alpha, and contribute to the future of DeFi. To join, [apply for early developer access](link - placeholder).
+For real-time updates, discussions, and to interact with other members of the Katana community, join our official Telegram group. Connect with fellow members, get early access to new developments, swap yield alpha, and contribute to the future of DeFi. To join, [apply for early developer access](http://google.com/).
 
 ### Get Involved
 
