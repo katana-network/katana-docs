@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.5 (2025-05-22)
+
+### Bug Fixes
+
+- Tatara deprecating note
+  ([`93a6d63`](https://github.com/katana-network/katana-docs/commit/93a6d633b737ef5a1c050e96eb83e891e854760c))
+
+
 ## v0.5.4 (2025-05-22)
 
 ### Bug Fixes
