@@ -40,8 +40,8 @@ foundryup
 1. Clone the repository and navigate to it:
 
     ```sh
-    git clone https://github.com/your-repo/k-start.git
-    cd k-start
+    git clone https://github.com/katana-network/specialk
+    cd specialk
     ```
 
 2. Create an environment file by copying the example:
@@ -55,6 +55,7 @@ foundryup
     ```sh
     TATARA_RPC_URL=https://your-tatara-rpc-url
     ```
+Get your testnet API Key [here](http://google.com/)
 
 4. Install dependencies:
 

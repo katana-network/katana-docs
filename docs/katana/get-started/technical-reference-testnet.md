@@ -25,10 +25,9 @@
 
 ### RPC Access
 
-There are three steps for generating the API key needed to access the Katana Network testnet environment:  
-	1\. Request an API key from Conduit by following the instructions [here](https://docs.conduit.xyz/nodes/get-api-keys)   
-2\. Provide the email address and org name used to generate the API key with [Sean Stubbings](mailto:sstubbings@polygon.technology) for allowlisting  
-3\. Begin deploying your application by appending your API key to the following URL: [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\>
+There are two steps for generating the API key needed to access the Katana Network testnet environment:  
+	1\. Request an API key from the Katana API Request Form by following the instructions here: [http://google.com/](http://google.com/)   
+2\. Begin deploying your application by appending your API key to the following URL: [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\>
 
 ### Services and General Infrastructure \[Testnet\]
 

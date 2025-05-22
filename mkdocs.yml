@@ -43,7 +43,8 @@ nav:
       - Overview: index.md
       - Get Started:
         - Set up your environment: katana/get-started/set-up-your-environment.md
-        - Technical reference [testnet]: katana/get-started/technical-reference-testnet.md        
+        - Technical reference [testnet]: katana/get-started/technical-reference-testnet.md
+        - Request testnet credentials: "http://google.com/" 
       - How To:
         - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
         - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
@@ -56,7 +57,7 @@ nav:
         - Sustainability: katana/core-concepts/sustainability.md
       - Additional Resources:
         - Katana Developer Community: katana/additional-resources/community-page.md
-        - Technical reference [mainnet]: katana/additional-resources/technical-reference-mainnet.md
+        # - Technical reference [mainnet]: katana/additional-resources/technical-reference-mainnet.md
         
 
 extra:
