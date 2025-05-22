@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.2 (2025-05-22)
+
+### Bug Fixes
+
+- New section and added links
+  ([`3f4cf64`](https://github.com/katana-network/katana-docs/commit/3f4cf64ebab805ddd2ffe1a09fbd40483d6857aa))
+
+
 ## v0.5.1 (2025-05-20)
 
 ### Bug Fixes
