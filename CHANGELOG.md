@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.6.1 (2025-05-23)
+
+### Bug Fixes
+
+- Renamed decentralization to governance
+  ([`baacc88`](https://github.com/katana-network/katana-docs/commit/baacc88504fc4efa3138417ab455d99b4a39bfb4))
+
+
 ## v0.6.0 (2025-05-23)
 
 ### Features
