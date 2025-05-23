@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.6.0 (2025-05-23)
+
+### Features
+
+- Governance section
+  ([`fbf62fd`](https://github.com/katana-network/katana-docs/commit/fbf62fdc08a748edcc634817fc54deb3d453cfc3))
+
+
 ## v0.5.7 (2025-05-22)
 
 ### Bug Fixes
