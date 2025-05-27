@@ -3,7 +3,7 @@
 This tutorial will help you set up and use the Katana Development Starter Kit
 for building applications on Katana and its testnet, Tatara.
 
-**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it...**
+**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it**
 
 ## What is Katana?
 
@@ -57,7 +57,7 @@ foundryup
     ```sh
     TATARA_RPC_URL=https://your-tatara-rpc-url
     ```
-Get your testnet API Key [here](https://katana.network/katana-interest-form)
+Get your testnet API Key [here](https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN)
 
 4. Install dependencies:
 

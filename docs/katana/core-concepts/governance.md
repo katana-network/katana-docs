@@ -1,5 +1,4 @@
 # **Katana Governance**
-
 ## **Overview: Decentralized from First Principles**
 
 Katana is decentralized by design. 

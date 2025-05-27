@@ -1,6 +1,6 @@
 ### Chain Info
 
-**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it...**
+**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it**
 
 | Network Name | Tatara Network (aka Katana Testnet) |
 | :---- | :---- |
@@ -29,7 +29,7 @@
 ### RPC Access
 
 There are two steps for generating the API key needed to access the Katana testnet environment:  
-	1\. Request an API key from the Katana API Request Form by following the instructions [here](https://katana.network/katana-interest-form)   
+	1\. Request an API key from the Katana API Request Form by following the instructions [here](https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN)   
 2\. Begin deploying your application by appending your API key to the following URL: [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\>
 
 ### Services and General Infrastructure \[Testnet\]

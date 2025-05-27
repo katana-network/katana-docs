@@ -42,11 +42,11 @@ nav:
       - Get Started:
         - Set up your environment: katana/get-started/set-up-your-environment.md
         - Technical reference [testnet]: katana/get-started/technical-reference-testnet.md
-        - Request testnet credentials: "https://katana.network/katana-interest-form" 
+        - Request testnet credentials: "https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN" 
       - How To:
-        - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
         - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
         - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
+        - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
       - Core Concepts:
         - Vault Bridge: katana/core-concepts/vault-bridge.md
         - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md

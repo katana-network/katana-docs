@@ -602,6 +602,3 @@ The ability to convert between ETH and WETH is essential for participating in
 DeFi protocols, as most require tokens to conform to the ERC20 standard. With
 this knowledge, you're now ready to explore more complex interactions with
 Katana's "money legos."
-
-In the next tutorial, we'll explore more advanced interactions with Katana's
-core contracts.

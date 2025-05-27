@@ -1,6 +1,8 @@
 # Building a token launchpad
 
-In this guide, we'll quickly cobble together a simple token launchpad. The
+### Estimated Time: 30 minutes
+
+In this guide, we'll create a simple token launchpad. The
 launchpad will allow us to define the name and ticker of the token, the total
 supply, the number of decimals, and will offer us to add it to our wallet with
 an "Add to Wallet" button after it's been created.
@@ -14,10 +16,10 @@ even vesting functionality.
 
 To start, please make sure you've downloaded or cloned the SpecialK starter kit
 for Katana development and initialized your environment. To find out how to do
-this, see the Getting Started 5-minute guide.
+this, see the [Getting Started 5-minute guide](../get-started/set-up-your-environment.md).
 
 We'll be copying the demo app from `src` into `src-demo`, so that we can get to
-work on "cannibalizing" the demo app into a launchpad.
+work on turning the demo app into a launchpad.
 
 ```bash
 cp -R src src-demo
@@ -367,8 +369,7 @@ function validateDistributionTotal() {
 }
 ```
 
-These should be self-explanatory - we create a ticker, we add form validation,
-and we make sure we call the distro list updating process every time one of the
+Here, we create a ticker, we add form validation, and we make sure we call the distro list updating process every time one of the
 distro inputs changes (pasted CSV or uploaded CSV).
 
 We need that CSV processor and updater though:
