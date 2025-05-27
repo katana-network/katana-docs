@@ -57,7 +57,7 @@ foundryup
     ```sh
     TATARA_RPC_URL=https://your-tatara-rpc-url
     ```
-Get your testnet API Key [here](http://google.com/)
+Get your testnet API Key [here](https://katana.network/katana-interest-form)
 
 4. Install dependencies:
 

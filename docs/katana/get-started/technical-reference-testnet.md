@@ -29,7 +29,7 @@
 ### RPC Access
 
 There are two steps for generating the API key needed to access the Katana testnet environment:  
-	1\. Request an API key from the Katana API Request Form by following the instructions here: [http://google.com/](http://google.com/)   
+	1\. Request an API key from the Katana API Request Form by following the instructions [here](https://katana.network/katana-interest-form)   
 2\. Begin deploying your application by appending your API key to the following URL: [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\>
 
 ### Services and General Infrastructure \[Testnet\]
