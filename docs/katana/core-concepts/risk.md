@@ -10,7 +10,7 @@ A complete list of Katana's smart contracts can be found in the technical refere
 
 ## **Protocol risk**
 
-A system-level failure within the network could potentially lead to loss of funds or network liveness. While Katana minimizes certain kinds of protocol risk through the use of ZK proofs, ZK provers are still emergent technology. Learn more about CDK-opgeth.
+A system-level failure within the network could potentially lead to loss of funds or network liveness. While Katana minimizes certain kinds of protocol risk through the use of ZK proofs, ZK provers are still emergent technology. Learn more about [CDK-opgeth](../core-concepts/cdk-opgeth.md).
 
 ## **Counterparty risk**
 
