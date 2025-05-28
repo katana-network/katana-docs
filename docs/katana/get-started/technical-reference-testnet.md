@@ -41,6 +41,8 @@ There are two steps for generating the API key needed to access the Katana testn
 | **Bridges / Interoperability** | Agglayer Unified Bridge |
 | **Wallets** | Safe (contracts only) |
 
+Infrastructure and tooling: The Graph, Tenderly, IndexSupply
+
 ### Interacting with the Unified Bridge
 
 **Agglayer Documentation**: [https://docs.agglayer.dev/](https://docs.agglayer.dev/)  
@@ -101,6 +103,12 @@ Testnet Address:
 
 Lombard Documentation: [https://docs.lombard.finance/](https://docs.lombard.finance/)  
 Source Code:   
+Testnet Address: NOT YET DEPLOYED
+
+#### **Perp DEX \- Vertex**
+
+Vertex Documentation: [https://docs.lombard.finance/](https://docs.lombard.finance/)  
+Source Code:
 Testnet Address: NOT YET DEPLOYED
 
 #### **VaultBridge Tokens**

@@ -13,5 +13,6 @@ Katana also comes with a set of yield-generating tokens, and asset types:
 * Native Stablecoin: AUSD  
 * Bridged Meta Assets: VaultBridge (i.e. vbTokens)  
 * Asset Importer Protocol: Universal
+* Native Bitcoin Wrapper: Lombard (LBTC)
 
 The yield generated from these tokens provides one of the revenue streams used to boost the yield for active users of the core applications.

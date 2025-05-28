@@ -1,6 +1,6 @@
 # **Katana Governance**
 
-From day one, Katana launches in [Stage 1]("https://medium.com/l2beat/stages-update-security-council-requirements-4c79cea8ef52").
+From day one, Katana launches in [Stage 1](https://medium.com/l2beat/stages-update-security-council-requirements-4c79cea8ef52).
 
 It meets and exceeds this standard via…
 
