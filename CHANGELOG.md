@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.7.0 (2025-05-28)
+
+### Features
+
+- Added icons
+  ([`81107fc`](https://github.com/katana-network/katana-docs/commit/81107fc2c565166d8b991968c188f030a0eaa570))
+
+
 ## v0.6.5 (2025-05-28)
 
 ### Bug Fixes
