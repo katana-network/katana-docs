@@ -1,6 +1,17 @@
 # CHANGELOG
 
 
+## v0.7.1 (2025-05-28)
+
+### Bug Fixes
+
+- Changes
+  ([`911f222`](https://github.com/katana-network/katana-docs/commit/911f2226f864172c48f54cef02870887af0c5e11))
+
+- Technical reference changes
+  ([`de43c4b`](https://github.com/katana-network/katana-docs/commit/de43c4be0805c870b5f108caafc93bcbe3a64821))
+
+
 ## v0.7.0 (2025-05-28)
 
 ### Features
