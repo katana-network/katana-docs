@@ -107,9 +107,26 @@ Testnet Address: NOT YET DEPLOYED
 
 #### **Perp DEX \- Vertex**
 
-Vertex Documentation: [https://docs.lombard.finance/](https://docs.vertexprotocol.com/)  
-Source Code:
-Testnet Address: NOT YET DEPLOYED
+Vertex Documentation: [https://docs.vertexprotocol.com/](https://docs.vertexprotocol.com/)  
+Source Code:  
+Testnet Address: 
+
+|        Key               |              Address              |
+|:------------------------:|:---------------------------------:|
+| quote                    | 0xbC47901f4d2C5fc871ae0037Ea05c3F614690781   |
+| querier                  | 0x5cF0121c3fC5F023f0a4b1af40cBD2538aDd0860   |
+| clearinghouse            | 0xf72BE10454B2fB514A2639da885045C89e3EB693   |
+| endpoint                 | 0xDFA3926296eaAc8E33c9798836Eae7e8CA1B02FB   |
+| spotEngine               | 0x9D37c59380BA015cF0c115fB89ac6238B96c868E   |
+| perpEngine               | 0x4597CFdd371239a99477Cdabf9cF0B23fDf559B4   |
+| offchainExchange         | 0xaDeFDE1A14B6ba4DA3e82414209408a49930E8DC   |
+| proxyManager             | 0x79776aDEDeD1f6fc5B8ca41f20F63E6d4751Dce5   |
+| foundationRewardsAirdrop | 0x0000000000000000000000000000000000000000   |
+| sanctionsListAddr        | 0x94B3173E0a23C28b2BA9a52464AC24c2B032791c   |
+| verifier                 | 0xF2710b0BfBdE4F7aA701f632695e13f2ad118a9E   |
+| contractOwner            | 0xdcA423365cd1F6609b33BEEE3eE71F920748C6A1   |
+| withdrawPool             | 0x19199A6618a5a9528e3131b5416B5148d79234dA   |
+
 
 #### **VaultBridge Tokens**
 
