@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.7.2 (2025-05-28)
+
+### Bug Fixes
+
+- Vertex technical reference
+  ([`4a22a6d`](https://github.com/katana-network/katana-docs/commit/4a22a6d5830a5b51f5388f5bb0ae371c99ce9ffa))
+
+
 ## v0.7.1 (2025-05-28)
 
 ### Bug Fixes
