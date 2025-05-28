@@ -9,7 +9,7 @@
 
 | Block explorer | [https://explorer.tatara.katana.network/](https://explorer.tatara.katana.network/) |
 | :---- | :---- |
-| Faucet | [https://katana-faucet-api.polygon.technology/api-docs/](https://katana-faucet-api.polygon.technology/api-docs/)  |
+| VaultBridge Faucet | [https://katana-faucet-api.polygon.technology/api-docs/](https://katana-faucet-api.polygon.technology/api-docs/)  |
 | Bridge UI | [https://portal-staging.polygon.technology/bridge](https://portal-staging.polygon.technology/bridge)  |
 
 ### Chain Configuration
@@ -107,7 +107,7 @@ Testnet Address: NOT YET DEPLOYED
 
 #### **Perp DEX \- Vertex**
 
-Vertex Documentation: [https://docs.lombard.finance/](https://docs.lombard.finance/)  
+Vertex Documentation: [https://docs.lombard.finance/](https://docs.vertexprotocol.com/)  
 Source Code:
 Testnet Address: NOT YET DEPLOYED
 
