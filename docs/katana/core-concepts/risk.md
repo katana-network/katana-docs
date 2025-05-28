@@ -77,7 +77,7 @@ Deposits on VaultBridge are subject to third-party control and strategy discreti
 VaultBridge tokens received via the bridge do not entitle users to yield or represent a claim against Morpho or VaultBridge.  VaultBridge and its associated contracts are not subject to community governance through vKAT. Users of the bridge do not acquire voting rights or governance powers by virtue of holding vbTokens or interacting with VaultBridge.
 
 Withdrawals may be delayed or unavailable during periods of stress.  Liquidity buffers are designed to enable redemptions, but such buffers may not be sufficient during a market crisis or mass withdrawal event. In such cases, users may face delays, slippage, or be unable to redeem assets altogether. 
-To learn more about Morpho vaults and the terms and conditions of Morpho vaults please visit www.morpho.org. 
+To learn more about Morpho vaults and the terms and conditions of Morpho vaults please visit [Morpho's website](https://morpho.org/).
 
 ### **Katana DeFi Security Council**
 
