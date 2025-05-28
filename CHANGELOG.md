@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.6.4 (2025-05-28)
+
+### Bug Fixes
+
+- Link and copy updates
+  ([`6cff059`](https://github.com/katana-network/katana-docs/commit/6cff0598284514be9be3520e48b7522d14f9b158))
+
+
 ## v0.6.3 (2025-05-28)
 
 ### Bug Fixes
