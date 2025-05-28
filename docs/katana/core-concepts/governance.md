@@ -68,21 +68,23 @@ Sitting above the Admin multisig is the **DeFi Security Council**, a 13-member m
 
 Members include leading DeFi protocols and infrastructure teams operating within Katana—those running core apps, managing stablecoins, or maintaining validator infrastructure. 
 
-| COUNCIL MEMBER | SIGNER ADDRESS |
-| :---: | :---: |
-| Agora | 0x27213f58e93f61dcbf768aa5dceb1665dbc810e0 |
-| Universal | TBD |
-| \[TBD\] Lombard | TBD |
-| Sushi | 0xcd4BFdD6A70CCc666FE3a29203B466D450C37342 |
-| Yearn | 0xF53D1fB2EeD22Cf1E8f7E90Da7f1CAe88344065F |
-| Vertex | TBD |
-| GSR | 0xFe3F847247a61D8001D2578D92a1123B9784D85C |
-| Conduit | TBD |
-| Gauntlet | TBD |
-| Stakehouse | TBD |
-| Bitvault | 0xbdcf6aa73772f0b7b70341a13c0a4091b07f98f4 |
-| Katana Foundation Engineering/Security Multisig | 0xd0673F989bc3BA9314d0AAF28BfC84e99B7898CC |
-| Polygon Labs Engineering/Security Multisig | 0x4e981bAe8E3cd06Ca911ffFE5504B2653ac1C38a |
+<!-- | COUNCIL MEMBER |
+| :--: | 
+| Agora |
+| Universal | 
+| \[TBD\] Lombard | 
+| Sushi | 
+| Yearn | 
+| Vertex |
+| GSR | 
+| Conduit | 
+| Gauntlet | 
+| Stakehouse |
+| Bitvault | 
+| Katana Foundation Engineering/Security Multisig |
+| Polygon Labs Engineering/Security Multisig | -->
+
+
 
 ## **Communication and Coordination**
 
