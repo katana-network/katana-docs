@@ -41,7 +41,7 @@ There are two steps for generating the API key needed to access the Katana testn
 | **Bridges / Interoperability** | Agglayer Unified Bridge |
 | **Wallets** | Safe (contracts only) |
 
-Infrastructure and tooling: The Graph, Tenderly, IndexSupply
+Infrastructure and tooling: The Graph, Tenderly, IndexSupply, Across
 
 ### Interacting with the Unified Bridge
 
