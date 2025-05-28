@@ -1,6 +1,30 @@
 # CHANGELOG
 
 
+## v0.6.3 (2025-05-28)
+
+### Bug Fixes
+
+- Added link in risk section
+  ([`ea5562c`](https://github.com/katana-network/katana-docs/commit/ea5562cc619901ff1c1111f24369cb5c338bf700))
+
+- Updated sections and removed images
+  ([`913c8f0`](https://github.com/katana-network/katana-docs/commit/913c8f078016f6c7a189f9e12069029c198fed5f))
+
+
+## v0.6.2 (2025-05-27)
+
+### Bug Fixes
+
+- Updated links and sections
+  ([`768e44a`](https://github.com/katana-network/katana-docs/commit/768e44adddfebf4c2401366523fa978d22600744))
+
+### Features
+
+- Added telegram form link and launchpad how to
+  ([`458a1a7`](https://github.com/katana-network/katana-docs/commit/458a1a7b0292c5b47aa0e1b9a0da489ee214236e))
+
+
 ## v0.6.1 (2025-05-23)
 
 ### Bug Fixes
