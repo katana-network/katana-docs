@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.6.5 (2025-05-28)
+
+### Bug Fixes
+
+- Content changes
+  ([`7adcfbf`](https://github.com/katana-network/katana-docs/commit/7adcfbf8c9d8d220fa6fd1d3ad3cf51c35047bf4))
+
+
 ## v0.6.4 (2025-05-28)
 
 ### Bug Fixes
