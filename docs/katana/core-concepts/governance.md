@@ -1,9 +1,6 @@
 # **Katana Governance**
-## **Overview: Decentralized from First Principles**
 
-Katana is decentralized by design. 
-
-From day one, Katana launches with Stage 1 decentralization, the leading operational standard for L2 networks.
+From day one, Katana launches in [Stage 1]("https://medium.com/l2beat/stages-update-security-council-requirements-4c79cea8ef52/").
 
 It meets and exceeds this standard via…
 
@@ -11,9 +8,9 @@ It meets and exceeds this standard via…
 
 Instead, **on-chain controls and institutional checks** ensure that governance decisions reflect the interests of a diverse, security-conscious ecosystem. All critical upgrades and administrative functions must be reviewed and approved by a group of independent stakeholders, rather than a single team or company.
 
-### **What Is Stage 1 Decentralization?**
+### **What Is Stage 1?**
 
-According to frameworks from Ethereum researchers and communities like L2Beat, a network achieves **stage 1 decentralization** when:
+According to frameworks from Ethereum researchers and communities like L2Beat, a network achieves **stage 1** when:
 
 * Core infrastructure is controlled by a smart contract-based timelock
 
@@ -64,34 +61,17 @@ Sitting above the Admin multisig is the **DeFi Security Council**, a 13-member m
 
 1. **Veto Power:** With a 10-of-13 vote, the Council can stop any Admin proposal before it executes.
 
-2. **Emergency Execution:** In the event of a critical vulnerability or exploit, the Council can skip the timelock entirely and push upgrades live immediately.
+2. **Emergency Execution:** In the event of a critical vulnerability or exploit, the Council has power to intervene.
 
-Members include leading DeFi protocols and infrastructure teams operating within Katana—those running core apps, managing stablecoins, or maintaining validator infrastructure. 
+Members include leading DeFi protocols and infrastructure teams operating within Katana—those running core apps, managing stablecoins, or maintaining validator infrastructure.
 
-<!-- | COUNCIL MEMBER |
-| :--: | 
-| Agora |
-| Universal | 
-| \[TBD\] Lombard | 
-| Sushi | 
-| Yearn | 
-| Vertex |
-| GSR | 
-| Conduit | 
-| Gauntlet | 
-| Stakehouse |
-| Bitvault | 
-| Katana Foundation Engineering/Security Multisig |
-| Polygon Labs Engineering/Security Multisig | -->
-
-
+| Name                                  | Address                                      |
+|---------------------------------------|----------------------------------------------|
+| Katana Foundation Engineering/Security Multisig | 0xd0673F989bc3BA9314d0AAF28BfC84e99B7898CC |
+| Polygon Labs Engineering/Security Multisig     | 0x4e981bAe8E3cd06Ca911ffFE5504B2653ac1C38a |
 
 ## **Communication and Coordination**
 
-The Council operates informally via secure channels like Telegram or Signal.
+The Council operates informally via secure channels.
 
 Proposals, upgrades, and emergency signals are shared asynchronously.
-
-Polygon Labs manages onboarding and ops support for both Admin and Council multisigs.  
-
-### 

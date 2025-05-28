@@ -7,9 +7,10 @@ for building applications on Katana and its testnet, Tatara.
 
 ## What is Katana?
 
-Katana is a Layer 2 solution focused on providing optimized infrastructure for
+Katana is a chain focused on providing optimized infrastructure for
 DeFi applications with integrated "money legos" - composable financial building
-blocks that developers can use to create new financial applications.
+blocks that developers can use to create new financial applications. It is focused on creating an experience where applications building on it can tap into deeper liquidity and offer higher yields than is available on any other chain.
+
 
 ## Prerequisites
 
