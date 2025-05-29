@@ -27,10 +27,10 @@
 | Predeploys | [Appendix C \- Predeploys](#appendix-c---predeploys) |
 
 ### RPC Access
-
-There are two steps for generating the API key needed to access the Katana testnet environment:  
-	1\. Request an API key from the Katana API Request Form by following the instructions [here](https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN)   
-2\. Begin deploying your application by appending your API key to the following URL: [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\>
+There are three steps for generating the API key needed to access the Katana Network testnet environment:
+1. Request an API key from Conduit by following the instructions [here](https://docs.conduit.xyz/nodes/get-api-keys)
+2. Use [this form](https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN) to tell us about the key so we can get it whitelisted.
+3. Begin deploying your application by appending your API key to the following URL: https://rpc.tatara.katanarpc.com/<apikey>
 
 ### Services and General Infrastructure \[Testnet\]
 
