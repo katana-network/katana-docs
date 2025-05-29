@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.8.1 (2025-05-29)
+
+### Bug Fixes
+
+- Removed section from duration risk
+  ([`e2cfa72`](https://github.com/katana-network/katana-docs/commit/e2cfa72b28c71c104bb50197ff36a07102ed1803))
+
+
 ## v0.8.0 (2025-05-29)
 
 ### Bug Fixes
