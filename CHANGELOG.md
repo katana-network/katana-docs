@@ -1,6 +1,32 @@
 # CHANGELOG
 
 
+## v0.8.0 (2025-05-29)
+
+### Bug Fixes
+
+- Delete Katana Protocol T&Cs.pdf
+  ([`e4d8ef7`](https://github.com/katana-network/katana-docs/commit/e4d8ef77d60663fac20e6b852745f517f635866f))
+
+Signed-off-by: Arnav Shah <ashah@polygon.technology>
+
+- Updated wording for T&cs header
+  ([`af1eb01`](https://github.com/katana-network/katana-docs/commit/af1eb01eeaff74d4b2277913a711de9578b33757))
+
+### Features
+
+- Added katana protocol Terms and Conditions
+  ([`daa8dc1`](https://github.com/katana-network/katana-docs/commit/daa8dc19792c362dca258fbdf2562563b6fa2587))
+
+Signed-off-by: Arnav Shah <ashah@polygon.technology>
+
+- Added T&Cs
+  ([`68c923b`](https://github.com/katana-network/katana-docs/commit/68c923bb350f1016a9a642649a71fcf686adee10))
+
+- Added T&Cs to the website
+  ([`3b62a31`](https://github.com/katana-network/katana-docs/commit/3b62a3176ceb6d85d4fcd51f6ac6c04c51cd3520))
+
+
 ## v0.7.2 (2025-05-28)
 
 ### Bug Fixes
