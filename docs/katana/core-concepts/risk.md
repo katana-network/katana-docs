@@ -28,16 +28,7 @@ In practice, this means that if a large number of users attempt to withdraw simu
 
 If there is a run on the bridge or mass redemptions:
 
-VaultBridge is essentially a fractional reserve bridge. Not all assets are instantly liquid. However, VaultBridge pre-determined settings target the following allocations:
-
-* \~15% in instant liquidity  
-* \~50% redeemable within 48 hours  
-* \~100% within 7 days
-
-If a redemption exceeds these buffers:
-
-* Slippage may occur in fast intent-based exits, but users can wait and redeem over time.  
-* Katana’s Chain-Owned Liquidity (CoL) and reserve buffers act as backstops, absorbing pressure during stress events.
+VaultBridge is essentially a fractional reserve bridge. Not all assets are instantly liquid.
 
 **Liquidity Risk**   
 Liquidity risk on Katana may arise when the network scales up gas capacity (supply) but actual demand lags behind. In this case, sequencer fees may slow, and CoL  could decrease.
