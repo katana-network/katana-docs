@@ -14,7 +14,10 @@ blocks that developers can use to create new financial applications. It is focus
 
 ## Prerequisites
 
-Before you begin, make sure you have the following tools installed:
+Before you begin, make sure you have a Conduit API key that's been whitelisted. 
+Follow instructions [here](https://docs.katana.network/katana/get-started/technical-reference-testnet/#chain-configuration).
+
+Then, make sure you have the following tools installed:
 
 - [Bun](https://bun.sh/) - A fast JavaScript runtime and package manager
 - [Foundry](https://book.getfoundry.sh/) - A toolkit for Ethereum application
