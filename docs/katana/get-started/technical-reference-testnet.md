@@ -9,7 +9,7 @@
 
 | Block explorer | [https://explorer.tatara.katana.network/](https://explorer.tatara.katana.network/) |
 | :---- | :---- |
-| VaultBridge Faucet | [https://katana-faucet-api.polygon.technology/api-docs/](https://katana-faucet-api.polygon.technology/api-docs/)  |
+| VaultBridge Faucet | [https://faucet-api.polygon.technology/api-docs/](https://faucet-api.polygon.technology/api-docs/)  |
 | Bridge UI | [https://portal-staging.polygon.technology/bridge](https://portal-staging.polygon.technology/bridge)  |
 
 ### Chain Configuration
