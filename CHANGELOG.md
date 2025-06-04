@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.8.2 (2025-06-04)
+
+### Bug Fixes
+
+- Canoncial tag
+  ([`5960bfd`](https://github.com/katana-network/katana-docs/commit/5960bfd272c8a508483bdac5c8b59e6b75501f4e))
+
+
 ## v0.8.1 (2025-05-29)
 
 ### Bug Fixes
