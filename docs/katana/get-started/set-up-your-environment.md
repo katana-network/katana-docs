@@ -104,8 +104,12 @@ You can now connect MetaMask or another wallet to your local fork:
 Build the example app with:
 
 ```sh
-bun run build
+bun run build:all
 ```
+
+Going forward you can just run `bun run build` to rebuild the app-only,
+but the first `build:all` run will build the ABIs, the MCP server,
+and more.
 
 This will:
 
