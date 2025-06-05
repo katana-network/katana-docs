@@ -58,6 +58,8 @@ Members include leading DeFi protocols and infrastructure teams operating within
 | Katana Foundation Engineering/Security Multisig | 0xd0673F989bc3BA9314d0AAF28BfC84e99B7898CC |
 | Polygon Labs Engineering/Security Multisig     | 0x4e981bAe8E3cd06Ca911ffFE5504B2653ac1C38a |
 
+![Katana Defi Security Council](katana_defi_security_council.jpg)
+
 ## **Communication and Coordination**
 
 The Council operates informally via secure channels.
