@@ -1,6 +1,16 @@
 # CHANGELOG
 
 
+## v0.8.3 (2025-06-05)
+
+### Bug Fixes
+
+- Canonical override
+  ([`46ca188`](https://github.com/katana-network/katana-docs/commit/46ca188523557b81b24dd0fd315027bba190ee86))
+
+Signed-off-by: Jason Thompson <jasonthompson@82d9ca7a-d28d-4a16-bdf5-d9d0bf64a834.fritz.box>
+
+
 ## v0.8.2 (2025-06-04)
 
 ### Bug Fixes
