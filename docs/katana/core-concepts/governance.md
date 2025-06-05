@@ -8,18 +8,6 @@ It meets and exceeds this standard via…
 
 Instead, **on-chain controls and institutional checks** ensure that governance decisions reflect the interests of a diverse, security-conscious ecosystem. All critical upgrades and administrative functions must be reviewed and approved by a group of independent stakeholders, rather than a single team or company.
 
-### **What Is Stage 1?**
-
-According to frameworks from Ethereum researchers and communities like L2Beat, a network achieves **stage 1** when:
-
-* Core infrastructure is controlled by a smart contract-based timelock
-
-* Critical actions can be delayed, reviewed, and blocked by independent actors
-
-* Emergency powers are held by a decentralized group of ecosystem stakeholders
-
-Katana meets all these requirements at launch. Control over key contracts, upgrades, token issuance, and fee systems is exercised **on-chain**, gated by a timelock contract and protected by the **Katana DeFi Security Council**.
-
 ## **Overview: Purpose-Built for Security, Speed, and Ecosystem-First Control**
 
 **Katana** is more than a high-yield, deep-liquidity DeFi chain—it’s a governance-first blockchain where infrastructure and decision-making are embedded directly into the chain’s architecture. From day one, Katana’s technical governance ensures rapid iteration and swift emergency response—without compromising decentralization.
