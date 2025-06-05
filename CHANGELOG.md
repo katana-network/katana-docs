@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.8.4 (2025-06-05)
+
+### Bug Fixes
+
+- Added governance image
+  ([`1a10dd5`](https://github.com/katana-network/katana-docs/commit/1a10dd5afd2cfa09831f91bf234dda3947e549e7))
+
+
 ## v0.8.3 (2025-06-05)
 
 ### Bug Fixes
