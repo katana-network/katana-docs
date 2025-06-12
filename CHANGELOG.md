@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.8.5 (2025-06-12)
+
+### Bug Fixes
+
+- Mobile menu
+  ([`3a8ecd1`](https://github.com/katana-network/katana-docs/commit/3a8ecd16cb5b0b64ef158fb9fa1d744be0aa4c06))
+
+
 ## v0.8.4 (2025-06-05)
 
 ### Bug Fixes
