@@ -9,28 +9,14 @@ These docs use [the Material theme for MkDocs](https://squidfunk.github.io/mkdoc
 
 ### Prerequisites
 
-1. [Python 3.12](https://www.python.org/downloads/).
-2. [`virtualenv`](https://pypi.org/project/virtualenv/): Install using `pip3 install virtualenv`.
+1. [`uv`](https://docs.astral.sh/uv/getting-started/installation/)
+2. [Python 3.13](https://www.python.org/downloads/), installed either through `uv` or independantly.
 
 ### Setup
 
 1. Clone the repository.
-2. `cd` to the root.
-3. Run the `run.sh` script. You may need to make the script executable: `chmod +x run.sh`
-
-```sh
-./run.sh
-```
-
-The site comes up at http://127.0.0.1:8000/ 
-
-### Docker 
-
-If you prefer Docker, you can build and run the site using the following commands:
-
-```sh
-docker compose up --build
-```
+2. Install project dependencies with `uv sync --locked --dev`.
+3. Run `uv run mkdocs serve` to start the `mkdocs` development server.
 
 ## Contributing
 
