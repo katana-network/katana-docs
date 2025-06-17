@@ -1,9 +1,14 @@
-[tool.semantic_release]
-version_variable = "mkdocs_version.py:__version__"
-branch = "main"
-upload_to_pypi = false
-build_command = "echo 'No build step needed for MkDocs'"
-commit_parser = "conventional"
-
-[tool.semantic_release.changelog.default_templates]
-changelog_file = "CHANGELOG.md"
+[project]
+name = "katana-docs"
+version = "0.0.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "markdown-include==0.8.1",
+    "mkdocs-material==9.4.8",
+    "mkdocs-mermaid2-plugin==1.1.1",
+    "mkdocs-multirepo-plugin==0.7.0",
+    "mkdocs-open-in-new-tab==1.0.3",
+    "mkdocs-redirects==1.2.1",
+]
