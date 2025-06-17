@@ -51,6 +51,11 @@ jobs:
       - name: Build docs
         run: uv run mkdocs build
 
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - name: Deploy bundle
         uses: cloudflare/wrangler-action@v3
         with:
