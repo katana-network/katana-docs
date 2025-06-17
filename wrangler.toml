@@ -1,0 +1,15 @@
+name = "katana-docs"
+compatibility_date = "2024-12-30"
+placement = { mode = "smart" }
+preview_urls = false
+send_metrics = false
+workers_dev = false
+
+[assets]
+directory = "site"
+
+[env.staging]
+routes = [{ pattern = "docs.staging.katana.network", custom_domain = true }]
+
+[env.production]
+routes = [{ pattern = "docs.katana.network", custom_domain = true }]
