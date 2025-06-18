@@ -5,7 +5,7 @@ repo_name: Katana Documentation
 repo_url: https://github.com/katana-network/katana-docs
 edit_uri: edit/main/docs/
 # docs
-site_url: docs.katana.network
+site_url: https://docs.katana.network/
 
 theme:
   name: material
