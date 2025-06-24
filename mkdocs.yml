@@ -134,21 +134,6 @@ plugins:
   - open-in-new-tab
   - redirects:
       redirect_maps:
-        "docs/develop/network-details/network.md": "cdk/index.md"
-        "cdk/getting-started/index.md": "cdk/getting-started/local-deployment.md"
-        "zkEVM/how-to/index.md": "zkEVM/get-started/index.md"
-        "cdk/concepts/index.md": "cdk/concepts/layer2s.md"
-        "tools/matic-js/installation.md": "tools/matic-js/get-started.md"
-        "pos/how-to/access-node.md": "tools/dApp-development/tutorials/access-node.md"
-        "pos/how-to/full-node/full-node-system-requirements.md": "pos/how-to/prerequisites.md"
-        "pos/how-to/validator/prerequisites.md": "pos/how-to/prerequisites.md"
-        "pos/how-to/validator/validator-system-requirements.md": "pos/how-to/prerequisites.md"
-        "pos/how-to/choose-node-type.md": "pos/how-to/prerequisites.md"
-        "pos/how-to/operate-validator-node/validator-best-practices.md": "pos/how-to/validator/validator-best-practices.md"
-        "pos/how-to/operate-validator-node/validator-commission-operations.md": "pos/how-to/operate-validator-node/next-steps.md"
-        "pos/how-to/operate-validator-node/validator-staking-operations.md": "pos/how-to/operate-validator-node/next-steps.md"
-        "pos/how-to/operating/validator-node/index.md": "pos/how-to/operate-validator-node/next-steps.md"
-        "cdk/version-matrix/index.md": "index.md"
 
 validation:
   absolute_links: warn
