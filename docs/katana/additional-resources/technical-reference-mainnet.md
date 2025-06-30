@@ -1,1 +1,0 @@
-Technical reference [mainnet] - coming soon!
