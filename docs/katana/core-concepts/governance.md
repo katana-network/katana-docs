@@ -1,12 +1,6 @@
 # **Katana Governance**
 
-From day one, Katana launches in [Stage 1](https://medium.com/l2beat/stages-update-security-council-requirements-4c79cea8ef52).
-
-It meets and exceeds this standard via…
-
-* Full Execution Proofs, which use zero-knowledge technology to ensure that chain data is accurate; 
-
-Instead, **on-chain controls and institutional checks** ensure that governance decisions reflect the interests of a diverse, security-conscious ecosystem. All critical upgrades and administrative functions must be reviewed and approved by a group of independent stakeholders, rather than a single team or company.
+From day one, **on-chain controls and institutional checks** ensure that governance decisions reflect the interests of a diverse, security-conscious ecosystem. All critical upgrades and administrative functions must be reviewed and approved by a group of independent stakeholders, rather than a single team or company.
 
 ## **Overview: Purpose-Built for Security, Speed, and Ecosystem-First Control**
 
@@ -16,7 +10,7 @@ Katana launches with a two-tier governance structure: a nimble proposal engine (
 
 ## **tl;dr: Two Multisigs, One Coordinated System**
 
-* **Katana Admin (5/9 Multisig):** Proposes all critical system changes. Controlled by foundational engineering contributors at Katana Foundation, Polygon Labs, Conduit, and GSR.  
+* **Katana Admin (3/5 Multisig):** Proposes all critical system changes. Controlled by foundational engineering contributors at Katana Foundation, Polygon Labs, and GSR.  
 * **DeFi Security Council (10/13 Multisig):** Oversees system security. Can veto or fast-track changes. Composed of top-tier infrastructure providers and DeFi integrators offering in-protocol services and tooling within the Katana ecosystem. 
 
 Security and speed shouldn’t be trade-offs. By separating proposal power (Admin) from execution control (Security Council), Katana ensures:
@@ -29,11 +23,12 @@ Just like Katana’s yield-generating tokens and composable apps, governance her
 
 ## **Katana Admin: Fast, Focused, and Frameworked**
 
-*Multisig Address: TBD*
+*Multisig Address (Ethereum): 0xd512543315c95506E4209805b888414EEF15C8C4
+*Multisig Address (Katana): 0xd512543315c95506E4209805b888414EEF15C8C4
 
 The **Katana Admin** multisig is the operational heartbeat of Katana governance. It initiates all technical upgrades, config changes, and system-level proposals. Here’s how it works:
 
-* **5-of-9 multisig**, controlled by major network partners Katana Foundation, GSR, Conduit, and Polygon Labs.
+* **3-of-5 multisig**, controlled by major network partners Katana Foundation, GSR, and Polygon Labs.
 
 * Upgrades and improvements are proposed by the Admin and automatically enter a **10-day timelock**—a cooling-off period designed to give the network time to audit and react.
 
@@ -43,7 +38,8 @@ Think of the Admin as the first-mover in a system built for safe agility—ready
 
 ## **DeFi Security Council: Watchdog with Real Teeth**
 
-*Multisig Address: TBD*
+*Multisig Address (Ethereum): 0x03105070424FbA70E4FC37A674eB70eD5190F9A0
+*Multisig Address (Katana): 0x03105070424FbA70E4FC37A674eB70eD5190F9A0
 
 Sitting above the Admin multisig is the **DeFi Security Council**, a 13-member multisig that provides oversight and final control. It’s designed for **ecosystem-aligned emergency governance**, and it plays two critical roles:
 
@@ -56,7 +52,18 @@ Members include leading DeFi protocols and infrastructure teams operating within
 | Name                                  | Address                                      |
 |---------------------------------------|----------------------------------------------|
 | Katana Foundation Engineering/Security Multisig | 0xd0673F989bc3BA9314d0AAF28BfC84e99B7898CC |
-| Polygon Labs Engineering/Security Multisig     | 0x4e981bAe8E3cd06Ca911ffFE5504B2653ac1C38a |
+| Polygon Labs Engineering/Security Multisig     | 0x9d851f8b8751c5FbC09b9E74E6e68E9950949052 |
+| Agora     | 0x27213f58e93f61dcbf768aa5dceb1665dbc810e0 |
+| Universal     | 0x975F779f455A130bf1aCCdAb2cf5eD2151472168 |
+| Lombard     | 0x0e854a88F451b1ba26405F713BfaACdaEB23d9ec |
+| Sushi     | 0xcd4BFdD6A70CCc666FE3a29203B466D450C37342 |
+| Yearn     | 0xF53D1fB2EeD22Cf1E8f7E90Da7f1CAe88344065F |
+| GSR     | 0xFe3F847247a61D8001D2578D92a1123B9784D85C |
+| Katana Foundation     | 0xFfdcDbCD5028d2802Fd3B726C16655B4179D264a |
+| Gauntlet     | 0x4082A1D91A353b16e112FbE36b55d222bF417919 |
+| Stakehouse     | 0xbdcf6aa73772f0b7b70341a13c0a4091b07f98f4 |
+| Bitvault     | 0x2749BAE8f3D8f03820B63ae719322D443ea91892 |
+| Re7     | 0xa563FEEA4028FADa193f1c1F454d446eEaa6cfD7 |
 
 ![Katana Defi Security Council](katana_defi_security_council.jpg)
 
