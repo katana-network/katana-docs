@@ -1,6 +1,6 @@
 ### Chain Info
 
-**Note: Tatara will deprecate on or around the release of Public Mainnet. A new testnet will release along with it**
+**Note: Tatara will be replaced with a new testnet. But will stay running until needed.**
 
 | Network Name | Tatara Network (aka Katana Testnet)                                             |
 | :----------- | :------------------------------------------------------------------------------ |

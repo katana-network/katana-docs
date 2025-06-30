@@ -40,9 +40,21 @@ theme:
 nav:
   - Katana:
       - Overview: index.md
-      - Get Started:
+      - Core Concepts:
+          - Vault Bridge: katana/core-concepts/vault-bridge.md
+          - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
+          - Risk: katana/core-concepts/risk.md
+          - Governance: katana/core-concepts/governance.md
+          - Sustainability: katana/core-concepts/sustainability.md
+          - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
+      - Technical Reference:
+          - Network Information: katana/technical-reference/network-information.md
+          # - Contract Addresses: katana/technical-reference/contract-addresses.md
+          - Infrastructure Partners: katana/technical-reference/infra-partners.md
+          # - Bridging: katana/technical-reference/bridging.md
+      - Start Building:
           - Set up your environment: katana/get-started/set-up-your-environment.md
-          - Technical reference [testnet]: katana/get-started/technical-reference-testnet.md
+          - Testnet Information: katana/get-started/technical-reference-testnet.md
           - Request testnet credentials: "https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN"
           - Use MCP to talk to the blockchain: katana/get-started/use-mcp.md
       - How To:
@@ -50,13 +62,6 @@ nav:
           - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
           - Integrate Privy email login (client side): katana/how-to/add-privy.md
-      - Core Concepts:
-          - Vault Bridge: katana/core-concepts/vault-bridge.md
-          - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
-          - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
-          - Risk: katana/core-concepts/risk.md
-          - Governance: katana/core-concepts/governance.md
-          - Sustainability: katana/core-concepts/sustainability.md
       - Additional Resources:
           - Katana Developer Community: katana/additional-resources/community-page.md
           # - Technical reference [mainnet]: katana/additional-resources/technical-reference-mainnet.md
