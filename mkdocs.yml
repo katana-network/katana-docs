@@ -49,7 +49,7 @@ nav:
           - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
       - Technical Reference:
           - Network Information: katana/technical-reference/network-information.md
-          # - Contract Addresses: katana/technical-reference/contract-addresses.md
+          - Contract Addresses: katana/technical-reference/contract-addresses.md
           - Infrastructure Partners: katana/technical-reference/infra-partners.md
           # - Bridging: katana/technical-reference/bridging.md
       - Start Building:
