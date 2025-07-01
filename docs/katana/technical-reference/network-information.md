@@ -2,12 +2,12 @@ Katana runs on Agglayer's [CDK OP Stack](https://www.agglayer.dev/cdk), which me
 
 ### Basic Info
 
-| Chain Name     | Katana                                                     |
-| :------------- | :--------------------------------------------------------- |
-| Chain ID       | 747474                                                     |
-| Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/) |
-| Gas Token      | ETH                                                        |
-| Block explorer | [https://katanascan.com/](https://katanascan.com/)         |
+| Chain Name     | Katana                                                             |
+| :------------- | :----------------------------------------------------------------- |
+| Chain ID       | 747474                                                             |
+| Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/)         |
+| Gas Token      | ETH                                                                |
+| Block explorer | [https://explorer.katanarpc.com/](https://explorer.katanarpc.com/) |
 
 ### Chain Configuration
 

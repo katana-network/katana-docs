@@ -1,5 +1,3 @@
-<!-- names, categories, links, 1 line description -->
-
 ### RPC Providers
 
 - [Conduit RPC](https://www.conduit.xyz/nodes)
