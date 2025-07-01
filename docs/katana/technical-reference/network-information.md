@@ -31,7 +31,7 @@ Katana runs on Agglayer's [CDK OP Stack](https://www.agglayer.dev/cdk), which me
         </tr>
         <tr>
             <td>EIP-1559 elasticity multiplier</td>
-            <td>6</td>
+            <td>60</td>
         </tr>
         <tr>
             <td>EIP-1559 denominator</td>
