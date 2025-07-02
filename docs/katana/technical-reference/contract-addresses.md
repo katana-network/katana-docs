@@ -41,7 +41,7 @@ Send a PR w/ the required information to be added to the Katana Tokenlist [https
 | BTC/USD     | [0x41DdB7F8F5e1b2bD28193B84C1C36Be698dEd162](https://explorer.katanarpc.com/address/0x41DdB7F8F5e1b2bD28193B84C1C36Be698dEd162) |
 | ETH/USD     | [0x7BdBDB772f4a073BadD676A567C6ED82049a8eEE](https://explorer.katanarpc.com/address/0x7BdBDB772f4a073BadD676A567C6ED82049a8eEE) |
 | jitoSOL/USD | [0x36E03469335b7F2eF51aAeB914b76c038645679A](https://explorer.katanarpc.com/address/0x36E03469335b7F2eF51aAeB914b76c038645679A) |
-| jitoSOL/SOL | SOON                                                                                                                            |
+| jitoSOL/SOL | [0x1C0a310cf42F357087Be122e69ee402D19A265dC](http://explorer.katanarpc.com/address/0x1C0a310cf42F357087Be122e69ee402D19A265dC)  |
 | LBTC/BTC    | [0x6830BfE63F8804B4972D92826b9088d2fb6AFe5b](https://explorer.katanarpc.com/address/0x6830BfE63F8804B4972D92826b9088d2fb6AFe5b) |
 | LBTC/USD    | [0x5C2c6A77310C7750fCc5c3f13a3f9C3b18a68d3e](https://explorer.katanarpc.com/address/0x5C2c6A77310C7750fCc5c3f13a3f9C3b18a68d3e) |
 | LINK/USD    | [0x06bD6464e94Bee9393Ae15B5Dd5eCDFAa4F299C1](https://explorer.katanarpc.com/address/0x06bD6464e94Bee9393Ae15B5Dd5eCDFAa4F299C1) |
@@ -61,20 +61,21 @@ Send a PR w/ the required information to be added to the Katana Tokenlist [https
 
 ### Redstone
 
-| Pair         | Address                                                                                                                         |
-| :----------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| ADA/USD      | [0xf1454949C6dEdfb500ae63Aa6c784Aa1Dde08A6c](https://explorer.katanarpc.com/address/0xf1454949C6dEdfb500ae63Aa6c784Aa1Dde08A6c) |
-| AUSD/USD     | [0x53bB139e962ee0AC6477F40D0352e8dAF0480b70](https://explorer.katanarpc.com/address/0x53bB139e962ee0AC6477F40D0352e8dAF0480b70) |
-| BTC/USD      | [0xb67047eDF6204F4C81333248dA71F8387050790C](https://explorer.katanarpc.com/address/0xb67047eDF6204F4C81333248dA71F8387050790C) |
-| ETH/USD      | [0xE94c9f9A1893f23be38A5C0394E46Ac05e8a5f8C](https://explorer.katanarpc.com/address/0xE94c9f9A1893f23be38A5C0394E46Ac05e8a5f8C) |
-| LBTC/BTC     | [0xb9D0073aCb296719C26a8BF156e4b599174fe1d5](https://explorer.katanarpc.com/address/0xb9D0073aCb296719C26a8BF156e4b599174fe1d5) |
-| SUI/USD      | SOON                                                                                                                            |
-| WBTC/USD     | [0xE5E307A3aEDf4e8eF60E1bfCc9ccD477dFad93ce](https://explorer.katanarpc.com/address/0xE5E307A3aEDf4e8eF60E1bfCc9ccD477dFad93ce) |
-| weETH/ETH    | [0xe8D9FbC10e00ecc9f0694617075fDAF657a76FB2](https://explorer.katanarpc.com/address/0xe8D9FbC10e00ecc9f0694617075fDAF657a76FB2) |
-| weETH/USD    | [0xDd87FD0FD6F68AcB6897d05fCf31F3AB1165a49F](https://explorer.katanarpc.com/address/0xDd87FD0FD6F68AcB6897d05fCf31F3AB1165a49F) |
-| wstETH/USD   | [0xE23eCA12D7D2ED3829499556F6dCE06642AFd990](https://explorer.katanarpc.com/address/0xE23eCA12D7D2ED3829499556F6dCE06642AFd990) |
-| wstETH/stETH | [0x31a36CdF4465ba61ce78F5CDbA26FDF8ec361803](https://explorer.katanarpc.com/address/0x31a36CdF4465ba61ce78F5CDbA26FDF8ec361803) |
-| XRP/USD      | [0xb4fe9028A4D4D8B3d00e52341F2BB0798860532C](https://explorer.katanarpc.com/address/0xb4fe9028A4D4D8B3d00e52341F2BB0798860532C) |
+| Pair    | Address                                                                                                                         |
+| :------ | :------------------------------------------------------------------------------------------------------------------------------ |
+| ADA/USD | [0xf1454949C6dEdfb500ae63Aa6c784Aa1Dde08A6c](https://explorer.katanarpc.com/address/0xf1454949C6dEdfb500ae63Aa6c784Aa1Dde08A6c) |
+| SUI/USD | [0x98ECE0D516f891a35278E3186772fb1545b274eB](https://explorer.katanarpc.com/address/0x98ECE0D516f891a35278E3186772fb1545b274eB) |
+| XRP/USD | [0xb4fe9028A4D4D8B3d00e52341F2BB0798860532C](https://explorer.katanarpc.com/address/0xb4fe9028A4D4D8B3d00e52341F2BB0798860532C) |
+
+<!-- | AUSD/USD     | [0x53bB139e962ee0AC6477F40D0352e8dAF0480b70](https://explorer.katanarpc.com/address/0x53bB139e962ee0AC6477F40D0352e8dAF0480b70) | -->
+<!-- | BTC/USD      | [0xb67047eDF6204F4C81333248dA71F8387050790C](https://explorer.katanarpc.com/address/0xb67047eDF6204F4C81333248dA71F8387050790C) | -->
+<!-- | ETH/USD      | [0xE94c9f9A1893f23be38A5C0394E46Ac05e8a5f8C](https://explorer.katanarpc.com/address/0xE94c9f9A1893f23be38A5C0394E46Ac05e8a5f8C) | -->
+<!-- | LBTC/BTC     | [0xb9D0073aCb296719C26a8BF156e4b599174fe1d5](https://explorer.katanarpc.com/address/0xb9D0073aCb296719C26a8BF156e4b599174fe1d5) | -->
+<!-- | WBTC/USD     | [0xE5E307A3aEDf4e8eF60E1bfCc9ccD477dFad93ce](https://explorer.katanarpc.com/address/0xE5E307A3aEDf4e8eF60E1bfCc9ccD477dFad93ce) | -->
+<!-- | weETH/ETH    | [0xe8D9FbC10e00ecc9f0694617075fDAF657a76FB2](https://explorer.katanarpc.com/address/0xe8D9FbC10e00ecc9f0694617075fDAF657a76FB2) | -->
+<!-- | weETH/USD    | [0xDd87FD0FD6F68AcB6897d05fCf31F3AB1165a49F](https://explorer.katanarpc.com/address/0xDd87FD0FD6F68AcB6897d05fCf31F3AB1165a49F) | -->
+<!-- | wstETH/USD   | [0xE23eCA12D7D2ED3829499556F6dCE06642AFd990](https://explorer.katanarpc.com/address/0xE23eCA12D7D2ED3829499556F6dCE06642AFd990) | -->
+<!-- | wstETH/stETH | [0x31a36CdF4465ba61ce78F5CDbA26FDF8ec361803](https://explorer.katanarpc.com/address/0x31a36CdF4465ba61ce78F5CDbA26FDF8ec361803) | -->
 
 ### API3
 
