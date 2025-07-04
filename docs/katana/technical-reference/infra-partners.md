@@ -42,7 +42,9 @@
 
 ### Blockchain Data
 
+- [CoinGecko](https://www.coingecko.com/en/chains/katana)
 - [Defillama](https://defillama.com/chain/katana)
+- [Dexscreener](https://dexscreener.com/katana)
 - [Dune](https://dune.com/chains/katana)
 <!-- - Substream -->
 
