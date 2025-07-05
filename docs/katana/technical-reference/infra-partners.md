@@ -28,7 +28,7 @@
 ### Bridging
 
 - [Agglayer Unified Bridge](https://bridge.agglayer.dev/)
-<!-- - [Chainlink CCIP]() -->
+- [Chainlink CCIP](https://docs.chain.link/ccip/directory/mainnet/chain/polygon-mainnet-katana)
 - [Jumper](https://jumper.exchange/?fromAmount=1&fromChain=8453&fromToken=0x0000000000000000000000000000000000000000&toChain=747474&toToken=0x0000000000000000000000000000000000000000)
 - [Hyperlane](https://docs.hyperlane.xyz/docs/reference/domains)
 - [LayerZero](https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=katana)
@@ -52,6 +52,7 @@
 ### Blockchain Risk Analysis
 
 - Chainalysis
+- Hypernative
 - TRM Labs
 -->
 
