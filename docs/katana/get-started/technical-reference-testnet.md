@@ -5,7 +5,7 @@
 | Network Name | Tatara Network (aka Katana Testnet)                                             |
 | :----------- | :------------------------------------------------------------------------------ |
 | Chain ID     | 129399                                                                          |
-| RPC URL      | [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)<apikey\> |
+| RPC URL      | [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/) |
 
 | Block explorer      | [https://explorer.tatara.katana.network/](https://explorer.tatara.katana.network/)                   |
 | :------------------ | :--------------------------------------------------------------------------------------------------- |
@@ -25,14 +25,6 @@
 | :---------- | :----------------------------------------------------- |
 | Precompiles | [Appendix B \- Precompiles](#appendix-b---precompiles) |
 | Predeploys  | [Appendix C \- Predeploys](#appendix-c---predeploys)   |
-
-### RPC Access
-
-There are three steps for generating the API key needed to access the Katana Network testnet environment:
-
-1. Request an API key from Conduit by following the instructions [here](https://docs.conduit.xyz/nodes/get-api-keys)
-2. Use [this form](https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN) to tell us about the key so we can get it whitelisted.
-3. Begin deploying your application by appending your API key to the following URL: https://rpc.tatara.katanarpc.com/<apikey>
 
 ### Services and General Infrastructure \[Testnet\]
 
