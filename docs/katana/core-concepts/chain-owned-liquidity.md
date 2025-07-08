@@ -6,7 +6,6 @@ Katana's core applications promote composability and enshrine deep liquidity. Th
 
 - Spot DEX: Sushi
 - Lending & Borrowing: Morpho
-- Perp DEX: Vertex
 
 Katana also comes with a set of yield-generating tokens, and asset types:
 
