@@ -1,5 +1,7 @@
 Katana runs on Agglayer's [CDK OP Stack](https://www.agglayer.dev/cdk), which means it's powered by Geth, secured by zk-proofs, and is connected with Agglayer's Unified Bridge.
 
+Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
+
 ### Basic Info
 
 | Chain Name     | Katana                                                             |

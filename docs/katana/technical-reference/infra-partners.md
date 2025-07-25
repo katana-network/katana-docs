@@ -8,8 +8,7 @@
 
 ### Block Explorers
 
-<!-- - Etherscan -->
-
+- [Etherscan](https://katanascan.com)
 - [Blockscout](https://explorer.katanarpc.com/)
 - [Tenderly Block Explorer](https://dashboard.tenderly.co/explorer/katana)
 
@@ -18,16 +17,17 @@
 - [Bitget Wallet](https://web3.bitget.com/en)
 - [Fireblocks](https://www.fireblocks.com/)
 - [Rabby](https://rabby.io/)
+<!-- - [Subwallet] -->
 - [Safe](https://safe.global/wallet)
   <!-- - [Metamask]() -->
-- [Zerion](https://zerion.io/)
+- [Zerion](https://zerion.io/download?utm_source=katana&utm_medium=marketing&utm_campaign=download_page)
   <!-- - BitGo -->
 
 - [DeBank](https://debank.com/)
 
 ### Bridging
 
-- [Agglayer Unified Bridge](https://bridge.agglayer.dev/)
+- [Katana Native Bridge](https://bridge.katana.network/)
 - [Chainlink CCIP](https://docs.chain.link/ccip/directory/mainnet/chain/polygon-mainnet-katana)
 - [Jumper](https://jumper.exchange/?fromAmount=1&fromChain=8453&fromToken=0x0000000000000000000000000000000000000000&toChain=747474&toToken=0x0000000000000000000000000000000000000000)
 - [Hyperlane](https://docs.hyperlane.xyz/docs/reference/domains)
@@ -59,8 +59,8 @@
 ### Oracles
 
 - [API3](https://market.api3.org/katana)
-  <!-- - [Chainlink Data Feeds](https://data.chain.link/feeds) -->
-  <!-- - [Chainlink Data Streams](https://data.chain.link/streams) -->
+  - [Chainlink Data Feeds](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&network=katana&testnetPage=1&search=)
+  - [Chainlink Data Streams](https://docs.chain.link/data-streams/crypto-streams?page=1&testnetPage=1)
 - [Redstone Oracles](https://app.redstone.finance/app/feeds/?page=1&sortBy=popularity&sortDesc=false&perPage=32&networks=747474)
 
 ### Subgraphs
