@@ -4,12 +4,12 @@ Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
 
 ### Basic Info
 
-| Chain Name     | Katana                                                             |
-| :------------- | :----------------------------------------------------------------- |
-| Chain ID       | 747474                                                             |
-| Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/)         |
-| Gas Token      | ETH                                                                |
-| Block explorer | [https://explorer.katanarpc.com/](https://explorer.katanarpc.com/) |
+| Chain Name     | Katana                                                     |
+| :------------- | :--------------------------------------------------------- |
+| Chain ID       | 747474                                                     |
+| Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/) |
+| Gas Token      | ETH                                                        |
+| Block explorer | [https://katanascan.com/](https://katanascan.com/)         |
 
 ### Chain Configuration
 
