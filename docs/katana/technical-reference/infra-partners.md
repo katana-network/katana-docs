@@ -74,7 +74,7 @@
 
 ### Account Abstraction / Wallet Infrastructure
 
-- [Para](https://docs.getpara.com/introduction/chain-support#:~:text=%E2%9C%85-,Katana,-747474)
+- [Para](https://docs.getpara.com/v2/introduction/chain-support#:~:text=%E2%9C%85-,Katana,-747474)
 <!-- - [Zero.dev](https://dashboard.zerodev.app/) -->
 
 ### Incentive Distribution
