@@ -17,13 +17,16 @@
 - [Bitget Wallet](https://web3.bitget.com/en)
 - [Fireblocks](https://www.fireblocks.com/)
 - [Rabby](https://rabby.io/)
-<!-- - [Subwallet] -->
+- [Subwallet](https://www.subwallet.app/)
 - [Safe](https://safe.global/wallet)
-  <!-- - [Metamask]() -->
 - [Zerion](https://zerion.io/download?utm_source=katana&utm_medium=marketing&utm_campaign=download_page)
-  <!-- - BitGo -->
 
 - [DeBank](https://debank.com/)
+- [CoinStats](https://coinstats.app/)
+
+You can also use Katana on other wallets that allow you to add a custom chain, such as [Metamask](https://metamask.io/).
+
+<!-- - BitGo -->
 
 ### Bridging
 
