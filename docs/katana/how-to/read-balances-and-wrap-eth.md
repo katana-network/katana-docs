@@ -1,76 +1,69 @@
-# Read Balances & Wrap ETH into WETH
+# Read Balances & Wrap ETH into bvbEth
 
 This tutorial will guide you through the process of interacting with Katana's
 core tokens, specifically how to read token balances and wrap ETH into the yield
-bearing WETH using a local Tatara fork.
+bearing bvbEth (Bridged Vault Bridge ETH) using a local Katana fork.
+
+For all intents and purposes, WETH and bvbEth can be used interchangeably.
 
 ## Goal
 
 By the end of this tutorial, you'll be able to:
 
-- Read ETH and WETH balances using viem
-- Wrap ETH into WETH
-- Unwrap WETH back to ETH
-- Understand the relationship between ETH and WETH in the Katana ecosystem
+- Read ETH and bvbEth balances using viem
+- Wrap ETH into bvbEth
+- Unwrap bvbEth back to ETH
+- Understand the relationship between ETH and bvbEth in the Katana ecosystem
 
 ## Prerequisites
 
 - Completed [Tutorial 01: Getting Started](../get-started/set-up-your-environment.md)
 - Basic understanding of ERC20 tokens and ETH wrapping
-- Local Tatara fork running
+- Local Katana fork running
 
-## Introduction to Katana's Core Tokens
-
-### ETH and WETH
+## ETH and bvbEth
 
 Ethereum's native currency (ETH) doesn't conform to the ERC20 standard. This
-presents challenges when applications need consistent token interfaces. Wrapped
-ETH (WETH) solves this problem by wrapping ETH in an ERC20-compliant token
-contract.
+presents challenges when applications need consistent token interfaces. Bridged
+Vault Bridge ETH (bvbEth) solves this problem by wrapping ETH in an ERC20-compliant token
+contract while providing additional yield-bearing capabilities.
 
-In Katana, WETH has special properties:
+In Katana, bvbEth has special properties:
 
 - Maintains the standard WETH9 interface for compatibility
 - Acts as a drop-in replacement for WETH across DeFi applications
 - Yield from bridged ETH can be distributed to active network participants
-
-### AUSD
-
-AUSD is Katana's native stablecoin, fully collateralized and designed with
-yield-sharing capabilities:
-
-- Unlike traditional stablecoins, AUSD shares yield with chain operators based
-  on their AUSD TVL
-- This yield can be used to increase on-chain yields and incentivize participation
+- We call it **bvbEth** or "bridged vault bridge Eth"
 
 ## Setting Up the Local Environment
 
-Before starting, make sure your local Tatara fork is running:
+Before starting, make sure your local Katana fork is running:
 
 ### Terminal 1: Start Anvil Fork
 
 ```sh
-bun run start:anvil:tatara
+bun run start:anvil katana
 ```
 
-### Terminal 2: Verify the Fork
+### Terminal 2: [Optional] Verify the Fork
 
 ```sh
-bun run verify:anvil:tatara
+bun run verify:anvil
 ```
 
 ### Configure Your Wallet
 
 Connect your wallet to the local fork with these settings:
 
-- **Network Name**: Tatara Local Fork
+- **Network Name**: Katana Local Fork
 - **RPC URL**: `http://localhost:8545`
-- **Chain ID**: 471
+- **Chain ID**: 747474
 - **Currency Symbol**: ETH
 
-Note that the local fork of the chain is initialized with some unlocked and
-Eth-rich accounts. You should either import one of those into your wallet and
-use its balance, or send one such account's balance to your main testing wallet.
+Note that the local fork of the chain is initialized with some [unlocked and
+Eth-rich accounts](https://getfoundry.sh/anvil/overview). You should either
+import one of those into your wallet and use its balance, or send one such
+account's balance to your main testing wallet.
 
 > A note on Metamask shenanigans: when using Metamask to issue transactions on a
 > custom chain, if you reset the chain, the nonce in the wallet will stay the
@@ -97,6 +90,9 @@ If you find a need for frameworks, alternative build systems, or any other
 dependencies, please feel free to pull those in as desired. For the purposes of
 this tutorial, modifying this simple app skeleton will be just fine.
 
+The outcome of this tutorial is a modified sample app which can be found in the
+`examples/wrapped` folder.
+
 ## Building the App: Reading Balances and Wrapping ETH
 
 Let's create a new component that reads ETH and WETH balances and allows users
@@ -107,9 +103,9 @@ to wrap/unwrap ETH.
 First, we'll add a new section to `index.html` for our functionality:
 
 ```html
-<!-- ETH/WETH Operations Section -->
+<!-- ETH/bvbEth Operations Section -->
 <section id="eth-weth-section">
-  <h2>ETH/WETH Operations</h2>
+  <h2>ETH/bvbEth Wrapping Operations</h2>
   <div class="card">
     <h3>Token Balances</h3>
     <div class="balances-container">
@@ -118,14 +114,15 @@ First, we'll add a new section to `index.html` for our functionality:
         <div id="eth-balance" class="value">-</div>
       </div>
       <div class="balance-item">
-        <div class="label">WETH Balance</div>
+        <div class="label">bvbEth Balance</div>
         <div id="weth-balance" class="value">-</div>
       </div>
     </div>
     
     <div class="operations-container">
       <div class="operation-card">
-        <h4>Wrap ETH to WETH</h4>
+        <h4>Wrap ETH to bvbEth</h4>
+        <p class="operation-description">Convert your ETH into yield-bearing bvbEth tokens</p>
         <div class="form-group">
           <label for="wrap-amount">Amount (ETH)</label>
           <input type="number" id="wrap-amount" min="0" step="0.01" placeholder="0.0">
@@ -134,17 +131,21 @@ First, we'll add a new section to `index.html` for our functionality:
       </div>
       
       <div class="operation-card">
-        <h4>Unwrap WETH to ETH</h4>
+        <h4>Unwrap bvbEth to ETH</h4>
+        <p class="operation-description">Convert your bvbEth tokens back to ETH</p>
         <div class="form-group">
-          <label for="unwrap-amount">Amount (WETH)</label>
+          <label for="unwrap-amount">Amount (bvbEth)</label>
           <input type="number" id="unwrap-amount" min="0" step="0.01" placeholder="0.0">
         </div>
-        <button id="unwrap-button" class="primary-button" disabled>Unwrap WETH</button>
+        <button id="unwrap-button" class="primary-button" disabled>Unwrap bvbEth</button>
       </div>
     </div>
   </div>
 </section>
 ```
+
+This section provides a clean interface for wrapping ETH into bvbEth and
+unwrapping bvbEth back to ETH.
 
 Add this section just before the closing `</main>` tag in the `index.html` file.
 
@@ -152,42 +153,24 @@ Add this section just before the closing `</main>` tag in the `index.html` file.
 
 Now we'll add the necessary code to `main.ts` to handle:
 
-1. Reading ETH and WETH balances
-2. Wrapping ETH to WETH
-3. Unwrapping WETH back to ETH
+1. Reading ETH and bvbEth balances
+2. Wrapping ETH to bvbEth
+3. Unwrapping bvbEth back to ETH
 
-First, we will modify our imports.
+First, we need to add `parseUnits` to our imports for handling number conversions:
 
 ```ts
-import { createPublicClient, parseUnits, createWalletClient, http, custom, formatEther, formatUnits, PublicClient, WalletClient, Chain } from 'viem';
-import getContractAddress, { CHAIN_IDS } from '../utils/addresses';
-
-// Define the Tatara chain
-const tataraChain: Chain = {
-  id: CHAIN_IDS.TATARA,
-  name: 'Tatara',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Ether',
-    symbol: 'ETH',
-  },
-  rpcUrls: {
-    default: {
-      http: ['http://localhost:8545'],
-    },
-    public: {
-      http: ['http://localhost:8545'],
-    },
-  },
-};
+import { createPublicClient, createWalletClient, http, custom, formatEther, formatUnits, parseUnits, PublicClient, WalletClient } from 'viem';
+import { addresses, CHAIN_IDS } from '../utils/addresses/index.js';
 ```
 
-Other than adding `parseUnits` for some number juggling later on, we used
-`Chain` to define a new chain for viem to use.
+The starter kit already includes comprehensive chain detection and address management,
+so we can leverage the existing infrastructure.
 
-Following that, we'll add references to our new DOM elements.
+Next, we'll add references to our new DOM elements:
 
 ```ts
+// ETH/bvbEth wrapping elements
 const ethBalanceElement = document.getElementById('eth-balance') as HTMLElement;
 const wethBalanceElement = document.getElementById('weth-balance') as HTMLElement;
 const wrapAmountInput = document.getElementById('wrap-amount') as HTMLInputElement;
@@ -196,9 +179,11 @@ const wrapButton = document.getElementById('wrap-button') as HTMLButtonElement;
 const unwrapButton = document.getElementById('unwrap-button') as HTMLButtonElement;
 ```
 
-Before we get into wrapping and unwrapping, let's read the WETH and ETH balance.
+Before we get into wrapping and unwrapping, let's create the function to read
+ETH and bvbEth balances:
 
 ```ts
+// Load ETH and bvbEth balances
 async function loadBalances() {
   if (!walletClient || !publicClient) {
     ethBalanceElement.textContent = 'Wallet not connected';
@@ -214,15 +199,19 @@ async function loadBalances() {
     }
     const account = accounts[0];
     
-    // Get WETH address for the current chain
-    const chainId = await publicClient.getChainId();
-    const wethAddress = getContractAddress('WETH', chainId);
+    // Get bvbEth address for the current chain using the address utils
+    const wethAddress = addresses.getAddress('bvbEth');
+    if (!wethAddress) {
+      ethBalanceElement.textContent = 'bvbEth not available';
+      wethBalanceElement.textContent = 'bvbEth not available';
+      return;
+    }
     
     // Read ETH balance
     const ethBalance = await publicClient.getBalance({ address: account });
     ethBalanceElement.textContent = `${formatEther(ethBalance)} ETH`;
     
-    // Read WETH balance
+    // Read bvbEth balance
     const wethBalance = await publicClient.readContract({
       address: wethAddress,
       abi: WETH_ABI,
@@ -230,7 +219,7 @@ async function loadBalances() {
       args: [account]
     });
     
-    wethBalanceElement.textContent = `${formatEther(wethBalance as bigint)} WETH`;
+    wethBalanceElement.textContent = `${formatEther(wethBalance as bigint)} bvbEth`;
     
     // Enable buttons if wallet is connected
     wrapButton.disabled = false;
@@ -243,47 +232,35 @@ async function loadBalances() {
 }
 ```
 
-We want this to run on wallet connect, so let's modify the function.
+We want this to run on wallet connect, so let's modify the existing
+connectWallet function to call loadBalances():
 
 ```ts
-async function connectWallet() {
-  if (!hasEthereum) {
-    alert('Please install MetaMask or another Ethereum wallet');
-    return;
-  }
-
-  try {
-    // Request account access
-    walletClient = createWalletClient({
-      transport: custom(window.ethereum)
-    });
-    
-    const accounts = await walletClient.requestAddresses();
-    
-    if (accounts.length > 0) {
-      walletStatus.textContent = `Connected: ${shortenAddress(accounts[0])}`;
-      connectWalletButton.textContent = 'Connected';
-      connectWalletButton.disabled = true;
-      
-      // Load balances after wallet connection
-      loadBalances();
-    }
-  } catch (error) {
-    console.error('Connection error:', error);
-    walletStatus.textContent = 'Connection failed';
-  }
+// In the connectWallet function, add this after successful connection:
+if (accounts.length > 0) {
+  walletStatus.textContent = `Connected: ${shortenAddress(accounts[0])}`;
+  connectWalletButton.textContent = 'Connected';
+  connectWalletButton.disabled = true;
+  
+  // Load balances after wallet connection
+  loadBalances();
 }
 ```
 
-This should already be runnable now - if you build the app with `bun run build`
-and then host it with something like `cd dist && http-server`, you should be
-able to see the balances when you connect at `localhost:8080`.
+This should already be runnable now - if you build the examples with
+`bun run build:examples` and then host it with something like
+`cd dist-examples/wrapping && npx http-server`, you should be able to see the
+balances when you connect.
 
-![Reading balances](balances.png)
+Remember - to top up your balance of "eth", just seed it from one of the
+[Anvil-provided unlocked accounts](https://getfoundry.sh/anvil/overview). Import
+the private key of one such wallet into a wallet of your choice and send
+yourself some magic eth!
 
-The wrapping functions are next.
+The wrapping functions are next. Add these functions to handle wrapping and unwrapping:
 
 ```ts
+// Wrap ETH to bvbEth
 async function wrapEth() {
   if (!walletClient || !publicClient) {
     alert('Please connect your wallet first');
@@ -300,9 +277,12 @@ async function wrapEth() {
     const accounts = await walletClient.getAddresses();
     const account = accounts[0];
     
-    // Get WETH address for the current chain
-    const chainId = await publicClient.getChainId();
-    const wethAddress = getContractAddress('WETH', chainId);
+    // Get bvbEth address for the current chain
+    const wethAddress = addresses.getAddress('bvbEth');
+    if (!wethAddress) {
+      alert('bvbEth not available on this chain');
+      return;
+    }
     
     // Convert the input value to Wei (bigint)
     const wrapAmountWei = parseUnits(wrapAmount, 18);
@@ -311,20 +291,21 @@ async function wrapEth() {
     wrapButton.disabled = true;
     wrapButton.textContent = 'Processing...';
     
-    // Call WETH deposit function
+    // Call bvbEth deposit function
     const hash = await walletClient.writeContract({
       address: wethAddress,
       abi: WETH_ABI,
       functionName: 'deposit',
       value: wrapAmountWei,
-      account
+      account,
+      chain: createChainConfig()
     });
     
     // Wait for transaction to be mined
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     
     if (receipt.status === 'success') {
-      alert(`Successfully wrapped ${wrapAmount} ETH to WETH!`);
+      alert(`Successfully wrapped ${wrapAmount} ETH to bvbEth!`);
       
       // Clear input and update balances
       wrapAmountInput.value = '';
@@ -342,6 +323,7 @@ async function wrapEth() {
   }
 }
 
+// Unwrap bvbEth to ETH
 async function unwrapWeth() {
   if (!walletClient || !publicClient) {
     alert('Please connect your wallet first');
@@ -358,9 +340,12 @@ async function unwrapWeth() {
     const accounts = await walletClient.getAddresses();
     const account = accounts[0];
     
-    // Get WETH address for the current chain
-    const chainId = await publicClient.getChainId();
-    const wethAddress = getContractAddress('WETH', chainId);
+    // Get bvbEth address for the current chain
+    const wethAddress = addresses.getAddress('bvbEth');
+    if (!wethAddress) {
+      alert('bvbEth not available on this chain');
+      return;
+    }
     
     // Convert the input value to Wei (bigint)
     const unwrapAmountWei = parseUnits(unwrapAmount, 18);
@@ -369,20 +354,21 @@ async function unwrapWeth() {
     unwrapButton.disabled = true;
     unwrapButton.textContent = 'Processing...';
     
-    // Call WETH withdraw function
+    // Call bvbEth withdraw function
     const hash = await walletClient.writeContract({
       address: wethAddress,
       abi: WETH_ABI,
       functionName: 'withdraw',
       args: [unwrapAmountWei],
-      account
+      account,
+      chain: createChainConfig()
     });
     
     // Wait for transaction to be mined
     const receipt = await publicClient.waitForTransactionReceipt({ hash });
     
     if (receipt.status === 'success') {
-      alert(`Successfully unwrapped ${unwrapAmount} WETH to ETH!`);
+      alert(`Successfully unwrapped ${unwrapAmount} bvbEth to ETH!`);
       
       // Clear input and update balances
       unwrapAmountInput.value = '';
@@ -391,95 +377,61 @@ async function unwrapWeth() {
       alert('Transaction failed. Please try again.');
     }
   } catch (error) {
-    console.error('Error unwrapping WETH:', error);
-    alert('Error unwrapping WETH. See console for details.');
+    console.error('Error unwrapping bvbEth:', error);
+    alert('Error unwrapping bvbEth. See console for details.');
   } finally {
     // Reset button state
     unwrapButton.disabled = false;
-    unwrapButton.textContent = 'Unwrap WETH';
+    unwrapButton.textContent = 'Unwrap bvbEth';
   }
 }
 ```
 
-We only have trivialities left now - add event listeners, and init them on page
-load (for this we need to change the initialize function).
+The starter kit already handles initialization and chain detection, so we just
+need to add our new event listeners:
 
 ```ts
-
 // Add event listeners for the wrap and unwrap buttons
-function setupEventListeners() {
-  connectWalletButton.addEventListener('click', connectWallet);
-  wrapButton.addEventListener('click', wrapEth);
-  unwrapButton.addEventListener('click', unwrapWeth);
-}
+// Add these to the existing event listeners section:
+connectWalletButton.addEventListener('click', connectWallet);
+wrapButton.addEventListener('click', wrapEth);
+unwrapButton.addEventListener('click', unwrapWeth);
+```
 
-// Update the initialize function to setup event listeners
-async function initialize() {
-  try {
-    // Create a public client with custom config
-    publicClient = createPublicClient({
-      transport: createRobustTransport()
-    });
+The existing initialization function already handles all the chain detection and
+setup, so we don't need to modify it further.
 
-    // Test connection with a simple method first
-    try {
-      // Ping the RPC with a simple request before attempting more complex calls
-      await publicClient.getBlockNumber();
-      
-      // Then try to get chain ID
-      const chainId = await publicClient.getChainId();
-      
-      if (chainId === 471) {
-        updateNetworkStatus('connected', 'Tatara');
-        
-        // Validate that we can read contract data before attempting to load everything
-        // This acts as a sanity check
-        try {
-          const ausdSymbol = await publicClient.readContract({
-            address: ADDRESSES.AUSD,
-            abi: ERC20_ABI,
-            functionName: 'symbol'
-          });
-          console.log(`Connected and able to read contracts. AUSD symbol: ${ausdSymbol}`);
-          
-          // Now load all contract data
-          loadContractData();
-          
-          // Setup event listeners for ETH/WETH operations
-          setupEventListeners();
-        } catch (contractError) {
-          console.error('Contract read test failed:', contractError);
-          updateNetworkStatus('error', 'Contract read failed');
-          displayRpcError('Contract read error. The fork might not have the contract state loaded correctly.');
-        }
-      } else {
-        updateNetworkStatus('error', `Wrong network: ${chainId}`);
-        displayRpcError(`Connected to wrong network. Expected 471 (Tatara), got ${chainId}`);
-      }
-    } catch (error) {
-      console.error('RPC connection error:', error);
-      updateNetworkStatus('error', 'Fork not running');
-      displayRpcError('Unable to connect to local Tatara fork');
-    }
-  } catch (error) {
-    console.error('Initialization error:', error);
-    updateNetworkStatus('error', 'Connection error');
-    displayRpcError();
-  }
+We also need to add a helper function to create the chain configuration that
+viem requires for contract transactions:
 
-  // Handle wallet connection separately from RPC connection
-  if (!hasEthereum) {
-    walletStatus.textContent = 'No wallet detected';
-  }
+```ts
+// Helper function to create chain config for viem
+function createChainConfig() {
+  return {
+    id: currentChainId,
+    name: currentChainInfo?.name || 'Unknown',
+    nativeCurrency: {
+      decimals: 18,
+      name: 'Ether',
+      symbol: 'ETH',
+    },
+    rpcUrls: {
+      default: {
+        http: ['http://localhost:8545'],
+      },
+    },
+  };
 }
 ```
 
 ### Step 3: Add CSS Styles
 
-Add these styles to your `style.css` file to make the new section look nice:
+The starter kit already includes comprehensive styling, but we need to add
+specific styles for our wrapping interface. Add these styles to your `style.css`
+file:
 
 ```css
-/* ETH/WETH Operations */
+/* ETH/bvbEth Operations */
 #eth-weth-section {
   margin-top: 2rem;
 }
@@ -522,8 +474,15 @@ Add these styles to your `style.css` file to make the new section look nice:
 
 .operation-card h4 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-size: 1rem;
+}
+
+.operation-description {
+  font-size: 0.85rem;
+  color: #687588;
+  margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .form-group {
@@ -534,6 +493,7 @@ Add these styles to your `style.css` file to make the new section look nice:
   display: block;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .form-group input {
@@ -542,6 +502,7 @@ Add these styles to your `style.css` file to make the new section look nice:
   border: 1px solid #d0d6df;
   border-radius: 4px;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 .form-group input:focus {
@@ -561,19 +522,26 @@ Add these styles to your `style.css` file to make the new section look nice:
 
 Now let's build and test our updated application:
 
-1. Make sure your local Tatara fork is still running
-2. Build the app:
+1. Make sure your local Katana fork is still running
+2. Build the examples:
 
    ```sh
-   bun run build
+   bun run build:examples
    ```
 
-3. Open the app in your browser (`cd dist && npx http-server`)
-4. Connect your wallet to see your balances
-5. Try wrapping some ETH into WETH and vice versa
+3. Navigate to the wrapping example and start the server:
 
-![Wrapping underway](wrap.png)
-![Wrapping done](wrapped.png)
+   ```sh
+   cd dist-examples/wrapping
+   npx http-server
+   ```
+
+4. Open your browser to the displayed URL (usually `http://localhost:8080`)
+5. Connect your wallet to see your balances
+6. Try wrapping some ETH into bvbEth and vice versa
+
+The application will show you the current state of the Katana network and allow
+you to interact with the bvbEth token contract directly.
 
 ## Extending the Example
 
@@ -581,24 +549,25 @@ Here are some ideas to further enhance your application:
 
 1. **Add support for other tokens**:
     - Read and display AUSD balances
-    - Interact with vbTokens (yield-bearing vault bridge tokens)
+    - Interact with other vbTokens (yield-bearing vault bridge tokens)
 
 2. **Improve the UI**:
     - Add loading indicators during transactions
     - Show transaction history
     - Display the current gas cost estimation
 
-3. **Add advanced WETH functions**:
-    - Implement `transfer()` to send WETH to another address
+3. **Add advanced bvbEth functions**:
+    - Implement `transfer()` to send bvbEth to another address
     - Implement `approve()` and `transferFrom()` for allowances
 
 ## Conclusion
 
-In this tutorial, you've learned how to read ETH and WETH balances, wrap ETH
-into WETH, and unwrap WETH back to ETH using a local Tatara fork. These are
+In this tutorial, you've learned how to read ETH and bvbEth balances, wrap ETH
+into bvbEth, and unwrap bvbEth back to ETH using a local Katana fork. These are
 fundamental operations for interacting with DeFi applications on Katana.
 
-The ability to convert between ETH and WETH is essential for participating in
-DeFi protocols, as most require tokens to conform to the ERC20 standard. With
-this knowledge, you're now ready to explore more complex interactions with
-Katana's "money legos."
+The ability to convert between ETH and bvbEth is essential for participating in
+DeFi protocols, as most require tokens to conform to the ERC20 standard.
+Additionally, bvbEth provides yield-bearing capabilities that can enhance your
+DeFi strategies. With this knowledge, you're now ready to explore more complex
+interactions with Katana's "money legos."

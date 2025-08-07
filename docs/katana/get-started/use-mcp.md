@@ -20,16 +20,10 @@ exploit, or a bulletproof integration.
 
 The MCP server is already built and in the repo when you clone it, but if you
 want to rebuild it (in case you made some changes, added features and tools into
-it, etc.) you can run the following command:
+it, improved its guidance and context etc.) you can run the following command:
 
 ```bash
-% bun run build:mcpserver
-
-$ bun build.js --mcp-only
-🏗️ Building MCP server...
-Cleaning dist-mcp directory...
-✅ MCP server compiled successfully.
-✅ MCP server README created.
+bun run build:mcpserver
 ```
 
 The server's README will be in dist-mcp/README.md containing the server's definition.
@@ -71,16 +65,17 @@ key as well. For Anvil chains like our localhost:8545 this is not necessary
 because Anvil chains have a well known preset of keys that are unlocked on start
 and seeded with mock funds.
 
-On a live chain or live testnet, this would be
-necessary to execute remote transactions.
+On a live chain or live testnet, this would be necessary to execute remote
+transactions.
 
 Once you save this file, the server's tools (commands) will be indexed by
 Cursor, and should appear in the previous screen.
 
 ![MCP server indexed](./mcp02.png)
 
-Once you have your Anvil chain running (with `bun run start:anvil:tatara`), you
-can ask the chat something about the chain. Let's ask it for the supply of AUSD.
+Once you have your Anvil chain running (with e.g. `bun run start:anvil katana`),
+you can ask the chat something about the chain. Let's ask it for the supply of
+AUSD.
 
 ![AUSD return value by MCP](./mcp03.png)
 
@@ -93,7 +88,7 @@ Then we'll tell it to add the MCP from JSON:
 ```bash
 > claude mcp add-json foundry '{
         "command": "bun run",
-        "args": ["/Users/bskvorc/repos/k-start/dist-mcp/index.js"],
+        "args": ["ABSOLUTE_PATH_TO_SPECIALK_CLONE/dist-mcp/index.js"],
         "env": {
           "PRIVATE_KEY": "0xYourPrivateKeyHere",
           "RPC_URL": "http://localhost:8545"
@@ -121,6 +116,6 @@ fewer tokens will be spent.
 ## Other tools
 
 Other tools function in a similar manner - they all have their own MCP
-installation procedure, and they can all ingest the JSON. All the matters is
+installation procedure, and they can all ingest the JSON. All that matters is
 that the LLM can find the MCP, so when in doubt, build it from the starter kit
 with `bun run build:mcpserver` and copy it to wherever you need it.
