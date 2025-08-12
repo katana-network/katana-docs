@@ -8,7 +8,9 @@ We’ve curated a [comprehensive Awesome List](https://github.com/katana-network
 
 ### Connect With Us on Telegram
 
-For real-time updates, discussions, and to interact with other members of the Katana community, join our official Telegram group. Connect with fellow members, get early access to new developments, swap yield alpha, and contribute to the future of DeFi. To join, [apply for early developer access](https://forms.clickup.com/90131276658/f/2ky3w8vj-4573/KHGUSZC4VHAMX9XMYN).
+For real-time updates, discussions, and to interact with other members of the Katana community, join our [official Telegram group](https://t.me/+FWq3LkIVFjsyMmQx). Connect with fellow members, get early access to new developments, swap yield alpha, and contribute to the future of DeFi. This group is approval-gated, so expect to be added in within 24 hours of applying to join.
+
+Alternatively, if you're more developer-minded, join the public developer community group at [@katanadevs](https://t.me/katanadevs).
 
 ### Get Involved
 
