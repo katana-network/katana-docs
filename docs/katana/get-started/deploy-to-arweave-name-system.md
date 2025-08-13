@@ -40,7 +40,8 @@ Head to to [ArNS app](https://arns.app/#/?search=) to purchase a name.
 
 The ArNS supports purchasing with fiat (credit card via stripe), turbo credits or [ARIO tokens](ar.io/token). ArNS names can be lease or bought permanently.
 
-**NOTE** - You can use the same credit balance to pay for uploads and ArNS names. The wallet you use to payfor uploads most also be the owner of the ArNS name.
+
+>  **NOTE** - You can use the same credit balance to pay for uploads and ArNS names. **The wallet you use to pay for uploads must also be the owner of the ArNS name.**
 
 ### Update the `deploy:arweave` command
 
@@ -76,4 +77,12 @@ If you have follow the steps above correctly, everytime you push to your `main` 
 You will now be able to view your website at yourarnsname.ar.io (or any other gateway in the network).
 
 Here is the latest version of the startkit deployed to ArNS - https://specialk.ar.io.
+
+## Using AR.IO Network testnet with ArNS
+
+If you'd prefer to test your deployment to ArNS, AR.IO Network provides testnent support for doing so. 
+
+1. Request tokens for your wallet from the [ARIO faucet](https://faucet.ar.io/).
+2. Follow the "Using arns.app with Testnet" intstructions in [this guide](https://docs.ar.io/guides/testnet#using-arnsapp-with-testnet).
+3. Add `--ario-process testnet` to the end of the `deploy:arweave` command in your `package.json`
 
