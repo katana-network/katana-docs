@@ -48,13 +48,13 @@ The ArNS supports purchasing with fiat (credit card via stripe), turbo credits o
 In the starter kit's `package.json` is a command for deploying to ArNS using permaweb-deploy. 
 
 ```
-deploy:arweave": "bun run build:all && permaweb-deploy --arns-name <ARNS_NAME>
+deploy:arweave": "bun run build:all && permaweb-deploy --arns-name <ARNS_NAME> --sig-key ethereum
 ```
 
 Update this command with the ArNS name you purchased in the last step
 
 ```
-deploy:arweave": "bun run build:all && permaweb-deploy --arns-name specialK
+deploy:arweave": "bun run build:all && permaweb-deploy --arns-name specialK --sig-key ethereum
 ```
 
 ### Add your wallet private key as a Github Secret.
