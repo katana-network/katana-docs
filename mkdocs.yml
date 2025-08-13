@@ -61,6 +61,7 @@ nav:
           - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
           - Integrate Privy email login (client side): katana/how-to/add-privy.md
+          - Deploy your app to Arweave Name System (ArNS): katana/how-to/deploy-to-arweave-name-system.md
       - Additional Resources:
           - Katana Developer Community: katana/additional-resources/community-page.md
           # - Technical reference [mainnet]: katana/additional-resources/technical-reference-mainnet.md
