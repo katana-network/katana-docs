@@ -56,12 +56,12 @@ nav:
           - Set up your environment: katana/get-started/set-up-your-environment.md
           - Testnet Information: katana/get-started/technical-reference-testnet.md
           - Use MCP to talk to the blockchain: katana/get-started/use-mcp.md
-          - Deploy your app to Arweave Name System (ArNS): katana/get-started/deploy-to-arweave-name-system.md
       - How To:
           - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
           - Verify contracts on Tatara: katana/how-to/verify-contracts-on-tatara.md
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
           - Integrate Privy email login (client side): katana/how-to/add-privy.md
+          - Deploy your app to Arweave Name System (ArNS): katana/how-to/deploy-to-arweave-name-system.md
       - Additional Resources:
           - Katana Developer Community: katana/additional-resources/community-page.md
           # - Technical reference [mainnet]: katana/additional-resources/technical-reference-mainnet.md
