@@ -7,9 +7,9 @@ ArNS domains are smart domains by AR.IO Network that allows you to associate any
 
 For example, the ArNS domains’ app itself is deployed to ArNS:
 
-- arns.ar.io
-- arns.arweave.net
-- arns.permagate.io
+- [arns.ar.io](https://arns.ar.io)
+- [arns.arweave.net](https://arns.arweave.net)
+- [arns.permagate.io](https://arns.arweave.net)
 
 Same app available on multiple gateways.
 
