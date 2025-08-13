@@ -1,3 +1,5 @@
+# Deploy your app to Arweave Name System (ArNS)
+
 The [starter kit](https://github.com/katana-network/specialk) comes with support for hosting sites to [Arweave Name System (ArNS)](ar.io/arns).
 
 ## What is the Arweave Name System?
