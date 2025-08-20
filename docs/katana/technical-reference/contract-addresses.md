@@ -146,6 +146,8 @@ NOTE2: for WETH, you should NOT use the default OP Stack address (`0x420...006`)
 
 ## Price Feeds
 
+Need another feed or stream? Then reach out to us on [@katanadevs](https://t.me/katanadevs).
+
 ### Chainlink
 
 Refer to Chainlink's official [Price Feed Contract Addresses](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&network=katana&testnetPage=1#networks) for the full list.
