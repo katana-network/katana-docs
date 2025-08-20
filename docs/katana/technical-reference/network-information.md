@@ -11,6 +11,8 @@ Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
 | Gas Token      | ETH                                                        |
 | Block explorer | [https://katanascan.com/](https://katanascan.com/)         |
 
+Notes: Our public RPC is fronted by a load balancer. Users are rate limited at 100 requests/second.
+
 ### Chain Configuration
 
 <table>
