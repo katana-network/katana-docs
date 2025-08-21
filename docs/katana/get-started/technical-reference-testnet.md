@@ -1,16 +1,14 @@
-### Chain Info
+## Bokuto
 
-**Note: Tatara will be replaced with a new testnet. But will stay running until needed.**
-
-| Network Name | Tatara Network (aka Katana Testnet)                                             |
-| :----------- | :------------------------------------------------------------------------------ |
-| Chain ID     | 129399                                                                          |
-| RPC URL      | [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/) |
-
-| Block explorer      | [https://explorer.tatara.katana.network/](https://explorer.tatara.katana.network/)                   |
-| :------------------ | :--------------------------------------------------------------------------------------------------- |
-| Vault Bridge Faucet | [https://faucet-api.polygon.technology/api-docs/](https://faucet-api.polygon.technology/api-docs/)   |
-| Bridge UI           | [https://bridge.katana.network](https://bridge.katana.network) |
+| Network Name   | Bokuto                                                                                       |
+| :------------- | :------------------------------------------------------------------------------------------- |
+| Chain ID       | 737373                                                                                       |
+| RPC URL        | [https://rpc-bokuto.katanarpc.com](https://rpc-bokuto.katanarpc.com)                         |
+| Block explorer | [https://bokuto.katanascan.com/](https://bokuto.katanascan.com/)                             |
+|                | [https://explorer-bokuto.katanarpc.com/](https://explorer-bokuto.katanarpc.com/)             |
+| Bridge UI      | SOON                                                                                         |
+| Faucet         | [https://faucet.katana.tools/](https://faucet.katana.tools/)                                 |
+|                | Join the [@katanadevs public developer community group](https://t.me/katanadevs) for a code. |
 
 ### Chain Configuration
 
@@ -21,30 +19,35 @@
 | Gas Pricing       | EIP1559   |
 | Data Availability | EIP4844   |
 
+### Interacting with the Unified Bridge
+
+| Agglayer Documentation    | [https://docs.agglayer.dev/](https://docs.agglayer.dev/)                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Unified Bridge Address    | `0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582`                                                                                           |
+| Sepolia contract          | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582)          |
+| Bokuto contract           | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://explorer-bokuto.katanarpc.com/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582) |
+| Bokuto Bridge Service API | [https://rpc-bridge-bokuto.katanarpc.com/](https://rpc-bridge-bokuto.katanarpc.com/)                                                   |
+
+For L2<->L2 transactions through the Agglayer, you'll need the other L2's Bridge Service API. The Unified Bridge Address lives in the same address across all testnets.
+
+---
+
+## Tatara
+
+**Note: Tatara is our old testnet. It's being replaced with Bokuto. Please use Bokuto if possible.**
+
+### Chain Info
+
+| Network Name   | Tatara                                                                             |
+| :------------- | :--------------------------------------------------------------------------------- |
+| Chain ID       | 129399                                                                             |
+| RPC URL        | [https://rpc.tatara.katanarpc.com/](https://rpc.tatara.katanarpc.com/)             |
+| Block explorer | [https://explorer.tatara.katana.network/](https://explorer.tatara.katana.network/) |
+
 | OpCodes     | [Appendix A \- Opcodes](#appendix-a---opcodes)         |
 | :---------- | :----------------------------------------------------- |
 | Precompiles | [Appendix B \- Precompiles](#appendix-b---precompiles) |
 | Predeploys  | [Appendix C \- Predeploys](#appendix-c---predeploys)   |
-
-### Services and General Infrastructure \[Testnet\]
-
-| RPC Providers                  | Conduit RPC               |
-| :----------------------------- | :------------------------ |
-| **Block Explorers**            | Blockscout                |
-| **Oracles**                    | Conduit Randomness Oracle |
-| **Bridges / Interoperability** | Agglayer Unified Bridge   |
-| **Wallets**                    | Safe (contracts only)     |
-
-Infrastructure and tooling: The Graph, Tenderly, IndexSupply, Across
-
-### Interacting with the Unified Bridge
-
-**Agglayer Documentation**: [https://docs.agglayer.dev/](https://docs.agglayer.dev/)  
-**Testnet Addresses and Endpoints**:
-
-| Agglayer Unified Bridge | 0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582 | [Katana](https://explorer.tatara.katana.network/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582), [Sepolia](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582) |
-| | | |
-| Bridge Service API | [https://bridge.tatara.katanarpc.com](https://bridge.tatara.katanarpc.com) | |
 
 ### Interacting with the Core Applications and Core Assets
 
