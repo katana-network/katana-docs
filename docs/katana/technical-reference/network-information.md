@@ -1,15 +1,16 @@
-Katana runs on Agglayer's [CDK OP Stack](https://www.agglayer.dev/cdk), which means it's powered by Geth, secured by zk-proofs, and is connected with Agglayer's Unified Bridge.
+Katana runs on Agglayer's [CDK OP Stack](https://www.agglayer.dev/cdk), which means it's powered by Geth, the settlement is secured by zk-proofs, and is connected to Ethereum and other L2s canonically through Agglayer's Unified Bridge.
 
 Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
 
 ### Basic Info
 
-| Chain Name     | Katana                                                     |
-| :------------- | :--------------------------------------------------------- |
-| Chain ID       | 747474                                                     |
-| Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/) |
-| Gas Token      | ETH                                                        |
-| Block explorer | [https://katanascan.com/](https://katanascan.com/)         |
+| Chain Name          | Katana                                                           |
+| :------------------ | :--------------------------------------------------------------- |
+| Chain ID            | 747474                                                           |
+| Public RPC URL      | [https://rpc.katana.network/](https://rpc.katana.network/)       |
+| Gas Token           | ETH                                                              |
+| Block explorer      | [https://katanascan.com/](https://katanascan.com/)               |
+| Canonical Bridge UI | [https://bridge.katana.network/](https://bridge.katana.network/) |
 
 Notes: Our public RPC is fronted by a load balancer. Users are rate limited at 100 requests/second.
 
@@ -50,5 +51,4 @@ Notes: Our public RPC is fronted by a load balancer. Users are rate limited at 1
             <td>EIP7702</td>
         </tr>
     </tbody>
-
 </table>

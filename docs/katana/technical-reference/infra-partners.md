@@ -12,7 +12,7 @@
 - [Blockscout](https://explorer.katanarpc.com/)
 - [Tenderly Block Explorer](https://dashboard.tenderly.co/explorer/katana)
 
-### Wallets / Portfolio Tracking
+### Wallets
 
 - [Bitget Wallet](https://web3.bitget.com/en)
 - [Fireblocks](https://www.fireblocks.com/)
@@ -21,27 +21,34 @@
 - [Safe](https://safe.global/wallet)
 - [Zerion](https://zerion.io/download?utm_source=katana&utm_medium=marketing&utm_campaign=download_page)
 
-- [DeBank](https://debank.com/)
-- [CoinStats](https://coinstats.app/)
-
 You can also use Katana on other wallets that allow you to add a custom chain, such as [Metamask](https://metamask.io/).
 
-<!-- - BitGo -->
+### Portfolio Tracking
+
+- [CoinStats](https://coinstats.app/)
+- [DeBank](https://debank.com/)
+- [Zerion](https://zerion.io/download?utm_source=katana&utm_medium=marketing&utm_campaign=download_page)
 
 ### Bridging
 
 - [Katana Native Bridge](https://bridge.katana.network/)
 - [Chainlink CCIP](https://docs.chain.link/ccip/directory/mainnet/chain/polygon-mainnet-katana)
-- [Jumper](https://jumper.exchange/?fromAmount=1&fromChain=8453&fromToken=0x0000000000000000000000000000000000000000&toChain=747474&toToken=0x0000000000000000000000000000000000000000)
 - [Hyperlane](https://docs.hyperlane.xyz/docs/reference/domains)
+  https://www.bungee.exchange/
 - [LayerZero](https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=katana)
-<!-- - [LI.FI]() -->
+- [LI.FI](https://li.fi/)
+
+---
+
+- [Bungee](https://www.bungee.exchange/?toChainId=747474&toTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee&fromChainId=10&fromTokenAddress=0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee)
+- [Gas.zip](https://www.gas.zip/)
+- [Jumper](https://jumper.exchange/?fromAmount=1&fromChain=8453&fromToken=0x0000000000000000000000000000000000000000&toChain=747474&toToken=0x0000000000000000000000000000000000000000)
+- [Layerswap](https://layerswap.io/app?to=katana_mainnet)
 - [Orbiter Finance](https://www.orbiter.finance/bridge/Base/Katana?token=ETH)
+- [Owlto](https://owlto.finance/?to=Katana)
 - [Relay](https://relay.link/bridge/katana?toCurrency=0x0000000000000000000000000000000000000000)
 - [Rhino.fi](https://app.rhino.fi/bridge?mode=pay&chainIn=BASE&chainOut=KATANA&token=ETH&tokenOut=ETH&amount=10)
 - [Stargate](https://stargate.finance/bridge?srcChain=solana&srcToken=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn&dstChain=katana&dstToken=0x6C16E26013f2431e8B2e1Ba7067ECCcad0Db6C52)
-
-- [Gas.zip](https://www.gas.zip/)
 
 ### Blockchain Data
 
@@ -49,26 +56,31 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Defillama](https://defillama.com/chain/katana)
 - [Dexscreener](https://dexscreener.com/katana)
 - [Dune](https://dune.com/chains/katana)
-<!-- - Substream -->
 
-<!--
 ### Blockchain Risk Analysis
 
-- Chainalysis
-- Hypernative
-- TRM Labs
--->
+- [Hypernative](https://www.hypernative.io/)
+- [TRM Labs](https://www.trmlabs.com/)
 
 ### Oracles
 
 - [API3](https://market.api3.org/katana)
-  - [Chainlink Data Feeds](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&network=katana&testnetPage=1&search=)
-  - [Chainlink Data Streams](https://docs.chain.link/data-streams/crypto-streams?page=1&testnetPage=1)
+- [Chainlink Data Feeds](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&network=katana&testnetPage=1&search=)
+- [Chainlink Data Streams](https://docs.chain.link/data-streams/crypto-streams?page=1&testnetPage=1)
 - [Redstone Oracles](https://app.redstone.finance/app/feeds/?page=1&sortBy=popularity&sortDesc=false&perPage=32&networks=747474)
+
+### Blockchain Data APIs
+
+- [Zerion API](https://zerion.io/api)
+
+### Blockchain Data Streaming
+
+- [Substreams](https://substreams.dev/)
 
 ### Subgraphs
 
 - [IndexSupply](https://www.indexsupply.net/status)
+- [Ormi Labs](https://ormilabs.com/)
 - [The Graph](https://thegraph.com/docs/en/supported-networks/katana/)
 
 ### Developer Tooling
