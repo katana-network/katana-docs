@@ -1,12 +1,11 @@
 # Verifying Contracts
 
-After you deploy some of your smart contracts on Tatara or Bokuto, you may want
+After you deploy some of your smart contracts on our Testnet (Bokuto), you may want
 to verify them. The current blockexplorer Blockscout requires no API key, so you
 can select your license and method in the UI,
-[like this](https://explorer.tatara.katana.network/address/0x040FB9556659C94a2b3C7678d410E626b5E8C167/contract-verification),
+[like this](https://explorer-bokuto.katanarpc.com/contract-verification),
 and then add the Solidity code in there to verify.
 
-- Tatara explorer: [explorer.tatara.katana.network](https://explorer.tatara.katana.network/)
 - Bokuto explorer: [explorer.bokuto.katana.network](https://explorer.bokuto.katana.network/)
 
 ![Contract Verification](contract-verification.png)
@@ -20,8 +19,3 @@ command.
 After clicking Verify and Publish, your contract should get verified, provided
 compiler settings and optimization settings match. If you get an error or can’t
 get past something, let us know in the Telegram group’s developer channel.
-
-For Katana, you can use either [Blockscout](https://explorer.katanarpc.com/) or
-[Etherscan](https://katanascan.com) - whichever you choose, the other will not
-have your contrats verified, so it's best to verify on both. The process is
-identical.
