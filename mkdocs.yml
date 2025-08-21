@@ -56,7 +56,7 @@ nav:
           - Katana Developer Community: katana/get-started/community-page.md
           - Testnet Information: katana/get-started/technical-reference-testnet.md
           - Set up your environment: katana/get-started/set-up-your-environment.md
-          - Verify contracts: katana/how-to/verify-contracts.md
+          - Verifying contracts and Debugging: katana/how-to/verifying-contracts.md
           - Use MCP to talk to the blockchain: katana/get-started/use-mcp.md
       - How To:
           - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
