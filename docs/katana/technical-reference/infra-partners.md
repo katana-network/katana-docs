@@ -50,6 +50,13 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Rhino.fi](https://app.rhino.fi/bridge?mode=pay&chainIn=BASE&chainOut=KATANA&token=ETH&tokenOut=ETH&amount=10)
 - [Stargate](https://stargate.finance/bridge?srcChain=solana&srcToken=J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn&dstChain=katana&dstToken=0x6C16E26013f2431e8B2e1Ba7067ECCcad0Db6C52)
 
+### Oracles
+
+- [API3](https://market.api3.org/katana)
+- [Chainlink Data Feeds](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&network=katana&testnetPage=1&search=)
+- [Chainlink Data Streams](https://docs.chain.link/data-streams/crypto-streams?page=1&testnetPage=1)
+- [Redstone Oracles](https://app.redstone.finance/app/feeds/?page=1&sortBy=popularity&sortDesc=false&perPage=32&networks=747474)
+
 ### Blockchain Data
 
 - [CoinGecko](https://www.coingecko.com/en/chains/katana)
@@ -61,13 +68,6 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 
 - [Hypernative](https://www.hypernative.io/)
 - [TRM Labs](https://www.trmlabs.com/)
-
-### Oracles
-
-- [API3](https://market.api3.org/katana)
-- [Chainlink Data Feeds](https://docs.chain.link/data-feeds/price-feeds/addresses?page=1&network=katana&testnetPage=1&search=)
-- [Chainlink Data Streams](https://docs.chain.link/data-streams/crypto-streams?page=1&testnetPage=1)
-- [Redstone Oracles](https://app.redstone.finance/app/feeds/?page=1&sortBy=popularity&sortDesc=false&perPage=32&networks=747474)
 
 ### Blockchain Data APIs
 
@@ -83,6 +83,10 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Ormi Labs](https://ormilabs.com/)
 - [The Graph](https://thegraph.com/docs/en/supported-networks/katana/)
 
+### DeFi Middleware
+
+- [Enso](https://www.enso.build/)
+
 ### Developer Tooling
 
 - [Tenderly Simulator](https://tenderly.co/transaction-simulator/)
@@ -90,7 +94,7 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 ### Account Abstraction / Wallet Infrastructure
 
 - [Para](https://docs.getpara.com/v2/introduction/chain-support#:~:text=%E2%9C%85-,Katana,-747474)
-<!-- - [Zero.dev](https://dashboard.zerodev.app/) -->
+- [Zero.dev](https://zerodev.app/)
 
 ### Incentive Distribution
 
