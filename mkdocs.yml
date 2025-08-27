@@ -62,6 +62,7 @@ nav:
           - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
           - Integrate Privy email login (client side): katana/how-to/add-privy.md
+          - Integrate Enso DeFi Shortcuts: katana/how-to/use-enso-shortcuts.md
       - Additional Resources:
           # - Branding: katana/additional-resources/branding.md
           - Katana Protocol Terms & Conditions: katana/additional-resources/katana-terms-and-conditions.md
