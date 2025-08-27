@@ -7,6 +7,19 @@ Enso's crosschain APIs return **executable atomic transaction objects** that rep
 - [**/route API**](https://docs.enso.build/pages/build/get-started/route): Define input/output positions and receive optimized execution pathways.  
 - [**/bundle API**](https://docs.enso.build/pages/build/get-started/bundling-actions): Construct custom sequences of protocol interactions.
 
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((SUSHI))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
+    end
+    
+    E -->|<b>deposit</b> via<br/>steer| G((STEERUV12))
+    F -->|<b>deposit</b> via<br/>steer| G
+```
+
 The supporting APIs provide comprehensive data about:
 
 - available [positions](https://navigator.enso.build/tokens),  
@@ -37,6 +50,19 @@ This route converts USDT into a Steer UniV3 vault position by splitting the inpu
 2. Swap `USDT` to `AUSD` via sushiswap-router
 3. Swap `USDT` to `USDC` via sushiswap-router
 4. Deposit `AUSD` and `USDC` to `STEERUV3` via steer
+
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((SUSHI))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
+    end
+    
+    E -->|<b>deposit</b> via<br/>steer| G((STEERUV12))
+    F -->|<b>deposit</b> via<br/>steer| G
+```
 
 ```ts
 export async function vaultBridgeUsdtSteerUniv3Vault_3AusdUsdc(){
@@ -83,6 +109,12 @@ This route bridges USDT to steakUSDC through a simple swap and deposit mechanism
 1. Swap `USDT` to `USDC` via sushiswap-router
 2. Deposit `USDC` to `steakUSDC` via morpho-blue-vaults
 
+```mermaid
+flowchart LR
+    A((USDT)) -->|<b>swap</b> via<br/>sushiswap-router| B((USDC))
+    B -->|<b>deposit</b> via<br/>morpho-blue-vaults| C((steakUSDC))
+```
+
 ```ts
 export async function vaultBridgeUsdtSteakusdc(){
   const chainId = 747474;
@@ -128,6 +160,12 @@ This route converts USDC to Midas Re7SOL tokens through SOL bridging and Midas p
 1. Swap `USDC` to `uSOL` via sushiswap-router
 2. Deposit `uSOL` to `mRe7SOL` via midas-rwa
 
+```mermaid
+flowchart LR
+    A((USDC)) -->|<b>swap</b> via<br/>sushiswap-router| B((uSOL))
+    B -->|<b>deposit</b> via<br/>midas-rwa| C((mRe7SOL))
+```
+
 ```ts
 export async function usdcMidasRe7sol(){
   const chainId = 747474;
@@ -167,6 +205,13 @@ export async function usdcMidasRe7sol(){
 This route redeems bbqUSDC tokens and converts them to sbvUSD through a redemption and deposit flow.
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD&outChainId=747474&chainId=747474&tokenOut=0x24E2aE2f4c59b8b7a03772142d439fDF13AAF15b&amountIn=1000000000000000000)
+
+```mermaid
+flowchart LR
+    A((bbqUSDC)) -->|<b>redeem</b> via<br/>morpho-blue-vaults| B((USDC))
+    B -->|<b>swap</b> via<br/>sushiswap-router| C((bvUSD))
+    C -->|<b>deposit</b> via<br/>bitvault-sbvusd| D((sbvUSD))
+```
 
 **Route mechanics:**
 
@@ -214,11 +259,42 @@ This route creates a Steer UniV3 vault position by splitting USDC into SUSHI and
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0x4d3C354499389c52F1090Ba4c79bf4F4C083b274&amountIn=1000000)
 
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((SUSHI))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
+    end
+    
+    E -->|<b>deposit</b> via<br/>steer| G((STEERUV12))
+    F -->|<b>deposit</b> via<br/>steer| G
+```
+
 **Route mechanics:**
 
 1. Split `USDC` into two paths via enso
 2. Swap `USDC` to `SUSHI` via sushiswap-router
 3. Deposit `SUSHI` and `USDC` to `STEERUV12` via steer
+
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B --> C[sushiswap-router]
+        B --> D[keep as USDC]
+        C --> E((SUSHI))
+        D --> F((USDC))
+    end
+    
+    subgraph steer ["steer protocol"]
+        E --> G[steer]
+        F --> G
+        G --> H((STEERUV12))
+    end
+```
 
 ```ts
 export async function usdcSteerUniv3Vault_12() {
@@ -259,6 +335,19 @@ export async function usdcSteerUniv3Vault_12() {
 This route converts USDC into a BTC-focused Steer vault position through dual token splitting and deposit.
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0x433ebd9268a3B76413DbE94698bFdb589Ff95D8E&amountIn=1000000)
+
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((LBTC))
+        B -->|<b>swap</b> via<br/>sushiswap-router| F((WBTC))
+    end
+    
+    E -->|<b>deposit</b> via<br/>steer| G((STEERUV26))
+    F -->|<b>deposit</b> via<br/>steer| G
+```
 
 **Route mechanics:**
 
@@ -307,6 +396,19 @@ This route creates SushiSwap LP tokens by splitting USDC and providing liquidity
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=1000000)
 
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((wETH))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
+    end
+    
+    E -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G((SLP))
+    F -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G
+```
+
 **Route mechanics:**
 
 1. Split `USDC` into two paths via enso
@@ -347,11 +449,17 @@ export async function usdcSushiswapLpToken() {
 }
 ```
 
-## usdcVbethYvault
+## Zap USDT to vbETH vault
 
 This route swaps USDT to ETH and deposits into a Yearn vault for vbETH exposure.
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x2DCa96907fde857dd3D816880A0df407eeB2D2F2&outChainId=747474&chainId=747474&tokenOut=0xE007CA01894c863d7898045ed5A3B4Abf0b18f37&amountIn=1000000)
+
+```mermaid
+flowchart LR
+    A((USDT)) -->|<b>swap</b> via<br/>sushiswap-router| B((wETH))
+    B -->|<b>deposit</b> via<br/>yearn-v3| C((yvvbETH))
+```
 
 **Route mechanics:**
 
@@ -398,6 +506,13 @@ This route redeems bbqUSDC, converts to ETH, and deposits into a Yearn vbETH vau
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD&outChainId=747474&chainId=747474&tokenOut=0xE007CA01894c863d7898045ed5A3B4Abf0b18f37&amountIn=1000000000000000000)
 
+```mermaid
+flowchart LR
+    A((bbqUSDC)) -->|<b>redeem</b> via<br/>morpho-blue-vaults| B((USDC))
+    B -->|<b>swap</b> via<br/>sushiswap-router| C((wETH))
+    C -->|<b>deposit</b> via<br/>yearn-v3| D((yvvbETH))
+```
+
 **Route mechanics:**
 
 1. Redeem `bbqUSDC` to `USDC` via morpho-blue-vaults
@@ -442,6 +557,19 @@ export async function steakhouseHighYieldUsdcVbethYvault() {
 This route uses WBTC to create SushiSwap LP tokens through token splitting and liquidity provision.
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x0913DA6Da4b42f538B445599b46Bb4622342Cf52&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=100000000)
+
+```mermaid
+flowchart LR
+    A((WBTC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((USDC))
+        B -->|<b>swap</b> via<br/>sushiswap-router| F((wETH))
+    end
+    
+    E -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G((SLP))
+    F -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G
+```
 
 **Route mechanics:**
 
@@ -489,6 +617,12 @@ export async function wbtcSushiswapLpToken() {
 This route converts WBTC to Midas Re7SOL tokens through SOL bridging with extremely high price impact.
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x0913DA6Da4b42f538B445599b46Bb4622342Cf52&outChainId=747474&chainId=747474&tokenOut=0xC6135d59F8D10c9C035963ce9037B3635170D716&amountIn=100000000)
+
+```mermaid
+flowchart LR
+    A((WBTC)) -->|<b>swap</b> via<br/>sushiswap-router| B((uSOL))
+    B -->|<b>deposit</b> via<br/>midas-rwa| C((mRe7SOL))
+```
 
 **Route mechanics:**
 
