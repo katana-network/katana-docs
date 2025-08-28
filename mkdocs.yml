@@ -51,8 +51,10 @@ nav:
           - Network Information: katana/technical-reference/network-information.md
           - Contract Addresses: katana/technical-reference/contract-addresses.md
           - Infrastructure Partners: katana/technical-reference/infra-partners.md
+          - Running a Node: https://doc.clickup.com/90131276658/d/h/2ky3w8vj-5313/a2ee079fb5826a0
           # - Bridging: katana/technical-reference/bridging.md
       - Start Building:
+          - Developer Superdocs: https://superdocs.katana.tools/
           - Katana Developer Community: katana/get-started/community-page.md
           - Testnet Information: katana/get-started/technical-reference-testnet.md
           - Set up your environment: katana/get-started/set-up-your-environment.md
