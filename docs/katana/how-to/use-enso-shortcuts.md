@@ -4,7 +4,7 @@ Enso [DeFi Shortcuts](https://docs.enso.build/pages/build/get-started/overview) 
 
 Enso's crosschain APIs return **executable atomic transaction objects** that represent the optimal route between positions:
 
-- [**/route API**](https://docs.enso.build/pages/build/get-started/route): Define input/output positions and receive optimized execution pathways.  
+- [**/route API**](https://docs.enso.build/pages/build/get-started/route): Define input/output positions and receive optimized execution pathways. 
 - [**/bundle API**](https://docs.enso.build/pages/build/get-started/bundling-actions): Construct custom sequences of protocol interactions.
 
 ```mermaid
@@ -33,43 +33,44 @@ For additional examples, browse the [Use Case Library](https://docs.enso.build/p
 
 To accelerate development, explore:
 
-- [Crosschain Route Widget](https://happypath.enso.build) \- an off-the-shelf React component enabling crosschain routing of DeFi positions and native tokens, available as a standalone application or for [embedding into your platform](https://docs.enso.build/pages/templates/cross-chain-route-widget)  
+- [Crosschain Swap Widget](https://happypath.enso.build) - an off-the-shelf React component enabling crosschain routing of DeFi positions and native tokens, available as a standalone application or for [embedding into your platform](https://docs.enso.build/pages/templates/cross-chain-route-widget)  
 - Available [projects](https://navigator.enso.build/projects?&chainId=1) and [positions](https://navigator.enso.build/tokens?chainId=1)   
+- Cross-chain [routing & asset bridging](https://docs.enso.build/pages/build/examples/bridging)
 - Building with Enso through REST [API](https://docs.enso.build/pages/api-reference/overview) & [SDK](https://github.com/EnsoBuild/sdk-ts) integration
 
+![](./enso-crosschain-swap-widget.png)
 
-## Deposit USDT into Steer AUSD-USDC Automated Liquidity Management
+## Zap deposit USDC to SushiSwap USDC-ETH Liquidity Pool
 
-This route converts USDT into a Steer UniV3 vault position by splitting the input and depositing into a dual-token vault. The route uses Enso's splitting functionality to optimize token allocation.
+This route creates SushiSwap LP tokens by splitting USDC and providing liquidity to the USDC/ETH pool.
 
-[Try this route →](https://happypath.enso.build/?tokenIn=0x2DCa96907fde857dd3D816880A0df407eeB2D2F2&outChainId=747474&chainId=747474&tokenOut=0x8Dc76B0dcF92A1F5C163896F1D04557ef3DB21cE&amountIn=1000000)
+[Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=1000000)
 
 ```mermaid
 flowchart LR
-    A((USDC)) --> B{enso.split}
-    
-    subgraph split ["enso.split"]
-        B -->|<b>swap</b> via<br/>sushiswap-router| E((SUSHI))
-        B -->|<b>keep as</b><br/>USDC| F((USDC))
-    end
-    
-    E -->|<b>deposit</b> via<br/>steer| G((STEERUV12))
-    F -->|<b>deposit</b> via<br/>steer| G
+   A((USDC<br/>100)) --> B{enso.split}
+   
+   subgraph split ["enso.split"]
+       B -->|<b>swap to</b><br/>AUSD| E((AUSD<br/>50))
+       B -->|<b>keep as</b><br/>USDC| F((USDC<br/>50))
+   end
+   
+   E -->|<b>depositclmm</b> via<br/>sushiswap-v3| G((LP Position))
+   F -->|<b>depositclmm</b> via<br/>sushiswap-v3| G
 ```
 
 **Route mechanics:**
 
-1. Split `USDT` into two paths via enso
-2. Swap `USDT` to `AUSD` via sushiswap-router
-3. Swap `USDT` to `USDC` via sushiswap-router
-4. Deposit `AUSD` and `USDC` to `STEERUV3` via steer
+1. Split `USDC` into two paths via enso
+2. Swap `USDC` to `wETH` via sushiswap-router
+3. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
 
-```ts  linenums="1" title="  linenums="1" title="vaultBridgeUsdtSteerUniv3Vault_3AusdUsdc.ts"
-export async function vaultBridgeUsdtSteerUniv3Vault_3AusdUsdc(){
+```ts  linenums="1" 
+export async function usdcSushiswapLpToken() {
   const chainId = 747474;
-  const TOKEN_IN = "0x2DCa96907fde857dd3D816880A0df407eeB2D2F2"; // USDT
-  const TOKEN_OUT = "0x8Dc76B0dcF92A1F5C163896F1D04557ef3DB21cE"; // STEERUV3
-  const amountIn = parseUnits("1", 6);
+  const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
+  const TOKEN_OUT = "0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8"; // SLP
+  const amountIn = parseUnits("100", 6);
 
   const routeParams: RouteParams = {
     fromAddress: userAddress,
@@ -81,7 +82,156 @@ export async function vaultBridgeUsdtSteerUniv3Vault_3AusdUsdc(){
     tokenOut: [TOKEN_OUT],
     routingStrategy: "router",
     slippage: "150",
-    referralCode: "yield-stack"
+    referralCode: "build-on-katana"
+  };
+
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId: chainId,
+    tokenAddress: TOKEN_IN,
+    fromAddress: userAddress,
+  });
+  
+  await sendEoa(approvalData.tx, approvalData.gas);
+  const route = await client.getRouteData(routeParams);
+  await sendEoa(route.tx, route.gas);
+  return route;
+}
+```
+
+## Deposit into a SushiSwap V3 LP
+
+To deposit into Sushiswap V3 `AUSD/USDC` poool, you need to use the `bundle` API.
+
+
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>enso| E((AUSD))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
+    end
+    
+    E -->|<b>depositclmm</b> via<br/>sushiswap-v3| G((LP NFT))
+    F -->|<b>depositclmm</b> via<br/>sushiswap-v3| G
+```
+
+**Bundle Design**:
+
+- Input of 100 `USDC` must be split into 2 tokens: `AUSD` and `USDC`, using Enso's `split` action that converts 50% of USDC into AUSD, and keeps the rest untouched
+- Deposit using `depositclmm` action of `sushiswap-v3` protocol. 
+  - `tokenIn` are the pool's tokens (`USDC/AUSD`)
+  - `amountIn` is an array of amounts obtained from the split into `USDC` and `AUSD` respectively, using dynamic quantity reference (`useOutputOfCallAt`).
+  - The `tokenOut` value is the address of Sushiswap's position manager contract.
+  - Provide correct fee and ticks.
+
+
+```ts linenums="1" 
+export async function sushiswapV3() {
+  const chainId = 747474;
+  const fromAddress = "0xd8da6bf26964af9d7eed9e03e53415d37aa96045";
+
+  const tokenIn_USDC = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36";
+  const tokenOut_AUSD = "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a";
+  const sushiswapManager = "0x2659C6085D26144117D904C46B48B6d180393d27";
+
+  const amountIn = parseUnits("100", 6); // 100 USDC
+
+  const bundle = await client.getBundleData(
+    {
+      chainId,
+      fromAddress,
+      routingStrategy: "router",
+    },
+    [
+      {
+        // Split USDC into 2 parts for the LP position
+        protocol: "enso",
+        action: "split",
+        args: {
+          tokenIn: tokenIn_USDC,
+          tokenOut: [tokenOut_AUSD, tokenIn_USDC],
+          amountIn: amountIn.toString(),
+        },
+      },
+      {
+        protocol: "sushiswap-v3", 
+        action: "depositclmm",
+        args: {
+          tokenOut: sushiswapManager,
+          ticks: [-114, -86],
+          poolFee: "100", 
+          tokenIn: [tokenOut_AUSD, tokenIn_USDC],
+          amountIn: [
+            { useOutputOfCallAt: 0, index: 0 }, // AUSD from split
+            { useOutputOfCallAt: 0, index: 1 }, // USDC from split
+          ],
+        },
+      },
+    ]
+  );
+
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId,
+    fromAddress,
+    tokenAddress: tokenIn_USDC,
+  });
+
+  // Approve Enso Router contract to operate with USDC
+  await sendEoa(approvalData.tx, approvalData.gas);
+
+  // Execute the bundle transaction
+  await sendEoa(bundle.tx, bundle.gas);
+  return bundle;
+}
+```
+
+## Deposit WBTC to SushiSwap V2 USDC-ETH LP Position via Multi-Swap
+
+This route uses WBTC to create SushiSwap LP tokens through token splitting and liquidity provision.
+
+[Try this route →](https://happypath.enso.build/?tokenIn=0x0913DA6Da4b42f538B445599b46Bb4622342Cf52&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=100000000)
+
+```mermaid
+flowchart LR
+    A((WBTC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((USDC))
+        B -->|<b>swap</b> via<br/>sushiswap-router| F((wETH))
+    end
+    
+    E -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G((SLP))
+    F -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G
+```
+
+**Route mechanics:**
+
+1. Split `WBTC` into two paths via enso
+2. Swap `WBTC` to `USDC` via sushiswap-router
+3. Swap `WBTC` to `wETH` via sushiswap-router
+4. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
+
+```ts  linenums="1" 
+export async function wbtcSushiswapLpToken() {
+  const chainId = 747474;
+  const TOKEN_IN = "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52"; // WBTC
+  const TOKEN_OUT = "0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8"; // SLP
+  const amountIn = parseUnits("1", 8);
+
+  const routeParams: RouteParams = {
+    fromAddress: userAddress,
+    receiver: userAddress,
+    chainId: chainId,
+    destinationChainId: 747474,
+    amountIn: [amountIn.toString()],
+    tokenIn: [TOKEN_IN],
+    tokenOut: [TOKEN_OUT],
+    routingStrategy: "router",
+    slippage: "150",
+    referralCode: "build-on-katana"
   };
 
   const approvalData = await client.getApprovalData({
@@ -115,7 +265,7 @@ flowchart LR
     B -->|<b>deposit</b> via<br/>morpho-blue-vaults| C((steakUSDC))
 ```
 
-```ts  linenums="1" title="vaultBridgeUsdtSteakusdc"
+```ts  linenums="1" 
 export async function vaultBridgeUsdtSteakusdc(){
   const chainId = 747474;
   const TOKEN_IN = "0x2DCa96907fde857dd3D816880A0df407eeB2D2F2"; // USDT
@@ -132,9 +282,291 @@ export async function vaultBridgeUsdtSteakusdc(){
     tokenOut: [TOKEN_OUT],
     routingStrategy: "router",
     slippage: "150",
-    referralCode: "yield-stack"
+    referralCode: "build-on-katana"
   };
 
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId: chainId,
+    tokenAddress: TOKEN_IN,
+    fromAddress: userAddress,
+  });
+  
+  await sendEoa(approvalData.tx, approvalData.gas);
+  const route = await client.getRouteData(routeParams);
+  await sendEoa(route.tx, route.gas);
+  return route;
+}
+```
+
+
+## Withdraw from Morpho Blue with conversion
+
+This route withdraws from a Morpho Blue vault position and converts the underlying asset to WBTC. The function redeems the vault token to get the underlying AUSD and then swaps it to WBTC.
+
+[Try this route →](https://happypath.enso.build/?tokenIn=0xdE6a4F28Acfe431DD1CfA2D9c7A3d8301624a841&outChainId=747474&chainId=747474&tokenOut=0x0913DA6Da4b42f538B445599b46Bb4622342Cf52&amountIn=1000000000000000000)
+
+```mermaid
+flowchart LR
+    A((bbqAUSD)) -->|<b>redeem</b> via<br/>morpho-blue-vaults| B((AUSD))
+    B -->|<b>swap</b> via<br/>sushiswap-router| C((WBTC))
+```
+
+**Route mechanics:**
+
+1. Redeem `bbqAUSD` to `AUSD` via morpho-blue-vaults
+2. Swap `AUSD` to `WBTC` via sushiswap-router
+
+```ts
+export async function withdrawFromMorphoBlueAndSwapToWbtc(): Promise<{ route: any; tx: any }> {
+  const chainId = 747474;
+  const TOKEN_IN = "0xdE6a4F28Acfe431DD1CfA2D9c7A3d8301624a841" as Address; // bbqAUSD on chain 747474
+  const TOKEN_OUT = "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52" as Address; // WBTC on chain 747474
+  const amountIn = parseUnits("1", 18);
+
+  const routeParams: RouteParams = {
+    fromAddress: userAddress,
+    receiver: userAddress,
+    chainId: chainId,
+    destinationChainId: 747474,
+    amountIn: [amountIn.toString()],
+    tokenIn: [TOKEN_IN],
+    tokenOut: [TOKEN_OUT],
+    routingStrategy: "router",
+    slippage: "150",
+    referralCode: "build-on-katana"
+  };
+
+  happyPathLog(routeParams);
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId: chainId,
+    tokenAddress: TOKEN_IN,
+    fromAddress: userAddress,
+  });
+  
+  await sendEoa(approvalData.tx, approvalData.gas);
+  const route = await client.getRouteData(routeParams);
+  await sendEoa(route.tx, route.gas);
+  return route;
+}
+```
+
+## Strategy vault position migration: Morpho to Yearn
+
+This route redeems bbqUSDC, converts to ETH, and deposits into a Yearn vbETH vault.
+
+[Try this route →](https://happypath.enso.build/?tokenIn=0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD&outChainId=747474&chainId=747474&tokenOut=0xE007CA01894c863d7898045ed5A3B4Abf0b18f37&amountIn=1000000000000000000)
+
+```mermaid
+flowchart LR
+    A((bbqUSDC)) -->|<b>redeem</b> via<br/>morpho-blue-vaults| B((USDC))
+    B -->|<b>swap</b> via<br/>sushiswap-router| C((wETH))
+    C -->|<b>deposit</b> via<br/>yearn-v3| D((yvvbETH))
+```
+
+**Route mechanics:**
+
+1. Redeem `bbqUSDC` to `USDC` via morpho-blue-vaults
+2. Swap `USDC` to `wETH` via sushiswap-router
+3. Deposit `wETH` to `yvvbETH` via yearn-v3
+
+```ts  linenums="1" 
+export async function steakhouseHighYieldUsdcVbethYvault() {
+  const chainId = 747474;
+  const TOKEN_IN = "0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD"; // bbqUSDC
+  const TOKEN_OUT = "0xE007CA01894c863d7898045ed5A3B4Abf0b18f37"; // yvvbETH
+  const amountIn = parseUnits("1", 18);
+
+  const routeParams: RouteParams = {
+    fromAddress: userAddress,
+    receiver: userAddress,
+    chainId: chainId,
+    destinationChainId: 747474,
+    amountIn: [amountIn.toString()],
+    tokenIn: [TOKEN_IN],
+    tokenOut: [TOKEN_OUT],
+    routingStrategy: "router",
+    slippage: "150",
+    referralCode: "build-on-katana"
+  };
+
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId: chainId,
+    tokenAddress: TOKEN_IN,
+    fromAddress: userAddress,
+  });
+  
+  await sendEoa(approvalData.tx, approvalData.gas);
+  const route = await client.getRouteData(routeParams);
+  await sendEoa(route.tx, route.gas);
+  return route;
+}
+```
+
+## Zap deposit USDT to Yearn vbETH vault
+
+This route swaps USDT to ETH and deposits into a Yearn vault for vbETH exposure.
+
+[Try this route →](https://happypath.enso.build/?tokenIn=0x2DCa96907fde857dd3D816880A0df407eeB2D2F2&outChainId=747474&chainId=747474&tokenOut=0xE007CA01894c863d7898045ed5A3B4Abf0b18f37&amountIn=1000000)
+
+```mermaid
+flowchart LR
+    A((USDT)) -->|<b>swap</b> via<br/>sushiswap-router| B((wETH))
+    B -->|<b>deposit</b> via<br/>yearn-v3| C((yvvbETH))
+```
+
+**Route mechanics:**
+
+1. Swap `USDT` to `wETH` via sushiswap-router
+2. Deposit `wETH` to `yvvbETH` via yearn-v3
+
+```ts  linenums="1" 
+export async function usdcVbethYvault(): Promise<{ route: any; tx: any }> {
+  const chainId = 747474;
+  const TOKEN_IN = "0x2DCa96907fde857dd3D816880A0df407eeB2D2F2" as Address; // USDT on chain 747474
+  const TOKEN_OUT = "0xE007CA01894c863d7898045ed5A3B4Abf0b18f37" as Address; // yvvbETH on chain 747474
+  const amountIn = parseUnits("1", 6);
+
+  const routeParams: RouteParams = {
+    fromAddress: userAddress,
+    receiver: userAddress,
+    chainId: chainId,
+    destinationChainId: 747474,
+    amountIn: [amountIn.toString()],
+    tokenIn: [TOKEN_IN],
+    tokenOut: [TOKEN_OUT],
+    routingStrategy: "router",
+    slippage: "150",
+    referralCode: "build-on-katana"
+  };
+
+  happyPathLog(routeParams);
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId: chainId,
+    tokenAddress: TOKEN_IN,
+    fromAddress: userAddress,
+  });
+  
+  await sendEoa(approvalData.tx, approvalData.gas);
+  const route = await client.getRouteData(routeParams);
+  await sendEoa(route.tx, route.gas);
+  return route;
+}
+```
+
+## Deposit USDC to Charm Alpha
+
+This route deposits USDC into a Charm Alpha vault position containing WBTC and ETH. The function splits the input USDC between WBTC and wETH tokens before depositing them into the vault.
+
+[Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0x85b88F8ACEB5CaA67e240E6C2567F954B0C58D99&amountIn=1000000)
+
+```mermaid
+flowchart LR
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["Split Logic"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| C((WBTC))
+        B -->|<b>swap</b> via<br/>sushiswap-router| D((wETH))
+    end
+    
+    C --> E((WBTCETH30))
+    D --> E
+    C -->|<b>deposit</b> via<br/>charm-alpha-vaults-v2| E
+``` 
+
+**Route mechanics:**
+
+1. Split `USDC` to `WBTC` and `wETH` via enso
+2. Swap `USDC` to `WBTC` via sushiswap-router  
+3. Swap `USDC` to `wETH` via sushiswap-router
+4. Deposit `WBTC` and `wETH` to `WBTCETH30` via charm-alpha-vaults-v2
+
+```ts
+export async function depositUsdcToCharmWbtcEth03(): Promise<{ route: any; tx: any }> {
+  const chainId = 747474;
+  const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36" as Address; // USDC on chain 747474
+  const TOKEN_OUT = "0x85b88F8ACEB5CaA67e240E6C2567F954B0C58D99" as Address; // WBTCETH30 on chain 747474
+  const amountIn = parseUnits("1", 6);
+
+  const routeParams: RouteParams = {
+    fromAddress: userAddress,
+    receiver: userAddress,
+    chainId: chainId,
+    destinationChainId: 747474,
+    amountIn: [amountIn.toString()],
+    tokenIn: [TOKEN_IN],
+    tokenOut: [TOKEN_OUT],
+    routingStrategy: "router",
+    slippage: "150",
+    referralCode: "build-on-katana"
+  };
+
+  happyPathLog(routeParams);
+  const approvalData = await client.getApprovalData({
+    amount: amountIn.toString(),
+    chainId: chainId,
+    tokenAddress: TOKEN_IN,
+    fromAddress: userAddress,
+  });
+  
+  await sendEoa(approvalData.tx, approvalData.gas);
+  const route = await client.getRouteData(routeParams);
+  await sendEoa(route.tx, route.gas);
+  return route;
+}
+```
+
+## Withdraw from Charm Alpha vault with conversion
+
+This route redeems a Charm Alpha vault position and converts the underlying assets to AUSD. The function withdraws USDC and wETH from the vault and swaps both tokens to the target AUSD token.
+
+[Try this route →](https://happypath.enso.build/?tokenIn=0xc78c51F88adFbAdcDfafCfeF7F5E3d3c6C7d5129&outChainId=747474&chainId=747474&tokenOut=0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a&amountIn=1000000000000000000)
+
+```mermaid
+flowchart LR
+    A((USDCETH5)) -->|<b>redeem</b> via<br/>charm-alpha-vaults-v2| B((USDC))
+    A -->|<b>redeem</b> via<br/>charm-alpha-vaults-v2| C((wETH))
+    
+    B --> D{enso.merge}
+    C --> D
+    
+    subgraph merge ["Merge Logic"]
+        D -->|<b>swap</b> via<br/>sushiswap-router| E((AUSD))
+        D -->|<b>swap</b> via<br/>sushiswap-router| E
+    end
+```
+
+**Route mechanics:**
+
+1. Redeem `USDCETH5` to `USDC` and `wETH` via charm-alpha-vaults-v2
+2. Merge `USDC` and `wETH` to `AUSD` via enso
+3. Swap `USDC` to `AUSD` via sushiswap-router
+4. Swap `wETH` to `AUSD` via sushiswap-router
+
+```ts
+export async function withdrawCharmVbusdcVbeth005ToAusd(): Promise<{ route: any; tx: any }> {
+  const chainId = 747474;
+  const TOKEN_IN = "0xc78c51F88adFbAdcDfafCfeF7F5E3d3c6C7d5129" as Address; // USDCETH5 on chain 747474
+  const TOKEN_OUT = "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a" as Address; // AUSD on chain 747474
+  const amountIn = parseUnits("1", 18);
+
+  const routeParams: RouteParams = {
+    fromAddress: userAddress,
+    receiver: userAddress,
+    chainId: chainId,
+    destinationChainId: 747474,
+    amountIn: [amountIn.toString()],
+    tokenIn: [TOKEN_IN],
+    tokenOut: [TOKEN_OUT],
+    routingStrategy: "router",
+    slippage: "150",
+    referralCode: "build-on-katana"
+  };
+
+  happyPathLog(routeParams);
   const approvalData = await client.getApprovalData({
     amount: amountIn.toString(),
     chainId: chainId,
@@ -166,7 +598,7 @@ flowchart LR
     B -->|<b>deposit</b> via<br/>midas-rwa| C((mRe7SOL))
 ```
 
-```ts  linenums="1" title="usdcMidasRe7sol"
+```ts  linenums="1" 
 export async function usdcMidasRe7sol(){
   const chainId = 747474;
   const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
@@ -183,60 +615,7 @@ export async function usdcMidasRe7sol(){
     tokenOut: [TOKEN_OUT],
     routingStrategy: "router",
     slippage: "150",
-    referralCode: "yield-stack"
-  };
-
-  const approvalData = await client.getApprovalData({
-    amount: amountIn.toString(),
-    chainId: chainId,
-    tokenAddress: TOKEN_IN,
-    fromAddress: userAddress,
-  });
-  
-  await sendEoa(approvalData.tx, approvalData.gas);
-  const route = await client.getRouteData(routeParams);
-  await sendEoa(route.tx, route.gas);
-  return route;
-}
-```
-
-## Migrate bbqUSDC Morpho Position to BitVault Staked bvUSD
-
-This route redeems bbqUSDC tokens and converts them to sbvUSD through a redemption and deposit flow.
-
-[Try this route →](https://happypath.enso.build/?tokenIn=0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD&outChainId=747474&chainId=747474&tokenOut=0x24E2aE2f4c59b8b7a03772142d439fDF13AAF15b&amountIn=1000000000000000000)
-
-```mermaid
-flowchart LR
-    A((bbqUSDC)) -->|<b>redeem</b> via<br/>morpho-blue-vaults| B((USDC))
-    B -->|<b>swap</b> via<br/>sushiswap-router| C((bvUSD))
-    C -->|<b>deposit</b> via<br/>bitvault-sbvusd| D((sbvUSD))
-```
-
-**Route mechanics:**
-
-1. Redeem `bbqUSDC` to `USDC` via morpho-blue-vaults
-2. Swap `USDC` to `bvUSD` via sushiswap-router
-3. Deposit `bvUSD` to `sbvUSD` via bitvault-sbvusd
-
-```ts  linenums="1" title="bbqusdcSbvusd"
-export async function bbqusdcSbvusd() {
-  const chainId = 747474;
-  const TOKEN_IN = "0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD"; // bbqUSDC
-  const TOKEN_OUT = "0x24E2aE2f4c59b8b7a03772142d439fDF13AAF15b"; // sbvUSD
-  const amountIn = parseUnits("1", 18);
-
-  const routeParams: RouteParams = {
-    fromAddress: userAddress,
-    receiver: userAddress,
-    chainId: chainId,
-    destinationChainId: 747474,
-    amountIn: [amountIn.toString()],
-    tokenIn: [TOKEN_IN],
-    tokenOut: [TOKEN_OUT],
-    routingStrategy: "router",
-    slippage: "150",
-    referralCode: "yield-stack"
+    referralCode: "build-on-katana"
   };
 
   const approvalData = await client.getApprovalData({
@@ -283,7 +662,7 @@ flowchart LR
     end
 ```
 
-```ts  linenums="1" title="usdcSteerUniv3Vault_12"
+```ts  linenums="1" 
 export async function usdcSteerUniv3Vault_12() {
   const chainId = 747474;
   const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
@@ -300,289 +679,7 @@ export async function usdcSteerUniv3Vault_12() {
     tokenOut: [TOKEN_OUT],
     routingStrategy: "router",
     slippage: "150",
-    referralCode: "yield-stack"
-  };
-
-  const approvalData = await client.getApprovalData({
-    amount: amountIn.toString(),
-    chainId: chainId,
-    tokenAddress: TOKEN_IN,
-    fromAddress: userAddress,
-  });
-  
-  await sendEoa(approvalData.tx, approvalData.gas);
-  const route = await client.getRouteData(routeParams);
-  await sendEoa(route.tx, route.gas);
-  return route;
-}
-```
-
-## Deposit USDC into Steer LBTC-WBTC Bitcoin LP Strategy
-
-This route converts USDC into a BTC-focused Steer vault position through dual token splitting and deposit.
-
-[Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0x433ebd9268a3B76413DbE94698bFdb589Ff95D8E&amountIn=1000000)
-
-```mermaid
-flowchart LR
-    A((USDC)) --> B{enso.split}
-    
-    subgraph split ["enso.split"]
-        B -->|<b>swap</b> via<br/>sushiswap-router| E((LBTC))
-        B -->|<b>swap</b> via<br/>sushiswap-router| F((WBTC))
-    end
-    
-    E -->|<b>deposit</b> via<br/>steer| G((STEERUV26))
-    F -->|<b>deposit</b> via<br/>steer| G
-```
-
-**Route mechanics:**
-
-1. Split `USDC` into two paths via enso
-2. Swap `USDC` to `LBTC` via sushiswap-router
-3. Swap `USDC` to `WBTC` via sushiswap-router
-4. Deposit `LBTC` and `WBTC` to `STEERUV26` via steer
-
-```ts  linenums="1" title="usdcSteerUniv3Vault_26LbtcWbtc"
-export async function usdcSteerUniv3Vault_26LbtcWbtc() {
-  const chainId = 747474;
-  const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
-  const TOKEN_OUT = "0x433ebd9268a3B76413DbE94698bFdb589Ff95D8E"; // STEERUV26
-  const amountIn = parseUnits("100", 6);
-
-  const routeParams: RouteParams = {
-    fromAddress: userAddress,
-    receiver: userAddress,
-    chainId: chainId,
-    destinationChainId: 747474,
-    amountIn: [amountIn.toString()],
-    tokenIn: [TOKEN_IN],
-    tokenOut: [TOKEN_OUT],
-    routingStrategy: "router",
-    slippage: "150",
-    referralCode: "yield-stack"
-  };
-
-  const approvalData = await client.getApprovalData({
-    amount: amountIn.toString(),
-    chainId: chainId,
-    tokenAddress: TOKEN_IN,
-    fromAddress: userAddress,
-  });
-  
-  await sendEoa(approvalData.tx, approvalData.gas);
-  const route = await client.getRouteData(routeParams);
-  await sendEoa(route.tx, route.gas);
-  return route;
-}
-```
-
-## Zap USDC to SushiSwap USDC-ETH Liquidity Pool
-
-This route creates SushiSwap LP tokens by splitting USDC and providing liquidity to the USDC/ETH pool.
-
-[Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=1000000)
-
-```mermaid
-flowchart LR
-    A((USDC)) --> B{enso.split}
-    
-    subgraph split ["enso.split"]
-        B -->|<b>swap</b> via<br/>sushiswap-router| E((wETH))
-        B -->|<b>keep as</b><br/>USDC| F((USDC))
-    end
-    
-    E -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G((SLP))
-    F -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G
-```
-
-**Route mechanics:**
-
-1. Split `USDC` into two paths via enso
-2. Swap `USDC` to `wETH` via sushiswap-router
-3. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
-
-```ts  linenums="1" title="usdcSushiswapLpToken"
-export async function usdcSushiswapLpToken() {
-  const chainId = 747474;
-  const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
-  const TOKEN_OUT = "0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8"; // SLP
-  const amountIn = parseUnits("100", 6);
-
-  const routeParams: RouteParams = {
-    fromAddress: userAddress,
-    receiver: userAddress,
-    chainId: chainId,
-    destinationChainId: 747474,
-    amountIn: [amountIn.toString()],
-    tokenIn: [TOKEN_IN],
-    tokenOut: [TOKEN_OUT],
-    routingStrategy: "router",
-    slippage: "150",
-    referralCode: "yield-stack"
-  };
-
-  const approvalData = await client.getApprovalData({
-    amount: amountIn.toString(),
-    chainId: chainId,
-    tokenAddress: TOKEN_IN,
-    fromAddress: userAddress,
-  });
-  
-  await sendEoa(approvalData.tx, approvalData.gas);
-  const route = await client.getRouteData(routeParams);
-  await sendEoa(route.tx, route.gas);
-  return route;
-}
-```
-
-## Zap USDT to vbETH vault
-
-This route swaps USDT to ETH and deposits into a Yearn vault for vbETH exposure.
-
-[Try this route →](https://happypath.enso.build/?tokenIn=0x2DCa96907fde857dd3D816880A0df407eeB2D2F2&outChainId=747474&chainId=747474&tokenOut=0xE007CA01894c863d7898045ed5A3B4Abf0b18f37&amountIn=1000000)
-
-```mermaid
-flowchart LR
-    A((USDT)) -->|<b>swap</b> via<br/>sushiswap-router| B((wETH))
-    B -->|<b>deposit</b> via<br/>yearn-v3| C((yvvbETH))
-```
-
-**Route mechanics:**
-
-1. Swap `USDT` to `wETH` via sushiswap-router
-2. Deposit `wETH` to `yvvbETH` via yearn-v3
-
-```ts  linenums="1" title="steakhouseHighYieldUsdcVbethYvault"
-export async function steakhouseHighYieldUsdcVbethYvault() {
-  const chainId = 747474;
-  const TOKEN_IN = "0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD"; // bbqUSDC
-  const TOKEN_OUT = "0xE007CA01894c863d7898045ed5A3B4Abf0b18f37"; // yvvbETH
-  const amountIn = parseUnits("1", 18);
-
-  const routeParams: RouteParams = {
-    fromAddress: userAddress,
-    receiver: userAddress,
-    chainId: chainId,
-    destinationChainId: 747474,
-    amountIn: [amountIn.toString()],
-    tokenIn: [TOKEN_IN],
-    tokenOut: [TOKEN_OUT],
-    routingStrategy: "router",
-    slippage: "150",
-    referralCode: "yield-stack"
-  };
-
-  const approvalData = await client.getApprovalData({
-    amount: amountIn.toString(),
-    chainId: chainId,
-    tokenAddress: TOKEN_IN,
-    fromAddress: userAddress,
-  });
-  
-  await sendEoa(approvalData.tx, approvalData.gas);
-  const route = await client.getRouteData(routeParams);
-  await sendEoa(route.tx, route.gas);
-  return route;
-}
-```
-
-## Deposit bbqUSDC to Yearn vbETH Vault Strategy
-
-This route redeems bbqUSDC, converts to ETH, and deposits into a Yearn vbETH vault.
-
-[Try this route →](https://happypath.enso.build/?tokenIn=0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD&outChainId=747474&chainId=747474&tokenOut=0xE007CA01894c863d7898045ed5A3B4Abf0b18f37&amountIn=1000000000000000000)
-
-```mermaid
-flowchart LR
-    A((bbqUSDC)) -->|<b>redeem</b> via<br/>morpho-blue-vaults| B((USDC))
-    B -->|<b>swap</b> via<br/>sushiswap-router| C((wETH))
-    C -->|<b>deposit</b> via<br/>yearn-v3| D((yvvbETH))
-```
-
-**Route mechanics:**
-
-1. Redeem `bbqUSDC` to `USDC` via morpho-blue-vaults
-2. Swap `USDC` to `wETH` via sushiswap-router
-3. Deposit `wETH` to `yvvbETH` via yearn-v3
-
-```ts  linenums="1" title="steakhouseHighYieldUsdcVbethYvault"
-export async function steakhouseHighYieldUsdcVbethYvault() {
-  const chainId = 747474;
-  const TOKEN_IN = "0x1445A01a57D7B7663CfD7B4EE0a8Ec03B379aabD"; // bbqUSDC
-  const TOKEN_OUT = "0xE007CA01894c863d7898045ed5A3B4Abf0b18f37"; // yvvbETH
-  const amountIn = parseUnits("1", 18);
-
-  const routeParams: RouteParams = {
-    fromAddress: userAddress,
-    receiver: userAddress,
-    chainId: chainId,
-    destinationChainId: 747474,
-    amountIn: [amountIn.toString()],
-    tokenIn: [TOKEN_IN],
-    tokenOut: [TOKEN_OUT],
-    routingStrategy: "router",
-    slippage: "150",
-    referralCode: "yield-stack"
-  };
-
-  const approvalData = await client.getApprovalData({
-    amount: amountIn.toString(),
-    chainId: chainId,
-    tokenAddress: TOKEN_IN,
-    fromAddress: userAddress,
-  });
-  
-  await sendEoa(approvalData.tx, approvalData.gas);
-  const route = await client.getRouteData(routeParams);
-  await sendEoa(route.tx, route.gas);
-  return route;
-```
-
-## Migrate WBTC to SushiSwap USDC-ETH LP Position via Multi-Swap
-
-This route uses WBTC to create SushiSwap LP tokens through token splitting and liquidity provision.
-
-[Try this route →](https://happypath.enso.build/?tokenIn=0x0913DA6Da4b42f538B445599b46Bb4622342Cf52&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=100000000)
-
-```mermaid
-flowchart LR
-    A((WBTC)) --> B{enso.split}
-    
-    subgraph split ["enso.split"]
-        B -->|<b>swap</b> via<br/>sushiswap-router| E((USDC))
-        B -->|<b>swap</b> via<br/>sushiswap-router| F((wETH))
-    end
-    
-    E -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G((SLP))
-    F -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G
-```
-
-**Route mechanics:**
-
-1. Split `WBTC` into two paths via enso
-2. Swap `WBTC` to `USDC` via sushiswap-router
-3. Swap `WBTC` to `wETH` via sushiswap-router
-4. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
-
-```ts  linenums="1" title="wbtcSushiswapLpToken"
-export async function wbtcSushiswapLpToken() {
-  const chainId = 747474;
-  const TOKEN_IN = "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52"; // WBTC
-  const TOKEN_OUT = "0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8"; // SLP
-  const amountIn = parseUnits("1", 8);
-
-  const routeParams: RouteParams = {
-    fromAddress: userAddress,
-    receiver: userAddress,
-    chainId: chainId,
-    destinationChainId: 747474,
-    amountIn: [amountIn.toString()],
-    tokenIn: [TOKEN_IN],
-    tokenOut: [TOKEN_OUT],
-    routingStrategy: "router",
-    slippage: "150",
-    referralCode: "yield-stack"
+    referralCode: "build-on-katana"
   };
 
   const approvalData = await client.getApprovalData({
@@ -616,7 +713,7 @@ flowchart LR
 1. Swap `WBTC` to `uSOL` via sushiswap-router
 2. Deposit `uSOL` to `mRe7SOL` via midas-rwa
 
-```ts  linenums="1" title="wbtcMidasRe7sol"
+```ts  linenums="1" 
 export async function wbtcMidasRe7sol() {
   const chainId = 747474;
   const TOKEN_IN = "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52"; // WBTC
@@ -633,7 +730,7 @@ export async function wbtcMidasRe7sol() {
     tokenOut: [TOKEN_OUT],
     routingStrategy: "router",
     slippage: "150",
-    referralCode: "yield-stack"
+    referralCode: "build-on-katana"
   };
 
   const approvalData = await client.getApprovalData({
