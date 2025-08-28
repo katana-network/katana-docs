@@ -17,11 +17,11 @@
 - [Bitget Wallet](https://web3.bitget.com/en)
 - [Fireblocks](https://www.fireblocks.com/)
 - [Rabby](https://rabby.io/)
-- [Subwallet](https://www.subwallet.app/)
 - [Safe](https://safe.global/wallet)
+- [Subwallet](https://www.subwallet.app/)
 - [Zerion](https://zerion.io/download?utm_source=katana&utm_medium=marketing&utm_campaign=download_page)
 
-You can also use Katana on other wallets that allow you to add a custom chain, such as [Metamask](https://metamask.io/).
+You can also use Katana on other wallets that allow you to add a custom chain, such as [Base App (fka Coinbase Wallet)](https://www.coinbase.com/en-pt/wallet), [Metamask](https://metamask.io/), [OKX Wallet](https://web3.okx.com/), or [TrustWallet](https://trustwallet.com/).
 
 ### Portfolio Tracking
 
