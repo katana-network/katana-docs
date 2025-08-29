@@ -55,10 +55,13 @@ jitoSOL is bridged from Solana; if you're building on it, then you might be inte
 
 #### Unified Bridge (Canonical Bridge)
 
-| Bridge Contracts | Address                                                                                                                 |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `Unified Bridge` | [0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe](https://katanascan.com/address/0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe) |
-| `Bridge & Call`  | [0x64B20Eb25AEd030FD510EF93B9135278B152f6a6](https://katanascan.com/address/0x64B20Eb25AEd030FD510EF93B9135278B152f6a6) |
+| Bridge Contracts             | Address                                                                                                                 |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Unified Bridge`             | [0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe](https://katanascan.com/address/0x2a3DD3EB832aF982ec71669E178424b10Dca2EDe) |
+| `Bridge & Call`              | [0x64B20Eb25AEd030FD510EF93B9135278B152f6a6](https://katanascan.com/address/0x64B20Eb25AEd030FD510EF93B9135278B152f6a6) |
+| NetworkId (i.e. Agglayer Id) | `20`                                                                                                                    |
+
+Learn more about [building crosschain apps using Agglayer](https://build.agglayer.dev/).
 
 #### Vault Bridge
 

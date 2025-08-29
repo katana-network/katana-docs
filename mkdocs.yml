@@ -51,8 +51,10 @@ nav:
           - Network Information: katana/technical-reference/network-information.md
           - Contract Addresses: katana/technical-reference/contract-addresses.md
           - Infrastructure Partners: katana/technical-reference/infra-partners.md
-          # - Bridging: katana/technical-reference/bridging.md
+          - Running a Node: https://doc.clickup.com/90131276658/d/h/2ky3w8vj-5313/a2ee079fb5826a0
+          - Bridging: katana/technical-reference/bridging.md
       - Start Building:
+          - Developer Superdocs: https://superdocs.katana.tools/
           - Katana Developer Community: katana/get-started/community-page.md
           - Testnet Information: katana/get-started/technical-reference-testnet.md
           - Set up your environment: katana/get-started/set-up-your-environment.md
@@ -63,7 +65,8 @@ nav:
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
           - Integrate Privy email login (client side): katana/how-to/add-privy.md
       - Additional Resources:
-          # - Branding: katana/additional-resources/branding.md
+          - Brand Kit: katana/additional-resources/brand-kit.md
+          - Katana Security Overview: katana/additional-resources/security-overview.md
           - Katana Protocol Terms & Conditions: katana/additional-resources/katana-terms-and-conditions.md
 
 extra:
