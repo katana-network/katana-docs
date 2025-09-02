@@ -27,7 +27,7 @@
 | Sepolia contract             | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582)          |
 | Bokuto contract              | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://explorer-bokuto.katanarpc.com/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582) |
 | Bokuto Bridge Service API    | [https://rpc-bridge-bokuto.katanarpc.com/](https://rpc-bridge-bokuto.katanarpc.com/)                                                   |
-| NetworkId (i.e. Agglayer Id) | `34`                                                                                                                                   |
+| NetworkId (i.e. Agglayer Id) | `37`                                                                                                                                   |
 
 For L2<->L2 transactions through the Agglayer, you'll need the other L2's Bridge Service API. The Unified Bridge Address lives in the same address across all testnets.
 
