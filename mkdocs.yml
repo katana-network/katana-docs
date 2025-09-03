@@ -68,6 +68,7 @@ nav:
           - Brand Kit: katana/additional-resources/brand-kit.md
           - Katana Security Overview: katana/additional-resources/security-overview.md
           - Katana Protocol Terms & Conditions: katana/additional-resources/katana-terms-and-conditions.md
+          - Grants and Other Support Programs: katana/katana-support.md
 
 extra:
   generator: false
