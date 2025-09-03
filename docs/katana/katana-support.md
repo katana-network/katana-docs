@@ -44,7 +44,7 @@ The following are generally not eligible for support:
 - Copy‑paste forks with minimal differentiation
 - Short‑term, purely speculative token plays with no product roadmap
 - Requests lacking a clear problem statement, plan, or milestones
-- Competition to our core apps / primitivies. We prioritize deep, concentrated
+- Competition to our core apps / primitives. We prioritize deep, concentrated
   liquidity and wish to avoid fragmenting the ecosystem. As such, projects that
   build on top of what already exists are prioritized.
 
