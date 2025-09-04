@@ -40,30 +40,31 @@ To accelerate development, explore:
 
 ![](./enso-crosschain-swap-widget.png)
 
-## Zap deposit USDC to SushiSwap USDC-ETH Liquidity Pool
+## Zap deposit USDC to SushiSwap USDC-wETH Liquidity Pool
 
-This route creates SushiSwap LP tokens by splitting USDC and providing liquidity to the USDC/ETH pool.
+This route creates SushiSwap LP tokens by splitting USDC and providing liquidity to the USDC/wETH pool.
 
 [Try this route →](https://happypath.enso.build/?tokenIn=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36&outChainId=747474&chainId=747474&tokenOut=0xf9B1AE5F1929F9A4De548e98e0393ae1A9d1D0f8&amountIn=1000000)
 
 ```mermaid
 flowchart LR
-   A((USDC<br/>100)) --> B{enso.split}
-   
-   subgraph split ["enso.split"]
-       B -->|<b>swap to</b><br/>AUSD| E((AUSD<br/>50))
-       B -->|<b>keep as</b><br/>USDC| F((USDC<br/>50))
-   end
-   
-   E -->|<b>depositclmm</b> via<br/>sushiswap-v3| G((LP Position))
-   F -->|<b>depositclmm</b> via<br/>sushiswap-v3| G
+    A((USDC)) --> B{enso.split}
+    
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((WETH))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
+    end
+    
+    E -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G((USDC/ETH LP))
+    F -->|<b>addLiquidity</b> via<br/>sushiswap-v2| G
 ```
 
 **Route mechanics:**
 
 1. Split `USDC` into two paths via enso
-2. Swap `USDC` to `wETH` via sushiswap-router
-3. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
+    1. Swap a portion of `USDC` to `wETH` via sushiswap-router
+    2. Keep a portion of `USDC`
+2. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
 
 ```ts  linenums="1" 
 export async function usdcSushiswapLpToken() {
@@ -101,7 +102,7 @@ export async function usdcSushiswapLpToken() {
 
 ## Deposit into a SushiSwap V3 LP
 
-To deposit into Sushiswap V3 `AUSD/USDC` poool, you need to use the `bundle` API.
+To deposit into Sushiswap V3 `AUSD/USDC` pool, you need to use the `bundle` API.
 
 
 ```mermaid
@@ -113,7 +114,7 @@ flowchart LR
         B -->|<b>keep as</b><br/>USDC| F((USDC))
     end
     
-    E -->|<b>depositclmm</b> via<br/>sushiswap-v3| G((LP NFT))
+    E -->|<b>depositclmm</b> via<br/>sushiswap-v3| G((AUSD/USDC<br/>LP))
     F -->|<b>depositclmm</b> via<br/>sushiswap-v3| G
 ```
 
@@ -133,7 +134,7 @@ export async function sushiswapV3() {
   const fromAddress = "0xd8da6bf26964af9d7eed9e03e53415d37aa96045";
 
   const tokenIn_USDC = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36";
-  const tokenOut_AUSD = "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a";
+  const tokenIn_AUSD = "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a";
   const sushiswapManager = "0x2659C6085D26144117D904C46B48B6d180393d27";
 
   const amountIn = parseUnits("100", 6); // 100 USDC
@@ -151,7 +152,7 @@ export async function sushiswapV3() {
         action: "split",
         args: {
           tokenIn: tokenIn_USDC,
-          tokenOut: [tokenOut_AUSD, tokenIn_USDC],
+          tokenOut: [tokenIn_AUSD, tokenIn_USDC],
           amountIn: amountIn.toString(),
         },
       },
@@ -162,7 +163,7 @@ export async function sushiswapV3() {
           tokenOut: sushiswapManager,
           ticks: [-114, -86],
           poolFee: "100", 
-          tokenIn: [tokenOut_AUSD, tokenIn_USDC],
+          tokenIn: [tokenIn_AUSD, tokenIn_USDC],
           amountIn: [
             { useOutputOfCallAt: 0, index: 0 }, // AUSD from split
             { useOutputOfCallAt: 0, index: 1 }, // USDC from split
@@ -210,9 +211,9 @@ flowchart LR
 **Route mechanics:**
 
 1. Split `WBTC` into two paths via enso
-2. Swap `WBTC` to `USDC` via sushiswap-router
-3. Swap `WBTC` to `wETH` via sushiswap-router
-4. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
+    1. Swap a portion of `WBTC` to `USDC` via sushiswap-router
+    2. Swap a portion `WBTC` to `wETH` via sushiswap-router
+2. Deposit `USDC` and `wETH` to `SLP` via sushiswap-v2
 
 ```ts  linenums="1" 
 export async function wbtcSushiswapLpToken() {
@@ -270,7 +271,7 @@ export async function vaultBridgeUsdtSteakusdc(){
   const chainId = 747474;
   const TOKEN_IN = "0x2DCa96907fde857dd3D816880A0df407eeB2D2F2"; // USDT
   const TOKEN_OUT = "0x61D4F9D3797BA4dA152238c53a6f93Fb665C3c1d"; // steakUSDC
-  const amountIn = parseUnits("1", 6);
+  const amountIn = parseUnits("100", 6);
 
   const routeParams: RouteParams = {
     fromAddress: userAddress,
@@ -318,10 +319,10 @@ flowchart LR
 2. Swap `AUSD` to `WBTC` via sushiswap-router
 
 ```ts
-export async function withdrawFromMorphoBlueAndSwapToWbtc(): Promise<{ route: any; tx: any }> {
+export async function withdrawFromMorphoBlueAndSwapToWbtc() {
   const chainId = 747474;
-  const TOKEN_IN = "0xdE6a4F28Acfe431DD1CfA2D9c7A3d8301624a841" as Address; // bbqAUSD on chain 747474
-  const TOKEN_OUT = "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52" as Address; // WBTC on chain 747474
+  const TOKEN_IN = "0xdE6a4F28Acfe431DD1CfA2D9c7A3d8301624a841"; // bbqAUSD
+  const TOKEN_OUT = "0x0913DA6Da4b42f538B445599b46Bb4622342Cf52"; // WBTC
   const amountIn = parseUnits("1", 18);
 
   const routeParams: RouteParams = {
@@ -423,11 +424,11 @@ flowchart LR
 2. Deposit `wETH` to `yvvbETH` via yearn-v3
 
 ```ts  linenums="1" 
-export async function usdcVbethYvault(): Promise<{ route: any; tx: any }> {
+export async function usdTVbethYvault() {
   const chainId = 747474;
-  const TOKEN_IN = "0x2DCa96907fde857dd3D816880A0df407eeB2D2F2" as Address; // USDT on chain 747474
-  const TOKEN_OUT = "0xE007CA01894c863d7898045ed5A3B4Abf0b18f37" as Address; // yvvbETH on chain 747474
-  const amountIn = parseUnits("1", 6);
+  const TOKEN_IN = "0x2DCa96907fde857dd3D816880A0df407eeB2D2F2"; // USDT
+  const TOKEN_OUT = "0xE007CA01894c863d7898045ed5A3B4Abf0b18f37"; // yvvbETH
+  const amountIn = parseUnits("100", 6);
 
   const routeParams: RouteParams = {
     fromAddress: userAddress,
@@ -467,29 +468,28 @@ This route deposits USDC into a Charm Alpha vault position containing WBTC and E
 flowchart LR
     A((USDC)) --> B{enso.split}
     
-    subgraph split ["Split Logic"]
-        B -->|<b>swap</b> via<br/>sushiswap-router| C((WBTC))
-        B -->|<b>swap</b> via<br/>sushiswap-router| D((wETH))
+    subgraph split ["enso.split"]
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((WBTC))
+        B -->|<b>swap</b> via<br/>sushiswap-router| F((wETH))
     end
     
-    C --> E((WBTCETH30))
-    D --> E
-    C -->|<b>deposit</b> via<br/>charm-alpha-vaults-v2| E
+    E -->|<b>deposit</b> via<br/>charm-alpha-vaults-v2| G((CHARM_VAULT))
+    F -->|<b>deposit</b> via<br/>charm-alpha-vaults-v2| G
 ``` 
 
 **Route mechanics:**
 
 1. Split `USDC` to `WBTC` and `wETH` via enso
-2. Swap `USDC` to `WBTC` via sushiswap-router  
-3. Swap `USDC` to `wETH` via sushiswap-router
-4. Deposit `WBTC` and `wETH` to `WBTCETH30` via charm-alpha-vaults-v2
+    1. Swap a portion of `USDC` to `WBTC`
+    2. Swap a portion `USDC` to `wETH`
+2. Deposit `WBTC` and `wETH` to `WBTCETH30` via charm-alpha-vaults-v2
 
 ```ts
-export async function depositUsdcToCharmWbtcEth03(): Promise<{ route: any; tx: any }> {
+export async function depositUsdcToCharmWbtcEth03() {
   const chainId = 747474;
-  const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36" as Address; // USDC on chain 747474
-  const TOKEN_OUT = "0x85b88F8ACEB5CaA67e240E6C2567F954B0C58D99" as Address; // WBTCETH30 on chain 747474
-  const amountIn = parseUnits("1", 6);
+  const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
+  const TOKEN_OUT = "0x85b88F8ACEB5CaA67e240E6C2567F954B0C58D99"; // WBTCETH30
+  const amountIn = parseUnits("100", 6);
 
   const routeParams: RouteParams = {
     fromAddress: userAddress,
@@ -533,7 +533,7 @@ flowchart LR
     B --> D{enso.merge}
     C --> D
     
-    subgraph merge ["Merge Logic"]
+    subgraph merge ["enso.merge"]
         D -->|<b>swap</b> via<br/>sushiswap-router| E((AUSD))
         D -->|<b>swap</b> via<br/>sushiswap-router| E
     end
@@ -542,15 +542,13 @@ flowchart LR
 **Route mechanics:**
 
 1. Redeem `USDCETH5` to `USDC` and `wETH` via charm-alpha-vaults-v2
-2. Merge `USDC` and `wETH` to `AUSD` via enso
-3. Swap `USDC` to `AUSD` via sushiswap-router
-4. Swap `wETH` to `AUSD` via sushiswap-router
+2. Merge `USDC` and `wETH` to `AUSD` via enso with swapping
 
 ```ts
-export async function withdrawCharmVbusdcVbeth005ToAusd(): Promise<{ route: any; tx: any }> {
+export async function withdrawCharmVbusdcVbeth005ToAusd() {
   const chainId = 747474;
-  const TOKEN_IN = "0xc78c51F88adFbAdcDfafCfeF7F5E3d3c6C7d5129" as Address; // USDCETH5 on chain 747474
-  const TOKEN_OUT = "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a" as Address; // AUSD on chain 747474
+  const TOKEN_IN = "0xc78c51F88adFbAdcDfafCfeF7F5E3d3c6C7d5129"; // USDCETH5
+  const TOKEN_OUT = "0x00000000eFE302BEAA2b3e6e1b18d08D69a9012a"; // AUSD
   const amountIn = parseUnits("1", 18);
 
   const routeParams: RouteParams = {
@@ -603,7 +601,7 @@ export async function usdcMidasRe7sol(){
   const chainId = 747474;
   const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
   const TOKEN_OUT = "0xC6135d59F8D10c9C035963ce9037B3635170D716"; // mRe7SOL
-  const amountIn = parseUnits("1", 6);
+  const amountIn = parseUnits("100", 6);
 
   const routeParams: RouteParams = {
     fromAddress: userAddress,
@@ -641,29 +639,25 @@ This route creates a Steer UniV3 vault position by splitting USDC into SUSHI and
 **Route mechanics:**
 
 1. Split `USDC` into two paths via enso
-2. Swap `USDC` to `SUSHI` via sushiswap-router
-3. Deposit `SUSHI` and `USDC` to `STEERUV12` via steer
+    1. Swap a portion `USDC` to `SUSHI` via sushiswap-router
+    2. Keep a portion as `USDC`
+2. Deposit `SUSHI` and `USDC` to `STEERUV12` via steer
 
 ```mermaid
 flowchart LR
     A((USDC)) --> B{enso.split}
     
     subgraph split ["enso.split"]
-        B --> C[sushiswap-router]
-        B --> D[keep as USDC]
-        C --> E((SUSHI))
-        D --> F((USDC))
+        B -->|<b>swap</b> via<br/>sushiswap-router| E((SUSHI))
+        B -->|<b>keep as</b><br/>USDC| F((USDC))
     end
     
-    subgraph steer ["steer protocol"]
-        E --> G[steer]
-        F --> G
-        G --> H((STEERUV12))
-    end
+    E -->|<b>deposit</b> via<br/>steer| G((STEERUV12 <br/> LP))
+    F -->|<b>deposit</b> via<br/>steer| G
 ```
 
 ```ts  linenums="1" 
-export async function usdcSteerUniv3Vault_12() {
+export async function usdcSteerUniv3Vault() {
   const chainId = 747474;
   const TOKEN_IN = "0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36"; // USDC
   const TOKEN_OUT = "0x4d3C354499389c52F1090Ba4c79bf4F4C083b274"; // STEERUV12
