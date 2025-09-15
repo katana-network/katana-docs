@@ -13,6 +13,8 @@ to verify them on the block explorer.
 forge verify-contract --watch --chain katana 0xc094c224ce0406bc338e00837b96ad2e265f7287 src/GmWorld.sol:GmWorld --verifier etherscan --etherscan-api-key YourEtherscanApiKey
 ```
 
+NOTE: [Hardhat](https://hardhat.org/) also works.
+
 ### Verifying contracts on Blockscout
 
 You can either follow Blockscout's instructions for e.g. [Foundry](https://docs.blockscout.com/devs/verification/foundry-verification), [Hardhat](https://docs.blockscout.com/devs/verification/hardhat-verification-plugin), or do it through the [UI](https://docs.blockscout.com/devs/verification/blockscout-ui).

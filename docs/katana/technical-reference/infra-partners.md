@@ -63,9 +63,10 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Dexscreener](https://dexscreener.com/katana)
 - [Dune](https://dune.com/chains/katana)
 
-### Blockchain Risk Analysis
+### Blockchain Security and Risk Analysis
 
 - [Hypernative](https://www.hypernative.io/)
+- [SecureDApp](https://securedapp.io/)
 - [TRM Labs](https://www.trmlabs.com/)
 
 ### Blockchain Data APIs
