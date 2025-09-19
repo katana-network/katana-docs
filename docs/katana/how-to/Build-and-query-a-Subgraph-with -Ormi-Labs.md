@@ -1,6 +1,6 @@
 # How to build, deploy, and query a Subgraph with Ormi Labs
 
-Indexing and querying blockchain data can be difficult without the right tools. With Ormi’s 0xGraph, anyone can deploy and query subgraphs on the Katana Network in minutes, for free.
+Indexing and querying smart contract data can be difficult without the right tools. With Ormi’s 0xGraph, anyone can deploy and query subgraphs on the Katana Network in minutes, for free.
 
 ## How to deploy a Subgraph
 Ormi supports mutiple deployment methods, from beginner friendly to advance:
