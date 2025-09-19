@@ -1,4 +1,4 @@
-# How to build, deploy, and query a Subgraph with Ormi Labs
+# How to fetch smart contract data using subgraphs with Ormi Labs
 
 Indexing and querying smart contract data can be difficult without the right tools. With Ormi’s 0xGraph, anyone can deploy and query subgraphs on the Katana Network in minutes, for free.
 
@@ -12,9 +12,9 @@ Ormi supports mutiple deployment methods, from beginner friendly to advance:
 
 In this guide, we’ll cover three options:
 
-* [Deploy using a smart contract address](/katana/how-to/Build-and-query-a-Subgraph-with%20-Ormi-Labs/#how-to-deploy-subgraphs-using-a-smart-contract-address)
-* [Migrating with a deployment ID](/katana/how-to/Build-and-query-a-Subgraph-with%20-Ormi-Labs/#how-to-deploy-subgraphs-using-a-smart-contract-address)
-* [Building a subgraph from scratch](/katana/how-to/Build-and-query-a-Subgraph-with%20-Ormi-Labs/#how-to-build-a-subgraph-from-scratch-using-ormi-0xgraph)
+* [Deploy using a smart contract address](#how-to-deploy-subgraphs-using-a-smart-contract-address)
+* [Migrating with a deployment ID](#how-to-deploy-subgraphs-using-a-smart-contract-address)
+* [Building a subgraph from scratch](#how-to-build-a-subgraph-from-scratch-using-ormi-0xgraph)
 
 For deploying via CLI, [see our separate guide](https://blog.ormilabs.com/how-to-deploy-a-usdc-subgraph-with-ormi-0xgraph/).
 
