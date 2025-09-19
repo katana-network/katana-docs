@@ -1,5 +1,8 @@
 # How to fetch smart contract data using subgraphs with Ormi Labs
 
+**Note:** This guide was created by the Ormi team. If you notice anything outdated, please reach us at hello@ormilabs.com
+
+## Intro
 Indexing and querying smart contract data can be difficult without the right tools. With Ormi’s 0xGraph, anyone can deploy and query subgraphs on the Katana Network in minutes, for free.
 
 ## How to deploy a Subgraph
@@ -274,5 +277,6 @@ You now have a live subgraph indexing Katana blocks through [Ormi’s 0xGraph](h
 
 ## Additional resources
 * [Start for free](https://app.ormilabs.com/)
+* [Join our Telegram community](https://t.me/ormilabs)
 * [Ormi Official Website](https://www.ormilabs.com/)
 * [0xGraph Documentation](https://docs.ormilabs.com/)
