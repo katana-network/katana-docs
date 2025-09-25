@@ -1,11 +1,15 @@
 # Integrate Enso DeFi Shortcuts
 
-Enso [DeFi Shortcuts](https://docs.enso.build/pages/build/get-started/overview) simplify protocol interactions by offering a unified interface to different DeFi protocols. 
+Enso [DeFi Shortcuts](https://docs.enso.build/pages/build/get-started/overview) simplify protocol interactions by offering a unified interface to different DeFi protocols via SDK and REST API.
 
-Enso's crosschain APIs return **executable atomic transaction objects** that represent the optimal route between positions:
+Enso's crosschain APIs return **executable atomic transaction objects** that implement the optimal route between DeFi ositions:
 
 - [**/route API**](https://docs.enso.build/pages/build/get-started/route): Define input/output positions and receive optimized execution pathways. 
 - [**/bundle API**](https://docs.enso.build/pages/build/get-started/bundling-actions): Construct custom sequences of protocol interactions.
+
+!!! info 
+    This guide was written by the Enso team. For up-to-date guides refer to [Enso developer documentation](https://docs.enso.build). 
+    For any questions or integration reach out to [Enso developer group](https://t.me/enso_shortcuts).
 
 ```mermaid
 flowchart LR
@@ -33,12 +37,120 @@ For additional examples, browse the [Use Case Library](https://docs.enso.build/p
 
 To accelerate development, explore:
 
-- [Crosschain Swap Widget](https://happypath.enso.build) - an off-the-shelf React component enabling crosschain routing of DeFi positions and native tokens, available as a standalone application or for [embedding into your platform](https://docs.enso.build/pages/templates/cross-chain-route-widget)  
-- Available [projects](https://navigator.enso.build/projects?&chainId=1) and [positions](https://navigator.enso.build/tokens?chainId=1)   
 - Cross-chain [routing & asset bridging](https://docs.enso.build/pages/build/examples/bridging)
-- Building with Enso through REST [API](https://docs.enso.build/pages/api-reference/overview) & [SDK](https://github.com/EnsoBuild/sdk-ts) integration
+- Building with Enso through REST [API](https://docs.enso.build/pages/api-reference/overview) & [SDK](https://github.com/EnsoBuild/sdk-ts)
+- [Crosschain Swap Widget](https://happypath.enso.build): an off-the-shelf React component enabling one-signature crosschain routing of DeFi positions and native tokens, available as a standalone application or to [embed into your UI](https://docs.enso.build/pages/templates/cross-chain-route-widget)  
+- Supported [projects](https://navigator.enso.build/projects?&chainId=1) and [positions](https://navigator.enso.build/tokens?chainId=1)   
 
 ![](./enso-crosschain-swap-widget.png)
+
+## Crosschain Liquidity Provision
+
+This example shows crosschain minting and liquidity provisioning. The rUSD stablecoin is minted on Ethereum Mainnet, brirdget (through wsrUSD) and deposited in the appropriate Morpho vault.
+
+```mermaid
+flowchart LR
+    subgraph ethereum ["🌐 Ethereum"]
+        USDC_ETH((USDC))
+        USDC_ETH -->|enso<br/>route| wsrUSD_ETH((wsrUSD))
+    end
+    
+    wsrUSD_ETH -.->|stargate<br/>bridge| wsrUSD_KATANA((wsrUSD))
+    
+    subgraph katana ["⚔️ Katana"]
+        wsrUSD_KATANA -->|morpho-markets-v1<br/>deposit| MORPHO_SHARES((Morpho<br/>wsrUSD/vbUSD))
+    end
+  style MORPHO_SHARES stroke-dasharray: 5 5
+```
+
+```typescript
+const KATANA_ID = 747474;
+const ETHEREUM_ID = 1;
+
+// Common addresses
+const WALLET_ADDRESS = "0x93621DCA56fE26Cdee86e4F6B18E116e9758Ff11"; // User wallet
+
+// Token addresses
+const MORPHO = "0xD50F2DffFd62f94Ee4AEd9ca05C61d0753268aBc";
+const USDC_ETHEREUM = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+const wsrUSD_KATANA = "0x4809010926aec940b550D34a46A52739f996D75D";
+const wsrUSD_ETHEREUM = "0xd3fd63209fa2d55b07a0f6db36c2f43900be3094";
+
+const wsrUSD_MORPHO_POSITION_ID =
+  "0xd8a93a4cd16f843c385391e208a9a9f2fd75aedfcca05e4810e5fbfcaa6baec6";
+
+const client = new EnsoClient({
+  apiKey: process.env.ENSO_API_KEY!,
+});
+
+// LayerZero pool addresses
+const wsrEthToKatanaPools = await client.getLayerZeroPool({
+  chainId: ETHEREUM_ID,
+  token: wsrUSD_ETHEREUM,
+  destinationChainId: KATANA_ID,
+  destinationToken: wsrUSD_KATANA,
+});
+
+console.log(JSON.stringify(wsrEthToKatanaPools), !wsrEthToKatanaPools.length);
+
+if (!wsrEthToKatanaPools.length) {
+  throw new Error("Required pools not available");
+}
+
+const bundle = await client.getBundleData(
+  {
+    chainId: ETHEREUM_ID,
+    fromAddress: WALLET_ADDRESS,
+    spender: WALLET_ADDRESS,
+    routingStrategy: "router",
+  },
+  [
+    // mint rUSD on Ethereum, swap for wsrUSD_ETHEREUM in 1 action
+    {
+      protocol: "enso",
+      action: "route",
+      args: {
+        amountIn: parseUnits("1000", 6).toString(), // 1000 USDC
+        tokenIn: USDC_ETHEREUM,
+        receiver: WALLET_ADDRESS,
+        tokenOut: wsrUSD_ETHEREUM,
+      },
+    },
+    {
+      protocol: "stargate",
+      action: "bridge",
+      args: {
+        primaryAddress: wsrEthToKatanaPools[0].pool,
+        destinationChainId: KATANA_ID,
+        tokenIn: wsrUSD_ETHEREUM,
+        amountIn: { useOutputOfCallAt: 0 },
+        receiver: WALLET_ADDRESS,
+        callback: [
+          // Step 1: Check wsrUSD_KATANA balance on Katana after bridge
+          {
+            protocol: "enso",
+            action: "balance",
+            args: {
+              token: wsrUSD_KATANA,
+            },
+          },
+          {
+            protocol: "morpho-markets-v1",
+            action: "deposit",
+            args: {
+              amountIn: { useOutputOfCallAt: 0 },
+              tokenIn: wsrUSD_KATANA,
+              receiver: WALLET_ADDRESS,
+              primaryAddress: MORPHO,
+              positionId: wsrUSD_MORPHO_POSITION_ID,
+            },
+          },
+        ],
+      },
+    },
+  ]
+);
+```
 
 ## Zap deposit USDC to SushiSwap USDC-wETH Liquidity Pool
 

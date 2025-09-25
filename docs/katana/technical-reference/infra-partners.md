@@ -33,7 +33,6 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 
 - [Katana Native Bridge](https://bridge.katana.network/)
 - [Chainlink CCIP](https://docs.chain.link/ccip/directory/mainnet/chain/polygon-mainnet-katana)
-- [Enso](https://docs.enso.build/pages/build/examples/bridging)
 - [Hyperlane](https://docs.hyperlane.xyz/docs/reference/domains)
   https://www.bungee.exchange/
 - [LayerZero](https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=katana)
