@@ -44,7 +44,7 @@ To accelerate development, explore:
 
 ![](./enso-crosschain-swap-widget.png)
 
-## Crosschain Liquidity Provision
+## Crosschain Lending
 
 This example shows crosschain minting and liquidity provisioning. The rUSD stablecoin is minted on Ethereum Mainnet, brirdget (through wsrUSD) and deposited in the appropriate Morpho vault.
 
