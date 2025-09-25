@@ -21,14 +21,39 @@
 
 ### Interacting with the Unified Bridge
 
-| Agglayer Documentation    | [https://docs.agglayer.dev/](https://docs.agglayer.dev/)                                                                               |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Unified Bridge Address    | `0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582`                                                                                           |
-| Sepolia contract          | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582)          |
-| Bokuto contract           | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://explorer-bokuto.katanarpc.com/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582) |
-| Bokuto Bridge Service API | [https://rpc-bridge-bokuto.katanarpc.com/](https://rpc-bridge-bokuto.katanarpc.com/)                                                   |
+| Agglayer Documentation       | [https://docs.agglayer.dev/](https://docs.agglayer.dev/)                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Unified Bridge Address       | `0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582`                                                                                           |
+| Sepolia contract             | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://sepolia.etherscan.io/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582)          |
+| Bokuto contract              | [0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582](https://explorer-bokuto.katanarpc.com/address/0x528e26b25a34a4A5d0dbDa1d57D318153d2ED582) |
+| Bokuto Bridge Service API    | [https://rpc-bridge-bokuto.katanarpc.com/](https://rpc-bridge-bokuto.katanarpc.com/)                                                   |
+| NetworkId (i.e. Agglayer Id) | `37`                                                                                                                                   |
 
 For L2<->L2 transactions through the Agglayer, you'll need the other L2's Bridge Service API. The Unified Bridge Address lives in the same address across all testnets.
+
+### Testnet Tokens
+
+Flow: Asset (Sepolia) -> Vault Bridge Token (Sepolia) -> Vault Bridge Token (Katana)
+
+| Name                | Network | Address                                                                                                                        |
+| :------------------ | :------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| `WETH`              | Sepolia | [0x04d08c8525B55c409201289C4ff5a204fa437d9f](https://sepolia.etherscan.io/address/0x04d08c8525B55c409201289C4ff5a204fa437d9f)  |
+| `WBTC`              | Sepolia | [0x8dbBbF4E801774265171D7e101a9f346Fa6f56bD](https://sepolia.etherscan.io/address/0x8dbBbF4E801774265171D7e101a9f346Fa6f56bD)  |
+| `USDC`              | Sepolia | [0xCea1D25a715eC34adFB2267ACe127e8D107778dd](https://sepolia.etherscan.io/address/0xCea1D25a715eC34adFB2267ACe127e8D107778dd)  |
+| `USDT`              | Sepolia | [0xDA9E6CAA9F85aE060BCcd6a789E0C7D39A33e24f](https://sepolia.etherscan.io/address/0xDA9E6CAA9F85aE060BCcd6a789E0C7D39A33e24f)  |
+| `USDS`              | Sepolia | [0x5956982345967Dbc9648cD133c2fECb1eF132AE6](https://sepolia.etherscan.io/address/0x5956982345967Dbc9648cD133c2fECb1eF132AE6)  |
+|                     |         |                                                                                                                                |
+| `Vault Bridge ETH`  | Sepolia | [0x188FFFc2562C67aCdB9a0CD0B819021DDfC82A6B](https://sepolia.etherscan.io/address/0x188FFFc2562C67aCdB9a0CD0B819021DDfC82A6B)  |
+| `Vault Bridge WBTC` | Sepolia | [0x2CE29070ee5e65C4191d5Efca8E85be181F34B6d](https://sepolia.etherscan.io/address/0x2CE29070ee5e65C4191d5Efca8E85be181F34B6d)  |
+| `Vault Bridge USDC` | Sepolia | [0xb62Ba0719527701309339a175dDe3CBF1770dd38](https://sepolia.etherscan.io/address/0xb62Ba0719527701309339a175dDe3CBF1770dd38)  |
+| `Vault Bridge USDT` | Sepolia | [0xdd9aCdD3D2AeC1C823C51f8389597C6be9779B28](https://sepolia.etherscan.io/address/0xdd9aCdD3D2AeC1C823C51f8389597C6be9779B28)  |
+| `Vault Bridge USDS` | Sepolia | [0x406F1A8D91956d8D340821Cf6744Aa74c666836C](https://sepolia.etherscan.io/address/0x406F1A8D91956d8D340821Cf6744Aa74c666836C)  |
+|                     |         |                                                                                                                                |
+| `WETH (aka vbETH)`  | Katana  | [0x84b3493fA9B125A8EFf1CCc1328Bd84D0B4a2Dbf](https://bokuto.katanascan.com/address/0x84b3493fA9B125A8EFf1CCc1328Bd84D0B4a2Dbf) |
+| `WBTC (aka vbWBTC)` | Katana  | [0xe8255B44634b478aB10a649c6C207A654473dbed](https://bokuto.katanascan.com/address/0xe8255B44634b478aB10a649c6C207A654473dbed) |
+| `USDC (aka vbUSDC)` | Katana  | [0xc2a4C310F2512A17Ac0047cf871aCAed3E62bB4B](https://bokuto.katanascan.com/address/0xc2a4C310F2512A17Ac0047cf871aCAed3E62bB4B) |
+| `USDT (aka vbUSDT)` | Katana  | [0xf6801557e17131Da48Fd03B2c34172872F936345](https://bokuto.katanascan.com/address/0xf6801557e17131Da48Fd03B2c34172872F936345) |
+| `USDS (aka vbUSDS)` | Katana  | [0x801f719178d9b85D4948ed146C50596273885a75](https://bokuto.katanascan.com/address/0x801f719178d9b85D4948ed146C50596273885a75) |
 
 ---
 

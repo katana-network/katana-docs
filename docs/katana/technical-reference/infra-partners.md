@@ -17,11 +17,11 @@
 - [Bitget Wallet](https://web3.bitget.com/en)
 - [Fireblocks](https://www.fireblocks.com/)
 - [Rabby](https://rabby.io/)
-- [Subwallet](https://www.subwallet.app/)
 - [Safe](https://safe.global/wallet)
+- [Subwallet](https://www.subwallet.app/)
 - [Zerion](https://zerion.io/download?utm_source=katana&utm_medium=marketing&utm_campaign=download_page)
 
-You can also use Katana on other wallets that allow you to add a custom chain, such as [Metamask](https://metamask.io/).
+You can also use Katana on other wallets that allow you to add a custom chain, such as [Base App (fka Coinbase Wallet)](https://www.coinbase.com/en-pt/wallet), [Metamask](https://metamask.io/), [OKX Wallet](https://web3.okx.com/), or [TrustWallet](https://trustwallet.com/).
 
 ### Portfolio Tracking
 
@@ -34,7 +34,6 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Katana Native Bridge](https://bridge.katana.network/)
 - [Chainlink CCIP](https://docs.chain.link/ccip/directory/mainnet/chain/polygon-mainnet-katana)
 - [Hyperlane](https://docs.hyperlane.xyz/docs/reference/domains)
-  https://www.bungee.exchange/
 - [LayerZero](https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=katana)
 - [LI.FI](https://li.fi/)
 
@@ -65,9 +64,10 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Dexscreener](https://dexscreener.com/katana)
 - [Dune](https://dune.com/chains/katana)
 
-### Blockchain Risk Analysis
+### Blockchain Security and Risk Analysis
 
 - [Hypernative](https://www.hypernative.io/)
+- [SecureDApp](https://securedapp.io/)
 - [TRM Labs](https://www.trmlabs.com/)
 
 ### Blockchain Data APIs
