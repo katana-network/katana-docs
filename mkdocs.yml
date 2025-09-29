@@ -64,6 +64,7 @@ nav:
           - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
           - Integrate Privy email login (client side): katana/how-to/add-privy.md
+          - Integrate Enso DeFi Shortcuts: katana/how-to/use-enso-shortcuts.md
           - Fetch smart contract data using subgraphs with Ormi: katana/how-to/fetch-smart-contract-data-with-ormi.md
       - Additional Resources:
           - Brand Kit: katana/additional-resources/brand-kit.md
