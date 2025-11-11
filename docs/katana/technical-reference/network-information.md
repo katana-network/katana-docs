@@ -4,15 +4,18 @@ Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
 
 ### Basic Info
 
-| Chain Name          | Katana                                                           |
-| :------------------ | :--------------------------------------------------------------- |
-| Chain ID            | 747474                                                           |
-| Public RPC URL      | [https://rpc.katana.network/](https://rpc.katana.network/)       |
-| Gas Token           | ETH                                                              |
-| Block explorer      | [https://katanascan.com/](https://katanascan.com/)               |
-| Canonical Bridge UI | [https://bridge.katana.network/](https://bridge.katana.network/) |
+| Chain Name              | Katana                                                                     |
+| :---------------------- | :------------------------------------------------------------------------- |
+| Chain ID                | [747474](https://chainlist.org/chain/747474)                               |
+| Official Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/)                 |
+| (Tenderly Public RPC)   | [https://katana.gateway.tenderly.co/](https://katana.gateway.tenderly.co/) |
+| (Conduit Public RPC)    | [https://rpc.katanarpc.com/](https://rpc.katanarpc.com/)                   |
+| Gas Token               | ETH                                                                        |
+| Block explorer          | [https://katanascan.com/](https://katanascan.com/)                         |
+| Canonical Bridge UI     | [https://bridge.katana.network/](https://bridge.katana.network/)           |
 
-Notes: Our public RPC is fronted by a load balancer. Users are rate limited at 100 requests/second.
+Notes: Our official public RPC is fronted by a load balancer. Users are rate limited at 100 requests/second.
+WSS is not supported on it, but you can use the Tenderly/Conduit public RPCs (or use another [RPC provider](https://docs.katana.network/katana/technical-reference/infra-partners/#rpc-providers)).
 
 ### Chain Configuration
 

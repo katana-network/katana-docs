@@ -36,6 +36,7 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Chainlink CCIP](https://docs.chain.link/ccip/directory/mainnet/chain/polygon-mainnet-katana)
 - [Hyperlane](https://docs.hyperlane.xyz/docs/reference/domains)
 - [LayerZero](https://docs.layerzero.network/v2/deployments/deployed-contracts?chains=katana)
+- [Symbiosis](https://app.symbiosis.finance/swap?chainIn=Ethereum&chainOut=Katana&tokenIn=ETH&tokenOut=0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36)
 - [LI.FI](https://li.fi/)
 
 ---
@@ -67,12 +68,14 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 
 ### Blockchain Security and Risk Analysis
 
+- [Blockaid](https://www.blockaid.io/)
 - [Hypernative](https://www.hypernative.io/)
 - [SecureDApp](https://securedapp.io/)
 - [TRM Labs](https://www.trmlabs.com/)
 
 ### Blockchain Data APIs
 
+- [Codex](https://codex.io)
 - [Zerion API](https://zerion.io/api)
 
 ### Blockchain Data Streaming
@@ -95,9 +98,14 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 
 ### Account Abstraction / Wallet Infrastructure
 
+- [Gelato](https://docs.gelato.cloud/paymaster-&-bundler/additional-resources/supported-networks)
 - [Para](https://docs.getpara.com/v2/introduction/chain-support#:~:text=%E2%9C%85-,Katana,-747474)
 - [Zero.dev](https://zerodev.app/)
 
 ### Incentive Distribution
 
 - [Merkl](https://app.merkl.xyz/?search=katana)
+
+### On/Off-ramp
+
+- [electrocoin](https://electrocoin.eu/)
