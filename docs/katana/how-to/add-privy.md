@@ -436,6 +436,8 @@ const BOKUTO_CHAIN = defineChain({
     }
   },
 });
+
+const BOKUTO_CHAIN_ID = BOKUTO_CHAIN.id;
 ```
 
 Privy works by embedding a wallet into a hidden iframe on the website, and by
