@@ -114,7 +114,7 @@ Privy authentication UI:
           <!-- Network Compatibility Warning -->
           <div class="network-warning">
             <h4>📍 Network Configuration</h4>
-            <p><strong>Privy embedded wallets</strong> are automatically configured to use your local Tatara fork. The app includes network switching functionality to ensure transactions work correctly on both Privy embedded wallets and MetaMask.</p>
+            <p><strong>Privy embedded wallets</strong> are automatically configured to use your local Bokuto fork. The app includes network switching functionality to ensure transactions work correctly on both Privy embedded wallets and MetaMask.</p>
           </div>
           
           <div class="wallet-balance">
@@ -132,7 +132,7 @@ Privy authentication UI:
       </section>
 
       <section id="contracts-section">
-        <h2>Tatara Contracts</h2>
+        <h2>Bokuto Contracts</h2>
         
         <!-- AUSD Token -->
         <div class="card">
@@ -408,14 +408,14 @@ import Privy, {
 } from "@privy-io/js-sdk-core";
 ```
 
-Since, as we mentioned, Privy is not aware of Tatara or our local chain, let's
+Since, as we mentioned, Privy is not aware of Bokuto or our local chain, let's
 define it.
 
 ```ts
-const TATARA_CHAIN = defineChain({
+const BOKUTO_CHAIN = defineChain({
   id: 471,
-  name: 'Tatara Testnet',
-  network: 'tatara',
+  name: 'Bokuto Testnet',
+  network: 'Bokuto',
   nativeCurrency: {
     decimals: 18,
     name: 'Ether',
@@ -431,7 +431,7 @@ const TATARA_CHAIN = defineChain({
   },
   blockExplorers: {
     default: { 
-      name: 'Tatara Explorer', 
+      name: 'Bokuto Explorer', 
       url: 'http://localhost:8545' // Using RPC URL as placeholder since there's no block explorer
     }
   },
@@ -499,8 +499,8 @@ function displayRpcError(customMessage?: string) {
     <div class="error-message">
       <h4>⚠️ RPC Connection Error</h4>
       ${customMessage ? `<p>${customMessage}</p>` : ""}
-      <p>Make sure you've started the local Tatara fork with:</p>
-      <pre>bun run start:anvil:tatara</pre>
+      <p>Make sure you've started the local Bokuto fork with:</p>
+      <pre>bun run start:anvil:bokuto</pre>
       <p>Your local RPC should be running at http://localhost:8545</p>
     </div>
   `;
@@ -636,7 +636,7 @@ const privyWalletProvider: WalletProvider = {
   async getWalletClient() {
     if (!embeddedWalletProvider) throw new Error("Privy wallet not connected");
     return createWalletClient({
-      chain: TATARA_CHAIN,
+      chain: BOKUTO_CHAIN,
       transport: custom(embeddedWalletProvider),
       account: await this.getAddress() as `0x${string}`,
     });
@@ -666,25 +666,25 @@ const traditionalWalletProvider: WalletProvider = {
     if (!window.ethereum) throw new Error("No wallet detected");
     
     this.walletClient = createWalletClient({
-      chain: TATARA_CHAIN,
+      chain: BOKUTO_CHAIN,
       transport: custom(window.ethereum),
     });
 
     await this.walletClient.requestAddresses();
     
     try {
-      await this.walletClient.switchChain({ id: TATARA_CHAIN_ID });
+      await this.walletClient.switchChain({ id: BOKUTO_CHAIN_ID });
     } catch {
       await window.ethereum.request({
         method: "wallet_addEthereumChain",
         params: [{
-          chainId: `0x${TATARA_CHAIN_ID.toString(16)}`,
-          chainName: TATARA_CHAIN.name,
-          nativeCurrency: TATARA_CHAIN.nativeCurrency,
-          rpcUrls: [TATARA_CHAIN.rpcUrls.default.http[0]],
+          chainId: `0x${BOKUTO_CHAIN_ID.toString(16)}`,
+          chainName: BOKUTO_CHAIN.name,
+          nativeCurrency: BOKUTO_CHAIN.nativeCurrency,
+          rpcUrls: [BOKUTO_CHAIN.rpcUrls.default.http[0]],
         }],
       });
-      await this.walletClient.switchChain({ id: TATARA_CHAIN_ID });
+      await this.walletClient.switchChain({ id: BOKUTO_CHAIN_ID });
     }
   },
   
@@ -993,10 +993,10 @@ declare global {
 
 ## Step 4: Test Your Implementation
 
-1. **Start your local Tatara fork** (if not already running):
+1. **Start your local Bokuto fork** (if not already running):
 
    ```bash
-   bun run start:anvil:tatara
+   bun run start:anvil:bokuto
    ```
 
 2. **Build your app**:

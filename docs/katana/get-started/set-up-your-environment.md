@@ -1,11 +1,7 @@
 # Katana Development Starter Kit
 
 This tutorial will help you set up and use the Katana Development Starter Kit
-for building applications on Katana and its testnets, Tatara and Bokuto.
-
-**Note: Tatara will eventually be deprecated. It is recommended to use Bokuto as
-the testnet, or to use a local fork of Katana's mainnet, as will be described in
-the content below.**
+for building applications on Katana and its testnet, Bokuto.
 
 ## What is Katana?
 

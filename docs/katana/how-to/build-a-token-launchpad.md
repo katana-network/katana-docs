@@ -243,7 +243,7 @@ async function initialize() {
     // Create a public client with custom config
     publicClient = createPublicClient({
       transport: createRobustTransport(),
-      chain: tatara
+      chain: bokuto
     });
 
     // Test connection with a simple method first
@@ -254,16 +254,16 @@ async function initialize() {
       // Then try to get chain ID
       const chainId = await publicClient.getChainId();
       
-      if (chainId === CHAIN_IDS.TATARA) {
-        updateNetworkStatus('connected', 'Tatara');
+      if (chainId === CHAIN_IDS.BOKUTO) {
+        updateNetworkStatus('connected', 'Bokuto');
       } else {
         updateNetworkStatus('error', `Wrong network: ${chainId}`);
-        displayRpcError(`Connected to wrong network. Expected ${CHAIN_IDS.TATARA} (Tatara), got ${chainId}`);
+        displayRpcError(`Connected to wrong network. Expected ${CHAIN_IDS.BOKUTO} (Bokuto), got ${chainId}`);
       }
     } catch (error) {
       console.error('RPC connection error:', error);
       updateNetworkStatus('error', 'Fork not running');
-      displayRpcError('Unable to connect to local Tatara fork');
+      displayRpcError('Unable to connect to local Bokuto fork');
     }
   } catch (error) {
     console.error('Initialization error:', error);
@@ -690,7 +690,7 @@ textarea:focus {
 ```
 
 We can now build the launchpad with `bun run build` and start anvil with
-`bun run start:anvil:tatara`. Once we host the `/dist` contents with something
+`bun run start:anvil:bokuto`. Once we host the `/dist` contents with something
 like `cd dist && http-server`, we should see the app running fine:
 
 ![Working app UI](./01.png)
@@ -907,7 +907,7 @@ This script will:
 
 ### Step 2.4: Deploy the Factory Contract
 
-Now we can deploy our factory contract to the local Tatara fork:
+Now we can deploy our factory contract to the local Bokuto fork:
 
 ```bash
 PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 forge script forge/script/DeployTokenFactory.s.sol:DeployTokenFactory --rpc-url http://localhost:8545 --broadcast
@@ -1000,9 +1000,9 @@ const TOKEN_FACTORY_ABI = require('../abis/ITokenFactory.json');
 const TOKEN_ABI = require('../abis/IERC20.json');
 
 // Define chain configuration once to reuse
-const tatara = {
-  id: CHAIN_IDS.TATARA,
-  name: 'Tatara Testnet',
+const bokuto = {
+  id: CHAIN_IDS.BOKUTO,
+  name: 'Bokuto Testnet',
   nativeCurrency: {
     name: 'Ether',
     symbol: 'ETH',
@@ -1028,13 +1028,13 @@ Make sure to apply the chain configuration to both your public and wallet client
 // Create a public client with custom config
 publicClient = createPublicClient({
   transport: createRobustTransport(),
-  chain: tatara
+  chain: bokuto
 });
 
 // In connectWallet function
 walletClient = createWalletClient({
   transport: custom(window.ethereum),
-  chain: tatara
+  chain: bokuto
 });
 ```
 
@@ -1076,7 +1076,7 @@ async function createToken() {
       functionName: 'createTokenWithDistribution',
       args: [name, symbol, decimals, totalSupply, recipients, amounts],
       account: account as `0x${string}`,
-      chain: tatara // Important: provide chain information
+      chain: bokuto // Important: provide chain information
     });
     
     // Wait for transaction receipt
