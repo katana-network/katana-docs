@@ -84,6 +84,8 @@ extra:
       link: https://github.com/katana-network/katana-docs/
     - icon: fontawesome/brands/discord
       link: https://discord.gg/katananetwork
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/Katana_Network
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/katana/
   consent:
