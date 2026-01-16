@@ -8,10 +8,10 @@ Based thereon, KAT has been effectively admitted to trading on Dec 29, 2025
 
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid; border-radius: 8px; padding: 16px;">
   <strong>
-    Click <a href="/files/kat_whitepaper.pdf" target="_blank" rel="noopener">here</a> to view the KAT Whitepaper
+    Click <a href="/files/kat_whitepaper_latest.pdf" target="_blank" rel="noopener">here</a> to view the KAT Whitepaper
   </strong>
 </div>
 
 Version: 1.0
 
-Publication Date: January [*], 2026
+Publication Date: January 16, 2026
