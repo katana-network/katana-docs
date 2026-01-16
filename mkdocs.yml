@@ -47,6 +47,7 @@ nav:
           - Governance: katana/core-concepts/governance.md
           - Sustainability: katana/core-concepts/sustainability.md
           - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
+          - MiCa Whitepaper: katana/core-concepts/mi-ca-whitepaper.md
       - Technical Reference:
           - Network Information: katana/technical-reference/network-information.md
           - Contract Addresses: katana/technical-reference/contract-addresses.md
