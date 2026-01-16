@@ -8,7 +8,7 @@ Based thereon, KAT has been effectively admitted to trading on the following tra
 
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid; border-radius: 8px; padding: 16px;">
   <strong>
-    Click <a href="https://katana.network/white-paper/KAT/latest" target="_blank" rel="noopener">here</a> to view the KAT Whitepaper
+    Click <a href="/files/kat_whitepaper.pdf" target="_blank" rel="noopener">here</a> to view the KAT Whitepaper
   </strong>
 </div>
 
