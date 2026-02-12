@@ -42,6 +42,13 @@ Note: The `networkId` (i.e. Agglayer Id) for Katana is `20`. For EthMainnet it's
 
 #### LayerZero
 
+Due to the nature of Vault Bridge (vb) Assets, all bridged funds must go through the Vault Bridge for all Katana assets to continue to earn yield for its users <br>
+`Ethereum → Katana` <br>
+![ETH Bridge](../../img/bridges/ethtokatanabridge.png)
+
+`L2 → Ethereum → Katana`
+![ETH Bridge](../../img/bridges/l2toethtokatana.png)
+
 | config            | value                                        |                                                                                       |
 | ----------------- | -------------------------------------------- | ------------------------------------------------------------------------------------- |
 | chainKey          | `katana`                                     |                                                                                       |
@@ -53,3 +60,17 @@ Note: The `networkId` (i.e. Agglayer Id) for Katana is `20`. For EthMainnet it's
 | blockedMessageLib | `0xc1ce56b2099ca68720592583c7984cab4b6d7e7a` | [explorer](https://katanascan.com/address/0xc1ce56b2099ca68720592583c7984cab4b6d7e7a) |
 | executor          | `0x4208D6E27538189bB48E603D6123A94b8Abe0A0b` | [explorer](https://katanascan.com/address/0x4208D6E27538189bB48E603D6123A94b8Abe0A0b) |
 | deadDVN           | `0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842` | [explorer](https://katanascan.com/address/0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842) |
+
+| config            | value                                        |                                                                                       |
+| ----------------- | -------------------------------------------- | ------------------------------------------------------------------------------------- |
+| chainKey          | `Ethereum mainnet`                           |                                                                                       |
+| stage             | `mainnet`                                    |                                                                                       |
+| EID               | `30101`                                      |                                                                                       |
+| OVault composer   | `0x8A35897fda9E024d2aC20a937193e099679eC477` | [explorer](https://etherscan.io/address/0x8A35897fda9E024d2aC20a937193e099679eC477)   |
+| shareOFT          | `0xC39161c743D0307EB9BCc9FEF03eeb9Dc4802de7` | [explorer](https://etherscan.io/address/0xb5bADA33542a05395d504a25885e02503A957Bb3)   |
+| vbUSDC            | `0x53E82ABbb12638F09d9e624578ccB666217a765e` | [explorer](https://etherscan.io/address/0x53E82ABbb12638F09d9e624578ccB666217a765e)   |
+| vbUSDT            | `0x6d4f9f9f8f0155509ecd6Ac6c544fF27999845CC` | [explorer](https://etherscan.io/address/0x6d4f9f9f8f0155509ecd6Ac6c544fF27999845CC)   |
+| vbWBTC            | `0x2C24B57e2CCd1f273045Af6A5f632504C432374F` | [explorer](https://etherscan.io/address/0x2C24B57e2CCd1f273045Af6A5f632504C432374F)   |
+| vbETH             | `0x2DC70fb75b88d2eB4715bc06E1595E6D97c34DFF` | [explorer](https://etherscan.io/address/0x2DC70fb75b88d2eB4715bc06E1595E6D97c34DFF)   |
+
+An example for bridging through LayerZero can be found [here](https://github.com/katana-network/lz-ops-demo)
