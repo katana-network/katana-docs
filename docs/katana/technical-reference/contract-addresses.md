@@ -17,6 +17,7 @@ We're highlighting here only a subset of tokens from the tokenlist for visualiza
 | Asset                 | Address                                                                                                               | Origin / Bridging Protocol |
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | `KAT`                 | [0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d](https://katanascan.com/token/0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d) | Native                     |
+| `avKAT`               | [0x7231dbaCdFc968E07656D12389AB20De82FbfCeB](https://katanascan.com/token/0x7231dbaCdFc968E07656D12389AB20De82FbfCeB) | Native    |
 | `WETH` (aka `vbETH`)  | [0xEE7D8BCFb72bC1880D0Cf19822eB0A2e6577aB62](https://katanascan.com/token/0xEE7D8BCFb72bC1880D0Cf19822eB0A2e6577aB62) | Native / Agglayer VB       |
 | `WBTC` (aka `vbWBTC`) | [0x0913DA6Da4b42f538B445599b46Bb4622342Cf52](https://katanascan.com/token/0x0913DA6Da4b42f538B445599b46Bb4622342Cf52) | Native / Agglayer VB       |
 | `USDC` (aka `vbUSDC`) | [0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36](https://katanascan.com/token/0x203A662b0BD271A6ed5a60EdFbd04bFce608FD36) | Native / Agglayer VB       |

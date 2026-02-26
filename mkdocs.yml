@@ -68,6 +68,14 @@ nav:
           - Integrate Enso DeFi Shortcuts: katana/how-to/use-enso-shortcuts.md
           - Fetch smart contract data using subgraphs with Ormi: katana/how-to/fetch-smart-contract-data-with-ormi.md
           - Bridge to Katana with LayerZero: katana/how-to/bridge-to-katana-with-layerzero.md
+          - KAT Token:
+              - Understanding the KAT Token Ecosystem: katana/how-to/kat-token-overview.md
+              - Stake KAT to vKAT: katana/how-to/kat-stake-to-vkat.md
+              - Deposit KAT to avKAT: katana/how-to/kat-deposit-to-avkat.md
+              - Convert vKAT to avKAT: katana/how-to/kat-convert-vkat-to-avkat.md
+              - Vote on Gauges: katana/how-to/kat-vote-on-gauges.md
+              - Claim Voting Incentives: katana/how-to/kat-claim-rewards.md
+              - Unstake and Exit: katana/how-to/kat-unstake-and-exit.md
       - Additional Resources:
           - Brand Kit: katana/additional-resources/brand-kit.md
           - Katana Security Overview: katana/additional-resources/security-overview.md
