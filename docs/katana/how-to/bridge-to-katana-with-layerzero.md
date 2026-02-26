@@ -2,13 +2,39 @@
 
 All bridged funds on Katana go through the Vault Bridge, which deposits assets into ERC-4626 vaults on Ethereum and bridges the resulting vault shares to Katana via LayerZero OFT. This means users earn yield on their bridged assets automatically.
 
-`Ethereum → Katana` <br>
-![ETH Bridge](../../img/bridges/ethtokatanabridge.png)
+**Ethereum → Katana**
+
+```mermaid
+graph LR
+    subgraph Ethereum
+        USDC["Token<br/>USDC"] -->|"Approve &<br/>Deposit"| OVC["OVault<br/>Composer"]
+        OVC -->|"Deposits to<br/>Vault Bridge"| BR[ ]
+    end
+    BR -->|"LayerZero OFT"| vbUSDC
+    subgraph Katana
+        vbUSDC["Receive<br/>vbUSDC"]
+    end
+```
 
 Coming from Mainnet Ethereum, your token (USDC in this guide) is deposited into the Vault Bridge through the OVault Composer. The Composer deposits the token into the vault, receives shares, and bridges those shares to Katana. On arrival, the user receives vbUSDC tokens on Katana.
 
-`L2 → Ethereum → Katana` <br>
-![ETH Bridge](../../img/bridges/l2toethtokatana.png)
+**L2 → Ethereum → Katana**
+
+```mermaid
+graph LR
+    subgraph Alt L2
+        USDC["Token<br/>USDC"] -->|"Approve &<br/>Deposit"| SG["Stargate"]
+    end
+    SG -->|"Stargate<br/>Bridge"| OVC1
+    subgraph Ethereum
+        OVC1["OVault Composer<br/>USDC"] -->|"Compose<br/>Message Hop"| OVC2["OVault<br/>Composer"]
+        OVC2 -->|"Deposits to<br/>Vault Bridge"| BR[ ]
+    end
+    BR -->|"LayerZero OFT"| vbUSDC
+    subgraph Katana
+        vbUSDC["Receive<br/>vbUSDC"]
+    end
+```
 
 Coming from an alternative L2, the asset must bridge back to Ethereum Mainnet first before depositing to the Vault Bridge and bridging shares to Katana.
 
