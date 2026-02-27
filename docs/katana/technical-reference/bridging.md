@@ -53,3 +53,6 @@ Note: The `networkId` (i.e. Agglayer Id) for Katana is `20`. For EthMainnet it's
 | blockedMessageLib | `0xc1ce56b2099ca68720592583c7984cab4b6d7e7a` | [explorer](https://katanascan.com/address/0xc1ce56b2099ca68720592583c7984cab4b6d7e7a) |
 | executor          | `0x4208D6E27538189bB48E603D6123A94b8Abe0A0b` | [explorer](https://katanascan.com/address/0x4208D6E27538189bB48E603D6123A94b8Abe0A0b) |
 | deadDVN           | `0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842` | [explorer](https://katanascan.com/address/0x6788f52439ACA6BFF597d3eeC2DC9a44B8FEE842) |
+| shareOFT          | `0x807275727Dd3E640c5F2b5DE7d1eC72B4Dd293C0` | [explorer](https://katanascan.com/address/0x807275727dd3e640c5f2b5de7d1ec72b4dd293c0) |
+
+An Example to bridge with Layer Zero can be found [here](../how-to/bridge-to-katana-with-layerzero.md)
