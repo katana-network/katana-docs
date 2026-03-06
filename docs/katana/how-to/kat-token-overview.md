@@ -21,8 +21,7 @@ purpose:
 
 ### KAT — The Base Token (ERC-20)
 
-KAT is a standard ERC-20 token and the foundation of the Katana governance
-system. It is fungible, transferable, and can be held in any Ethereum-compatible
+KAT is a standard ERC-20 token and the native token of the Katana Foundation. It is fungible, transferable, and can be held in any Ethereum-compatible
 wallet.
 
 | Property | Value |
@@ -33,22 +32,21 @@ wallet.
 | **Transferable** | Yes |
 | **Voting Power** | None (must be staked) |
 
-On its own, KAT does not grant voting power. To participate in governance, you
-must stake KAT into one of the two staking paths described below.
+On its own, KAT does not grant voting power. For the opportunity to vote on where future KAT emissions go in the Katana DeFi ecosystem, you must stake KAT into one of the two staking paths described below.
 
-### vKAT — Active Governance (Soulbound NFT)
+### vKAT — Active Voting (Non-Transferable NFT)
 
 When you stake KAT into the Voting Escrow contract, you receive a **vKAT** NFT
-(non-fungible token). Each vKAT represents a locked position with voting power.
+(non-fungible token). Each vKAT represents a locked position with voting power about where to direct KAT emissions across the DeFi ecosystem.
 
 | Property | Value |
 |----------|-------|
 | **Standard** | ERC-721 (Soulbound) |
 | **Contract** | `0x4d6fC15Ca6258b168225D283262743C623c13Ead` |
 | **Transferable** | No |
-| **Voting Power** | Yes — scales with lock amount |
+| **Voting Power** | Yes — scales with lock amount at a 1:1 ratio |
 | **Reward Claiming** | Manual |
-| **Exit** | 45-day cooldown with 2.5%–25% fee |
+| **Exit** | 45-day cooldown with 2.5%–25% current fee |
 
 vKAT is designed for **active participants** who want direct control over their
 votes and reward preferences. Because vKAT is soulbound (non-transferable), your
@@ -57,7 +55,7 @@ staked position is tied to your wallet.
 Key characteristics:
 
 - You can hold multiple vKAT NFTs, each representing a separate lock
-- You vote directly on gauge allocations to direct incentives
+- You vote directly on gauge allocations to direct KAT emissions to certain pools
 - You claim rewards manually through the Merkl distributor
 - You can set preferences for which tokens you receive as rewards
 - Exiting requires a 45-day cooldown period
@@ -66,7 +64,8 @@ Key characteristics:
 
 Alternatively, you can deposit KAT into the avKAT vault.
 The vault issues **avKAT** shares — a liquid, transferable ERC-4626 token
-representing a proportional share of the vault's staked position.
+representing a proportional percentage of the vault's staked position.  avKAT is a permissionless automatic vKAT token. Its holders enable and choose one of the Network’s Third-Party relayers’ logics to cast votes periodically and programmatically.
+
 
 | Property | Value |
 |----------|-------|
@@ -84,7 +83,7 @@ Key characteristics:
 
 - avKAT is a liquid ERC-4626 — you can transfer, trade, or use it in DeFi
 - The exchange rate between avKAT and KAT reflects accumulated rewards compounded by the vault
-- No manual voting or claiming required
+- No manual voting or claiming required after actively choose a vote delegator or logic
 - You can exit instantly by selling avKAT on a DEX (subject to market liquidity)
 - Alternatively, redeem avKAT back to a vKAT NFT and go through the standard
   exit process

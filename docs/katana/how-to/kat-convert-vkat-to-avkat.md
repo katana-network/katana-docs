@@ -1,7 +1,7 @@
 # Convert vKAT to avKAT
 
 This tutorial shows you how to convert an existing vKAT NFT (direct staking)
-into avKAT vault shares (vault-based staking).
+into avKAT vault tokens (vault-based staking).
 
 ## Goal
 
@@ -19,14 +19,14 @@ By the end of this tutorial, you'll be able to:
 
 You might want to convert from vKAT to avKAT if:
 
-- You no longer want to manage votes and reward claims directly
+- You would like to automate the voting logic of your choice
 - You want a transferable token you can use in DeFi
 - You want to consolidate into the vault without creating new NFTs each time
 - You want to exit your position instantly via a DEX
 
 !!! warning
     Converting is a one-way operation. Once your vKAT NFT is deposited into the
-    vault, it is consumed. You receive avKAT shares in return. To get a vKAT NFT
+    vault, it is consumed. You receive avKAT tokens in return. To get a vKAT NFT
     back, you would need to withdraw from the vault, which creates a new NFT with a new token ID.
 
 ## Contract Addresses
@@ -142,7 +142,7 @@ for (const id of tokenIds) {
 
 ## Step 2: Preview the Conversion
 
-Check the exchange rate and expected shares before converting:
+Check the exchange rate and expected tokens before converting:
 
 ```typescript
 const tokenId = tokenIds[0]; // Replace with your chosen token ID
@@ -164,7 +164,7 @@ const exchangeRate = await publicClient.readContract({
 });
 console.log(`Current rate: 1 avKAT = ${formatEther(exchangeRate)} KAT`);
 
-// Preview: how many shares for your NFT's locked amount
+// Preview: how many tokens for your NFT's locked amount
 const expectedShares = await publicClient.readContract({
   address: VAULT,
   abi: vaultAbi,
@@ -212,10 +212,10 @@ When you deposit a vKAT NFT into the vault:
 
 1. The vault takes custody of your NFT
 2. The locked KAT from your NFT is merged into the vault's master position
-3. You receive avKAT shares proportional to the KAT locked in your NFT
+3. You receive avKAT tokens proportional to the KAT locked in your NFT
 4. The original NFT is consumed — it no longer exists in your wallet
 
-The number of avKAT shares you receive depends on the current exchange rate
+The number of avKAT tokens you receive depends on the current exchange rate
 between avKAT and KAT at the time of deposit.
 
 ## What's Next

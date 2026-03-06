@@ -26,12 +26,29 @@ When you deposit KAT, the vault:
 
 1. Locks KAT into the VotingEscrow on your behalf (via a master vKAT NFT held
    internally by the vault)
-2. Issues you avKAT shares representing your proportional ownership
+2. Issues you avKAT tokens representing your proportional ownership
 3. Uses a CompoundStrategy contract to handle gauge voting and reward
    reinvestment for the vault's master position
 
 The exchange rate between avKAT and KAT reflects the accumulated protocol
 rewards distributed to the vault.
+
+### Relayers
+
+A relayer is an entity that votes on gauges and compounds rewards on behalf of
+delegators. The relayer role is open to anyone.  avKAT is the first
+relayer of many to come.
+
+avKAT is a tokenized wrapper around a delegation to a relayer, combined with
+automated claiming of the fees that relayer generates for you. The claiming and
+tokenization are separate from the actual delegation logic that defines the
+relayer. It is also not necessary that a relayer is tokenized like avKAT.
+
+As more relayers become available, the steps to choose one will be:
+
+1. View the available relayers in the Katana app
+2. Pick a relayer based on the voting strategy that works for you
+3. Delegate your votes to the relayer of choice
 
 ## Contract Addresses
 
@@ -152,7 +169,7 @@ const VAULT_ADDRESS = "0x7231dbaCdFc968E07656D12389AB20De82FbfCeB";
 
 ## Step 1: Preview Your Deposit
 
-Before depositing, check how many avKAT shares you'll receive:
+Before depositing, check how many avKAT tokens you'll receive:
 
 ```typescript
 import { parseEther, formatEther } from "viem";
@@ -237,7 +254,7 @@ console.log(`Underlying KAT value: ${formatEther(underlyingKat)}`);
 ## Understanding the Exchange Rate
 
 The exchange rate between avKAT and KAT reflects the vault's total assets
-relative to outstanding shares. You can query the current rate on-chain:
+relative to outstanding tokens. You can query the current rate on-chain:
 
 ```typescript
 // Convert shares to underlying KAT value
@@ -291,7 +308,7 @@ to market liquidity and slippage.
 
 ### Option 2: Redeem Through the Vault
 
-You can redeem avKAT shares back through the vault. This creates a new vKAT NFT
+You can redeem avKAT tokens back through the vault. This creates a new vKAT NFT
 and begins the standard 45-day exit process:
 
 ```typescript
