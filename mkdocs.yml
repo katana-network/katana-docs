@@ -53,6 +53,10 @@ nav:
           - Contract Addresses: katana/technical-reference/contract-addresses.md
           - KAT Token:
               - Understanding the KAT Token Ecosystem: katana/how-to/kat-token-overview.md
+              - Launch Programs (Day 0-60):
+                  - Pre-Staking KAT: katana/how-to/kat-pre-staking.md
+                  - Vote Boost: katana/how-to/kat-vote-boost.md
+                  - Founding Stakers: katana/how-to/kat-founding-stakers.md
               - Stake KAT to vKAT: katana/how-to/kat-stake-to-vkat.md
               - Deposit KAT to avKAT: katana/how-to/kat-deposit-to-avkat.md
               - Convert vKAT to avKAT: katana/how-to/kat-convert-vkat-to-avkat.md

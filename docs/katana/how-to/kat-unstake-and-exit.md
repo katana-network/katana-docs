@@ -15,12 +15,35 @@ By the end of this tutorial, you'll understand:
 
 ## Prerequisites
 
-- A vKAT NFT or avKAT shares
+- A vKAT NFT or avKAT tokens
 
-## Exit Fee Schedule
+## Stabilization Window (Day 0-60)
 
-Exiting a vKAT position incurs a fee that decays linearly over a 45-day
-cooldown period. The earlier you withdraw, the higher the fee.
+<!-- !!! warning
+    During the first 60 days after TGE, elevated exit fees apply to protect
+    price discovery and early staker positions. These fees are **in addition
+    to** the standard cooldown-based fees described below. -->
+
+| Period | Max Exit Fee | Rationale |
+|--------|-------------|-----------|
+| **Day 0-14** | 80% | Full stabilization. Price discovery protected. |
+| **Day 15-30** | 60% | Easing. Still prohibitive for short-term exits. |
+| **Day 31-45** | 45% | Continued easing. |
+| **Day 46-60** | 30% | Approaching steady state. |
+| **Day 61+** | (steady state discovery) | Steady state will be defined. |
+
+Exit fees collected during this window are accumulated and distributed to
+[Founding Stakers](kat-founding-stakers.md) after Day 60. From Day 61 onward,
+exit fees are distributed in real-time to all active vKAT holders.
+
+**avKAT holders**: During the stabilization window, avKAT is tradeable on the
+DEX, the rate users will receive will be based on market demand.
+
+## Steady-State Exit Fee Schedule (Day 61+ after steady state is discovered)
+
+After the stabilization window (sometime after day 61), exiting a vKAT position incurs a fee that
+decays linearly over a 45-day cooldown period. The earlier you withdraw, the
+higher the fee.
 
 | Timing | Fee | Example (1,000 KAT staked) |
 |--------|-----|---------------------------|
@@ -359,23 +382,23 @@ console.log("Rage quit complete. KAT returned (minus 25% fee).");
 
 ## Exit Path 3: avKAT to KAT
 
-If you hold avKAT vault shares, there are two exit strategies:
+If you hold avKAT vault tokens, there are two exit strategies:
 
 ### Option A: Sell on a DEX (Instant, No Cooldown)
 
 avKAT is an ERC-4626 vault token, which means it implements the full ERC-20
-interface — it is transferable, tradeable, and compatible with any DEX that has
+interface. It is transferable, tradeable, and compatible with any DEX that has
 liquidity. No cooldown or exit fee applies, but you are subject to market
 slippage.
 
 ### Option B: Redeem Through the Vault (45-Day Cooldown)
 
-This converts your avKAT shares into a new vKAT NFT and starts the standard
+This converts your avKAT tokens into a new vKAT NFT and starts the standard
 cooldown process:
 
 ```typescript
 // Step 1: Check your avKAT balance and its KAT value
-const avkatShares = await publicClient.readContract({
+const avkatTokens = await publicClient.readContract({
   address: VAULT,
   abi: vaultAbi,
   functionName: "balanceOf",
@@ -386,13 +409,13 @@ const katValue = await publicClient.readContract({
   address: VAULT,
   abi: vaultAbi,
   functionName: "convertToAssets",
-  args: [avkatShares],
+  args: [avkatTokens],
 });
 
-console.log(`avKAT shares: ${formatEther(avkatShares)}`);
+console.log(`avKAT tokens: ${formatEther(avkatTokens)}`);
 console.log(`Underlying KAT: ${formatEther(katValue)}`);
 
-// Step 2: Withdraw avKAT shares as a new vKAT NFT
+// Step 2: Withdraw avKAT tokens as a new vKAT NFT
 const withdrawHash = await walletClient.writeContract({
   address: VAULT,
   abi: vaultAbi,
@@ -496,8 +519,8 @@ const tokenIds = await publicClient.readContract({
   args: [account.address],
 });
 
-// avKAT shares
-const avkatShares = await publicClient.readContract({
+// avKAT tokens
+const avkatTokens = await publicClient.readContract({
   address: VAULT,
   abi: vaultAbi,
   functionName: "balanceOf",
@@ -508,12 +531,12 @@ const avkatValue = await publicClient.readContract({
   address: VAULT,
   abi: vaultAbi,
   functionName: "convertToAssets",
-  args: [avkatShares],
+  args: [avkatTokens],
 });
 
 console.log(`KAT Balance: ${formatEther(katBalance)}`);
 console.log(`vKAT NFTs: ${tokenIds.length}`);
-console.log(`avKAT Shares: ${formatEther(avkatShares)}`);
+console.log(`avKAT Tokens: ${formatEther(avkatTokens)}`);
 console.log(`avKAT Value: ${formatEther(avkatValue)} KAT`);
 ```
 
@@ -602,6 +625,6 @@ function UnstakeVKAT({ tokenId }: { tokenId: bigint }) {
 |-----------|------|-----|-------|
 | vKAT → Standard | 45 days | 2.5% | Reset votes → Begin → Wait → Withdraw |
 | vKAT → Rage Quit | Instant | 25% | Begin + Withdraw immediately |
-| vKAT → Early Exit | 1–44 days | 2.5%–25% | Begin → Wait partially → Withdraw |
+| vKAT → Early Exit | 1–44 days | 25%–2.5% | Begin → Wait partially → Withdraw |
 | avKAT → DEX | Instant | Market slippage | Sell on DEX |
 | avKAT → Vault Redeem | 45 days | 2.5% | Redeem as vKAT → Standard exit |

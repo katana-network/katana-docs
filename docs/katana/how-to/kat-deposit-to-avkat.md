@@ -1,7 +1,7 @@
 # Deposit KAT to avKAT
 
 This tutorial walks you through depositing KAT into the avKAT vault to receive
-transferable vault shares.
+transferable vault tokens.
 
 ## Goal
 
@@ -176,8 +176,8 @@ import { parseEther, formatEther } from "viem";
 
 const depositAmount = parseEther("1000"); // 1,000 KAT
 
-// Preview how many shares you'll get
-const expectedShares = await publicClient.readContract({
+// Preview how many tokens you'll get
+const expectedTokens = await publicClient.readContract({
   address: VAULT_ADDRESS,
   abi: vaultAbi,
   functionName: "previewDeposit",
@@ -185,7 +185,7 @@ const expectedShares = await publicClient.readContract({
 });
 
 console.log(`Depositing ${formatEther(depositAmount)} KAT`);
-console.log(`Expected avKAT shares: ${formatEther(expectedShares)}`);
+console.log(`Expected avKAT tokens: ${formatEther(expectedTokens)}`);
 
 // Check current exchange rate (how much KAT 1 avKAT is worth)
 const exchangeRate = await publicClient.readContract({
@@ -231,23 +231,23 @@ console.log("Deposited!", receipt);
 ## Step 4: Read Your Position
 
 ```typescript
-// Get your avKAT share balance
-const shares = await publicClient.readContract({
+// Get your avKAT token balance
+const tokens = await publicClient.readContract({
   address: VAULT_ADDRESS,
   abi: vaultAbi,
   functionName: "balanceOf",
   args: [account.address],
 });
 
-// Convert shares to underlying KAT value
+// Convert tokens to underlying KAT value
 const underlyingKat = await publicClient.readContract({
   address: VAULT_ADDRESS,
   abi: vaultAbi,
   functionName: "convertToAssets",
-  args: [shares],
+  args: [tokens],
 });
 
-console.log(`avKAT Shares: ${formatEther(shares)}`);
+console.log(`avKAT Tokens: ${formatEther(tokens)}`);
 console.log(`Underlying KAT value: ${formatEther(underlyingKat)}`);
 ```
 
@@ -257,7 +257,7 @@ The exchange rate between avKAT and KAT reflects the vault's total assets
 relative to outstanding tokens. You can query the current rate on-chain:
 
 ```typescript
-// Convert shares to underlying KAT value
+// Convert tokens to underlying KAT value
 const katValue = await publicClient.readContract({
   address: VAULT_ADDRESS,
   abi: vaultAbi,
@@ -266,19 +266,19 @@ const katValue = await publicClient.readContract({
 });
 console.log(`100 avKAT = ${formatEther(katValue)} KAT`);
 
-// Convert KAT amount to expected shares
-const sharesNeeded = await publicClient.readContract({
+// Convert KAT amount to expected tokens
+const tokensNeeded = await publicClient.readContract({
   address: VAULT_ADDRESS,
   abi: vaultAbi,
   functionName: "convertToShares",
   args: [parseEther("100")], // 100 KAT
 });
-console.log(`100 KAT = ${formatEther(sharesNeeded)} avKAT`);
+console.log(`100 KAT = ${formatEther(tokensNeeded)} avKAT`);
 ```
 
 The exchange rate changes as the CompoundStrategy claims and reinvests protocol
 rewards into the vault's master position. The rate at any given time reflects
-the vault's accounting state — always verify on-chain before transacting.
+the vault's accounting state.  Always verify onchain before transacting.
 
 ## Vault Stats
 
@@ -302,7 +302,7 @@ There are two ways to exit your avKAT position:
 ### Option 1: Sell on a DEX (Instant)
 
 avKAT is an ERC-4626 vault token, which means it implements the full ERC-20
-interface — it is transferable, tradeable, and compatible with any DEX that has
+interface. It is transferable, tradeable, and compatible with any DEX that has
 liquidity. This gives you an instant exit with no cooldown, but you're subject
 to market liquidity and slippage.
 
@@ -312,15 +312,15 @@ You can redeem avKAT tokens back through the vault. This creates a new vKAT NFT
 and begins the standard 45-day exit process:
 
 ```typescript
-// Preview how much KAT you'd get for your shares
-const sharesToRedeem = parseEther("100");
+// Preview how much KAT you'd get for your tokens
+const tokensToRedeem = parseEther("100");
 const katAmount = await publicClient.readContract({
   address: VAULT_ADDRESS,
   abi: vaultAbi,
   functionName: "previewRedeem",
-  args: [sharesToRedeem],
+  args: [tokensToRedeem],
 });
-console.log(`Redeeming ${formatEther(sharesToRedeem)} avKAT = ${formatEther(katAmount)} KAT`);
+console.log(`Redeeming ${formatEther(tokensToRedeem)} avKAT = ${formatEther(katAmount)} KAT`);
 
 // Redeem as a new vKAT NFT (then follow the unstaking process)
 const withdrawHash = await walletClient.writeContract({
@@ -350,7 +350,7 @@ const KAT = "0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d";
 
 function DepositToVault() {
   // Preview deposit
-  const { data: expectedShares } = useReadContract({
+  const { data: expectedTokens } = useReadContract({
     address: VAULT,
     abi: vaultAbi,
     functionName: "previewDeposit",
@@ -379,7 +379,7 @@ function DepositToVault() {
 
   return (
     <div>
-      <p>Expected shares: {expectedShares && formatEther(expectedShares)}</p>
+      <p>Expected tokens: {expectedTokens && formatEther(expectedTokens)}</p>
       <button onClick={handleApprove}>Approve</button>
       <button onClick={handleDeposit}>Deposit</button>
     </div>

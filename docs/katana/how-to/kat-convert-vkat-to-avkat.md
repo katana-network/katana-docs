@@ -165,13 +165,13 @@ const exchangeRate = await publicClient.readContract({
 console.log(`Current rate: 1 avKAT = ${formatEther(exchangeRate)} KAT`);
 
 // Preview: how many tokens for your NFT's locked amount
-const expectedShares = await publicClient.readContract({
+const expectedTokens = await publicClient.readContract({
   address: VAULT,
   abi: vaultAbi,
   functionName: "convertToShares",
   args: [lockedAmount],
 });
-console.log(`Expected shares: ${formatEther(expectedShares)} avKAT`);
+console.log(`Expected tokens: ${formatEther(expectedTokens)} avKAT`);
 ```
 
 ## Step 3: Approve the NFT for the Vault
@@ -203,7 +203,7 @@ const depositHash = await walletClient.writeContract({
 const receipt = await publicClient.waitForTransactionReceipt({
   hash: depositHash,
 });
-console.log(`Converted vKAT #${tokenId} to avKAT shares!`, receipt);
+console.log(`Converted vKAT #${tokenId} to avKAT tokens!`, receipt);
 ```
 
 ## What Happens During Conversion

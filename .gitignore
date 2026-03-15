@@ -16,3 +16,5 @@ package.json
 .venv
 .wrangler
 dist
+.claude/
+excalidraw.log
