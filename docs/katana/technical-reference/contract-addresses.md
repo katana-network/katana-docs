@@ -118,6 +118,16 @@ Refer to the [Morpho Docs](https://docs.morpho.org/getting-started/resources/add
 | `Bundler3`                       | [0xA8C5e23C9C0DF2b6fF716486c6bBEBB6661548C8](https://katanascan.com/address/0xA8C5e23C9C0DF2b6fF716486c6bBEBB6661548C8) |
 | `GeneralAdapter1`                | [0x916Aa175C36E845db45fF6DDB886AE437d403B61](https://katanascan.com/address/0x916Aa175C36E845db45fF6DDB886AE437d403B61) |
 
+### LayerZero
+
+KAT OFT contracts for cross-chain transfers via [LayerZero](https://layerzero.network/).
+
+| Chain / EID              | Contract      | Address                                                                                                                 |
+| ------------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Katana (EID: 30375)`     | `OFTAdapter`  | [0x8F051Ca72a3440d83B18E71C3E59676203aB8f91](https://katanascan.com/address/0x8F051Ca72a3440d83B18E71C3E59676203aB8f91)  |
+| `Ethereum (EID: 30101)`    | `OFT`         | [0x8f051ca72a3440d83b18e71c3e59676203ab8f91](https://etherscan.io/address/0x8f051ca72a3440d83b18e71c3e59676203ab8f91)    |
+| `Base (EID: 30184)`        | `OFT`         | [0xd5390300c5db71f80d46f0fa9983fc72d4d1e3da](https://basescan.org/address/0xd5390300c5db71f80d46f0fa9983fc72d4d1e3da)   |
+
 ## Helper Contracts and Predeploys
 
 NOTE1: all [OP Stack preinstalls](https://docs.optimism.io/operators/chain-operators/features/preinstalls) are available on Katana at the same addresses.
