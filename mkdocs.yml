@@ -42,6 +42,7 @@ nav:
       - Overview: index.md
       - Core Concepts:
           - KAT Staking: katana/katana-staking.md
+          - Stake Your LP: katana/stake-lp.md
           - Vault Bridge: katana/core-concepts/vault-bridge.md
           - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
           - Risk: katana/core-concepts/risk.md
