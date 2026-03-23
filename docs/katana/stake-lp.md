@@ -25,4 +25,13 @@ Staking your Sushi LP position on Katana earns you KAT token emissions. This gui
 
 Once your LP tokens are staked, rewards are distributed in **KAT tokens**. Emissions are directed to liquidity pools through the gauge voting system — vKAT and avKAT holders vote on which pools receive emissions each epoch.
 
+!!! info "Only in-range positions earn rewards"
+    Your staked LP position must be **in range** to earn KAT emissions. If the current price moves outside your position's price range, your position will stop earning rewards until it comes back in range or you rebalance.
+
 For more on how gauge voting and emissions work, see [KAT Staking](katana-staking.md#gauge-voting--emissions).
+
+## Rebalancing Your Position
+
+If the price moves outside your LP range, your position stops earning fees and emissions. You can rebalance by unstaking, removing liquidity, minting a new position at the current price, and restaking.
+
+For a developer walkthrough with full code examples using viem and wagmi, see the [Rebalance Your Staked LP Position](how-to/lp-rebalance-guide.md) tutorial.
