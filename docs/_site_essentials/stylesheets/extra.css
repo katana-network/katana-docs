@@ -1188,6 +1188,14 @@ div.main .nav-content {
 .md-annotation__index {
   background-color: var(--spark-green);
 }
+/** IMAGE ALIGNMENT **/
+.img-left {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+/** END OF IMAGE ALIGNMENT **/
+
 /** END OF SECTION FRONT PAGES **/
 
 /* hide the default title on just this page */
