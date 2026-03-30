@@ -74,6 +74,8 @@ nav:
           - Testnet Information: katana/get-started/technical-reference-testnet.md
           - Set up your environment: katana/get-started/set-up-your-environment.md
           - Verifying contracts and Debugging: katana/how-to/verifying-contracts.md
+          - Install Katana Skills: katana/get-started/install-katana-skills.md
+          - Set up the Katana MCP Server: katana/get-started/setup-mcp-server.md
           - Use MCP to talk to the blockchain: katana/get-started/use-mcp.md
       - How To:
           - Rebalance Your Staked LP Position: katana/how-to/lp-rebalance-guide.md
