@@ -36,14 +36,14 @@ Pick the section below that matches the tool you're using:
 One command is all you need:
 
 ```bash
-claude mcp add katana-mcp --transport http --url https://mcp.katana.network/mcp
+claude mcp add --transport katana-mcp http https://mcp.katana.network/mcp
 ```
 
 This installs the server for the current project. To make it available
 everywhere:
 
 ```bash
-claude mcp add katana-mcp -s user --transport http --url https://mcp.katana.network/mcp
+claude mcp add --transport -s user katana-mcp http https://mcp.katana.network/mcp
 ```
 
 ### Management commands
