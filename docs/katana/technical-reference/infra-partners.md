@@ -2,10 +2,13 @@
 
 - [Conduit RPC](https://www.conduit.xyz/nodes)
 - [Tenderly RPC](https://tenderly.co/node-rpc)
+- [Alchemy RPC](https://www.alchemy.com/)
+- [Quicknode RPC](https://www.quicknode.com/)
 
 - [Chainstack](https://chainstack.com/build-better-with-katana/)
 - [Spectrum Nodes](https://spectrumnodes.com/)
 - [dRPC NodeCloud](https://drpc.org/chainlist/katana)
+
 
 ### Block Explorers
 
@@ -86,7 +89,9 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 
 - [IndexSupply](https://www.indexsupply.net/status)
 - [Ormi Labs](https://ormilabs.com/)
+- [Envio](https://envio.dev/)
 - [The Graph](https://thegraph.com/docs/en/supported-networks/katana/)
+
 
 ### DeFi Middleware
 
