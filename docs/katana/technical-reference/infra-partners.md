@@ -6,6 +6,7 @@
 - [Chainstack](https://chainstack.com/build-better-with-katana/)
 - [Spectrum Nodes](https://spectrumnodes.com/)
 - [dRPC NodeCloud](https://drpc.org/chainlist/katana)
+- [Tatum](https://tatum.io/katana)
 
 ### Block Explorers
 
