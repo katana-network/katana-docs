@@ -4,6 +4,7 @@
 - [Tenderly RPC](https://tenderly.co/node-rpc)
 - [Alchemy RPC](https://www.alchemy.com/)
 - [Quicknode RPC](https://www.quicknode.com/)
+- [Tatum RPC](https://tatum.io/chain/katana)
 
 - [Chainstack](https://chainstack.com/build-better-with-katana/)
 - [Spectrum Nodes](https://spectrumnodes.com/)
