@@ -309,7 +309,10 @@ to market liquidity and slippage.
 ### Option 2: Redeem Through the Vault
 
 You can redeem avKAT tokens back through the vault. This creates a new vKAT NFT
+and begins the standard 60-day exit process:
+<!-- TODO: switch back when cooldown becomes 45 days:
 and begins the standard 45-day exit process:
+-->
 
 ```typescript
 // Preview how much KAT you'd get for your tokens

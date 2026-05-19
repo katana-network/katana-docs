@@ -102,7 +102,6 @@ Yes, if you hold vKAT directly, you will be rewarded in the fee pools you vote f
     - **Trading fees** — fee tokens (USDC, WETH, etc.)
     - **Vote incentives (bribes)** — whatever the incentivizer offers (could be KAT)
     - **Exit fees** — vKAT
-    - **35% top-up for pre-stakers** — vKAT
 
 ### How are rewards distributed?
 
@@ -118,18 +117,10 @@ Initiating an unlock triggers a **60-day cooldown** during which your vKAT has z
 
 ### Can I exit early?
 
-Yes. There are two fee schedules depending on when you staked relative to TGE. Note that the stabilization fees below are based on *days since TGE* (calendar time), while the steady-state fees are based on *days since you began your withdrawal* (cooldown time).
-
-**Stabilization window (Day 0–60 after TGE):** Exit fees are elevated based on how far along the network is from launch:
-
-| Days Since TGE | Max Exit Fee | Example (1,000 KAT staked) |
-|--------|-----|---------------------------|
-| **Day 0–14** | 80% | Receive 200 KAT |
-| **Day 15–30** | 60% | Receive 400 KAT |
-| **Day 31–45** | 45% | Receive 550 KAT |
-| **Day 46–60** | 30% | Receive 700 KAT |
-
-**Steady state (Day 61+ after TGE):** Fees are based on how long you wait after starting your 60-day cooldown:
+Yes. Fees are based on how long you wait after starting your 60-day cooldown:
+<!-- TODO: switch back when cooldown becomes 45 days:
+Yes. Fees are based on how long you wait after starting your 45-day cooldown:
+-->
 
 | Days in Cooldown | Fee | Example (1,000 KAT staked) |
 |--------|-----|---------------------------|
@@ -141,7 +132,7 @@ Yes. There are two fee schedules depending on when you staked relative to TGE. N
 
 ### Where do exit fees go?
 
-All exit fees are redistributed to remaining active vKAT holders. During the stabilization window (Day 0–60), exit fees are accumulated and distributed to Founding Stakers after Day 60. From Day 61 onward, exit fees are distributed in real-time.
+All exit fees are redistributed to remaining active vKAT holders in real-time.
 
 ### How do I exit an avKAT position?
 
@@ -150,39 +141,6 @@ Two options:
 1. **Sell on a DEX (instant)** — avKAT is fully transferable and tradeable. Swap it on any DEX with liquidity. No cooldown or exit fee, but subject to market slippage.
 2. **Redeem through the vault (60-day cooldown)** — Convert avKAT back to a new vKAT NFT, then follow the standard vKAT exit process with cooldown and fees.
 
-### What is the Stabilization Window?
-
-The first 60 days after TGE feature elevated exit fees to protect price discovery and early staker positions. See the fee tables in [Can I exit early?](#can-i-exit-early) for the full breakdown.
-
----
-
-## Launch Programs
-
-### What is Pre-Staking?
-
-Before TGE, you can pre-commit KAT through the [Katana staking app](https://app.katana.network/stake). At TGE, your commitment is auto-executed into avKAT with no manual action required after performing the approval signature. Pre-stakers receive a **3x vote boost** (decaying to 1x over 8 weeks) and qualify for Founding Staker status.
-
-### What are Founding Stakers?
-
-Founding Stakers are participants who stake within 72 hours of TGE and maintain their position for 60 days. They receive a share of all exit fees accumulated during the stabilization window. Two groups qualify: pre-stakers (auto-executed via relayer) and early stakers (manual stake within 72h of TGE).
-
-### How does the Vote Boost work?
-
-Pre-stakers receive a temporary multiplier on voting power and rewards:
-
-| Period | Boost |
-|--------|-------|
-| Day 0–14 | 3.0x |
-| Day 15–28 | 2.5x |
-| Day 29–42 | 2.0x |
-| Day 43–56 | 1.5x |
-| Day 57+ | 1.0x |
-
-### What is the aggregate program cap?
-
-The aggregate program payout cannot exceed **123 million KAT tokens** (35% of the 350 million participation cap).
-
----
 
 ## Risks
 
@@ -191,7 +149,7 @@ The aggregate program payout cannot exceed **123 million KAT tokens** (35% of th
 - **Smart contract risk** — Potential bugs or exploits in the staking, vault, and gauge contracts, even after audits.
 - **Vote concentration** — Short-term risk of voting power being concentrated among early or large stakers.
 - **avKAT market liquidity** — avKAT's instant exit relies on DEX liquidity, which may be limited, especially early on.
-- **Exit fee exposure** — Early exits incur significant fees (up to 25% at steady state, up to 80% during stabilization).
+- **Exit fee exposure** — Early exits incur significant fees, 25% on day 1 exit down to 2.5% after cooldown period.
 
 ### What mitigations are in place?
 

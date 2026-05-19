@@ -36,17 +36,6 @@ Rewards are distributed through a [**Merkl distributor**](https://app.merkl.xyz/
 proofs to enable gas-efficient claiming. A new Merkle root is published
 periodically (each epoch), and users can claim accumulated rewards at any time.
 
-### Exit Fee Distribution During Stabilization
-
-During the stabilization window (Day 0-60), exit fees are **accumulated, not
-distributed in real-time**. This means displayed yield during this period
-reflects bribes and protocol revenue only.
-
-After Day 60, accumulated exit fees are distributed to
-[Founding Stakers](kat-founding-stakers.md) over several epochs, proportional
-to each staker's founding-eligible amount. From Day 61 onward, exit fees
-revert to real-time distribution to all active vKAT holders.
-
 !!! note
     **avKAT holders** do not need to claim rewards manually. The
     CompoundStrategy contract handles reward claims and reinvestment for the
