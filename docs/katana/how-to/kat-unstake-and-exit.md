@@ -7,7 +7,10 @@ the cooldown period, exit fee schedule, and rage quit option.
 
 By the end of this tutorial, you'll understand:
 
+- The 60-day cooldown and exit fee decay curve
+<!-- TODO: switch back when cooldown becomes 45 days:
 - The 45-day cooldown and exit fee decay curve
+-->
 - How to begin, complete, or cancel a withdrawal
 - The rage quit option for immediate exit
 - How to exit an avKAT position
@@ -17,34 +20,22 @@ By the end of this tutorial, you'll understand:
 
 - A vKAT NFT or avKAT tokens
 
-## Stabilization Window (Day 0-60)
+## Exit Fee Schedule
 
-<!-- !!! warning
-    During the first 60 days after TGE, elevated exit fees apply to protect
-    price discovery and early staker positions. These fees are **in addition
-    to** the standard cooldown-based fees described below. -->
+Exiting a vKAT position incurs a fee that decays linearly over a 60-day cooldown period. The earlier you withdraw, the higher the fee.
+<!-- TODO: switch back when cooldown becomes 45 days:
+Exiting a vKAT position incurs a fee that decays linearly over a 45-day cooldown period. The earlier you withdraw, the higher the fee.
+-->
 
-| Period | Max Exit Fee | Rationale |
-|--------|-------------|-----------|
-| **Day 0-14** | 80% | Full stabilization. Price discovery protected. |
-| **Day 15-30** | 60% | Easing. Still prohibitive for short-term exits. |
-| **Day 31-45** | 45% | Continued easing. |
-| **Day 46-60** | 30% | Approaching steady state. |
-| **Day 61+** | (steady state discovery) | Steady state will be defined. |
+| Timing | Fee | Example (1,000 KAT staked) |
+|--------|-----|---------------------------|
+| **Day 0** (rage quit) | 25% | Receive 750 KAT |
+| **Day 15** | ~19.4% | Receive ~806 KAT |
+| **Day 30** | ~13.8% | Receive ~863 KAT |
+| **Day 45** | ~8.1% | Receive ~919 KAT |
+| **Day 60** (full cooldown) | 2.5% | Receive 975 KAT |
 
-Exit fees collected during this window are accumulated and distributed to
-[Founding Stakers](kat-founding-stakers.md) after Day 60. From Day 61 onward,
-exit fees are distributed in real-time to all active vKAT holders.
-
-**avKAT holders**: During the stabilization window, avKAT is tradeable on the
-DEX, the rate users will receive will be based on market demand.
-
-## Steady-State Exit Fee Schedule (Day 61+ after steady state is discovered)
-
-After the stabilization window (sometime after day 61), exiting a vKAT position incurs a fee that
-decays linearly over a 45-day cooldown period. The earlier you withdraw, the
-higher the fee.
-
+<!-- TODO: switch back when cooldown becomes 45 days:
 | Timing | Fee | Example (1,000 KAT staked) |
 |--------|-----|---------------------------|
 | **Immediate** (rage quit) | 25% | Receive 750 KAT |
@@ -52,28 +43,36 @@ higher the fee.
 | **Day 15** | ~16.7% | Receive ~833 KAT |
 | **Day 30** | ~7.5% | Receive ~925 KAT |
 | **Day 45** (full cooldown) | 2.5% | Receive 975 KAT |
+-->
 
 The fee formula:
 
 ```
-feePercent = 25% - ((25% - 2.5%) × daysWaited / 45)
+feePercent = 25% - ((25% - 2.5%) × daysWaited / 60)
 received = staked × (1 - feePercent)
 ```
+<!-- TODO: switch back when cooldown becomes 45 days:
+feePercent = 25% - ((25% - 2.5%) × daysWaited / 45)
+-->
 
 Key constants:
 
 ```typescript
 const EXIT_FEE = {
-  MIN_FEE_BPS: 250n,            // 2.5% (after 45 days)
+  MIN_FEE_BPS: 250n,            // 2.5% (after 60 days)
   MAX_FEE_BPS: 2500n,           // 25% (immediate)
-  COOLDOWN_PERIOD: 3_888_000,   // 45 days in seconds
+  COOLDOWN_PERIOD: 5_184_000,   // 60 days in seconds
+  // TODO: switch back when cooldown becomes 45 days:
+  // COOLDOWN_PERIOD: 3_888_000, // 45 days in seconds
   BPS_DENOMINATOR: 10_000n,
 };
 ```
 
 ```mermaid
 graph LR
-    A["Begin Withdrawal"] --> B["45-Day Cooldown"]
+    A["Begin Withdrawal"] --> B["60-Day Cooldown"]
+    %% TODO: switch back when cooldown becomes 45 days:
+    %% A["Begin Withdrawal"] --> B["45-Day Cooldown"]
     B --> C["Withdraw (2.5% fee)"]
     A --> D["Rage Quit (25% fee)"]
     B --> E["Cancel Withdrawal"]
@@ -224,7 +223,10 @@ const EXIT_QUEUE = "0x6dE9cAAb658C744aD337Ca5d92D084c97ffF578d";
 ## Exit Path 1: Standard Withdrawal (vKAT)
 
 The standard exit process has three steps: reset votes, begin cooldown, and
+withdraw after 60 days.
+<!-- TODO: switch back when cooldown becomes 45 days:
 withdraw after 45 days.
+-->
 
 ### Step 1: Reset Votes (If Voting)
 
@@ -275,7 +277,10 @@ if (isVoting) {
 
 ### Step 2: Begin Withdrawal
 
+Start the 60-day cooldown:
+<!-- TODO: switch back when cooldown becomes 45 days:
 Start the 45-day cooldown:
+-->
 
 ```typescript
 const beginHash = await walletClient.writeContract({
@@ -391,7 +396,10 @@ interface. It is transferable, tradeable, and compatible with any DEX that has
 liquidity. No cooldown or exit fee applies, but you are subject to market
 slippage.
 
+### Option B: Redeem Through the Vault (60-Day Cooldown)
+<!-- TODO: switch back when cooldown becomes 45 days:
 ### Option B: Redeem Through the Vault (45-Day Cooldown)
+-->
 
 This converts your avKAT tokens into a new vKAT NFT and starts the standard
 cooldown process:
@@ -441,6 +449,8 @@ const beginHash = await walletClient.writeContract({
 await publicClient.waitForTransactionReceipt({ hash: beginHash });
 console.log("Cooldown started on new vKAT NFT");
 
+// Step 4: Wait 60 days, then withdraw
+// TODO: switch back when cooldown becomes 45 days:
 // Step 4: Wait 45 days, then withdraw
 // (after cooldown)
 const finalHash = await walletClient.writeContract({
@@ -464,7 +474,9 @@ function calculateExitFee(
 ): { fee: bigint; netAmount: bigint; feePercentage: number } {
   const MIN_FEE_BPS = 250n;
   const MAX_FEE_BPS = 2500n;
-  const COOLDOWN_SECONDS = 3_888_000n; // 45 days
+  const COOLDOWN_SECONDS = 5_184_000n; // 60 days
+  // TODO: switch back when cooldown becomes 45 days:
+  // const COOLDOWN_SECONDS = 3_888_000n; // 45 days
   const BPS_DENOMINATOR = 10_000n;
 
   // Clamp to cooldown period
@@ -623,8 +635,15 @@ function UnstakeVKAT({ tokenId }: { tokenId: bigint }) {
 
 | Exit Path | Time | Fee | Steps |
 |-----------|------|-----|-------|
+| vKAT → Standard | 60 days | 2.5% | Reset votes → Begin → Wait → Withdraw |
+| vKAT → Rage Quit | Instant | 25% | Begin + Withdraw immediately |
+| vKAT → Early Exit | 1–59 days | 25%–2.5% | Begin → Wait partially → Withdraw |
+| avKAT → DEX | Instant | Market slippage | Sell on DEX |
+| avKAT → Vault Redeem | 60 days | 2.5% | Redeem as vKAT → Standard exit |
+<!-- TODO: switch back when cooldown becomes 45 days:
 | vKAT → Standard | 45 days | 2.5% | Reset votes → Begin → Wait → Withdraw |
 | vKAT → Rage Quit | Instant | 25% | Begin + Withdraw immediately |
 | vKAT → Early Exit | 1–44 days | 25%–2.5% | Begin → Wait partially → Withdraw |
 | avKAT → DEX | Instant | Market slippage | Sell on DEX |
 | avKAT → Vault Redeem | 45 days | 2.5% | Redeem as vKAT → Standard exit |
+-->
