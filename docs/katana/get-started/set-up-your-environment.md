@@ -112,9 +112,6 @@ One of the key features of this starter kit is the comprehensive set of
 interfaces for Katana's "money legos." Browse the `contracts` directory to see
 what's available.
 
-Alternatively, for a more readable UI, you can use the
-[Katana Contract Directory UI](https://contracts.katana.tools).
-
 ## Next Steps
 
 Now that you have a working development environment, you can:
@@ -122,8 +119,6 @@ Now that you have a working development environment, you can:
 1. Explore the example App code to understand how it interacts with Katana
 2. Review the contracts folder to understand available interfaces and ABIs
 3. Start building your own application using the "money legos"
-
-For more tutorials, examples, and inspiration, please see the [awesome-katana repo](https://github.com/katana-network/awesome-katana).
 
 ## Troubleshooting
 

@@ -7,7 +7,6 @@
 | Block explorer | [https://bokuto.katanascan.com/](https://bokuto.katanascan.com/)                             |
 |                | [https://explorer-bokuto.katanarpc.com/](https://explorer-bokuto.katanarpc.com/)             |
 | Bridge UI      | SOON                                                                                         |
-| Faucet         | [https://faucet.katana.tools/](https://faucet.katana.tools/)                                 |
 |                | Join the [@katanadevs public developer community group](https://t.me/katanadevs) for a code. |
 
 ### Chain Configuration
