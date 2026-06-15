@@ -33,10 +33,6 @@ primitives generally receive more attention.
 Hit us up in the [Katana Devs Telegram chat](https://t.me/katanadevs), where you
 will be given feedback and further instructions.
 
-## What to build
-
-You can find some ideas on [this page](https://superdocs.katana.tools/what-to-build).
-
 ## Not a fit
 
 The following are generally not eligible for support:
