@@ -3,6 +3,7 @@
 - [Conduit RPC](https://www.conduit.xyz/nodes)
 - [Tenderly RPC](https://tenderly.co/node-rpc)
 - [Alchemy RPC](https://www.alchemy.com/)
+- [BoltRPC](https://boltrpc.io/networks/katana)
 - [Quicknode RPC](https://www.quicknode.com/)
 - [Tatum RPC](https://tatum.io/chain/katana)
 
