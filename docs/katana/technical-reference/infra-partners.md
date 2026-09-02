@@ -6,7 +6,7 @@
 - [BoltRPC](https://boltrpc.io/networks/katana)
 - [Quicknode RPC](https://www.quicknode.com/)
 - [Tatum RPC](https://tatum.io/chain/katana)
-
+- [GetBlock RPC](https://getblock.io/nodes/katana/)
 - [Chainstack](https://chainstack.com/build-better-with-katana/)
 - [Spectrum Nodes](https://spectrumnodes.com/)
 - [dRPC NodeCloud](https://drpc.org/chainlist/katana)
