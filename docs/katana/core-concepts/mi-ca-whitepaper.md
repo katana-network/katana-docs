@@ -12,6 +12,18 @@ Based thereon, KAT has been effectively admitted to trading on the following tra
   </strong>
 </div>
 
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid; border-radius: 8px; padding: 16px; margin-top: 16px;">
+  <strong>
+    Click <a href="/files/kat_whitepaper_admission_to_trading.xhtml" target="_blank" rel="noopener">here</a> to view the white paper for the Admission to Trading
+  </strong>
+</div>
+
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid; border-radius: 8px; padding: 16px; margin-top: 16px;">
+  <strong>
+    Click <a href="/files/kat_whitepaper_offering.xhtml" target="_blank" rel="noopener">here</a> to view the white paper for the Offering
+  </strong>
+</div>
+
 Version: 1.0
 
 Publication Date: January 16, 2026
