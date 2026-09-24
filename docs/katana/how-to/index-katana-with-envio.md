@@ -177,7 +177,7 @@ Key points about the HyperIndex handler API:
 * Linked entities are set with the `<field>_id` convention, so the `owner` relation is written as `owner_id`.
 * Event metadata is available on `event.block` (`hash`, `number`, `timestamp`) and `event.logIndex`.
 
-Docs: [Event handlers](https://docs.envio.dev/docs/HyperIndex/event-handlers) | [What is new in v3](https://docs.envio.dev/docs/HyperIndex/v3-migration-guide)
+Docs: [Event handlers](https://docs.envio.dev/docs/HyperIndex/event-handlers) | [What is new in v3](https://docs.envio.dev/docs/HyperIndex/migrate-to-v3)
 
 ## Step 6: Generate types
 
@@ -273,5 +273,5 @@ Have a question or run into something this guide didn't cover? The Envio team is
 * [Envio CLI reference](https://docs.envio.dev/docs/HyperIndex/cli-commands)
 * [Running locally](https://docs.envio.dev/docs/HyperIndex/running-locally)
 * [Envio Console](https://envio.dev/app)
-* [What is new in v3](https://docs.envio.dev/docs/HyperIndex/v3-migration-guide)
+* [What is new in v3](https://docs.envio.dev/docs/HyperIndex/migrate-to-v3)
 * [GitHub](https://github.com/enviodev) 
