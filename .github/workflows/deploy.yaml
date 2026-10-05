@@ -51,6 +51,12 @@ jobs:
       - name: Build docs
         run: uv run mkdocs build
 
+      # robots.txt is a request, not a gate. Staging still needs Disallow so a
+      # merge from main cannot republish Allow: / + an empty Sitemap: line.
+      - name: Disallow crawlers on staging
+        if: needs.get-env.outputs.env == 'staging'
+        run: printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+
       - name: Install Bun
         uses: oven-sh/setup-bun@v2
         with:

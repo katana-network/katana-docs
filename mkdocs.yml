@@ -4,7 +4,7 @@ copyright: Copyright &copy; Katana Services (Cayman)
 repo_name: Katana Documentation
 repo_url: https://github.com/katana-network/katana-docs
 edit_uri: edit/main/docs/
-site_url: https://katana.network/
+site_url: https://docs.katana.network/
 
 theme:
   name: material
