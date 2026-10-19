@@ -8,7 +8,6 @@ Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
 | :---------------------- | :------------------------------------------------------------------------- |
 | Chain ID                | [747474](https://chainlist.org/chain/747474)                               |
 | Official Public RPC URL | [https://rpc.katana.network/](https://rpc.katana.network/)                 |
-| (Tenderly Public RPC)   | [https://katana.gateway.tenderly.co/](https://katana.gateway.tenderly.co/) |
 | (Conduit Public RPC)    | [https://rpc.katanarpc.com/](https://rpc.katanarpc.com/)                   |
 | Gas Token               | ETH                                                                        |
 | Block explorer          | [https://katanascan.com/](https://katanascan.com/)                         |
