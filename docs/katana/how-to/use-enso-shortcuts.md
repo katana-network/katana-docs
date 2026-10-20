@@ -1,3 +1,7 @@
+---
+description: "Integrate Enso DeFi Shortcuts on Katana Network: use Enso's route and bundle APIs to build single-transaction swaps, deposits and crosschain DeFi actions."
+---
+
 # Integrate Enso DeFi Shortcuts
 
 Enso [DeFi Shortcuts](https://docs.enso.build/pages/build/get-started/overview) simplify protocol interactions by offering a unified interface to different DeFi protocols via SDK and REST API.

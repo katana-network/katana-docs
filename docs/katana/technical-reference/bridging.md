@@ -1,3 +1,10 @@
+---
+title: "Katana Bridge: How to Bridge Assets to Katana"
+description: "Bridging reference for Katana Network (chain ID 747474): which bridge to use for each core asset, and how to bridge to and from Katana as a developer."
+---
+
+# Katana Bridge: How to Bridge Assets to Katana
+
 Crypto is lovely. Not only do you get Blockchain fragmentation, Asset fragmentation, but also Bridge fragmentation!
 
 On this Episode of Katana Docs, we explain the different bridges for the different (Core) Assets.

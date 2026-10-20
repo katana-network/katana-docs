@@ -1,3 +1,7 @@
+---
+description: "Claim KAT voting incentives: how to check and claim rewards earned from vKAT gauge voting through the Merkl distributor, and set your reward token preferences."
+---
+
 # Claim Voting Incentives
 
 This tutorial shows you how to claim rewards earned from your vKAT gauge voting

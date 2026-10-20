@@ -1,3 +1,7 @@
+---
+description: "Network information for Katana Network: chain ID 747474, RPC endpoints, the block explorer and chain configuration for this Agglayer CDK OP Stack rollup."
+---
+
 Katana runs on Agglayer's [CDK OP Stack](https://www.agglayer.dev/cdk), which means it's powered by Geth, the settlement is secured by zk-proofs, and is connected to Ethereum and other L2s canonically through Agglayer's Unified Bridge.
 
 Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).

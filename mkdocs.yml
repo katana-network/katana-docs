@@ -1,4 +1,7 @@
 site_name: Katana Documentation
+site_description: >-
+  Official documentation for Katana Network, a DeFi-first Ethereum Layer 2
+  (chain ID 747474): core concepts, staking, how-to guides and technical reference.
 site_author: Katana Services (Cayman)
 copyright: Copyright &copy; Katana Services (Cayman)
 repo_name: Katana Documentation
@@ -41,21 +44,31 @@ nav:
   - Katana:
       - Overview: index.md
       - Core Concepts:
-          - KAT Staking: katana/katana-staking.md
-          - Stake Your LP: katana/stake-lp.md
-          - Katana Perps: katana/core-concepts/katana-perps.md
-          - Vault Bridge: katana/core-concepts/vault-bridge.md
-          - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
-          - Risk: katana/core-concepts/risk.md
-          - Governance: katana/core-concepts/governance.md
-          - Sustainability: katana/core-concepts/sustainability.md
-          - CDK-opgeth: katana/core-concepts/cdk-opgeth.md
-          - MiCa Whitepaper: katana/core-concepts/mi-ca-whitepaper.md
+          - What is Katana:
+              - katana/core-concepts/what-is-katana/index.md
+              - Vault Bridge: katana/core-concepts/vault-bridge.md
+              - Chain-Owned Liquidity: katana/core-concepts/chain-owned-liquidity.md
+              - Agglayer & Tech Stack: katana/core-concepts/cdk-opgeth.md
+          - What is KAT:
+              - katana/core-concepts/what-is-kat/index.md
+              - Understanding the KAT Token Ecosystem: katana/how-to/kat-token-overview.md
+              - Tokenomics & Schedules: katana/core-concepts/what-is-kat/tokenomics.md
+              - How KAT Staking & Voting Work: katana/katana-staking.md
+              - MiCa Whitepaper: katana/core-concepts/mi-ca-whitepaper.md
+          - Core Apps:
+              - katana/core-concepts/core-apps/index.md
+              - "DEX: Sushi": katana/core-concepts/core-apps/sushi.md
+              - "Lending & Borrowing: Morpho": katana/core-concepts/core-apps/morpho.md
+              - "Perps: Katana Perps": katana/core-concepts/katana-perps.md
+          - Safety & Sustainability:
+              - katana/core-concepts/safety-and-sustainability/index.md
+              - Risk: katana/core-concepts/risk.md
+              - Governance: katana/core-concepts/governance.md
+              - Sustainability: katana/core-concepts/sustainability.md
       - Technical Reference:
           - Network Information: katana/technical-reference/network-information.md
           - Contract Addresses: katana/technical-reference/contract-addresses.md
           - KAT Token:
-              - Understanding the KAT Token Ecosystem: katana/how-to/kat-token-overview.md
               - Stake KAT to vKAT: katana/how-to/kat-stake-to-vkat.md
               - Deposit KAT to avKAT: katana/how-to/kat-deposit-to-avkat.md
               - Convert vKAT to avKAT: katana/how-to/kat-convert-vkat-to-avkat.md
@@ -74,6 +87,7 @@ nav:
           - Set up the Katana MCP Server: katana/get-started/setup-mcp-server.md
           - Use MCP to talk to the blockchain: katana/get-started/use-mcp.md
       - How To:
+          - Stake Your Liquidity Position: katana/stake-lp.md
           - Rebalance Your Staked LP Position: katana/how-to/lp-rebalance-guide.md
           - Read token balances and wrap ETH into WETH: katana/how-to/read-balances-and-wrap-eth.md
           - Build a token launchpad app: katana/how-to/build-a-token-launchpad.md
@@ -159,6 +173,65 @@ plugins:
       cleanup: true
       keep_docs_dir: false
   - search
+  - llmstxt:
+      markdown_description: >-
+        Katana is an Ethereum Layer 2 built for DeFi. It brings trading, lending, liquidity, and yield into one network designed to make capital more productive.
+      full_output: llms-full.txt
+      sections:
+        Overview:
+          - index.md: "Official documentation for Katana Network, a DeFi-first Ethereum Layer 2 (chain ID 747474). Core concepts, staking, how-to guides and technical reference."
+        Core Concepts:
+          - katana/core-concepts/what-is-katana/index.md: "What Katana Network is: an Ethereum Layer 2 built for DeFi that brings trading, lending, liquidity and yield into one network designed to make capital more productive."
+          - katana/core-concepts/vault-bridge.md: "How Vault Bridge works on Katana Network: bridged assets keep earning yield through curator-managed strategies, issuing vbUSDC, vbUSDS, vbUSDT, vbWBTC and WETH."
+          - katana/core-concepts/chain-owned-liquidity.md: "Chain-owned liquidity on Katana Network, a DeFi-first Ethereum Layer 2: how net sequencer fees fund liquidity the network owns and deploys across core markets."
+          - katana/core-concepts/cdk-opgeth.md: "Katana Network's architecture: a DeFi-first Ethereum Layer 2 built on Agglayer's CDK OP Stack, using op-geth for execution and ZK proofs to settle to Ethereum."
+          - katana/core-concepts/what-is-kat/index.md: "KAT is the Katana Network token: what it is used for, how staking with vKAT and avKAT works, and how it is allocated."
+          - katana/how-to/kat-token-overview.md: "KAT token overview for Katana Network: the three token types, KAT, vKAT and avKAT, what each one does, and how to choose between direct and automated staking."
+          - katana/core-concepts/what-is-kat/tokenomics.md: "KAT tokenomics: a fixed supply of 10 billion KAT, how the supply is allocated, how KAT launched with no venture capital investors, and when each allocation unlocks."
+          - katana/katana-staking.md: "Staking on Katana Network: stake KAT for vKAT or avKAT, vote on gauges to direct incentives, claim rewards, and exit through the 60-day cooldown process."
+          - katana/core-concepts/mi-ca-whitepaper.md: "KAT MiCA white papers: the official crypto-asset white papers for KAT under EU MiCA regulation, notified to the Central Bank of Ireland, with admission to trading on Binance, OKX and Kraken."
+          - katana/core-concepts/core-apps/index.md: "Katana Network's core apps: Sushi for swaps and liquidity, Morpho for lending and borrowing, and Katana Perps for perpetual futures, and how they connect to the network."
+          - katana/core-concepts/core-apps/sushi.md: "Sushi is Katana Network's core decentralized exchange: how swaps and liquidity pools work, how Sushi connects to Chain-Owned Liquidity and KAT incentives, and how to earn as a liquidity provider."
+          - katana/core-concepts/core-apps/morpho.md: "DeFi lending on Katana Network: how to lend, borrow against crypto, and earn through curated vaults with Morpho, Katana's core lending app."
+          - katana/core-concepts/katana-perps.md: "How Katana Perps works: the perpetuals DEX built natively on Katana Network, pairing an off-chain order book with on-chain settlement and vbUSDC collateral."
+          - katana/core-concepts/safety-and-sustainability/index.md: "How Katana Network manages risk, protects the network through governance safeguards, and keeps yield sustainable over the long term."
+          - katana/core-concepts/risk.md: "Risk framework for Katana Network (chain ID 747474): smart contract, protocol, third-party, duration and liquidation risk, and the safeguards in place for each."
+          - katana/core-concepts/governance.md: "How governance works on Katana Network, a DeFi-first Ethereum Layer 2: the Katana Admin and DeFi Security Council multisigs, the 10-day timelock and vetoes."
+          - katana/core-concepts/sustainability.md: "Real yield on Katana Network: how Vault Bridge, AUSD, sequencer fees and core app usage generate yield that scales with activity and holds up across market cycles."
+        Technical Reference:
+          - katana/technical-reference/network-information.md: "Network information for Katana Network: chain ID 747474, RPC endpoints, the block explorer and chain configuration for this Agglayer CDK OP Stack rollup."
+          - katana/technical-reference/contract-addresses.md: "Contract addresses on Katana Network (chain ID 747474): core token addresses, the Katana tokenlist, and deployed app contracts for Agglayer, Sushi and Morpho."
+          - katana/how-to/kat-stake-to-vkat.md: "How to stake KAT to vKAT on Katana Network: a developer walkthrough using viem, covering contract addresses, ABIs, token approval and the staking transaction."
+          - katana/how-to/kat-deposit-to-avkat.md: "Deposit KAT to avKAT: a developer walkthrough for depositing KAT into the avKAT auto-compounding vault, reading the exchange rate and previewing deposits."
+          - katana/how-to/kat-convert-vkat-to-avkat.md: "How to convert a vKAT NFT to avKAT on Katana Network: a developer walkthrough using viem covering why you would convert, contract addresses and the deposit."
+          - katana/how-to/kat-vote-on-gauges.md: "Vote on gauges with vKAT: how to use your voting power to direct KAT incentives to liquidity pools on Katana Network, view gauges and change your votes."
+          - katana/how-to/kat-claim-rewards.md: "Claim KAT voting incentives: how to check and claim rewards earned from vKAT gauge voting through the Merkl distributor, and set your reward token preferences."
+          - katana/how-to/kat-unstake-and-exit.md: "Unstake KAT and exit: how the vKAT cooldown and exit fees work, how to start, complete or cancel a withdrawal, rage quit, and exit an avKAT position."
+          - katana/technical-reference/infra-partners.md: "Katana Network infrastructure partners: RPC providers, block explorers, wallets, oracles, bridges, indexers, data APIs and developer tooling that support Katana."
+          - katana/technical-reference/bridging.md: "Bridging reference for Katana Network (chain ID 747474): which bridge to use for each core asset, and how to bridge to and from Katana as a developer."
+        Start Building:
+          - katana/get-started/community-page.md: "Join the Katana developer community: connect on Telegram, follow Katana updates, and contribute to the docs, examples and DeFi building blocks on Katana Network."
+          - katana/get-started/technical-reference-testnet.md: "Bokuto testnet reference for Katana Network (chain ID 737373): RPC URLs, block explorers, chain configuration and how to bridge to the testnet."
+          - katana/get-started/set-up-your-environment.md: "Set up the Katana Development Starter Kit: install the tools and run a local fork to start building DeFi apps on Katana Network and the Bokuto testnet."
+          - katana/how-to/verifying-contracts.md: "Verify smart contracts on Katana Network and the Bokuto testnet using Katanascan (Etherscan) or Blockscout, with Foundry or Hardhat."
+          - katana/get-started/install-katana-skills.md: "Install Katana Skills: reference guides that teach AI agents to use DeFi on Katana Network, including swaps on Sushi, Morpho lending, KAT staking, Merkl rewards and Katana Perps."
+          - katana/get-started/setup-mcp-server.md: "Set up the Katana MCP Server: connect Claude, Cursor and other AI tools to live Katana Network DeFi data, including token prices, Morpho markets, liquidity pools and perps."
+          - katana/get-started/use-mcp.md: "Use MCP to talk to the blockchain: let AI tools like Cursor and Claude read and simulate transactions on a local Katana fork using the starter kit's built-in MCP server."
+        How To:
+          - katana/stake-lp.md: "Stake your liquidity position on Katana Network to earn KAT incentives: how to stake an LP position, how gauge voting sets rewards, and why positions must stay in range."
+          - katana/how-to/lp-rebalance-guide.md: "Rebalance a staked Sushi LP position on Katana Network: unstake, remove liquidity, open a new in-range position and restake to keep earning KAT incentives."
+          - katana/how-to/read-balances-and-wrap-eth.md: "Read token balances and wrap ETH on Katana Network: check balances with viem and wrap ETH into yield-bearing WETH (bvbEth) on a local Katana fork."
+          - katana/how-to/build-a-token-launchpad.md: "Build a token launchpad on Katana Network: create ERC-20 tokens with a custom name, ticker and supply, and distribute them to multiple addresses on mint."
+          - katana/how-to/add-privy.md: "Integrate Privy email login on Katana Network: add embedded wallets to your dapp on the client side, with traditional wallets as a fallback."
+          - katana/how-to/use-enso-shortcuts.md: "Integrate Enso DeFi Shortcuts on Katana Network: use Enso's route and bundle APIs to build single-transaction swaps, deposits and crosschain DeFi actions."
+          - katana/how-to/fetch-smart-contract-data-with-ormi.md: "Fetch smart contract data on Katana Network with Ormi 0xGraph: deploy, migrate or build subgraphs to index and query onchain data for free."
+          - katana/how-to/index-katana-with-envio.md: "Index Katana Network smart contract data with Envio HyperIndex: build an indexer that streams onchain events into Postgres and serves them through a GraphQL API."
+          - katana/how-to/bridge-to-katana-with-layerzero.md: "How to bridge USDC to Katana Network using LayerZero: a step-by-step script depositing into ERC-4626 vaults on Ethereum and bridging the vault shares via OFT."
+        Additional Resources:
+          - katana/additional-resources/brand-kit.md: "Katana Network brand kit: the full brand guidelines, the Katana social icon, and Katana's accent colors for partners, press and community use."
+          - katana/additional-resources/security-overview.md: "Security overview for Katana Network: secure development practices, internal security assessments and third-party smart contract audits across core components."
+          - katana/additional-resources/katana-terms-and-conditions.md: "Katana Network terms of use: the terms and conditions that apply to Katana Foundation interfaces and features, including katana.network."
+          - katana/katana-support.md: "Grants and support for builders on Katana Network: what help is available, including technical guidance, partner intros and co-marketing, and how requests are evaluated."
   - open-in-new-tab
   - redirects:
       redirect_maps:

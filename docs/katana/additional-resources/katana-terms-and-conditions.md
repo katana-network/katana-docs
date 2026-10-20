@@ -1,3 +1,7 @@
+---
+description: "Katana Network terms of use: the terms and conditions that apply to Katana Foundation interfaces and features, including katana.network."
+---
+
 **Terms of Use**
 
 Dated: May 28, 2025

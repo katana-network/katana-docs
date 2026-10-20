@@ -1,3 +1,7 @@
+---
+description: "How to convert a vKAT NFT to avKAT on Katana Network: a developer walkthrough using viem covering why you would convert, contract addresses and the deposit."
+---
+
 # Convert vKAT to avKAT
 
 This tutorial shows you how to convert an existing vKAT NFT (direct staking)

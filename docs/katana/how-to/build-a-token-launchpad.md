@@ -1,3 +1,7 @@
+---
+description: "Build a token launchpad on Katana Network: create ERC-20 tokens with a custom name, ticker and supply, and distribute them to multiple addresses on mint."
+---
+
 # Building a token launchpad
 
 ### Estimated Time: 30 minutes

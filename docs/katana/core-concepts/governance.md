@@ -1,3 +1,7 @@
+---
+description: "How governance works on Katana Network, a DeFi-first Ethereum Layer 2: the Katana Admin and DeFi Security Council multisigs, the 10-day timelock and vetoes."
+---
+
 # **Katana Governance**
 
 From day one, **on-chain controls and institutional checks** ensure that governance decisions reflect the interests of a diverse, security-conscious ecosystem. All critical upgrades and administrative functions must be reviewed and approved by a group of independent stakeholders, rather than a single team or company.
@@ -61,7 +65,7 @@ Members include leading DeFi protocols and infrastructure teams operating within
 | GSR     | 0xFe3F847247a61D8001D2578D92a1123B9784D85C |
 | Katana Foundation     | 0xFfdcDbCD5028d2802Fd3B726C16655B4179D264a |
 | Gauntlet     | 0x4082A1D91A353b16e112FbE36b55d222bF417919 |
-| Stakehouse     | 0xbdcf6aa73772f0b7b70341a13c0a4091b07f98f4 |
+| Steakhouse     | 0xbdcf6aa73772f0b7b70341a13c0a4091b07f98f4 |
 | Bitvault     | 0x2749BAE8f3D8f03820B63ae719322D443ea91892 |
 | Re7     | 0xa563FEEA4028FADa193f1c1F454d446eEaa6cfD7 |
 

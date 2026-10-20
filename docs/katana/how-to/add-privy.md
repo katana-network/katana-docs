@@ -1,3 +1,7 @@
+---
+description: "Integrate Privy email login on Katana Network: add embedded wallets to your dapp on the client side, with traditional wallets as a fallback."
+---
+
 # Onboarding with Privy: From Web3 to Web2.5
 
 A comprehensive tutorial for integrating Privy's embedded wallets into your dapp

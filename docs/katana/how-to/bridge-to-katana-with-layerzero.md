@@ -1,3 +1,7 @@
+---
+description: "How to bridge USDC to Katana Network using LayerZero: a step-by-step script depositing into ERC-4626 vaults on Ethereum and bridging the vault shares via OFT."
+---
+
 # Bridge USDC to Katana with LayerZero
 
 All bridged funds on Katana go through the Vault Bridge, which deposits assets into ERC-4626 vaults on Ethereum and bridges the resulting vault shares to Katana via LayerZero OFT. This means users earn yield on their bridged assets automatically.

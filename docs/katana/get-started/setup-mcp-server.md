@@ -1,3 +1,7 @@
+---
+description: "Set up the Katana MCP Server: connect Claude, Cursor and other AI tools to live Katana Network DeFi data, including token prices, Morpho markets, liquidity pools and perps."
+---
+
 # Set Up the Katana MCP Server
 
 The Katana MCP Server gives AI agents direct access to the Katana Network DeFi

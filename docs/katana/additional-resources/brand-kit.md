@@ -1,3 +1,7 @@
+---
+description: "Katana Network brand kit: the full brand guidelines, the Katana social icon, and Katana's accent colors for partners, press and community use."
+---
+
 ### Full Brand Kit
 
 [https://brand.katana.network](https://brand.katana.network)

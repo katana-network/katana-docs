@@ -1,3 +1,7 @@
+---
+description: "Set up the Katana Development Starter Kit: install the tools and run a local fork to start building DeFi apps on Katana Network and the Bokuto testnet."
+---
+
 # Katana Development Starter Kit
 
 This tutorial will help you set up and use the Katana Development Starter Kit

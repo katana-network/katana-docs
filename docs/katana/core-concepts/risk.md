@@ -1,3 +1,12 @@
+---
+title: "Is Katana Safe? Katana Risk Framework"
+description: "Risk framework for Katana Network (chain ID 747474): smart contract, protocol, third-party, duration and liquidation risk, and the safeguards in place for each."
+---
+
+# Katana Risk Framework
+
+## Is Katana Safe?
+
 There are many forms of risk users are exposed to while using Katana. This section provides an overview of the various forms of risks and steps that have been taken to mitigate this risk.
 
 The categories of risk are, but not limited to: smart contract risk (bugs or exploit in code); protocol risk (failures in the core network); counterparty risk (third-party negligence or misbehaviour); duration risk (withdrawal delays); and liquidation risk (losses due to depegs or forced unwinds).
@@ -10,11 +19,11 @@ A complete list of Katana's smart contracts can be found in the technical refere
 
 ## **Protocol Risk**
 
-A system-level failure within the network could potentially lead to loss of funds or network liveness. While Katana minimizes certain kinds of protocol risk through the use of ZK proofs, ZK provers are still emergent technology. Learn more about [CDK-opgeth](../core-concepts/cdk-opgeth.md).
+A system-level failure within the network could potentially lead to loss of funds or network liveness. While Katana minimizes certain kinds of protocol risk through the use of ZK proofs, ZK provers are still emergent technology. Learn more about [Agglayer & Katana's tech stack](../core-concepts/cdk-opgeth.md).
 
 ## **Third Party Risk**
 
-Vault assets are managed by third-party risk curators, such as Gauntlet and Stakehouse Financial. While curators define risk parameters, including collateral thresholds and supported markets, their services include risk related to the use of smart contracts, and the use of Chainlink price feeds and other oracle solutions for high-liquidity/high-volume designs.
+Vault assets are managed by third-party risk curators, such as Gauntlet and Steakhouse Financial. While curators define risk parameters, including collateral thresholds and supported markets, their services include risk related to the use of smart contracts, and the use of Chainlink price feeds and other oracle solutions for high-liquidity/high-volume designs.
 
 Deposited funds are subject to third-party control and strategy discretion. Katana does not exercise custody over bridge assets or control over third parties. Vault Bridge utilizes the services of third parties, such as vault curators Gauntlet or Steakhouse Financial, and vault developers Morpho, or Yearn. Vault Bridge deposits are made directly by the user into Morpho vaults, and are subject to smart contract logic and curator policy. Decisions made by unaffiliated protocol curators or third-party infrastructure providers may affect the performance and recoverability of assets. While these curators operate independently based on risk and strategy models, Katana does not control their actions, and users may be exposed to the outcomes of such decisions, including potential disruptions or reductions in the value or availability of bridged assets.
 For additional information on the services and terms and conditions of such services provided by the Curators, and associated risks related to these third-party service providers, please see: [Gauntlet](https://www.gauntlet.xyz/tos/) and [Steakhouse Financial](https://kitchen.steakhouse.financial/tos/).
@@ -71,6 +80,6 @@ To learn more about Morpho vaults and the terms and conditions of Morpho vaults 
 
 ### **Katana DeFi Security Council**
 
-To protect against protocol and smart contract risk, Katana uses a Security Council that has the power to perform emergency functions. If necessary, the Council may to halt bridge withdrawals. The composition of the Council includes all members of the Katana Consortium, including Conduit, GSR, Stakehouse, Morpho, Yearn, and others.
+To protect against protocol and smart contract risk, Katana uses a Security Council that has the power to perform emergency functions. If necessary, the Council may halt bridge withdrawals. The Council's members include DeFi protocols and infrastructure teams operating within Katana, such as Sushi, Yearn, GSR, Gauntlet and Steakhouse, alongside the Katana Foundation and Polygon Labs engineering and security multisigs.
 
 For more information about Katana governance, see [here](../core-concepts/governance.md).

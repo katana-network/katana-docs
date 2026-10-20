@@ -1,3 +1,7 @@
+---
+description: "Grants and support for builders on Katana Network: what help is available, including technical guidance, partner intros and co-marketing, and how requests are evaluated."
+---
+
 # Grants and Other Support Programs
 
 Katana does not run an official grant program. Instead, the team evaluates

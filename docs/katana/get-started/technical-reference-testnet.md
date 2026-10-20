@@ -1,3 +1,7 @@
+---
+description: "Bokuto testnet reference for Katana Network (chain ID 737373): RPC URLs, block explorers, chain configuration and how to bridge to the testnet."
+---
+
 ## Bokuto
 
 | Network Name   | Bokuto                                                                                       |

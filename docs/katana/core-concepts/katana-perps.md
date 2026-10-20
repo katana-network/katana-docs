@@ -1,26 +1,75 @@
-# Katana Perps
+---
+title: "Perpetual Futures on Katana: Katana Perps Explained"
+description: "How Katana Perps works: the perpetuals DEX built natively on Katana Network, pairing an off-chain order book with on-chain settlement and vbUSDC collateral."
+---
 
-Katana Perps is a high-performance, non-custodial perpetual futures exchange built natively on the Katana blockchain. The platform combines an off-chain order book and matching engine with on-chain custody and settlement, delivering centralized-exchange-grade speed with decentralized security guarantees. Katana Perps was built by the team behind IDEX, which has been developing non-custodial trading infrastructure since 2017.
+# Perpetual Futures on Katana: Katana Perps Explained
 
-Katana Perps is one of the core verticals in the Katana DeFi stack alongside Sushi (spot trading) and Morpho (lending and borrowing). Available markets include BTC-USD, ETH-USD, SOL-USD, KAT-USD, and XRP-USD, with vbUSDC as collateral.
+Katana Perps is Katana's core perpetual futures exchange (perps DEX). Traders can go long or short on crypto assets with leverage, while their collateral stays in smart contracts on Katana instead of being deposited with a centralized exchange.
 
-## How Katana Perps Fits Into the Katana Ecosystem
+Katana Perps is built by the team behind IDEX, bringing years of experience running non-custodial exchanges to Katana.
 
-Trading activity on Katana Perps generates sequencer fees, 100% of which are recycled into chain-owned liquidity, deepening core markets across the ecosystem. The vKAT Armory gauge voting system is expanding to include Katana Perps, allowing vKAT holders to direct KAT emissions toward perps liquidity pools and creating a direct link between KAT staking, governance, and perpetual futures trading. Katana Perps also operates a Points Program that rewards organic trading, sustained participation, liquidity contribution, and referrals.
+You can trade at [perps.katana.network](https://perps.katana.network). To learn more about the launch, read [Perpetual Futures on Katana: How Katana Perps Works](https://katana.network/blog/katana-perps-is-live).
 
-## Key Features
+## How Do Onchain Perps Work on Katana?
 
-Katana Perps pairs an off-chain central limit order book with millisecond-latency matching against on-chain smart contract settlement on Katana. All funds are held in a smart contract, every order requires a cryptographic wallet signature (EIP-712), and a built-in wallet exit function guarantees fund recovery at all times. Trade execution and settlement are gas-free; gas is only paid on deposits and withdrawals.
+A perpetual future (perp) is a contract that lets you trade on the price of an asset without owning it and without an expiry date. You can profit if the price moves in the direction you bet on, and leverage lets you open a larger position than your collateral alone would allow.
 
-The exchange uses cross-margin, where all positions share a single collateral pool for capital efficiency. Order types include market, limit, stop-loss, take-profit, and conditional orders with GTC, GTX (post-only), IOC, and FOK time-in-force options. Katana Perps Connect enables mobile trading via QR code pairing with a desktop wallet using scoped, time-limited session keys.
+Katana Perps combines the speed of a centralized exchange with the safety of onchain custody:
 
-## API
+- **Fast offchain matching:** orders are matched in an offchain order book built for low-latency trading.
+- **Onchain custody and settlement:** your collateral stays in smart contracts on Katana, and trades are settled onchain.
+- **No gas per order:** you sign each order with your wallet instead of sending a transaction, so placing and managing orders doesn't cost gas. Gas is generally only needed to deposit or withdraw.
+- **Direct wallet exit:** you can recover your funds straight from the smart contracts, without relying on the trading interface.
 
-Katana Perps provides a REST API for market data, authenticated user data, and trading, as well as a WebSocket API for real-time streaming. An official TypeScript/JavaScript SDK handles wallet signatures, authentication, and real-time order book construction. A sandbox environment on the Bokuto testnet is available for development and testing. See the [API documentation](https://api-docs-v1-perps.katana.network) for full details.
+### Trading Features
 
-## Links
+- **Markets:** perpetual markets for major crypto assets and markets native to the Katana ecosystem, with more added over time.
+- **Collateral:** vbUSDC.
+- **Cross-margin:** your collateral is shared across all your open positions. This uses collateral more efficiently, but losses in one position reduce the margin available to the others.
+- **Order types:** market, limit, stop-loss, take-profit and conditional orders, with time-in-force options including GTC, post-only, IOC and FOK.
 
-| Resource | URL |
+## How Katana Perps Connects to Katana
+
+Katana Perps is one of Katana's core apps, so it is built into how the network works rather than being just another app deployed on it.
+
+- **Vault Bridge:** Katana Perps uses vbUSDC as collateral. vbUSDC is USDC bridged to Katana through Vault Bridge, where the underlying USDC keeps earning yield. See [Vault Bridge](vault-bridge.md).
+- **Chain-Owned Liquidity:** trading activity generates network revenue, and Katana returns net sequencer fees to DeFi on Katana through mechanisms such as Chain-Owned Liquidity and ecosystem incentives. See [Chain-Owned Liquidity](chain-owned-liquidity.md).
+- **KAT incentives:** Katana's liquidity mining allocation sets aside 350 million KAT for perps, launchpad and yield apps. See [Tokenomics & Schedules](what-is-kat/tokenomics.md).
+- **One ecosystem:** alongside Sushi for spot trading and Morpho for lending, Katana Perps gives users leveraged trading without leaving Katana.
+
+## More Features
+
+### Trading Competitions
+
+Katana Perps has historically run trading competitions every two weeks, with prize pools of $100,000 or more paid in vbUSDC. Prize pools typically grow as total trading volume during the competition rises.
+
+These rewards are funded by real revenue rather than new token emissions: yield generated by Vault Bridge, along with Katana Perps' own trading fees. This is Katana's model in action. Bridged assets earn yield, and that yield flows back to the people using the network.
+
+Competition rules, prize pools and eligibility change from round to round. See the [Katana blog](https://katana.network/blog) for the current competition and its details.
+
+### Points Program
+
+Katana Perps has a Points Program that rewards meaningful participation, such as trading, sustained activity, contributing liquidity and referrals. The program's structure, eligibility and rewards can change between seasons, so check the current Points Program for the latest details. See [Katana Perps Points Program Season 0: The Forge](https://katana.network/blog/katana-perps-points-program-season-1-the-forge) for how the program started.
+
+### Trade on Mobile with Katana Perps Connect
+
+Katana Perps Connect lets you trade from your phone while your main wallet stays connected on desktop. You pair your phone by scanning a QR code, which sets up a secure, time-limited session. You can then trade on mobile without exposing your main wallet or reconnecting it for every action.
+
+!!! warning "Leveraged trading has risks"
+    Leverage magnifies both gains and losses. If the market moves against you and your margin falls too low, your positions can be liquidated and you can lose your collateral. With cross-margin, a loss on one position can affect all your others. See [Risk](risk.md) for more on the risks of using DeFi on Katana.
+
+## For Developers
+
+Katana Perps provides APIs and developer tools for algorithmic trading, integrations, trading terminals and bots:
+
+- **REST API** for market data, account information and trading.
+- **WebSocket API** for real-time market and account data.
+- **TypeScript/JavaScript SDK** for authentication, EIP-712 wallet signatures, order management and real-time order book data.
+- **Bokuto testnet sandbox** for development and testing.
+- **Builder codes** let you build your own trading product on Katana Perps' infrastructure and earn fees on the volume it generates. See [Build Your Own Perp DEX: Builder Codes on Katana Perps](https://katana.network/blog/builder-codes-katana-perps).
+
+| Resource | Link |
 | --- | --- |
 | Trade | [perps.katana.network](https://perps.katana.network) |
 | Documentation | [docs-perps.katana.network](https://docs-perps.katana.network) |

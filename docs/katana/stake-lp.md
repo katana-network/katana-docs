@@ -1,37 +1,46 @@
-# Stake Your Sushi LP Position
+---
+description: "Stake your liquidity position on Katana Network to earn KAT incentives: how to stake an LP position, how gauge voting sets rewards, and why positions must stay in range."
+---
 
-Staking your Sushi LP position on Katana earns you KAT token emissions. This guide walks you through how to stake your LP tokens so you can start earning rewards when Epoch 1 begins.
+# Stake Your Liquidity Position
 
-!!! warning "Staking is required to earn KAT emissions"
-    Starting with Epoch 1 on **March 26, 2026**, only staked LP positions earn KAT emissions. Unstaked LP positions will **no longer** receive KAT rewards. Make sure to stake your LP tokens before Epoch 1 begins.
+Liquidity providers can stake eligible LP positions on Katana to earn KAT incentives. KAT incentives are distributed through Katana's gauge voting system. vKAT holders vote on which eligible liquidity pools receive incentives, and liquidity providers in those pools can earn KAT based on their eligible liquidity.
 
 ## What You Need
 
-- A Sushi LP position on Katana
-- Your wallet connected to the [Katana app](https://app.katana.network/portfolio)
+- An eligible liquidity position on Katana
+- A wallet connected to the [Katana app](https://app.katana.network/portfolio)
 
-## How to Stake Your LP Position
+## How to Stake Your Liquidity Position
 
 1. Go to the [Katana Portfolio page](https://app.katana.network/portfolio).
-2. Find your Sushi LP position in the list.
-3. Click the **Stake** button next to your position.
+2. Find the liquidity position you want to stake.
+3. Select **Stake**.
 ![LP Position](../img/katana/lp-staking-img/lp postion.png){ .img-left }
-4. **Approve** the transaction in your wallet, this allows the staking contract to access your LP tokens.
+4. If required, **approve** the staking contract to access your position.
 ![Approve Transaction](../img/katana/lp-staking-img/approve.png){ .img-left }
-5. **Confirm the stake** transaction in your wallet.
-6. Once confirmed, your LP position is staked and will begin earning KAT emissions starting Epoch 1.
+5. **Confirm** the staking transaction in your wallet.
+6. Once the transaction is confirmed, your position will begin participating in KAT incentive distribution.
 
-## Rewards
+## How KAT Rewards Work
 
-Once your LP tokens are staked, rewards are distributed in **KAT tokens**. Emissions are directed to liquidity pools through the gauge voting system — vKAT and avKAT holders vote on which pools receive emissions each epoch.
+Staking makes your liquidity position eligible to receive KAT incentives. The amount of KAT directed to each eligible pool is determined through gauge voting. vKAT holders allocate voting power across gauges, which helps determine how KAT incentives are distributed each epoch. The amount an individual liquidity provider earns depends on factors including:
 
-!!! info "Only in-range positions earn rewards"
-    Your staked LP position must be **in range** to earn KAT emissions. If the current price moves outside your position's price range, your position will stop earning rewards until it comes back in range or you rebalance.
+- The amount of KAT incentives directed to the pool
+- The amount of eligible liquidity participating in the pool
+- Your share of that eligible liquidity
 
-For more on how gauge voting and emissions work, see [KAT Staking](katana-staking.md#gauge-voting--emissions).
+For more information, see [Gauge Voting, Incentives & Rewards](katana-staking.md#gauge-voting-incentives-rewards).
+
+## Your Position Must Be In Range
+
+For concentrated liquidity pools, only liquidity that is **in range** is eligible to earn trading fees and KAT incentives. If the market price moves outside your selected price range, your position will stop earning until either the price moves back into your range, or you rebalance your position around the current market price.
+
+!!! info "Staking alone does not guarantee rewards"
+    Your position must also meet the eligibility requirements of the pool.
 
 ## Rebalancing Your Position
 
-If the price moves outside your LP range, your position stops earning fees and emissions. You can rebalance by unstaking, removing liquidity, minting a new position at the current price, and restaking.
+If your liquidity position moves out of range, you may choose to rebalance it. This generally involves unstaking the existing position, removing the liquidity, creating a new position around the current market price, and staking the new position. Rebalancing changes your price range and can expose you to different risks and market conditions.
 
 For a developer walkthrough with full code examples using viem and wagmi, see the [Rebalance Your Staked LP Position](how-to/lp-rebalance-guide.md) tutorial.

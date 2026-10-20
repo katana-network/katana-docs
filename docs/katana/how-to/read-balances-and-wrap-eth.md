@@ -1,3 +1,7 @@
+---
+description: "Read token balances and wrap ETH on Katana Network: check balances with viem and wrap ETH into yield-bearing WETH (bvbEth) on a local Katana fork."
+---
+
 # Read Balances & Wrap ETH into bvbEth
 
 This tutorial will guide you through the process of interacting with Katana's

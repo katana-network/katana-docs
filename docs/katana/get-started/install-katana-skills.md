@@ -1,3 +1,7 @@
+---
+description: "Install Katana Skills: reference guides that teach AI agents to use DeFi on Katana Network, including swaps on Sushi, Morpho lending, KAT staking, Merkl rewards and Katana Perps."
+---
+
 # Install Katana Skills
 
 Katana Skills teach AI agents how to interact with DeFi on Katana Network.

@@ -1,3 +1,7 @@
+---
+description: "Verify smart contracts on Katana Network and the Bokuto testnet using Katanascan (Etherscan) or Blockscout, with Foundry or Hardhat."
+---
+
 ## Verifying Contracts
 
 After you deploy your smart contracts to Katana (mainnet) / Bokuto (testnet), you will want

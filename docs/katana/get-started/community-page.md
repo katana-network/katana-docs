@@ -1,3 +1,7 @@
+---
+description: "Join the Katana developer community: connect on Telegram, follow Katana updates, and contribute to the docs, examples and DeFi building blocks on Katana Network."
+---
+
 ## Join the Katana Developer Community
 
 Katana’s edge comes from the energy and collaboration of its community. Whether you're a developer, founder, creator, or just curious about the project, we want you involved.

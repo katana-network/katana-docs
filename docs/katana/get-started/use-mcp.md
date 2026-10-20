@@ -1,3 +1,7 @@
+---
+description: "Use MCP to talk to the blockchain: let AI tools like Cursor and Claude read and simulate transactions on a local Katana fork using the starter kit's built-in MCP server."
+---
+
 # How to use MCP to talk to the blockchain
 
 The
