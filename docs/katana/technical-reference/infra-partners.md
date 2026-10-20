@@ -70,6 +70,7 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 - [Defillama](https://defillama.com/chain/katana)
 - [Dexscreener](https://dexscreener.com/katana)
 - [Dune](https://dune.com/chains/katana)
+- [OpenChainBench](https://openchainbench.com/benchmarks/katana-rpc)
 
 ### Blockchain Security and Risk Analysis
 
