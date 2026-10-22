@@ -1,3 +1,7 @@
+---
+description: "KAT token overview for Katana Network: the three token types, KAT, vKAT and avKAT, what each one does, and how to choose between direct and automated staking."
+---
+
 # Understanding the KAT Token Ecosystem
 
 This guide introduces the KAT token ecosystem and the different token types you
@@ -5,21 +9,12 @@ will encounter when participating in Katana emission voting and staking. Underst
 these tokens and how they relate to each other is essential before diving into
 the step-by-step tutorials that follow.
 
-## Goal
-
-By the end of this guide, you'll understand:
-
-- What KAT is and its role in the Katana network
-- The three token types: KAT, vKAT, and avKAT
-- When to use each token type
-- The flows between tokens and their trade-offs
-
 ## The Three Token Types
 
 The KAT ecosystem has three distinct token types, each serving a different
 purpose:
 
-### KAT — The Base Token (ERC-20)
+### KAT — The Core Token (ERC-20)
 
 KAT is a standard ERC-20 token and the native token of the Katana Foundation. It is fungible, transferable, and can be held in any Ethereum-compatible
 wallet.
@@ -144,7 +139,7 @@ the vault (see [Convert vKAT to avKAT](kat-convert-vkat-to-avkat.md)).
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| KAT | `0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d` | Base ERC-20 token |
+| KAT | `0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d` | Core ERC-20 token |
 | VotingEscrow | `0x4d6fC15Ca6258b168225D283262743C623c13Ead` | vKAT lock management |
 | NFT Lock | `0x106F7D67Ea25Cb9eFf5064CF604ebf6259Ff296d` | vKAT NFT contract |
 | avKAT Vault | `0x7231dbaCdFc968E07656D12389AB20De82FbfCeB` | ERC-4626 vault |

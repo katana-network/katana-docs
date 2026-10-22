@@ -1,3 +1,7 @@
+---
+description: "Security overview for Katana Network: secure development practices, internal security assessments and third-party smart contract audits across core components."
+---
+
 Katana is leveraging OP Stack and zero-knowledge technology to provide secure, scalable, and interoperable infrastructure for decentralized applications.
 
 As a project incubated and supported by GSR and Polygon Labs, Polygon Labs is providing services to support Katana Foundation on all security matters. As a result, this page outlines the processes that are followed.

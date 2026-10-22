@@ -1,3 +1,7 @@
+---
+description: "Deposit KAT to avKAT: a developer walkthrough for depositing KAT into the avKAT auto-compounding vault, reading the exchange rate and previewing deposits."
+---
+
 # Deposit KAT to avKAT
 
 This tutorial walks you through depositing KAT into the avKAT vault to receive

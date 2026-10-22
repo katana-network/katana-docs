@@ -6,6 +6,56 @@
     <meta name="google-site-verification" content="sALqmNQZWZ6_5ig5JqIaFiR6AMUotcGG6xFq_fQPt_U" />
     <!-- End of verification for Google search -->
 
+    <!-- Open Graph / Twitter: makes docs links unfurl with a title and summary -->
+    {% set og_title = page.meta.title if page.meta and page.meta.title else (page.title ~ " - " ~ config.site_name if page.title else config.site_name) %}
+    {% set og_description = page.meta.description if page.meta and page.meta.description else config.site_description %}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ config.site_name }}" />
+    <meta property="og:title" content="{{ og_title }}" />
+    <meta property="og:description" content="{{ og_description }}" />
+    {% if page.canonical_url %}<meta property="og:url" content="{{ page.canonical_url }}" />{% endif %}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ og_title }}" />
+    <meta name="twitter:description" content="{{ og_description }}" />
+    <!-- End of Open Graph / Twitter -->
+
+    <!-- Structured data (JSON-LD): tells search engines and AI crawlers who publishes these docs and what each page is -->
+    {% set org_id = config.site_url ~ "#organization" %}
+    {% set website_id = config.site_url ~ "#website" %}
+    {% set ld_graph = [
+      {
+        "@type": "Organization",
+        "@id": org_id,
+        "name": "Katana Network",
+        "url": "https://katana.network/",
+        "logo": config.site_url ~ "img/katana/k-logo.svg",
+        "sameAs": config.extra.social | map(attribute="link") | list
+      },
+      {
+        "@type": "WebSite",
+        "@id": website_id,
+        "name": config.site_name,
+        "url": config.site_url,
+        "description": config.site_description,
+        "inLanguage": "en",
+        "publisher": {"@id": org_id}
+      }
+    ] %}
+    {% if page and page.url not in ["", "/", "./", "index.html"] and page.canonical_url %}
+      {% set ld_graph = ld_graph + [{
+        "@type": "TechArticle",
+        "headline": page.meta.title if page.meta and page.meta.title else page.title,
+        "description": og_description,
+        "url": page.canonical_url,
+        "mainEntityOfPage": page.canonical_url,
+        "inLanguage": "en",
+        "isPartOf": {"@id": website_id},
+        "publisher": {"@id": org_id}
+      }] %}
+    {% endif %}
+    <script type="application/ld+json">{{ {"@context": "https://schema.org", "@graph": ld_graph} | tojson }}</script>
+    <!-- End of structured data -->
+
 {% endblock %}
 
 {% block scripts %}

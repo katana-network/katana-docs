@@ -1,3 +1,7 @@
+---
+description: "How to stake KAT to vKAT on Katana Network: a developer walkthrough using viem, covering contract addresses, ABIs, token approval and the staking transaction."
+---
+
 # Stake KAT to vKAT
 
 This tutorial walks you through staking KAT tokens to receive a vKAT NFT, which

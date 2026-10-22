@@ -1,3 +1,7 @@
+---
+description: "Vote on gauges with vKAT: how to use your voting power to direct KAT incentives to liquidity pools on Katana Network, view gauges and change your votes."
+---
+
 # Vote on Gauges
 
 This tutorial shows you how to use your vKAT voting power to vote on gauges,

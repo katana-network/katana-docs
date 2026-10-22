@@ -1,3 +1,7 @@
+---
+description: "Index Katana Network smart contract data with Envio HyperIndex: build an indexer that streams onchain events into Postgres and serves them through a GraphQL API."
+---
+
 # Index Katana smart contract data in minutes using Envio
 
 **Note:** This guide was created by the Envio team. If you notice anything outdated, please reach the Envio team on [Discord](https://discord.gg/envio) or [Telegram](https://t.me/+kAIGElzPjApiMjI0).

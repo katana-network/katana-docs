@@ -1,3 +1,7 @@
+---
+description: "Rebalance a staked Sushi LP position on Katana Network: unstake, remove liquidity, open a new in-range position and restake to keep earning KAT incentives."
+---
+
 # Rebalance Your Staked LP Position
 
 This tutorial walks you through the full rebalance flow for a staked SushiSwap V3

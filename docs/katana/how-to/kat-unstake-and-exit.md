@@ -1,3 +1,7 @@
+---
+description: "Unstake KAT and exit: how the vKAT cooldown and exit fees work, how to start, complete or cancel a withdrawal, rage quit, and exit an avKAT position."
+---
+
 # Unstake and Exit
 
 This tutorial covers all the ways to exit your KAT staking positions, including

@@ -1,3 +1,7 @@
+---
+description: "Katana Network infrastructure partners: RPC providers, block explorers, wallets, oracles, bridges, indexers, data APIs and developer tooling that support Katana."
+---
+
 ### RPC Providers
 
 - [Conduit RPC](https://www.conduit.xyz/nodes)
