@@ -18,7 +18,7 @@ Learn more on [L2Beat](https://l2beat.com/scaling/projects/katana).
 | Canonical Bridge UI     | [https://bridge.katana.network/](https://bridge.katana.network/)           |
 
 Notes: Our official public RPC is fronted by a load balancer. Users are rate limited at 100 requests/second.
-WSS is not supported on it, but you can use the Tenderly/Conduit public RPCs (or use another [RPC provider](https://docs.katana.network/katana/technical-reference/infra-partners/#rpc-providers)).
+WSS is not supported on it, but you can use the Conduit public RPC (or use another [RPC provider](https://docs.katana.network/katana/technical-reference/infra-partners/#rpc-providers)).
 
 ### Chain Configuration
 
