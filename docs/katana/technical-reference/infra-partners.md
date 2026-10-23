@@ -106,6 +106,7 @@ You can also use Katana on other wallets that allow you to add a custom chain, s
 ### Developer Tooling
 
 - [Tenderly Simulator](https://tenderly.co/transaction-simulator/)
+- [eRPC (self-hosted RPC proxy with failover and caching)](https://github.com/erpc/erpc)
 
 ### Account Abstraction / Wallet Infrastructure
 
