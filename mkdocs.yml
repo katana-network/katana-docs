@@ -18,7 +18,7 @@ theme:
     accent: "#FF8E08"
   language: en
   custom_dir: overrides
-  favicon: img/katana/favicon.ico
+  favicon: img/katana/favicon.ico?v=2
   logo: img/katana/k-logo.svg
   icon:
     logo: logo
