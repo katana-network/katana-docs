@@ -14,7 +14,7 @@ description: "Katana Network infrastructure partners: RPC providers, block explo
 - [Chainstack](https://chainstack.com/build-better-with-katana/)
 - [Spectrum Nodes](https://spectrumnodes.com/)
 - [dRPC NodeCloud](https://drpc.org/chainlist/katana)
-- [BlockVectra RPC](https://docs.blockvectra.com/en/chains/)
+- [BlockVectra RPC](https://blockvectra.com/en/chains/katana_mainnet/?ref=gh-katana-docs)
 
 
 ### Block Explorers
