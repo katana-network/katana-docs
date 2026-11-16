@@ -1,11 +1,11 @@
 ---
-description: "Deposit KAT to avKAT: a developer walkthrough for depositing KAT into the avKAT auto-compounding vault, reading the exchange rate and previewing deposits."
+description: "Stake KAT to avKAT: a developer walkthrough for depositing KAT into the avKAT vault, reading the exchange rate, previewing deposits and exiting through the 7-day cooldown."
 ---
 
-# Deposit KAT to avKAT
+# Stake KAT to avKAT
 
 This tutorial walks you through depositing KAT into the avKAT vault to receive
-transferable vault tokens.
+avKAT, Katana's yield-bearing staking token.
 
 ## Goal
 
@@ -28,31 +28,13 @@ If you're new to the KAT ecosystem, read the
 The avKAT vault is an [ERC-4626 tokenized vault](https://eips.ethereum.org/EIPS/eip-4626).
 When you deposit KAT, the vault:
 
-1. Locks KAT into the VotingEscrow on your behalf (via a master vKAT NFT held
-   internally by the vault)
-2. Issues you avKAT tokens representing your proportional ownership
-3. Uses a CompoundStrategy contract to handle gauge voting and reward
-   reinvestment for the vault's master position
+1. Locks your KAT into the VotingEscrow as part of the vault's master position
+2. Issues you avKAT tokens representing your proportional ownership of the vault
 
-The exchange rate between avKAT and KAT reflects the accumulated protocol
-rewards distributed to the vault.
-
-### Relayers
-
-A relayer is an entity that votes on gauges and compounds rewards on behalf of
-delegators. The relayer role is open to anyone.  avKAT is the first
-relayer of many to come.
-
-avKAT is a tokenized wrapper around a delegation to a relayer, combined with
-automated claiming of the fees that relayer generates for you. The claiming and
-tokenization are separate from the actual delegation logic that defines the
-relayer. It is also not necessary that a relayer is tokenized like avKAT.
-
-As more relayers become available, the steps to choose one will be:
-
-1. View the available relayers in the Katana app
-2. Pick a relayer based on the voting strategy that works for you
-3. Delegate your votes to the relayer of choice
+A share of the revenue from Katana Swap, Katana Perps, Vault Bridge and
+sequencer fees is used to buy KAT on the open market. 100% of that KAT is
+compounded into the vault every epoch through the CompoundStrategy contract.
+There is nothing to claim.
 
 ## Contract Addresses
 
@@ -280,9 +262,9 @@ const tokensNeeded = await publicClient.readContract({
 console.log(`100 KAT = ${formatEther(tokensNeeded)} avKAT`);
 ```
 
-The exchange rate changes as the CompoundStrategy claims and reinvests protocol
-rewards into the vault's master position. The rate at any given time reflects
-the vault's accounting state.  Always verify onchain before transacting.
+The exchange rate changes as bought-back KAT is compounded into the vault's master
+position. The rate at any given time reflects the vault's accounting state.
+Always verify onchain before transacting.
 
 ## Vault Stats
 
@@ -303,20 +285,21 @@ console.log(`Total vault assets: ${formatEther(totalAssets)} KAT`);
 
 There are two ways to exit your avKAT position:
 
-### Option 1: Sell on a DEX (Instant)
+### Option 1: Swap on a DEX (Instant)
 
 avKAT is an ERC-4626 vault token, which means it implements the full ERC-20
 interface. It is transferable, tradeable, and compatible with any DEX that has
-liquidity. This gives you an instant exit with no cooldown, but you're subject
-to market liquidity and slippage.
+liquidity. This gives you an instant exit with no cooldown, but the swap
+happens at the market rate and may involve trading fees, price impact and
+slippage.
 
-### Option 2: Redeem Through the Vault
+### Option 2: Unstake Through the Vault (7-Day Cooldown)
 
-You can redeem avKAT tokens back through the vault. This creates a new vKAT NFT
-and begins the standard 60-day exit process:
-<!-- TODO: switch back when cooldown becomes 45 days:
-and begins the standard 45-day exit process:
--->
+You can redeem avKAT through the vault. This creates a vKAT NFT for the
+underlying KAT, which you then withdraw through the 7-day exit cooldown. If you
+wait the full 7 days there is no exit fee. Exiting earlier costs a fee that
+starts at 25% and goes down every day (including an instant exit for a 25%
+fee).
 
 ```typescript
 // Preview how much KAT you'd get for your tokens

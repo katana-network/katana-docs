@@ -1,6 +1,6 @@
 ---
 title: "What Is Agglayer? How Katana Is Built on It"
-description: "Katana Network's architecture: a DeFi-first Ethereum Layer 2 built on Agglayer's CDK OP Stack, using op-geth for execution and ZK proofs to settle to Ethereum."
+description: "Katana's Layer 2 architecture: built on Agglayer's CDK OP Stack, using op-geth for execution and ZK proofs to settle to Ethereum."
 ---
 
 # What Is Agglayer? How Katana Is Built on It

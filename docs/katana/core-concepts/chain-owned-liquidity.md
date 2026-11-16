@@ -1,6 +1,6 @@
 ---
 title: "What Is Chain-Owned Liquidity? How Katana Owns Its Liquidity"
-description: "Chain-owned liquidity on Katana Network, a DeFi-first Ethereum Layer 2: how net sequencer fees fund liquidity the network owns and deploys across core markets."
+description: "Chain-owned liquidity on Katana, an onchain financial markets company that operates a Layer 2: how net sequencer fees fund liquidity the network owns and deploys across core markets."
 ---
 
 # What Is Chain-Owned Liquidity? How Katana Owns Its Liquidity

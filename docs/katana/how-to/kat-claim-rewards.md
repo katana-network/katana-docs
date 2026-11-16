@@ -1,8 +1,13 @@
 ---
-description: "Claim KAT voting incentives: how to check and claim rewards earned from vKAT gauge voting through the Merkl distributor, and set your reward token preferences."
+description: "Sunset November 17, 2026. Reference only: how vKAT voting incentives were claimed through the Merkl distributor."
 ---
 
 # Claim Voting Incentives
+
+!!! warning "Sunset: voting incentives ended on November 17, 2026"
+    Gauge voting and vote incentives have been sunset. This page is kept for
+    reference only. avKAT rewards compound automatically every epoch, with
+    nothing to claim. See [How KAT Staking Works](../katana-staking.md).
 
 This tutorial shows you how to claim rewards earned from your vKAT gauge voting
 participation using the Merkl distributor.

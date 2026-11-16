@@ -1,10 +1,10 @@
 ---
-description: "Stake your liquidity position on Katana Network to earn KAT incentives: how to stake an LP position, how gauge voting sets rewards, and why positions must stay in range."
+description: "Stake your liquidity position on Katana Network to earn KAT incentives: how to stake an LP position, how the Katana Foundation allocates incentives, and why positions must stay in range."
 ---
 
 # Stake Your Liquidity Position
 
-Liquidity providers can stake eligible LP positions on Katana to earn KAT incentives. KAT incentives are distributed through Katana's gauge voting system. vKAT holders vote on which eligible liquidity pools receive incentives, and liquidity providers in those pools can earn KAT based on their eligible liquidity.
+Liquidity providers can stake eligible LP positions on Katana to earn KAT incentives. The Katana Foundation decides which eligible liquidity pools receive KAT incentives, and liquidity providers in those pools can earn KAT based on their eligible liquidity.
 
 ## What You Need
 
@@ -24,13 +24,11 @@ Liquidity providers can stake eligible LP positions on Katana to earn KAT incent
 
 ## How KAT Rewards Work
 
-Staking makes your liquidity position eligible to receive KAT incentives. The amount of KAT directed to each eligible pool is determined through gauge voting. vKAT holders allocate voting power across gauges, which helps determine how KAT incentives are distributed each epoch. The amount an individual liquidity provider earns depends on factors including:
+Staking makes your liquidity position eligible to receive KAT incentives. The amount of KAT directed to each eligible pool is set by the Katana Foundation. The amount an individual liquidity provider earns depends on factors including:
 
 - The amount of KAT incentives directed to the pool
 - The amount of eligible liquidity participating in the pool
 - Your share of that eligible liquidity
-
-For more information, see [Gauge Voting, Incentives & Rewards](katana-staking.md#gauge-voting-incentives-rewards).
 
 ## Your Position Must Be In Range
 
@@ -44,3 +42,6 @@ For concentrated liquidity pools, only liquidity that is **in range** is eligibl
 If your liquidity position moves out of range, you may choose to rebalance it. This generally involves unstaking the existing position, removing the liquidity, creating a new position around the current market price, and staking the new position. Rebalancing changes your price range and can expose you to different risks and market conditions.
 
 For a developer walkthrough with full code examples using viem and wagmi, see the [Rebalance Your Staked LP Position](how-to/lp-rebalance-guide.md) tutorial.
+
+!!! info "Gauge voting was sunset on November 17, 2026"
+    KAT incentives for liquidity pools were previously directed by vKAT gauge voting. Since the sunset, they are allocated by the Katana Foundation.

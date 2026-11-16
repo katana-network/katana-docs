@@ -49,7 +49,7 @@ Public security reports: [https://github.com/agglayer/agglayer-contracts/tree/ma
 
 ### KAT Token
 
-KAT is the native ERC-20 token of the Katana Network. It is central to governance, staking, and ecosystem incentives.
+KAT is the native ERC-20 token of the Katana Network. It is used for staking through avKAT and for ecosystem incentives.
 Security Assessments:
 
 - March 2025 – Security Code Audit & Formal Verification by Certora

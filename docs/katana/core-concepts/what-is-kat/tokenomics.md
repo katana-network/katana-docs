@@ -40,8 +40,8 @@ KAT became transferable and launched on exchanges on 18 March 2026.
 
 - **Ecosystem & Community Treasury:** supports the long-term growth of Katana, including liquidity and grants for projects building on the network.
 - **Core Contributors:** the people building Katana.
-- **Community (POL stakers):** allocated as vKAT, the staked and voting form of KAT, to community members who stake POL.
-- **Liquidity Mining:** given to Katana's core apps to distribute to their users: 400 million KAT for Sushi, 250 million KAT for Morpho, and 350 million KAT for future perps, launchpad and yield apps.
+- **Community (POL stakers):** allocated as vKAT, the original staked form of KAT, to community members who stake POL. vKAT was sunset on November 17, 2026 and can be [converted to avKAT](../../how-to/kat-convert-vkat-to-avkat.md) at any time.
+- **Liquidity Mining:** given to Katana's core apps to distribute to their users: 400 million KAT for Katana Swap (built on Sushi), 250 million KAT for Morpho, and 350 million KAT for future perps, launchpad and yield apps.
 - **Retail & Institutional Users:** rewards for early Katana users: 70 million KAT for pre-deposit Krates and 930 million KAT for TVL commitments.
 - **Public Sale:** sold to the public at launch.
 
@@ -69,7 +69,7 @@ These allocations unlock in four equal parts, on the first, second, third and fo
 
 ## What You Can Do With KAT
 
-KAT can be staked as vKAT or avKAT to vote on where incentives go and to earn rewards. See [How KAT Staking & Voting Work](../../katana-staking.md).
+KAT can be staked into avKAT to earn from revenue-funded KAT buybacks. See [How KAT Staking Works](../../katana-staking.md).
 
 ## Official Sources
 

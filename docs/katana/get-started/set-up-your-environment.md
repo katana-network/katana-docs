@@ -9,7 +9,7 @@ for building applications on Katana and its testnet, Bokuto.
 
 ## What is Katana?
 
-Katana is a chain focused on providing optimized infrastructure for DeFi
+Katana is an onchain financial markets company that operates a Layer 2 for DeFi
 applications with integrated "money legos" - composable financial building
 blocks that developers can use to create new financial applications. It is
 focused on creating an experience where applications building on it can tap into

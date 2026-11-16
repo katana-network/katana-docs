@@ -1,8 +1,14 @@
 ---
-description: "Vote on gauges with vKAT: how to use your voting power to direct KAT incentives to liquidity pools on Katana Network, view gauges and change your votes."
+description: "Sunset November 17, 2026. Reference only: how vKAT gauge voting directed KAT incentives on Katana Network."
 ---
 
 # Vote on Gauges
+
+!!! warning "Sunset: gauge voting ended on November 17, 2026"
+    Voting on emissions and vote incentives have been sunset. This page is
+    kept for reference only. KAT liquidity incentives are now allocated by the
+    Katana Foundation, and staking rewards come from revenue-funded KAT
+    buybacks to avKAT. See [How KAT Staking Works](../katana-staking.md).
 
 This tutorial shows you how to use your vKAT voting power to vote on gauges,
 directing incentive emissions to liquidity pools on Katana.

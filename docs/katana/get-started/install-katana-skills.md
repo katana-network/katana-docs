@@ -1,5 +1,5 @@
 ---
-description: "Install Katana Skills: reference guides that teach AI agents to use DeFi on Katana Network, including swaps on Sushi, Morpho lending, KAT staking, Merkl rewards and Katana Perps."
+description: "Install Katana Skills: reference guides that teach AI agents to use DeFi on Katana Network, including swaps on Katana Swap, Morpho lending, KAT staking, Merkl rewards and Katana Perps."
 ---
 
 # Install Katana Skills
@@ -23,12 +23,12 @@ needs to work with that protocol. No API keys, no server, no dependencies.
 | Skill | What It Covers |
 |-------|---------------|
 | **wallet-manager** | Balances, transfers, approvals, wrap/unwrap ETH |
-| **dex** | Token swaps, quotes, pool analysis, LP provision on SushiSwap |
+| **dex** | Token swaps, quotes, pool analysis, LP provision on Katana Swap |
 | **lending** | Morpho markets, vaults, positions, leverage loops |
 | **merkl** | Reward discovery, yield farming, claiming Merkl rewards |
 | **analytics** | Token prices, gas costs, transaction lookup, contract reference |
 | **perps** | Perpetual futures, market data, orders, positions, withdrawals |
-| **kat** | KAT staking (vKAT), auto-compounding vault (avKAT), gauge voting |
+| **kat** | KAT staking with avKAT, converting vKAT to avKAT, unstaking and exits |
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Code will automatically detect and use them when relevant to your prompts.
 Ask Claude Code something that would activate a skill:
 
 - "What are the current KAT token prices?" (activates **analytics**)
-- "How do I swap WETH for KAT on SushiSwap?" (activates **dex**)
+- "How do I swap WETH for KAT on Katana Swap?" (activates **dex**)
 - "Show me the Morpho lending markets on Katana" (activates **lending**)
 
 If the skills are loaded correctly, Claude will reference the contract addresses,
@@ -234,7 +234,7 @@ addresses and decimals for all major tokens on the network.
 
 ### Dex
 
-Everything your agent needs to work with SushiSwap on Katana — V3 concentrated
+Everything your agent needs to work with Katana Swap (built on Sushi) — V3 concentrated
 liquidity and V2 full-range pools. Covers token swaps, getting trade quotes,
 analyzing pool liquidity, and providing LP positions. Includes fee tiers, tick
 spacing, and all relevant contract addresses.
@@ -267,9 +267,8 @@ leverage across available markets.
 
 ### KAT
 
-The KAT token ecosystem — staking KAT to receive vKAT (non-transferable
-governance NFTs), depositing into the avKAT auto-compounding vault, gauge
-voting for reward allocation, and exit mechanics including cooldown periods and
+The KAT token ecosystem — staking KAT into avKAT, converting sunset vKAT
+positions to avKAT, and exit mechanics including the 7-day cooldown and exit
 fees.
 
 ## Skills vs MCP Server

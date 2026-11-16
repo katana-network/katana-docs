@@ -1,187 +1,137 @@
 ---
-title: "What Is vKAT? KAT Staking and Vote-Escrow Explained"
-description: "Staking on Katana Network: stake KAT for vKAT or avKAT, vote on gauges to direct incentives, claim rewards, and exit through the 60-day cooldown process."
+title: "How KAT Staking Works: avKAT and Revenue-Funded Buybacks"
+description: "Staking on Katana Network: stake KAT into avKAT, earn from KAT buybacks funded by Katana Swap, Katana Perps, Vault Bridge and sequencer fees, and exit through a 7-day cooldown."
 ---
 
-# What Is vKAT? KAT Staking and Vote-Escrow Explained
+# How KAT Staking Works: avKAT and Revenue-Funded Buybacks
 
-## vKAT Staking & Voting
-![Lock vKAT or Mint avKAT](../img/katana/staking-img/lock-vkat-or-mint-avkat.png)
+## Staking Overview
 
-### What is Katana's staking and voting system?
+### What is KAT staking?
 
-Katana's staking system lets KAT holders participate in how incentives are distributed across DeFi on Katana. Users can stake KAT for vKAT and vote on which eligible markets and liquidity pools receive incentives, and those votes help determine where emissions are directed during each voting epoch. Users who prefer a more automated approach can participate through avKAT, which delegates voting and reward management to an automated strategy. Together, vKAT, avKAT, gauge voting, and reward distribution form Katana's chain-wide system for coordinating incentives and liquidity.
+When you stake KAT, the avKAT vault issues **avKAT** tokens, a liquid, transferable token representing a proportional percentage of the vault's staked position. A share of the revenue Katana earns from its own venues is used to buy KAT on the open market, and **100% of that KAT is compounded into avKAT**.
 
-### How does voting work?
+There is nothing to claim and nothing to restake. Rewards compound into avKAT automatically every epoch.
 
-Katana distributes incentives through recurring voting epochs. vKAT holders vote for eligible markets and pools, and the amount of voting power directed toward each market helps determine how Katana incentives are allocated during that epoch. Protocols can also provide additional incentives to attract votes, giving applications a way to compete for liquidity while rewarding the KAT holders who help direct it. This creates a shared incentive system across Katana rather than requiring every application to build its own independent tokenomics model.
+### Where does the revenue come from?
 
-### What is ve(3,3)?
+Katana owns and operates the venues behind its core financial markets, so the revenue they generate can flow back to the network instead of to third-party operators. A share of the fees from each of these funds KAT buybacks:
 
-Katana's staking system is inspired by the **ve(3,3)** model used across DeFi. The "ve" component refers to **vote-escrowed tokens**, where users lock or stake tokens in exchange for voting power over how incentives are distributed. Katana extends this concept across the broader ecosystem, allowing voting power to help direct incentives between DeFi markets throughout the network.
+- **Katana Swap:** the Sushi deployment on Katana, for trading tokens.
+- **Katana Perps:** perpetual futures trading, built by the IDEX team, which Katana acquired.
+- **Vault Bridge:** assets bridged to Katana keep earning yield on Ethereum. See [Vault Bridge](core-concepts/vault-bridge.md).
+- **Sequencer fees:** fees paid for transactions processed on Katana.
 
-### What role does Aragon play?
+The amount of KAT bought back depends on how much the network is used. More trading, bridging and network activity means more revenue for buybacks. Less activity means less.
 
-[Aragon](https://aragon.org) built much of the infrastructure powering Katana's staking and voting system. This includes the vKAT and avKAT interfaces, epoch voting infrastructure, incentive claiming, indexing and backend systems, and automation for voting, compounding, and reward routing. Aragon also provides tokenomics and infrastructure support as the system evolves.
+### How are buybacks carried out?
 
----
+At launch, buybacks follow a scheduled process. Fully automated onchain buybacks are planned once the security and engineering work is complete.
 
-## KAT, vKAT & avKAT
+### How does the avKAT exchange rate work?
 
-KAT can be staked in two ways: directly through vKAT, where you control your voting and rewards, or through avKAT, which automates voting and compounding through a managed strategy.
+avKAT represents a proportional percentage of the vault's staked position. When you stake, you receive avKAT at the current exchange rate between avKAT and KAT. Bought-back KAT is compounded into avKAT every epoch, which raises the amount of KAT each avKAT can be redeemed for. Your avKAT balance stays the same.
 
-### What is KAT?
+For example, if 1 avKAT can be redeemed for 1.05 KAT today and bought-back KAT is then compounded into avKAT, the same 1 avKAT might later be redeemable for 1.06 KAT.
 
-KAT is the native token of Katana. It is transferable and can be held in any Ethereum-compatible wallet. Holding KAT by itself does not provide voting power. To participate in Katana's incentive voting system, KAT must be staked through vKAT or avKAT.
-
-### What is vKAT?
-
-vKAT (voting KAT) is the **non-transferable NFT** you receive when you lock KAT. Each vKAT NFT represents a locked KAT position and carries voting power based on the amount of KAT locked. vKAT holders have direct control over their position: they can vote on which eligible pools and markets receive KAT incentives, claim rewards, and choose how those rewards are paid out, including USDC, WETH, WBTC, KAT, or a custom mix. Because each locked position is represented by its own NFT, users can hold and manage multiple vKAT positions.
-
-### What is avKAT?
-
-avKAT (autocompounding voting KAT) is a **liquid, transferable token** that provides an automated way to participate in the vKAT system. When KAT is deposited into avKAT, the vault locks the underlying KAT as vKAT and manages the position on the user's behalf, with its strategy handling voting, reward collection, and compounding automatically. Instead of receiving rewards that need to be claimed manually, value is compounded back into the strategy, increasing the amount of KAT represented by each avKAT over time. avKAT also acts as a tokenized relayer, allowing voting power to be delegated to an automated strategy while giving users a liquid token representing their position.
-
-### What is the difference between vKAT and avKAT?
-
-| Feature | vKAT (Direct) | avKAT (Automated) |
-|---------|---------------|-------------------|
-| **Token Type** | Non-transferable NFT | Liquid, transferable token |
-| **Voting** | You choose where to vote | Managed automatically by the strategy |
-| **Reward Claiming** | Manual | Automated |
-| **Reward Preferences** | Customizable | Managed by the strategy |
-| **Compounding** | Manual | Automatic |
-| **Liquidity / Exit** | 60-day cooldown | Can be traded on available DEX markets or redeemed through the standard exit process |
-| **Best For** | Users who want direct control over voting and rewards | Users who prefer automated voting and compounding |
+The exchange rate is measured in KAT. It says nothing about the market price of KAT or avKAT, which can go up or down.
 
 ---
 
 ## Staking & Participation
 
-### What are the two ways to participate?
+### How do I stake KAT?
 
-1. **vKAT (Direct participation)** — Lock KAT for vKAT and manage your voting, rewards, and voting preferences yourself.
-2. **avKAT (Automated participation)** — Deposit KAT into avKAT and delegate voting, reward collection, and compounding to an automated strategy.
+Deposit KAT into avKAT through the [Katana staking app](https://app.katana.network/stake). You receive avKAT in return, and rewards compound into it automatically every epoch.
 
-Both participate in the same underlying staking and voting system. The main difference is how much control and management the user wants.
+Developers can follow the [Stake KAT to avKAT](how-to/kat-deposit-to-avkat.md) walkthrough.
 
-### What is a relayer?
+### Is avKAT transferable?
 
-A relayer manages voting on behalf of users who delegate their voting power to it. Instead of choosing gauges and managing votes yourself, you can delegate that responsibility to a relayer following a defined strategy. avKAT is the first tokenized relayer in the Katana system, automating voting, reward collection, and compounding while issuing avKAT as a liquid representation of the underlying position. The relayer system is open, allowing additional strategies to be introduced over time, which could allow vKAT holders to choose between different relayers based on how they want their voting power managed.
+Yes. avKAT is a standard, transferable token. You can hold it in any Ethereum-compatible wallet, send it to another wallet, or trade it on available DEX markets.
 
-### How do I stake KAT to get vKAT?
+### Do I need to claim rewards?
 
-Lock KAT through the [Katana staking app](https://app.katana.network/stake) to receive a vKAT NFT. Each NFT represents a separate locked position, so you can hold multiple vKAT NFTs and manage each position independently.
+No. Rewards are compounded into avKAT automatically every epoch, so there is nothing to claim or restake.
 
-### How do I get avKAT?
+### I still have vKAT. What should I do?
 
-Deposit KAT into the avKAT vault through the [Katana staking app](https://app.katana.network/stake). The vault locks the underlying KAT into vKAT and issues avKAT representing your share of the vault. From there, the strategy manages voting, reward collection, and compounding automatically.
+vKAT stopped earning rewards when it was sunset. To start earning again, convert your vKAT to avKAT in one click in the [Katana staking app](https://app.katana.network/stake). You can convert at any time, before or after November 17, 2026, with no deadline.
 
-### Can I convert between vKAT and avKAT?
+Conversion happens at the current exchange rate between avKAT and KAT. Because each avKAT can currently be redeemed for more than 1 KAT, you may receive **fewer avKAT tokens** than the amount of KAT in your vKAT position. Your avKAT is backed by the same amount of KAT you converted.
 
-Yes. You can deposit an existing vKAT NFT into the avKAT vault and receive avKAT in return. The original vKAT position becomes part of the vault and is managed by the avKAT strategy. To move in the other direction, avKAT can be redeemed into a new vKAT position, which can then be managed directly or exited through the standard vKAT withdrawal process.
+Developers can follow the [Convert vKAT to avKAT](how-to/kat-convert-vkat-to-avkat.md) walkthrough.
 
-### Can I merge or split vKAT positions?
+### Can projects still offer vote incentives?
 
-Yes. Multiple vKAT positions can be merged into a single NFT, and a vKAT position can also be split into multiple NFTs. This gives users flexibility over how they organize, delegate, vote with, or eventually exit their locked KAT positions.
+No. Vote incentives ended with gauge voting on November 17, 2026.
 
----
+### How are liquidity incentives on Katana decided now?
 
-## Gauge Voting, Incentives & Rewards
-
-### How does gauge voting work?
-
-Gauge voting lets vKAT holders decide where KAT incentives are directed across DeFi on Katana. Each eligible market or liquidity pool has a gauge, and vKAT holders allocate their voting power across the gauges they want to support using percentages. The amount of voting power each gauge receives helps determine how KAT incentives are distributed during that epoch. Votes remain in place across epochs until you change them or delegate your voting power to a relayer. Over time, gauge voting can support different types of DeFi markets across Katana, including spot liquidity, lending, perpetuals, and other yield-generating applications.
-
-### What is the incentive flywheel?
-
-Gauge voting is designed to create a cycle between incentives, liquidity, and protocol activity: **KAT incentives attract liquidity → deeper liquidity supports more activity → activity generates fees → fees and vote incentives reward participants**. Protocols benefit by attracting liquidity, liquidity providers earn incentives and fees, and vKAT holders help determine where incentives are directed and can earn rewards for their participation. This gives protocols a way to compete for liquidity while giving KAT stakers a role in deciding where incentives are most valuable.
-
-### What rewards do vKAT voters earn?
-
-vKAT holders **direct** KAT incentives, but those KAT incentives are generally earned by liquidity providers participating in the selected markets. vKAT voters can instead earn rewards associated with the gauges they support, including:
-
-- **Vote incentives** — Additional rewards offered to encourage votes toward a particular gauge.
-- **Protocol or trading fees** — Fees generated by eligible markets that are distributed to voters.
-- **Exit fees** — Value redistributed from users exiting vKAT positions.
-
-The exact rewards available can vary depending on the gauge.
-
-### What tokens are rewards paid in?
-
-Reward tokens depend on where the rewards come from. For example:
-
-- **Protocol or trading fees** may be paid in assets such as USDC, WETH, or other tokens generated by the market.
-- **Vote incentives** are paid in whatever token the incentivizing protocol chooses to offer.
-- **Exit fee rewards** are distributed through the vKAT system.
-
-!!! note "Custom reward-token selection is not currently available"
-    vKAT holders claim the rewards generated by the gauges they vote for. avKAT holders do not need to manage individual reward tokens because the avKAT strategy handles claiming and compounding automatically.
-
-### How are rewards distributed?
-
-Eligible rewards are distributed each epoch through [Merkl](https://app.merkl.xyz/status). vKAT holders can claim their rewards through the Katana app, while avKAT holders have rewards claimed and managed automatically by the vault and compounded back into the strategy.
+With gauge voting sunset, KAT liquidity incentives for pools on Katana are allocated by the Katana Foundation. See [Stake Your Liquidity Position](stake-lp.md).
 
 ---
 
-## Exiting vKAT
-
-### How do I exit a vKAT position?
-
-When you begin withdrawing a vKAT position, a **60-day cooldown** starts. During the cooldown the position has no voting power, no longer earns voting rewards, and its existing votes are removed. After completing the full 60-day cooldown, the position can be withdrawn with a **2.5% exit fee**. If you change your mind during the cooldown, you can cancel the withdrawal and return the position to active staking.
-
-### Can I exit before the 60-day cooldown ends?
-
-Yes. You can withdraw before the cooldown is complete by paying a higher exit fee. The fee decreases over the 60-day period:
-<!-- TODO: switch back when cooldown becomes 45 days:
-Yes. You can withdraw before the cooldown is complete by paying a higher exit fee. The fee decreases over the 45-day period:
--->
-
-| Time Since Starting Exit | Exit Fee | Example: 1,000 KAT |
-|--------|-----|---------------------------|
-| **Day 0** | 25% | Receive 750 KAT |
-| **Day 15** | ~19.4% | Receive ~806 KAT |
-| **Day 30** | ~13.8% | Receive ~863 KAT |
-| **Day 45** | ~8.1% | Receive ~919 KAT |
-| **Day 60** | 2.5% | Receive 975 KAT |
-
-Waiting longer reduces the fee, with the minimum fee reached after the full cooldown.
-
-### Where do exit fees go?
-
-Exit fees are redistributed to active vKAT participants, rewarding users who remain staked in the system.
+## Exiting avKAT
 
 ### How do I exit an avKAT position?
 
-Two options:
+You have two options:
 
-1. **Trade avKAT on a DEX** — Because avKAT is transferable, it can be exchanged through available DEX liquidity without waiting for the vKAT cooldown. The price received will depend on available liquidity and market conditions.
-2. **Redeem through the avKAT vault** — avKAT can be redeemed into a new vKAT position. From there, the standard vKAT withdrawal process, including cooldown and exit fees, applies.
+1. **Unstake through the cooldown.** Start a withdrawal and wait the **7-day cooldown**. If you wait the full 7 days, there is **no exit fee**. You can also leave early by paying an exit fee that goes down each day (including an instant exit for a 25% fee).
+2. **Swap avKAT for KAT on a DEX.** This is instant, but it happens at the market rate and may involve trading fees, price impact and slippage.
 
+### What is the exit fee if I leave early?
+
+The exit fee starts at 25% and goes down every day of the cooldown until it reaches 0%:
+
+| Time left in cooldown | Exit fee | Example: 1,000 KAT |
+|---|---|---|
+| **7 days** (instant exit) | 25% | Receive 750 KAT |
+| **6 days** | 21% | Receive 790 KAT |
+| **5 days** | 18% | Receive 820 KAT |
+| **4 days** | 14% | Receive 860 KAT |
+| **3 days** | 11% | Receive 890 KAT |
+| **2 days** | 7% | Receive 930 KAT |
+| **1 day** | 4% | Receive 960 KAT |
+| **Cooldown complete** | 0% | Receive 1,000 KAT |
+
+Waiting for the full cooldown means you receive all of your KAT.
+
+### Can I cancel an exit?
+
+Yes. If you change your mind during the cooldown, you can cancel the withdrawal and return to staking.
+
+For developer instructions, see [Unstake and Exit](how-to/kat-unstake-and-exit.md).
+
+---
 
 ## Risks
 
 ### What are the main risks of staking KAT?
 
-Staking KAT through vKAT or avKAT involves several risks:
-
-- **Smart contract risk** — Bugs or exploits could affect the staking, vault, gauge, or supporting contracts.
-- **Voting concentration** — A relatively small number of large holders or strategies could control a significant portion of voting power.
-- **avKAT liquidity risk** — Selling avKAT immediately depends on available DEX liquidity and may involve slippage or trading below the value of the underlying position.
-- **Exit fee risk** — Exiting vKAT before the full cooldown can result in a significant fee.
-- **Strategy risk** — avKAT relies on an automated voting and compounding strategy whose performance may change over time.
+- **Smart contract risk:** bugs or exploits could affect the avKAT vault or supporting contracts.
+- **Variable rewards:** buybacks depend on protocol revenue and network activity. Rewards are not guaranteed and will go up or down with usage.
+- **avKAT liquidity risk:** swapping avKAT on a DEX depends on available liquidity and may involve slippage or a price below the value of the underlying KAT.
+- **Exit fee risk:** leaving before the 7-day cooldown is complete results in an exit fee of up to 25%.
+- **Program changes:** the staking and buyback program may be modified or ended.
 
 ### How are these risks managed?
 
-Several mechanisms are designed to reduce risk and encourage long-term participation:
+- **A short cooldown with a declining fee** lets you choose between waiting 7 days for a fee-free exit or leaving earlier for a fee.
+- **Multiple revenue sources** (trading, perps, bridging and sequencer fees) reduce reliance on any single source.
+- **The DeFi Security Council** can respond to critical security situations through its emergency governance powers. See [Governance](core-concepts/governance.md).
 
-- **Cooldowns and exit fees** discourage rapid withdrawals and redistribute exit fees to remaining participants.
-- **Relayers** allow users to delegate voting rather than manage every gauge themselves.
-- **Multiple sources of network and DeFi revenue** can contribute to incentives and rewards, reducing reliance on KAT emissions alone.
-- **The DeFi Security Council** can respond to critical security situations through its emergency governance powers.
+!!! info "KAT staking changed on November 17, 2026"
+    vKAT staking, gauge voting and vote incentives were sunset on November 17, 2026. **avKAT is now the way to stake KAT.** If you still hold vKAT, you can [convert it to avKAT](how-to/kat-convert-vkat-to-avkat.md) at any time. There is no deadline.
 
 ---
 
 ## Learn More
 
-For a deeper look at the design of Katana's staking and voting system, the Aragon partnership, and the infrastructure behind vKAT and avKAT, read the full blog post: [What Is vKAT? Vote Escrow and Governance on Katana](https://katana.network/blog/katana-x-aragon-inside-the-vkat-armory).
+- [KAT Tokenomics Update: avKAT and Katana Revenue](https://katana.network/blog/kat-tokenomics-update-avkat-katana-revenue) on the Katana blog.
+- [Understanding the KAT Token Ecosystem](how-to/kat-token-overview.md): KAT and avKAT in detail.
+- [Tokenomics & Schedules](core-concepts/what-is-kat/tokenomics.md): how the KAT supply is allocated.
+
+!!! note "Disclaimer"
+    This page is for information only and is not investment, legal or tax advice. Rewards vary with protocol usage and are not guaranteed. The staking and buyback program may be modified or terminated without notice.
