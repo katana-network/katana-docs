@@ -1,93 +1,79 @@
 ---
-description: "Unstake KAT and exit: how the vKAT cooldown and exit fees work, how to start, complete or cancel a withdrawal, rage quit, and exit an avKAT position."
+description: "Unstake KAT and exit avKAT: how the 7-day cooldown and declining exit fee work, how to start, complete or cancel a withdrawal, exit early, or swap on a DEX."
 ---
 
 # Unstake and Exit
 
-This tutorial covers all the ways to exit your KAT staking positions, including
-the cooldown period, exit fee schedule, and rage quit option.
+This tutorial covers all the ways to exit a KAT staking position, including
+the 7-day cooldown, the exit fee schedule, and the instant exit options.
 
 ## Goal
 
 By the end of this tutorial, you'll understand:
 
-- The 60-day cooldown and exit fee decay curve
-<!-- TODO: switch back when cooldown becomes 45 days:
-- The 45-day cooldown and exit fee decay curve
--->
+- The 7-day cooldown and how the exit fee goes down each day
+- How to unstake avKAT through the vault
 - How to begin, complete, or cancel a withdrawal
-- The rage quit option for immediate exit
-- How to exit an avKAT position
+- How to exit instantly, either through the vault or by swapping on a DEX
+- How to exit a remaining vKAT NFT
 - How exit fees are calculated
 
 ## Prerequisites
 
-- A vKAT NFT or avKAT tokens
+- avKAT tokens, or a vKAT NFT from before the November 17, 2026 sunset
 
 ## Exit Fee Schedule
 
-Exiting a vKAT position incurs a fee that decays linearly over a 60-day cooldown period. The earlier you withdraw, the higher the fee.
-<!-- TODO: switch back when cooldown becomes 45 days:
-Exiting a vKAT position incurs a fee that decays linearly over a 45-day cooldown period. The earlier you withdraw, the higher the fee.
--->
+Unstaking starts a **7-day cooldown**. If you wait the full cooldown, there is
+**no exit fee**. If you withdraw earlier, you pay a fee that starts at 25% and
+goes down every day until it reaches 0%.
 
-| Timing | Fee | Example (1,000 KAT staked) |
-|--------|-----|---------------------------|
-| **Day 0** (rage quit) | 25% | Receive 750 KAT |
-| **Day 15** | ~19.4% | Receive ~806 KAT |
-| **Day 30** | ~13.8% | Receive ~863 KAT |
-| **Day 45** | ~8.1% | Receive ~919 KAT |
-| **Day 60** (full cooldown) | 2.5% | Receive 975 KAT |
+| Time left in cooldown | Fee | Example (1,000 KAT) |
+|---|---|---|
+| **7 days** (instant exit) | 25% | Receive 750 KAT |
+| **6 days** | 21% | Receive 790 KAT |
+| **5 days** | 18% | Receive 820 KAT |
+| **4 days** | 14% | Receive 860 KAT |
+| **3 days** | 11% | Receive 890 KAT |
+| **2 days** | 7% | Receive 930 KAT |
+| **1 day** | 4% | Receive 960 KAT |
+| **Cooldown complete** | 0% | Receive 1,000 KAT |
 
-<!-- TODO: switch back when cooldown becomes 45 days:
-| Timing | Fee | Example (1,000 KAT staked) |
-|--------|-----|---------------------------|
-| **Immediate** (rage quit) | 25% | Receive 750 KAT |
-| **Day 7** | ~21.5% | Receive ~785 KAT |
-| **Day 15** | ~16.7% | Receive ~833 KAT |
-| **Day 30** | ~7.5% | Receive ~925 KAT |
-| **Day 45** (full cooldown) | 2.5% | Receive 975 KAT |
--->
-
-The fee formula:
+The fee decreases linearly over the cooldown:
 
 ```
-feePercent = 25% - ((25% - 2.5%) × daysWaited / 60)
-received = staked × (1 - feePercent)
+feePercent = 25% × (1 - daysWaited / 7)
+received = amount × (1 - feePercent)
 ```
-<!-- TODO: switch back when cooldown becomes 45 days:
-feePercent = 25% - ((25% - 2.5%) × daysWaited / 45)
--->
 
 Key constants:
 
 ```typescript
 const EXIT_FEE = {
-  MIN_FEE_BPS: 250n,            // 2.5% (after 60 days)
+  MIN_FEE_BPS: 0n,              // 0% (after the full 7 days)
   MAX_FEE_BPS: 2500n,           // 25% (immediate)
-  COOLDOWN_PERIOD: 5_184_000,   // 60 days in seconds
-  // TODO: switch back when cooldown becomes 45 days:
-  // COOLDOWN_PERIOD: 3_888_000, // 45 days in seconds
+  COOLDOWN_PERIOD: 604_800,     // 7 days in seconds
   BPS_DENOMINATOR: 10_000n,
 };
 ```
 
 ```mermaid
 graph LR
-    A["Begin Withdrawal"] --> B["60-Day Cooldown"]
-    %% TODO: switch back when cooldown becomes 45 days:
-    %% A["Begin Withdrawal"] --> B["45-Day Cooldown"]
-    B --> C["Withdraw (2.5% fee)"]
-    A --> D["Rage Quit (25% fee)"]
+    R["Redeem avKAT"] --> A["Begin Withdrawal"]
+    A --> B["7-Day Cooldown"]
+    B --> C["Withdraw (0% fee)"]
+    A --> D["Exit Early (up to 25% fee)"]
     B --> E["Cancel Withdrawal"]
-    E --> F["Resume Staking"]
+    E --> F["Deposit back into avKAT"]
 ```
 
 ## Contract Addresses
 
+The avKAT vault uses the same contracts as before. Exits go through the
+VotingEscrow and the Exit Queue.
+
 ```typescript
 const VOTING_ESCROW = "0x4d6fC15Ca6258b168225D283262743C623c13Ead";
-const GAUGE_VOTER = "0x5e755A3C5dc81A79DE7a7cEF192FFA60964c9352";
 const VAULT = "0x7231dbaCdFc968E07656D12389AB20De82FbfCeB";
 const EXIT_QUEUE = "0x6dE9cAAb658C744aD337Ca5d92D084c97ffF578d";
 ```
@@ -171,20 +157,6 @@ const EXIT_QUEUE = "0x6dE9cAAb658C744aD337Ca5d92D084c97ffF578d";
     ] as const;
     ```
 
-??? note "GaugeVoter ABI (click to expand)"
-
-    ```typescript
-    const gaugeVoterAbi = [
-      {
-        name: "reset",
-        type: "function",
-        stateMutability: "nonpayable",
-        inputs: [{ name: "tokenId", type: "uint256" }],
-        outputs: [],
-      },
-    ] as const;
-    ```
-
 ??? note "avKAT Vault ABI (click to expand)"
 
     ```typescript
@@ -224,67 +196,54 @@ const EXIT_QUEUE = "0x6dE9cAAb658C744aD337Ca5d92D084c97ffF578d";
     ] as const;
     ```
 
-## Exit Path 1: Standard Withdrawal (vKAT)
+## Exit Path 1: Unstake avKAT Through the Vault (7-Day Cooldown)
 
-The standard exit process has three steps: reset votes, begin cooldown, and
-withdraw after 60 days.
-<!-- TODO: switch back when cooldown becomes 45 days:
-withdraw after 45 days.
--->
+Unstaking avKAT has four steps: redeem avKAT from the vault as a vKAT NFT,
+begin the withdrawal, wait for the cooldown, and withdraw.
 
-### Step 1: Reset Votes (If Voting)
-
-If your vKAT is actively voting on gauges, you must reset your votes before
-beginning withdrawal. You can either reset votes separately or use the combined
-function:
-
-**Option A: Reset and begin withdrawal in one transaction:**
+### Step 1: Redeem avKAT as a vKAT NFT
 
 ```typescript
 import { formatEther, parseEther } from "viem";
 
-const tokenId = 42n; // Your vKAT token ID
-
-const hash = await walletClient.writeContract({
-  address: VOTING_ESCROW,
-  abi: votingEscrowAbi,
-  functionName: "resetVotesAndBeginWithdrawal",
-  args: [tokenId],
+// Check your avKAT balance and its KAT value
+const avkatTokens = await publicClient.readContract({
+  address: VAULT,
+  abi: vaultAbi,
+  functionName: "balanceOf",
+  args: [account.address],
 });
 
-await publicClient.waitForTransactionReceipt({ hash });
-console.log("Votes reset and cooldown started");
-```
-
-**Option B: Reset votes first, then begin withdrawal:**
-
-```typescript
-// Check if voting
-const isVoting = await publicClient.readContract({
-  address: VOTING_ESCROW,
-  abi: votingEscrowAbi,
-  functionName: "isVoting",
-  args: [tokenId],
+const katValue = await publicClient.readContract({
+  address: VAULT,
+  abi: vaultAbi,
+  functionName: "convertToAssets",
+  args: [avkatTokens],
 });
 
-if (isVoting) {
-  const resetHash = await walletClient.writeContract({
-    address: GAUGE_VOTER,
-    abi: gaugeVoterAbi,
-    functionName: "reset",
-    args: [tokenId],
-  });
-  await publicClient.waitForTransactionReceipt({ hash: resetHash });
-  console.log("Votes reset");
-}
+console.log(`avKAT tokens: ${formatEther(avkatTokens)}`);
+console.log(`Underlying KAT: ${formatEther(katValue)}`);
+
+// Withdraw from the vault as a new vKAT NFT
+const redeemHash = await walletClient.writeContract({
+  address: VAULT,
+  abi: vaultAbi,
+  functionName: "withdrawTokenId",
+  args: [katValue, account.address, account.address],
+});
+
+const receipt = await publicClient.waitForTransactionReceipt({
+  hash: redeemHash,
+});
+console.log("Received vKAT NFT for withdrawal", receipt);
+
+// Get the new token ID from the transaction logs
+const tokenId = /* extract from receipt logs */;
 ```
 
 ### Step 2: Begin Withdrawal
 
-Start the 60-day cooldown:
-<!-- TODO: switch back when cooldown becomes 45 days:
-Start the 45-day cooldown:
--->
+Start the 7-day cooldown:
 
 ```typescript
 const beginHash = await walletClient.writeContract({
@@ -321,13 +280,13 @@ if (remaining > 0) {
   const daysLeft = Math.ceil(remaining / (1000 * 60 * 60 * 24));
   console.log(`${daysLeft} days remaining`);
 } else {
-  console.log("Cooldown complete — ready to withdraw!");
+  console.log("Cooldown complete — ready to withdraw with no fee!");
 }
 ```
 
 ### Step 4: Complete Withdrawal
 
-After the cooldown period (or earlier, with a higher fee):
+After the 7-day cooldown (no fee), or earlier with a fee:
 
 ```typescript
 const withdrawHash = await walletClient.writeContract({
@@ -343,7 +302,7 @@ console.log("Withdrawal complete! KAT returned to your wallet.");
 
 ### Cancel a Withdrawal
 
-If you change your mind during the cooldown, you can cancel and resume staking:
+If you change your mind during the cooldown, you can cancel it:
 
 ```typescript
 const cancelHash = await walletClient.writeContract({
@@ -354,16 +313,20 @@ const cancelHash = await walletClient.writeContract({
 });
 
 await publicClient.waitForTransactionReceipt({ hash: cancelHash });
-console.log("Withdrawal cancelled. Voting power restored.");
+console.log("Withdrawal cancelled.");
 ```
 
-## Exit Path 2: Rage Quit (Immediate, 25% Fee)
+Cancelling leaves you with a vKAT NFT, and vKAT no longer earns rewards.
+Deposit it back into the vault to keep earning (see
+[Convert vKAT to avKAT](kat-convert-vkat-to-avkat.md)).
+
+## Exit Path 2: Instant Exit Through the Vault (25% Fee)
 
 If you need your KAT immediately and are willing to pay the maximum 25% fee,
-you can begin withdrawal and immediately complete it in two transactions:
+you can begin the withdrawal and complete it right away:
 
 ```typescript
-// Step 1: Begin withdrawal (or resetVotesAndBeginWithdrawal if voting)
+// Step 1: Begin withdrawal on the vKAT NFT from Exit Path 1, Step 1
 const beginHash = await walletClient.writeContract({
   address: VOTING_ESCROW,
   abi: votingEscrowAbi,
@@ -381,90 +344,49 @@ const withdrawHash = await walletClient.writeContract({
 });
 await publicClient.waitForTransactionReceipt({ hash: withdrawHash });
 
-console.log("Rage quit complete. KAT returned (minus 25% fee).");
+console.log("Instant exit complete. KAT returned (minus 25% fee).");
 ```
 
 !!! warning
-    Rage quit incurs the maximum exit fee of 25%. For 1,000 KAT staked, you
-    would receive only 750 KAT. Consider whether waiting for the cooldown
-    to reduce fees is worthwhile for your situation.
+    An instant exit costs the maximum fee of 25%. For 1,000 KAT, you would
+    receive only 750 KAT. The fee goes down every day and reaches 0% after
+    7 days.
 
-## Exit Path 3: avKAT to KAT
-
-If you hold avKAT vault tokens, there are two exit strategies:
-
-### Option A: Sell on a DEX (Instant, No Cooldown)
+## Exit Path 3: Swap avKAT on a DEX (Instant)
 
 avKAT is an ERC-4626 vault token, which means it implements the full ERC-20
 interface. It is transferable, tradeable, and compatible with any DEX that has
-liquidity. No cooldown or exit fee applies, but you are subject to market
-slippage.
+liquidity. There is no cooldown or exit fee, but the swap happens at the market
+rate and may involve trading fees, price impact and slippage.
 
-### Option B: Redeem Through the Vault (60-Day Cooldown)
-<!-- TODO: switch back when cooldown becomes 45 days:
-### Option B: Redeem Through the Vault (45-Day Cooldown)
--->
+## Exiting a vKAT NFT
 
-This converts your avKAT tokens into a new vKAT NFT and starts the standard
-cooldown process:
+vKAT was sunset on November 17, 2026 and no longer earns rewards. If you still
+hold a vKAT NFT, you can either
+[convert it to avKAT](kat-convert-vkat-to-avkat.md) to start earning again, or
+withdraw it using Steps 2–4 of Exit Path 1 with your vKAT token ID.
+
+If your vKAT NFT still has gauge votes from before the sunset, reset them and
+begin the withdrawal in one transaction:
 
 ```typescript
-// Step 1: Check your avKAT balance and its KAT value
-const avkatTokens = await publicClient.readContract({
-  address: VAULT,
-  abi: vaultAbi,
-  functionName: "balanceOf",
-  args: [account.address],
-});
-
-const katValue = await publicClient.readContract({
-  address: VAULT,
-  abi: vaultAbi,
-  functionName: "convertToAssets",
-  args: [avkatTokens],
-});
-
-console.log(`avKAT tokens: ${formatEther(avkatTokens)}`);
-console.log(`Underlying KAT: ${formatEther(katValue)}`);
-
-// Step 2: Withdraw avKAT tokens as a new vKAT NFT
-const withdrawHash = await walletClient.writeContract({
-  address: VAULT,
-  abi: vaultAbi,
-  functionName: "withdrawTokenId",
-  args: [katValue, account.address, account.address],
-});
-
-const receipt = await publicClient.waitForTransactionReceipt({
-  hash: withdrawHash,
-});
-console.log("Received vKAT NFT!", receipt);
-
-// Step 3: Begin cooldown on the new vKAT NFT
-// (Get the new token ID from the transaction logs, then begin withdrawal)
-const newTokenId = /* extract from receipt logs */;
-
-const beginHash = await walletClient.writeContract({
+const isVoting = await publicClient.readContract({
   address: VOTING_ESCROW,
   abi: votingEscrowAbi,
-  functionName: "beginWithdrawal",
-  args: [newTokenId],
+  functionName: "isVoting",
+  args: [tokenId],
 });
-await publicClient.waitForTransactionReceipt({ hash: beginHash });
-console.log("Cooldown started on new vKAT NFT");
 
-// Step 4: Wait 60 days, then withdraw
-// TODO: switch back when cooldown becomes 45 days:
-// Step 4: Wait 45 days, then withdraw
-// (after cooldown)
-const finalHash = await walletClient.writeContract({
-  address: VOTING_ESCROW,
-  abi: votingEscrowAbi,
-  functionName: "withdraw",
-  args: [newTokenId],
-});
-await publicClient.waitForTransactionReceipt({ hash: finalHash });
-console.log("KAT returned to wallet");
+if (isVoting) {
+  const hash = await walletClient.writeContract({
+    address: VOTING_ESCROW,
+    abi: votingEscrowAbi,
+    functionName: "resetVotesAndBeginWithdrawal",
+    args: [tokenId],
+  });
+  await publicClient.waitForTransactionReceipt({ hash });
+  console.log("Votes reset and cooldown started");
+}
 ```
 
 ## Calculating Exit Fees
@@ -476,11 +398,9 @@ function calculateExitFee(
   amount: bigint,
   secondsInCooldown: bigint
 ): { fee: bigint; netAmount: bigint; feePercentage: number } {
-  const MIN_FEE_BPS = 250n;
+  const MIN_FEE_BPS = 0n;
   const MAX_FEE_BPS = 2500n;
-  const COOLDOWN_SECONDS = 5_184_000n; // 60 days
-  // TODO: switch back when cooldown becomes 45 days:
-  // const COOLDOWN_SECONDS = 3_888_000n; // 45 days
+  const COOLDOWN_SECONDS = 604_800n; // 7 days
   const BPS_DENOMINATOR = 10_000n;
 
   // Clamp to cooldown period
@@ -501,7 +421,7 @@ function calculateExitFee(
 
 // Example usage:
 const amount = parseEther("1000");
-const daysWaited = 15n;
+const daysWaited = 3n;
 const secondsWaited = daysWaited * 24n * 60n * 60n;
 
 const { fee, netAmount, feePercentage } = calculateExitFee(amount, secondsWaited);
@@ -527,7 +447,7 @@ const katBalance = await publicClient.readContract({
   args: [account.address],
 });
 
-// vKAT NFTs
+// vKAT NFTs (sunset positions, or NFTs in the exit queue)
 const tokenIds = await publicClient.readContract({
   address: VOTING_ESCROW,
   abi: votingEscrowAbi,
@@ -558,33 +478,17 @@ console.log(`avKAT Value: ${formatEther(avkatValue)} KAT`);
 
 ## Using wagmi (React)
 
-Here's a React component showing the unstaking flow:
+Here's a React component for the withdrawal steps, using the vKAT NFT you
+receive when redeeming avKAT:
 
 ```typescript
-import { useWriteContract, useWaitForTransactionReceipt, useReadContract } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 
 const VOTING_ESCROW = "0x4d6fC15Ca6258b168225D283262743C623c13Ead";
 
-function UnstakeVKAT({ tokenId }: { tokenId: bigint }) {
+function Unstake({ tokenId }: { tokenId: bigint }) {
   const { writeContract, data: hash, isPending } = useWriteContract();
   const { isLoading, isSuccess } = useWaitForTransactionReceipt({ hash });
-
-  // Check if voting
-  const { data: isVoting } = useReadContract({
-    address: VOTING_ESCROW,
-    abi: votingEscrowAbi,
-    functionName: "isVoting",
-    args: [tokenId],
-  });
-
-  const handleResetAndBegin = () => {
-    writeContract({
-      address: VOTING_ESCROW,
-      abi: votingEscrowAbi,
-      functionName: "resetVotesAndBeginWithdrawal",
-      args: [tokenId],
-    });
-  };
 
   const handleBeginWithdrawal = () => {
     writeContract({
@@ -615,15 +519,9 @@ function UnstakeVKAT({ tokenId }: { tokenId: bigint }) {
 
   return (
     <div>
-      {isVoting ? (
-        <button onClick={handleResetAndBegin} disabled={isPending}>
-          Reset Votes & Begin Withdrawal
-        </button>
-      ) : (
-        <button onClick={handleBeginWithdrawal} disabled={isPending}>
-          Begin Withdrawal
-        </button>
-      )}
+      <button onClick={handleBeginWithdrawal} disabled={isPending}>
+        Begin Withdrawal
+      </button>
       <button onClick={handleWithdraw} disabled={isPending}>
         Complete Withdrawal
       </button>
@@ -639,15 +537,8 @@ function UnstakeVKAT({ tokenId }: { tokenId: bigint }) {
 
 | Exit Path | Time | Fee | Steps |
 |-----------|------|-----|-------|
-| vKAT → Standard | 60 days | 2.5% | Reset votes → Begin → Wait → Withdraw |
-| vKAT → Rage Quit | Instant | 25% | Begin + Withdraw immediately |
-| vKAT → Early Exit | 1–59 days | 25%–2.5% | Begin → Wait partially → Withdraw |
-| avKAT → DEX | Instant | Market slippage | Sell on DEX |
-| avKAT → Vault Redeem | 60 days | 2.5% | Redeem as vKAT → Standard exit |
-<!-- TODO: switch back when cooldown becomes 45 days:
-| vKAT → Standard | 45 days | 2.5% | Reset votes → Begin → Wait → Withdraw |
-| vKAT → Rage Quit | Instant | 25% | Begin + Withdraw immediately |
-| vKAT → Early Exit | 1–44 days | 25%–2.5% | Begin → Wait partially → Withdraw |
-| avKAT → DEX | Instant | Market slippage | Sell on DEX |
-| avKAT → Vault Redeem | 45 days | 2.5% | Redeem as vKAT → Standard exit |
--->
+| avKAT → Full cooldown | 7 days | 0% | Redeem → Begin → Wait → Withdraw |
+| avKAT → Early exit | 1–6 days | 25%, going down daily | Redeem → Begin → Wait partially → Withdraw |
+| avKAT → Instant exit | Instant | 25% | Redeem → Begin + Withdraw immediately |
+| avKAT → DEX | Instant | Market rate, fees and slippage | Swap on DEX |
+| vKAT NFT (sunset) | 7 days | 0% after cooldown | Convert to avKAT, or Begin → Wait → Withdraw |

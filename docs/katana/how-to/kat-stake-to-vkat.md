@@ -1,8 +1,14 @@
 ---
-description: "How to stake KAT to vKAT on Katana Network: a developer walkthrough using viem, covering contract addresses, ABIs, token approval and the staking transaction."
+description: "Sunset November 17, 2026. Reference only: how KAT was staked to vKAT on Katana Network. Use avKAT to stake KAT today."
 ---
 
 # Stake KAT to vKAT
+
+!!! warning "Sunset: vKAT staking ended on November 17, 2026"
+    vKAT staking has been sunset and vKAT no longer earns rewards.
+    This page is kept for reference only. To stake KAT, use
+    [Stake KAT to avKAT](kat-deposit-to-avkat.md). If you hold vKAT,
+    [convert it to avKAT](kat-convert-vkat-to-avkat.md) at any time.
 
 This tutorial walks you through staking KAT tokens to receive a vKAT NFT, which
 grants you voting power in the Katana governance system.

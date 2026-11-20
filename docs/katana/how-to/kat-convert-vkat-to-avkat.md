@@ -1,11 +1,24 @@
 ---
-description: "How to convert a vKAT NFT to avKAT on Katana Network: a developer walkthrough using viem covering why you would convert, contract addresses and the deposit."
+description: "How to convert a sunset vKAT NFT to avKAT on Katana Network: no deadline, conversion at the current exchange rate, and a developer walkthrough using viem."
 ---
 
 # Convert vKAT to avKAT
 
-This tutorial shows you how to convert an existing vKAT NFT (direct staking)
-into avKAT vault tokens (vault-based staking).
+This tutorial shows you how to convert an existing vKAT NFT into avKAT, the
+way to stake KAT on Katana.
+
+!!! info "vKAT was sunset on November 17, 2026"
+    vKAT stopped earning rewards when it was sunset. Converting to avKAT lets
+    your position start earning again from revenue-funded KAT buybacks.
+    You can convert at any time. There is no deadline.
+
+    Conversion happens at the current exchange rate between avKAT and KAT.
+    Because each avKAT can currently be redeemed for more than 1 KAT, you may
+    receive **fewer avKAT tokens** than the amount of KAT in your vKAT. Your
+    avKAT is backed by the same amount of KAT you converted.
+
+    You can also convert in one click in the
+    [Katana staking app](https://app.katana.network/stake).
 
 ## Goal
 
@@ -17,21 +30,18 @@ By the end of this tutorial, you'll be able to:
 
 ## Prerequisites
 
-- An existing vKAT NFT (see [Stake KAT to vKAT](kat-stake-to-vkat.md))
+- An existing vKAT NFT
 
 ## Why Convert?
 
-You might want to convert from vKAT to avKAT if:
-
-- You would like to automate the voting logic of your choice
-- You want a transferable token you can use in DeFi
-- You want to consolidate into the vault without creating new NFTs each time
-- You want to exit your position instantly via a DEX
+- vKAT no longer earns rewards. avKAT earns from KAT buybacks every epoch
+- avKAT is a transferable token you can use in DeFi
+- avKAT can be unstaked through a 7-day cooldown, or swapped on a DEX
 
 !!! warning
-    Converting is a one-way operation. Once your vKAT NFT is deposited into the
-    vault, it is consumed. You receive avKAT tokens in return. To get a vKAT NFT
-    back, you would need to withdraw from the vault, which creates a new NFT with a new token ID.
+    Once your vKAT NFT is deposited into the vault, it is consumed and you
+    receive avKAT tokens in return. When you later unstake avKAT, the vault
+    creates a new NFT with a new token ID for the withdrawal.
 
 ## Contract Addresses
 
@@ -224,7 +234,7 @@ between avKAT and KAT at the time of deposit.
 
 ## What's Next
 
-- [Vote on Gauges](kat-vote-on-gauges.md) — If you still have other vKAT NFTs,
-  use their voting power
+- [How KAT Staking Works](../katana-staking.md) — How avKAT earns from
+  revenue-funded buybacks
 - [Unstake and Exit](kat-unstake-and-exit.md) — Learn how to exit avKAT back to
   KAT

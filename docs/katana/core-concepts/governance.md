@@ -1,5 +1,5 @@
 ---
-description: "How governance works on Katana Network, a DeFi-first Ethereum Layer 2: the Katana Admin and DeFi Security Council multisigs, the 10-day timelock and vetoes."
+description: "How governance works on Katana, an onchain financial markets company that operates a Layer 2: the Katana Admin and DeFi Security Council multisigs, the 10-day timelock and vetoes."
 ---
 
 # **Katana Governance**

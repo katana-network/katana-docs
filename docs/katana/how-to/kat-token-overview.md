@@ -1,23 +1,19 @@
 ---
-description: "KAT token overview for Katana Network: the three token types, KAT, vKAT and avKAT, what each one does, and how to choose between direct and automated staking."
+description: "KAT token overview for Katana Network: KAT and avKAT, how avKAT earns from revenue-funded KAT buybacks, how to exit, and what happened to vKAT."
 ---
 
 # Understanding the KAT Token Ecosystem
 
-This guide introduces the KAT token ecosystem and the different token types you
-will encounter when participating in Katana emission voting and staking. Understanding
-these tokens and how they relate to each other is essential before diving into
-the step-by-step tutorials that follow.
+This guide introduces the KAT tokens you will encounter when staking on Katana
+and how they relate to each other. Read it before the step-by-step tutorials
+that follow.
 
-## The Three Token Types
-
-The KAT ecosystem has three distinct token types, each serving a different
-purpose:
+## The Two Token Types
 
 ### KAT — The Core Token (ERC-20)
 
-KAT is a standard ERC-20 token and the native token of the Katana Foundation. It is fungible, transferable, and can be held in any Ethereum-compatible
-wallet.
+KAT is a standard ERC-20 token and the native token of Katana. It is fungible,
+transferable, and can be held in any Ethereum-compatible wallet.
 
 | Property | Value |
 |----------|-------|
@@ -25,138 +21,84 @@ wallet.
 | **Contract** | `0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d` |
 | **Decimals** | 18 |
 | **Transferable** | Yes |
-| **Voting Power** | None (must be staked) |
 
-On its own, KAT does not grant voting power. For the opportunity to vote on where future KAT emissions go in the Katana DeFi ecosystem, you must stake KAT into one of the two staking paths described below.
+### avKAT — Staked KAT (ERC-4626 Vault)
 
-### vKAT — Active Voting (Non-Transferable NFT)
-
-When you stake KAT into the Voting Escrow contract, you receive a **vKAT** NFT
-(non-fungible token). Each vKAT represents a locked position with voting power about where to direct KAT emissions across the DeFi ecosystem.
-
-| Property | Value |
-|----------|-------|
-| **Standard** | ERC-721 (Non-transferable) |
-| **Contract** | `0x4d6fC15Ca6258b168225D283262743C623c13Ead` |
-| **Transferable** | No |
-| **Voting Power** | Yes — scales with lock amount at a 1:1 ratio |
-| **Reward Claiming** | Manual |
-| **Exit** | 60-day cooldown |
-<!-- TODO: switch back when cooldown becomes 45 days:
-| **Exit** | 45-day cooldown |
--->
-
-vKAT is designed for **active participants** who want direct control over their
-votes and reward preferences. Because vKAT is Non-transferable, your
-staked position is tied to your wallet.
-
-Key characteristics:
-
-- You can hold multiple vKAT NFTs, each representing a separate lock
-- You vote directly on gauge allocations to direct KAT emissions to certain pools
-- You claim rewards manually through the Merkl distributor
-- You can set preferences for which tokens you receive as rewards
-- Exiting requires a 60-day cooldown period
-<!-- TODO: switch back when cooldown becomes 45 days:
-- Exiting requires a 45-day cooldown period
--->
-- As more relayers become available, vKAT holders will also be able to delegate their votes to a relayer instead of voting manually
-
-### avKAT — Automated Staking (ERC-4626 Vault)
-
-Alternatively, you can deposit KAT into the avKAT vault.
-The vault issues **avKAT** tokens, a liquid, transferable ERC-4626 token
-representing a proportional percentage of the vault’s staked position. avKAT is the first tokenized relayer. A wrapper around delegation to a relayer that automates voting and reward compounding on your behalf.  In essence, it is a permissionless wrapped vKAT token that runs a vault strategy.
-
+When you deposit KAT into the avKAT vault, the vault issues **avKAT** tokens,
+a liquid, transferable ERC-4626 token representing a proportional percentage
+of the vault's staked position.
 
 | Property | Value |
 |----------|-------|
 | **Standard** | ERC-4626 (Tokenized Vault) |
 | **Contract** | `0x7231dbaCdFc968E07656D12389AB20De82FbfCeB` |
 | **Transferable** | Yes |
-| **Voting Power** | Indirect (via CompoundStrategy) |
-| **Reward Claiming** | Automatic |
-| **Exit** | Instant (sell on DEX) or 60-day (redeem as vKAT) |
-<!-- TODO: switch back when cooldown becomes 45 days:
-| **Exit** | Instant (sell on DEX) or 45-day (redeem as vKAT) |
--->
+| **Rewards** | Automatic, compounded every epoch |
+| **Exit** | 7-day cooldown (fee-free after the full cooldown), or swap on a DEX |
 
-The vault holds a master vKAT NFT internally. A CompoundStrategy contract
-manages voting and reward compounding for the vault's master position.
+A share of the revenue from Katana Swap, Katana Perps, Vault Bridge and
+sequencer fees is used to buy KAT on the open market. 100% of that KAT is
+compounded into avKAT every epoch.
 
 Key characteristics:
 
-- avKAT is a liquid ERC-4626 — you can transfer, trade, or use it in DeFi
-- The exchange rate between avKAT and KAT reflects accumulated rewards compounded by the vault
-- No manual voting or claiming required, the relayer handles gauge voting and reward compounding
-- You can exit instantly by selling avKAT on a DEX (subject to market liquidity)
-- Alternatively, redeem avKAT back to a vKAT NFT and go through the standard
-  exit process
+- avKAT is a liquid ERC-4626 token. You can transfer it, trade it, or use it in DeFi
+- The exchange rate between avKAT and KAT reflects the bought-back KAT compounded into the vault
+- No claiming or restaking is required
+- You can unstake through a 7-day cooldown with no fee if you wait the full period
+- You can exit early with a fee that starts at 25% and goes down every day
+- You can swap avKAT for KAT on a DEX at the market rate
 
-## Choosing Your Path
+## How the Tokens Connect
 
 ```mermaid
 graph TD
     KAT["KAT (ERC-20)"]
-    vKAT["vKAT (Non-transferable NFT)"]
     avKAT["avKAT (ERC-4626 Vault)"]
+    vKAT["vKAT NFT (sunset)"]
 
-    KAT -->|"Stake via VotingEscrow"| vKAT
-    KAT -->|"Deposit into Vault"| avKAT
-    vKAT -->|"Deposit NFT into Vault"| avKAT
-    vKAT -->|"60-day cooldown + fee"| KAT
-    %% TODO: switch back when cooldown becomes 45 days:
-    %% vKAT -->|"45-day cooldown + fee"| KAT
-    avKAT -->|"Redeem as vKAT NFT"| vKAT
-    avKAT -->|"Sell on DEX (instant)"| KAT
+    KAT -->|"Deposit into vault"| avKAT
+    avKAT -->|"7-day cooldown (0% fee at end)"| KAT
+    avKAT -->|"Swap on DEX (instant)"| KAT
+    vKAT -->|"Convert (no deadline)"| avKAT
 ```
 
-| Feature | vKAT (Direct) | avKAT (Vault) |
-|---------|---------------|-----------------|
-| **Token Type** | Non-transferable NFT | Liquid ERC-4626 |
-| **Transferable** | No | Yes |
-| **Voting** | Manual — you choose gauges | Automatic — strategy votes |
-| **Reward Claiming** | Manual | Handled by vault |
-| **Reward Preferences** | Customizable | Default (strategy) |
-| **Exit Speed** | 60-day cooldown | Instant (DEX) or 60-day |
-| **Exit Fee** | 25%–2.5% | DEX slippage or vault redeem fees |
-| **Best For** | Users who vote on gauges directly | Users who prefer the vault interface |
+## Exiting
 
-<!-- TODO: switch back when cooldown becomes 45 days:
-| **Exit Speed** | 45-day cooldown | Instant (DEX) or 45-day |
--->
+| Exit path | Time | Fee |
+|---|---|---|
+| **Full cooldown** | 7 days | 0% |
+| **Early exit** | 1–6 days | 21% down to 4% |
+| **Instant exit** | Instant | 25% |
+| **Swap on DEX** | Instant | Market rate, trading fees and slippage |
 
-**Choose vKAT if** you want to actively participate in governance, vote on gauge
-allocations, and customize your reward preferences.
-
-**Choose avKAT if** you want a liquid, transferable token with a vault-based
-staking interface.
-
-**You can always convert** from vKAT to avKAT later by depositing your NFT into
-the vault (see [Convert vKAT to avKAT](kat-convert-vkat-to-avkat.md)).
+See [Unstake and Exit](kat-unstake-and-exit.md) for the full fee schedule and code.
 
 ## Contract Addresses Reference
+
+The avKAT vault is built on the same contracts as before. Under the hood, the
+vault holds KAT in the VotingEscrow, and exits go through the Exit Queue.
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
 | KAT | `0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d` | Core ERC-20 token |
-| VotingEscrow | `0x4d6fC15Ca6258b168225D283262743C623c13Ead` | vKAT lock management |
-| NFT Lock | `0x106F7D67Ea25Cb9eFf5064CF604ebf6259Ff296d` | vKAT NFT contract |
 | avKAT Vault | `0x7231dbaCdFc968E07656D12389AB20De82FbfCeB` | ERC-4626 vault |
-| GaugeVoter | `0x5e755A3C5dc81A79DE7a7cEF192FFA60964c9352` | Gauge voting |
-| CompoundStrategy | `0x60233D1c150F9C08D886906d597aA79a205b0463` | Vault reward reinvestment |
+| VotingEscrow | `0x4d6fC15Ca6258b168225D283262743C623c13Ead` | Lock management, used for exits |
+| NFT Lock | `0x106F7D67Ea25Cb9eFf5064CF604ebf6259Ff296d` | vKAT NFT contract |
 | Exit Queue | `0x6dE9cAAb658C744aD337Ca5d92D084c97ffF578d` | Withdrawal queue |
-| Merkl Distributor | `0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae` | Reward distribution |
+| CompoundStrategy | `0x60233D1c150F9C08D886906d597aA79a205b0463` | Vault reward reinvestment |
 | Clock | `0x17049d374A2bcdA70F8939C21ad92bcF6B2A95ab` | Epoch timing |
+
+!!! info "vKAT was sunset on November 17, 2026"
+    vKAT staking, gauge voting and vote incentives ended on November 17, 2026.
+    avKAT is now the way to stake KAT. If you hold vKAT, you can
+    [convert it to avKAT](kat-convert-vkat-to-avkat.md) at any time.
 
 ## What's Next
 
-Follow the tutorials in order to get hands-on experience with each part of the
-KAT ecosystem:
+1. [Stake KAT to avKAT](kat-deposit-to-avkat.md) — Deposit KAT into the avKAT vault
+2. [Convert vKAT to avKAT](kat-convert-vkat-to-avkat.md) — Move a sunset vKAT position into avKAT
+3. [Unstake and Exit](kat-unstake-and-exit.md) — Withdraw your KAT, with exit fee details
 
-1. [Stake KAT to vKAT](kat-stake-to-vkat.md) — Lock KAT and receive a voting NFT
-2. [Deposit KAT to avKAT](kat-deposit-to-avkat.md) — Deposit into the avKAT vault
-3. [Convert vKAT to avKAT](kat-convert-vkat-to-avkat.md) — Move from direct staking to the vault
-4. [Vote on Gauges](kat-vote-on-gauges.md) — Direct incentives with your vKAT voting power
-5. [Claim Voting Incentives](kat-claim-rewards.md) — Collect earned rewards
-6. [Unstake and Exit](kat-unstake-and-exit.md) — Withdraw your KAT with exit fee details
+Guides for vKAT staking, gauge voting and claiming voting incentives are kept
+for reference under **Sunset** at the bottom of the navigation.

@@ -1,5 +1,5 @@
 ---
-description: "Rebalance a staked Sushi LP position on Katana Network: unstake, remove liquidity, open a new in-range position and restake to keep earning KAT incentives."
+description: "Rebalance a staked Katana Swap (Sushi) LP position on Katana Network: unstake, remove liquidity, open a new in-range position and restake to keep earning KAT incentives."
 ---
 
 # Rebalance Your Staked LP Position
@@ -831,5 +831,4 @@ function RebalanceLP({ tokenId }: { tokenId: bigint }) {
 ## What's Next
 
 - [Stake Your LP](../stake-lp.md) — Learn how to stake for the first time
-- [Vote on Gauges](kat-vote-on-gauges.md) — Direct KAT emissions to your pool
-- [KAT Staking](../katana-staking.md) — Understand the full KAT staking and emissions system
+- [KAT Staking](../katana-staking.md) — Understand how KAT staking and revenue-funded buybacks work

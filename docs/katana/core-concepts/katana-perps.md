@@ -36,7 +36,7 @@ Katana Perps is one of Katana's core apps, so it is built into how the network w
 - **Vault Bridge:** Katana Perps uses vbUSDC as collateral. vbUSDC is USDC bridged to Katana through Vault Bridge, where the underlying USDC keeps earning yield. See [Vault Bridge](vault-bridge.md).
 - **Chain-Owned Liquidity:** trading activity generates network revenue, and Katana returns net sequencer fees to DeFi on Katana through mechanisms such as Chain-Owned Liquidity and ecosystem incentives. See [Chain-Owned Liquidity](chain-owned-liquidity.md).
 - **KAT incentives:** Katana's liquidity mining allocation sets aside 350 million KAT for perps, launchpad and yield apps. See [Tokenomics & Schedules](what-is-kat/tokenomics.md).
-- **One ecosystem:** alongside Sushi for spot trading and Morpho for lending, Katana Perps gives users leveraged trading without leaving Katana.
+- **One ecosystem:** alongside Katana Swap for spot trading and Morpho for lending, Katana Perps gives users leveraged trading without leaving Katana.
 
 ## More Features
 

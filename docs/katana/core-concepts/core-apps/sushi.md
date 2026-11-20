@@ -1,39 +1,41 @@
 ---
-title: "Sushi on Katana: Swaps and Liquidity"
-description: "Sushi is Katana Network's core decentralized exchange: how swaps and liquidity pools work, how Sushi connects to Chain-Owned Liquidity and KAT incentives, and how to earn as a liquidity provider."
+title: "Katana Swap: Swaps and Liquidity on Katana (Built on Sushi)"
+description: "Katana Swap is Katana's decentralized exchange, built on Sushi: how swaps and liquidity pools work, how Katana Swap revenue funds KAT buybacks and Chain-Owned Liquidity, and how to earn as a liquidity provider."
 seo_target: "sushi katana (350 global/mo), crypto share of a mixed search."
 ---
 
-# Sushi on Katana: Swaps and Liquidity
+# Katana Swap: Swaps and Liquidity on Katana
 
-Sushi (SushiSwap) is Katana's core decentralized exchange (DEX). It is where tokens are swapped on Katana and where liquidity providers supply the liquidity that makes those swaps possible.
+Katana Swap is Katana's decentralized exchange (DEX), built on Sushi's (SushiSwap) deployment on Katana. It is where tokens are swapped on Katana and where liquidity providers supply the liquidity that makes those swaps possible.
+
+Katana Swap is one of the venues Katana owns and operates, so a share of the revenue it generates stays with the network.
 
 You can swap tokens directly in the [Katana app](https://app.katana.network).
 
-## How Sushi Works on Katana
+## How Katana Swap Works
 
-Sushi uses liquidity pools. Instead of matching buyers with sellers, each pool holds a pair of tokens supplied by liquidity providers, and swaps are made against that pool. Liquidity providers earn a share of the trading fees in return.
+Katana Swap uses liquidity pools. Instead of matching buyers with sellers, each pool holds a pair of tokens supplied by liquidity providers, and swaps are made against that pool. Liquidity providers earn a share of the trading fees in return.
 
-Sushi on Katana offers two types of pools:
+Katana Swap offers two types of pools:
 
 - **Concentrated liquidity pools (V3):** you choose the price range your liquidity covers. This puts your liquidity to work where trading actually happens, but it only earns while the market price is inside your range.
 - **Full-range pools (V2):** your liquidity covers every possible price. It is simpler to manage, since it never goes out of range, but it is less capital efficient.
 
-## How Sushi Connects to Katana
+## How Katana Swap Connects to Katana
 
-Sushi is one of Katana's core apps, so it is built into how the network works rather than being just another app deployed on it.
+Katana Swap is one of Katana's core venues, so it is built into how the network works rather than being just another app deployed on it.
 
-- **Chain-Owned Liquidity:** Katana uses part of its network revenue to build liquidity that the network owns and keeps deployed in its core markets, including spot trading. This gives Sushi a base of liquidity that doesn't depend only on outside liquidity providers. See [Chain-Owned Liquidity](../chain-owned-liquidity.md).
-- **KAT incentives:** 400 million KAT from Katana's liquidity mining allocation is set aside for Sushi to distribute to its users. See [Tokenomics & Schedules](../what-is-kat/tokenomics.md).
-- **Gauge voting:** vKAT holders vote on which liquidity pools receive KAT incentives each epoch, so the community decides where rewards go. See [How KAT Staking & Voting Work](../../katana-staking.md#gauge-voting-incentives-rewards).
+- **Rewards for KAT stakers:** a share of Katana Swap trading fees funds open-market KAT buybacks, and 100% of the bought-back KAT is compounded into avKAT. See [How KAT Staking Works](../../katana-staking.md).
+- **Chain-Owned Liquidity:** Katana uses part of its network revenue to build liquidity that the network owns and keeps deployed in its core markets, including spot trading. This gives Katana Swap a base of liquidity that doesn't depend only on outside liquidity providers. See [Chain-Owned Liquidity](../chain-owned-liquidity.md).
+- **KAT incentives:** 400 million KAT from Katana's liquidity mining allocation is set aside for liquidity providers on Katana Swap. See [Tokenomics & Schedules](../what-is-kat/tokenomics.md).
 - **Security:** Sushi is a member of the Katana DeFi Security Council, which can veto admin proposals and respond to emergencies. See [Governance](../governance.md).
 
 ## Earning as a Liquidity Provider
 
-Liquidity providers on Sushi can earn in two ways:
+Liquidity providers on Katana Swap can earn in two ways:
 
 1. **Trading fees** from swaps made against your pool.
-2. **KAT incentives**, if you stake your liquidity position in the Katana app and your pool receives incentives through gauge voting.
+2. **KAT incentives**, if you stake your liquidity position in the Katana app and your pool is selected for incentives by the Katana Foundation.
 
 For concentrated liquidity positions, only liquidity that is **in range** earns trading fees and KAT incentives. If the price moves outside your range, your position stops earning until the price comes back or you rebalance it.
 
@@ -45,5 +47,5 @@ For concentrated liquidity positions, only liquidity that is **in range** earns 
 
 ## For Developers
 
-- [Contract Addresses](../../technical-reference/contract-addresses.md#sushi): Sushi contract addresses on Katana.
-- [Install Katana Skills](../../get-started/install-katana-skills.md): the **dex** skill teaches AI agents to quote and make swaps, analyze pools and provide liquidity on Sushi.
+- [Contract Addresses](../../technical-reference/contract-addresses.md#katana-swap): Katana Swap contract addresses.
+- [Install Katana Skills](../../get-started/install-katana-skills.md): the **dex** skill teaches AI agents to quote and make swaps, analyze pools and provide liquidity.

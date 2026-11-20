@@ -1,5 +1,5 @@
 ---
-description: "Contract addresses on Katana Network (chain ID 747474): core token addresses, the Katana tokenlist, and deployed app contracts for Agglayer, Sushi and Morpho."
+description: "Contract addresses on Katana Network (chain ID 747474): core token addresses, the Katana tokenlist, and deployed app contracts for Agglayer, Katana Swap and Morpho."
 ---
 
 Is something wrong or missing? Send a [PR](https://github.com/katana-network/katana-docs) or report it to [@katanadevs](https://t.me/katanadevs).
@@ -88,9 +88,7 @@ Learn more about [building crosschain apps using Agglayer](https://build.agglaye
 | `vbWBTC Native Converter`    | [0xb00aa68b87256E2F22058fB2Ba3246EEc54A44fc](https://katanascan.com/address/0xb00aa68b87256E2F22058fB2Ba3246EEc54A44fc) |
 | `vbUSDS Native Converter`    | [0x639f13D5f30B47c792b6851238c05D0b623C77DE](https://katanascan.com/address/0x639f13D5f30B47c792b6851238c05D0b623C77DE) |
 
-### Sushi
-
-Refer to the [Sushi Docs](https://docs.sushi.com/) for official addresses.
+### Katana Swap
 
 | Contract            | Address                                                                                                                 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
