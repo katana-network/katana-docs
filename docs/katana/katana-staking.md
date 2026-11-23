@@ -22,6 +22,12 @@ Katana owns and operates the venues behind its core financial markets, so the re
 - **Vault Bridge:** assets bridged to Katana keep earning yield on Ethereum. See [Vault Bridge](core-concepts/vault-bridge.md).
 - **Sequencer fees:** fees paid for transactions processed on Katana.
 
+The share of each revenue source that goes to KAT buybacks is 50% of Katana Swap revenue, 5% of Katana Perps revenue, 5% of Vault Bridge revenue and 30% of sequencer fees. 100% of the KAT bought back is compounded into avKAT.
+
+![Share of revenue to avKAT buybacks: Katana Swap 50%, Katana Perps 5%, Vault Bridge 5%, sequencer fees 30%. Revenue buys KAT on the open market and 100% is added to avKAT.](../img/katana/kat-tokenomics-revenue-share.png)
+
+*Share of revenue to avKAT buybacks. Actual buybacks vary with network activity.*
+
 The amount of KAT bought back depends on how much the network is used. More trading, bridging and network activity means more revenue for buybacks. Less activity means less.
 
 ### How are buybacks carried out?
@@ -85,6 +91,8 @@ You have two options:
 
 The exit fee starts at 25% and goes down every day of the cooldown until it reaches 0%:
 
+![Exit fee by days left in the cooldown: 7 days (instant exit) 25%, 6 days 21%, 5 days 18%, 4 days 14%, 3 days 11%, 2 days 7%, 1 day 4%, cooldown complete 0%.](../img/katana/kat-tokenomics-exit-fees.png)
+
 | Time left in cooldown | Exit fee | Example: 1,000 KAT |
 |---|---|---|
 | **7 days** (instant exit) | 25% | Receive 750 KAT |
@@ -124,6 +132,8 @@ For developer instructions, see [Unstake and Exit](how-to/kat-unstake-and-exit.m
 
 !!! info "KAT staking changed on November 17, 2026"
     vKAT staking, gauge voting and vote incentives were sunset on November 17, 2026. **avKAT is now the way to stake KAT.** If you still hold vKAT, you can [convert it to avKAT](how-to/kat-convert-vkat-to-avkat.md) at any time. There is no deadline.
+
+    ![Old avKAT vs new avKAT. Old avKAT earned Sushi fees by voting through vKAT, with fees autocompounded into avKAT and a 45-day exit cooldown. New avKAT earns from Katana Swap, Katana Perps, Vault Bridge and sequencer fees with no voting, revenue buys KAT on the open market with 100% added to avKAT, and the exit cooldown is 7 days.](../img/katana/kat-tokenomics-old-vs-new-avkat.png)
 
 ---
 
