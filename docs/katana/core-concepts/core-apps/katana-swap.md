@@ -1,7 +1,7 @@
 ---
 title: "Katana Swap: Swaps and Liquidity on Katana (Built on Sushi)"
 description: "Katana Swap is Katana's decentralized exchange, built on Sushi: how swaps and liquidity pools work, how Katana Swap revenue funds KAT buybacks and Chain-Owned Liquidity, and how to earn as a liquidity provider."
-seo_target: "sushi katana (350 global/mo), crypto share of a mixed search."
+seo_target: "katana swap (primary, new brand name), katana dex. Keep secondary: sushi katana (350 global/mo), crypto share of a mixed search, since Katana Swap is the rebrand of Sushi on Katana."
 ---
 
 # Katana Swap: Swaps and Liquidity on Katana
