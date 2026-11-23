@@ -10,7 +10,7 @@ Katana is an onchain financial markets company that operates a Layer 2 blockchai
 
 ## What Katana Owns and Operates
 
-- **Katana Swap:** a decentralized exchange built on Sushi's deployment on Katana, for trading tokens. See [Katana Swap](../core-apps/sushi.md).
+- **Katana Swap:** a decentralized exchange built on Sushi's deployment on Katana, for trading tokens. See [Katana Swap](../core-apps/katana-swap.md).
 - **Katana Perps:** a perpetual futures trading platform built by the IDEX team, which Katana acquired. See [Katana Perps](../katana-perps.md).
 - [**Vault Bridge**](../vault-bridge.md): deploys the capital behind select bridged assets into yield strategies on Ethereum, generating protocol revenue.
 - [**Chain-Owned Liquidity**](../chain-owned-liquidity.md): uses network revenue to build and maintain liquidity across Katana's core markets.
