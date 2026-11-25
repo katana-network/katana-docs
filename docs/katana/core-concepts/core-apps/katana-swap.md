@@ -1,7 +1,7 @@
 ---
 title: "Katana Swap: Swaps and Liquidity on Katana (Built on Sushi)"
 description: "Katana Swap is Katana's decentralized exchange, built on Sushi: how swaps and liquidity pools work, how Katana Swap revenue funds KAT buybacks and Chain-Owned Liquidity, and how to earn as a liquidity provider."
-seo_target: "sushi katana (350 global/mo), crypto share of a mixed search."
+seo_target: "katana swap (primary, new brand name), katana dex. Keep secondary: sushi katana (350 global/mo), crypto share of a mixed search, since Katana Swap is the rebrand of Sushi on Katana."
 ---
 
 # Katana Swap: Swaps and Liquidity on Katana
@@ -20,6 +20,10 @@ Katana Swap offers two types of pools:
 
 - **Concentrated liquidity pools (V3):** you choose the price range your liquidity covers. This puts your liquidity to work where trading actually happens, but it only earns while the market price is inside your range.
 - **Full-range pools (V2):** your liquidity covers every possible price. It is simpler to manage, since it never goes out of range, but it is less capital efficient.
+
+## How Swaps Are Routed
+
+When you swap in the Katana app, the trade is routed through [Everlong](https://router.foreverlong.io/swap-api/guide). Everlong finds a route for your trade across Katana's liquidity pools, which can include several hops, and the Everlong router contract executes it in a single transaction.
 
 ## How Katana Swap Connects to Katana
 
@@ -47,5 +51,17 @@ For concentrated liquidity positions, only liquidity that is **in range** earns 
 
 ## For Developers
 
-- [Contract Addresses](../../technical-reference/contract-addresses.md#katana-swap): Katana Swap contract addresses.
+- [Contract Addresses](../../technical-reference/contract-addresses.md#katana-swap): Katana Swap and [Everlong Router](../../technical-reference/contract-addresses.md#everlong-router) contract addresses.
+
+### Swapping Through Everlong
+
+Swap routes and quotes are computed offchain by the Everlong Swap API. The router contract only executes the route it is given, so there are two ways to integrate:
+
+- **Use the Everlong Swap API (recommended).** The API returns ready-to-send transaction data with the route, hops and minimum amounts already worked out. It requires an API key, which you can request by following the [Everlong Swap API guide](https://router.foreverlong.io/swap-api/guide#id-1.-obtain-an-api-key).
+- **Call the router contract directly.** This works without an API key, but you must supply your own route and minimum amounts, so you need your own routing logic.
+
+To swap against a single pool with no routing, you can use the Katana Swap `V3SwapRouter` and `V3QuoterV2` contracts directly.
+
+!!! warning "Don't hardcode the router address"
+    The Everlong router address can change when Everlong updates its router. Fetch the current address from [router.foreverlong.io](https://router.foreverlong.io).
 - [Install Katana Skills](../../get-started/install-katana-skills.md): the **dex** skill teaches AI agents to quote and make swaps, analyze pools and provide liquidity.

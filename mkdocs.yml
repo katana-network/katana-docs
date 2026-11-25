@@ -57,7 +57,7 @@ nav:
               - MiCa Whitepaper: katana/core-concepts/mi-ca-whitepaper.md
           - Core Apps:
               - katana/core-concepts/core-apps/index.md
-              - "DEX: Katana Swap": katana/core-concepts/core-apps/sushi.md
+              - "DEX: Katana Swap": katana/core-concepts/core-apps/katana-swap.md
               - "Lending & Borrowing: Morpho": katana/core-concepts/core-apps/morpho.md
               - "Perps: Katana Perps": katana/core-concepts/katana-perps.md
           - Safety & Sustainability:
@@ -192,7 +192,7 @@ plugins:
           - katana/katana-staking.md: "Staking on Katana Network: stake KAT into avKAT, earn from KAT buybacks funded by Katana Swap, Katana Perps, Vault Bridge and sequencer fees, and exit through a 7-day cooldown."
           - katana/core-concepts/mi-ca-whitepaper.md: "KAT MiCA white papers: the official crypto-asset white papers for KAT under EU MiCA regulation, notified to the Central Bank of Ireland, with admission to trading on Binance, OKX and Kraken."
           - katana/core-concepts/core-apps/index.md: "Katana Network's core apps: Katana Swap for swaps and liquidity, Morpho for lending and borrowing, and Katana Perps for perpetual futures, and how they connect to the network."
-          - katana/core-concepts/core-apps/sushi.md: "Katana Swap is Katana's decentralized exchange, built on Sushi: how swaps and liquidity pools work, how Katana Swap revenue funds KAT buybacks and Chain-Owned Liquidity, and how to earn as a liquidity provider."
+          - katana/core-concepts/core-apps/katana-swap.md: "Katana Swap is Katana's decentralized exchange, built on Sushi: how swaps and liquidity pools work, how Katana Swap revenue funds KAT buybacks and Chain-Owned Liquidity, and how to earn as a liquidity provider."
           - katana/core-concepts/core-apps/morpho.md: "DeFi lending on Katana Network: how to lend, borrow against crypto, and earn through curated vaults with Morpho, Katana's core lending app."
           - katana/core-concepts/katana-perps.md: "How Katana Perps works: the perpetuals DEX built natively on Katana Network, pairing an off-chain order book with on-chain settlement and vbUSDC collateral."
           - katana/core-concepts/safety-and-sustainability/index.md: "How Katana Network manages risk, protects the network through governance safeguards, and keeps yield sustainable over the long term."
@@ -237,6 +237,7 @@ plugins:
   - open-in-new-tab
   - redirects:
       redirect_maps:
+        katana/core-concepts/core-apps/sushi.md: katana/core-concepts/core-apps/katana-swap.md
 
 validation:
   absolute_links: warn

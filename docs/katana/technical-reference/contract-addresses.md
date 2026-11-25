@@ -104,6 +104,19 @@ Learn more about [building crosschain apps using Agglayer](https://build.agglaye
 | `RedSnwapper`       | [0xAC4c6e212A361c968F1725b4d055b47E63F80b75](https://katanascan.com/address/0xAC4c6e212A361c968F1725b4d055b47E63F80b75) |
 | `RP7`               | [0x3Ced11c610556e5292fBC2e75D68c3899098C14C](https://katanascan.com/address/0x3Ced11c610556e5292fBC2e75D68c3899098C14C) |
 
+`RedSnwapper` and `RP7` are Sushi's previous routing contracts. The Katana app now routes swaps through Everlong (see below).
+
+### Everlong Router
+
+The Katana app routes swaps through the Everlong router. Quotes and routes are computed offchain by the [Everlong Swap API](https://router.foreverlong.io/swap-api/guide), and the router contract executes them.
+
+| Contract          | Address                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `Everlong Router` | [0x42ef97fae7ad46d98baf99a0e505b43b7e1c00e9](https://katanascan.com/address/0x42ef97fae7ad46d98baf99a0e505b43b7e1c00e9) |
+
+!!! warning "This address can change"
+    The router address changes when Everlong updates its router. Always fetch the current address from [router.foreverlong.io](https://router.foreverlong.io) instead of hardcoding it.
+
 ### Morpho
 
 Refer to the [Morpho Docs](https://docs.morpho.org/getting-started/resources/addresses/) for official addresses.

@@ -9,7 +9,7 @@ Katana is built around a small set of core markets that most of DeFi depends on:
 
 | App | What you can do | Where |
 |---|---|---|
-| [Katana Swap](sushi.md) | Swap tokens and provide liquidity | [Katana app](https://app.katana.network) |
+| [Katana Swap](katana-swap.md) | Swap tokens and provide liquidity | [Katana app](https://app.katana.network) |
 | [Morpho](morpho.md) | Lend, borrow, and earn with curated vaults | [Katana app Earn page](https://app.katana.network/earn) |
 | [Katana Perps](../katana-perps.md) | Trade perpetual futures with leverage | [perps.katana.network](https://perps.katana.network) |
 
@@ -28,6 +28,6 @@ Core apps are connected to how Katana itself works, rather than being just anoth
 
 ## Explore the Core Apps
 
-- **[Katana Swap: Swaps and Liquidity on Katana](sushi.md):** how swaps and liquidity pools work, and how to earn as a liquidity provider.
+- **[Katana Swap: Swaps and Liquidity on Katana](katana-swap.md):** how swaps and liquidity pools work, and how to earn as a liquidity provider.
 - **[DeFi Lending on Katana: Borrow and Lend with Morpho](morpho.md):** lending markets, curated vaults, and borrowing against your crypto.
 - **[Perpetual Futures on Katana: Katana Perps Explained](../katana-perps.md):** how onchain perps work, trading features, and developer tools.
