@@ -9,7 +9,7 @@ description: "Katana Network infrastructure partners: RPC providers, block explo
 - [Alchemy RPC](https://www.alchemy.com/)
 - [BoltRPC](https://boltrpc.io/networks/katana)
 - [Quicknode RPC](https://www.quicknode.com/)
-- [Tatum RPC](https://tatum.io/chain/katana)
+- [Tatum RPC](https://tatum.io/chain/katana): public endpoint `https://katana-mainnet.gateway.tatum.io`, no API key needed ([free endpoints](https://freerpc.com/katana))
 - [GetBlock RPC](https://getblock.io/nodes/katana/)
 - [Chainstack](https://chainstack.com/build-better-with-katana/)
 - [Spectrum Nodes](https://spectrumnodes.com/)
